@@ -1,0 +1,11 @@
+{
+  "version_esquema": 1,
+  "estado": "pendiente",
+  "proveedor": null,
+  "modo_acceso": null,
+  "assets": [],
+  "campos_obligatorios_futuros": [
+    "id", "version", "proveedor", "ubicacion", "bytes", "sha256", "contenido", "alcance"
+  ],
+  "advertencia": "Ejemplo no ejecutable. Elegir permisos y paquetes reales antes de publicar o descargar. Nunca guardar credenciales o enlaces firmados en un archivo público."
+}

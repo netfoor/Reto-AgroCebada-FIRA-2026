@@ -1,0 +1,32 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local caches and generated runs; keep protocols/manifests outside these folders.
+.uv-cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+data/
+resultados_locales/
+artefactos_locales/
+verificacion_local/
+
+# Never publish credentials or temporary access links.
+.env
+.env.*
+!.env.example
+credentials*.json
+service-account*.json
+config/insumos.local.json
+
+# Keep uv.lock, exported requirements, docs, tests and approved notebooks versionable.
+
+gestion/

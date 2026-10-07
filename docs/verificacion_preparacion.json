@@ -1,0 +1,105 @@
+{
+  "timestamp_utc": "2026-10-07T14:52:36.238701+00:00",
+  "proyecto": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv",
+  "python": "3.12.14",
+  "plataforma": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "modo": "completo",
+  "paquetes": {
+    "numpy": {
+      "instalada": "2.4.4",
+      "esperada": "2.4.4"
+    },
+    "pandas": {
+      "instalada": "2.2.3",
+      "esperada": "2.2.3"
+    },
+    "scikit-learn": {
+      "instalada": "1.9.1",
+      "esperada": "1.9.1"
+    },
+    "scipy": {
+      "instalada": "1.18.0",
+      "esperada": "1.18.0"
+    },
+    "matplotlib": {
+      "instalada": "3.11.2",
+      "esperada": null
+    },
+    "nbformat": {
+      "instalada": "5.11.1",
+      "esperada": null
+    },
+    "nbclient": {
+      "instalada": "0.11.0",
+      "esperada": null
+    },
+    "ipykernel": {
+      "instalada": "7.3.0",
+      "esperada": null
+    },
+    "jupyterlab": {
+      "instalada": "4.6.4",
+      "esperada": null
+    },
+    "rasterio": {
+      "instalada": "1.5.2",
+      "esperada": null
+    },
+    "shapely": {
+      "instalada": "2.1.2",
+      "esperada": null
+    },
+    "pyproj": {
+      "instalada": "3.8.0",
+      "esperada": null
+    },
+    "pyshp": {
+      "instalada": "3.1.6",
+      "esperada": null
+    },
+    "gdown": {
+      "instalada": "5.2.2",
+      "esperada": null
+    },
+    "pytest": {
+      "instalada": "9.1.1",
+      "esperada": null
+    },
+    "ruff": {
+      "instalada": "0.16.10",
+      "esperada": null
+    }
+  },
+  "sha256": {
+    "pyproject.toml": "96b392a8190206f9e225b67181df23d2d311c85897ad80a768256fd889a84f9a",
+    "uv.lock": "83aeeda7d1fcf6d48c6c4e7d475d459501d259588854c5dc127de898da80fc35"
+  },
+  "correcto": true,
+  "errores": [],
+  "alcance": "Presencia y versiones; no prueba Colab, datos, modelos ni despliegue.",
+  "controles_previamente_ejecutados": {
+    "pytest": {
+      "casos": 5,
+      "resultado": "pasan",
+      "alcance": "scaffold_sin_datos"
+    },
+    "ruff": "pasa",
+    "smoke_imports": {
+      "modulos": 14,
+      "resultado": "pasan"
+    },
+    "uv_sync_check_locked_all_groups_offline": "pasa",
+    "fuentes_catalogo_intactas": 25,
+    "csv_particiones_intactos": 2,
+    "main_py_intacto": true
+  },
+  "export_colab_sha256": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a",
+  "limites": {
+    "experimentos_migrados": 0,
+    "entrenamientos": 0,
+    "predicciones_entrega": 0,
+    "subidas_nube": 0,
+    "colab_real_verificado": false,
+    "paridad_modelos_verificada_en_nuevo_entorno": false
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "fecha_utc": "2026-10-07T19:00:28.245780+00:00",
+  "alcance": "Compatibilidad Python 3.13 y acceso autorizado Drive; sin nueva ronda predictiva",
+  "python_local": "3.13.13",
+  "python_minor_colab_requerido": "3.13",
+  "versiones_de_paquetes_cambiadas": 0,
+  "pares_paquete_version_conservados": 124,
+  "distribuciones_instaladas": 120,
+  "perfiles_exportados_identicos": true,
+  "cambios_lock": [
+    "Rango Python",
+    "Wheels compatibles con intérprete",
+    "Dependencia condicional de referencing aplicable solo antes de Python 3.13"
+  ],
+  "archivos_actualizados_sha256": {
+    "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+    "README.md": "93944bc20c49eba39450db14b926b60484743407d9e66f2fbf43634d1470ecc2",
+    ".python-version": "56c16a411e41fec3219e828087f312d9891641e3b29093c69d08a05ec1e5d693",
+    "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+    "docs/05_verificacion_preparacion.md": "e1dfa363c9fd0880692da0279b433461d030e9f5c6e0f8d156fb3bdc93a2a18c",
+    "docs/04_notebooks_y_colab.md": "10b01b2abdfe03077b9ee994547d94484cdca6b9a143145fb668fc5169005b2b",
+    "gestion/estado_y_decisiones.md": "c4f7e3dbaf1dad8c20861dd8a82f413d046d444bd03719de63999f597604cf15",
+    "notebooks/01_auditoria_y_unidad_parcela.ipynb": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e",
+    "notebooks/README.md": "34053160d929756cd7d0fe2b0e65888478ca51a3dd2751424d59499f08ab0acd",
+    "scripts/construir_notebook_01.py": "e660739dd038fc9f45407ea84e555c4457f766db7bccc1dbbbb878bf3e33de43",
+    "scripts/verificar_entorno.py": "f211469d9a9d1ba5c4ce573db801de4fd69ee95326910d74aaea9e97b3b71b52",
+    "tests/test_base_proyecto.py": "89be7ec1edfe6e8c0c199d223c00f48157125abb3a511f6f143321aae738fadc",
+    "tests/test_notebook_01.py": "5a37cffe223f7a21150d05517d9d35fbd095f06e1980c2783c3ebc4dae1ce185",
+    "config/auditoria_01_dataset.json": "2ae903238b618f8cb06781ea6507cfa1e105dd28b09fef9f2b67fc7c63625e7f",
+    "scripts/colab_soporte.py": "5b990c4a7a3f5eaafd316280a428e995f82d1b7cf14945569f93dc6d17d7745a",
+    "tests/test_colab_soporte.py": "9361eb5256de7f0fca62000f44723ca2fc761823d930408cfd62c43744bd2bd2",
+    "artefactos_locales/01_auditoria_equipo.zip": "4f07330daf0d5b20eedcb57e5c0f35e59f6d6a8d49b06e28a861c89a1c03eba9",
+    "verificacion_local/auditoria_01.json": "20fe6cca720359dd3d11d0f297895cbb3ad8fcc157d43137f0ea7dad70d2dc64"
+  },
+  "archivos_protegidos_inalterados": {
+    ".gitignore": "92cc66caad92fa6f9c73c39ee4299536a35a4f2da1858746bf0e6959940f76c0",
+    "requirements-colab.txt": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a",
+    "main.py": "579cffc8ce72381f427cee6395cf76509b2e7dccfcd7388d422285d0bef22d79",
+    "requirements-colab-auditoria.txt": "8f18975fe344552700b5efe887bc0ede3128554a73f1457649652b35eb9cd95e",
+    "docs/02_metodologia.md": "455ff24b57c784fea57072abd7daeb2acf8c949be1a39e6117e6970f1e2fc5d1",
+    "docs/06_glosario.md": "2aab4d1cc2842fc88873a8edf056eb86c8de70fc8c430880ff8c967917f79fc7",
+    "docs/registro_preparacion.json": "8c428a57eda5fad61f4c2657eb846ebe5d98ca2841f3b9b258adaf26eaca5257",
+    "docs/03_plan_de_trabajo.md": "68c3eb3a5e25221cae06383d995e3aceb1bd3fbbb935a11f5f6c7f49264ad735",
+    "docs/01_contexto_y_estado.md": "610e21406085e211834e58ed8aaae05d23f7bb1836a6b59147fea448aa5c46a6",
+    "docs/verificacion_preparacion.json": "ddc898b93bdf0b2e3bf0212c8249ecadf458f3a4d18d03a72ce3c082ecbca574",
+    "docs/registros/20261007_notebook01.json": "9d2e0494adabc8333b70b6a6a7b123fd5cf6acb00074e4a096473ed5c429c7a2",
+    "docs/registros/20261007_redaccion_autocontenida.json": "279594a95727f3f03ccc4790872b5518201a6305d6d24d902da3c53ae3fce7eb",
+    "docs/registros/20261007_ajustes_lectura_equipo.json": "bcc6cd0e2c9379fedf9d585892b60917f80e6dead804f39c2aa7a940bdf6c491",
+    "docs/registros/20261007_restauracion_readme.json": "08fa609f5a7c0d229a3bac1537b1a759f44e87f1d66849769be8ccc609a6200a",
+    "scripts/auditoria_01.py": "fd46a23c5b79639862108074d732fd2e4533c6a02f8fa7240a0bd931b28364df",
+    "scripts/ejecutar_notebook_01.py": "7a967a52c9220d3a03bd74b178f659774780f7f981847fd5c5ad8fdaf5cf9a2e",
+    "tests/test_auditoria_01.py": "9b1cf5253a48627c46877aa9365362ebadc901ffd2325892cf253f65178beb3f",
+    "config/indice_experimentos.json": "0c8feb1bab498d8f1150110f5f9054aeed0fec63b04459ca7960481c7331ac0f",
+    "config/insumos.example.json": "0016d556f32ed7867965b948d0119d34c3478e0f1c1c097acf1ce3be4bef9763"
+  },
+  "fuentes_historicas_inalteradas": {
+    "fortino-pruebas/linea-tiempo-02oct/REGISTRO_HIPOTESIS.json": "0011662a1bc131677ddf3c056a65269d2af70d8a38f422342d3546a2e5e32543",
+    "docs/09_ronda1_bloques.md": "a6e926067e46e639ac13c0bfc87de533d99544736ce1a46ab49e27e2f8567656",
+    "fortino-pruebas/linea-tiempo-02oct/ronda1-retrospectiva/01_historia_reproducible.ipynb": "d3e2ac281337f1ab6f43616487786ae2d16eafc965f777b8f8380199d92cc147",
+    "integracion_v0/experimentos/ronda1/manifiesto_previo.json": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401",
+    "fortino-pruebas/t1-ponderacion-temporal-29sep/11_cierre_T1.md": "70ad8bc64aa8c1b9a1ab1b51527c98f81e16e4a9df2f220c630c33e0b36dc103",
+    "fortino-pruebas/linea-tiempo-02oct/t1-retrospectiva/01_historia_reproducible.ipynb": "b1f2cb42cb2801bc7fb3dbcd1933de8c979d801fa2966207eed2d3e0501063b0",
+    "fortino-pruebas/t1-ponderacion-temporal-29sep/manifiesto_previo.json": "7e79042796e98db065c67e060d4d98e22c35ce13878d00f67b64420f66fe490d",
+    "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/README.md": "4eeaea55f5ed4dc402eefd7dabd64b47d3b29a131b3baffa2191107e39d8de04",
+    "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/01_experimento_equipo.ipynb": "9e5de71b4bf0cbe943bc4a5d492e82eafcea426c7e94322bdb2f43e85b879386",
+    "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_previo.json": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d",
+    "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/cierre_revision_codex_01oct/FE_DE_ERRATAS_Y_CIERRE_V2.md": "980241b2153d745730de41775d8d5e06dbab131f75bd82401b0b74cd7810cea4",
+    "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/02_experimento_equipo.ipynb": "1a15f81c1290d80d50217fc6cba53bb8041c6cca19def9f3bce56c28ce66002c",
+    "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/registro_previo_v2.json": "4f532e06eb3e3786a84749950c8472fef43b02403e2d17bef910098b3255ca0a",
+    "fortino-pruebas/v3-historico-octubre-01oct-r1/RESUMEN_EXPERIMENTO_V3.md": "ada0c27a2211abc732b1bfc318564dae7e9312f327786e43639e318a09108a34",
+    "fortino-pruebas/v3-historico-octubre-01oct-r1/01_experimento_equipo.ipynb": "448635f85b790c2ab13c8077176604d7f519d4798d009818b4990808832fe8b4",
+    "fortino-pruebas/v3-historico-octubre-01oct-r1/registro_previo_v3.json": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411",
+    "fortino-pruebas/v4-pico-soportado-e2-06oct/RESUMEN_EXPERIMENTO_V4.md": "41c3a98d6adc8d0fcdaf45e606b45643f63e05227037aa6dd85b98292822c9d3",
+    "fortino-pruebas/v4-pico-soportado-e2-06oct/01_experimento_equipo.ipynb": "cc28e4b0adf832aefe428d9cb994fe20d98a2063bff98263aef42a939e2ab396",
+    "fortino-pruebas/v4-pico-soportado-e2-06oct/registro_previo.json": "8d50d2f95050ae482dfd2f4d0d336aed6695e74d366d93bf6dba06c0da6bb815"
+  },
+  "particiones_inalteradas": {
+    "/home/netfoor/Documents/projects-2026/agro/analysis/reunion_inicial/particiones_cv_5x10.csv": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/particiones_internas.csv": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a"
+  },
+  "pruebas": {
+    "casos": 102,
+    "fallos": 0,
+    "errores": 0,
+    "omitidas": 0
+  },
+  "ruff": "sin hallazgos",
+  "uv_sync_check_locked_all_groups_offline": "sin cambios",
+  "modulos_importados": [
+    "numpy",
+    "pandas",
+    "scipy",
+    "sklearn",
+    "matplotlib",
+    "nbformat",
+    "nbclient",
+    "ipykernel",
+    "jupyterlab",
+    "rasterio",
+    "shapely",
+    "pyproj",
+    "shapefile",
+    "gdown"
+  ],
+  "entorno": {
+    "timestamp_utc": "2026-10-07T18:56:26.535705+00:00",
+    "proyecto": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv",
+    "python": "3.13.13",
+    "plataforma": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "modo": "completo",
+    "paquetes": {
+      "numpy": {
+        "instalada": "2.4.4",
+        "esperada": "2.4.4"
+      },
+      "pandas": {
+        "instalada": "2.2.3",
+        "esperada": "2.2.3"
+      },
+      "scikit-learn": {
+        "instalada": "1.9.1",
+        "esperada": "1.9.1"
+      },
+      "scipy": {
+        "instalada": "1.18.0",
+        "esperada": "1.18.0"
+      },
+      "matplotlib": {
+        "instalada": "3.11.2",
+        "esperada": null
+      },
+      "nbformat": {
+        "instalada": "5.11.1",
+        "esperada": null
+      },
+      "nbclient": {
+        "instalada": "0.11.0",
+        "esperada": null
+      },
+      "ipykernel": {
+        "instalada": "7.3.0",
+        "esperada": null
+      },
+      "jupyterlab": {
+        "instalada": "4.6.4",
+        "esperada": null
+      },
+      "rasterio": {
+        "instalada": "1.5.2",
+        "esperada": null
+      },
+      "shapely": {
+        "instalada": "2.1.2",
+        "esperada": null
+      },
+      "pyproj": {
+        "instalada": "3.8.0",
+        "esperada": null
+      },
+      "pyshp": {
+        "instalada": "3.1.6",
+        "esperada": null
+      },
+      "gdown": {
+        "instalada": "5.2.2",
+        "esperada": null
+      },
+      "pytest": {
+        "instalada": "9.1.1",
+        "esperada": null
+      },
+      "ruff": {
+        "instalada": "0.16.10",
+        "esperada": null
+      }
+    },
+    "sha256": {
+      "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+      "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8"
+    },
+    "correcto": true,
+    "errores": [],
+    "alcance": "Presencia y versiones; no prueba Colab, datos, modelos ni despliegue."
+  },
+  "ejecuciones_python313": [
+    {
+      "ruta": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/notebooks/01_auditoria_y_unidad_parcela.ipynb",
+      "sha256": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e",
+      "celdas_codigo": 18,
+      "errores": 0,
+      "bloques_preservados": 14,
+      "tablas_cientificas": 13
+    },
+    {
+      "ruta": "/tmp/agrocebada-py313-uTdjnB/ejecucion313/01_auditoria_y_unidad_parcela.ipynb",
+      "sha256": "6d1e29b998feff3100370994887cfdd34f5fd01815537f7d6a4276c76fd68621",
+      "celdas_codigo": 18,
+      "errores": 0,
+      "bloques_preservados": 14,
+      "tablas_cientificas": 13
+    },
+    {
+      "ruta": "/tmp/agrocebada-py313-uTdjnB/ejecucion_canonica/01_auditoria_y_unidad_parcela.ipynb",
+      "sha256": "10a55d60595a6ea475b7e49046cd069dad3ea3f6f3a3ebcb992f7974d3333402",
+      "celdas_codigo": 18,
+      "errores": 0,
+      "bloques_preservados": 14,
+      "tablas_cientificas": 13
+    }
+  ],
+  "paridad_auditoria_python312_python313": {
+    "celdas_finales_fuente_identica": 29,
+    "bloques_lector_y_analisis_identicos": 14,
+    "tablas_html_identicas": 13,
+    "resumen_identico_salvo_fecha_ejecucion": true,
+    "png_identicos_sha256": [
+      "498123456e6c7cf0a3ac07e7f0e294aaf6259ce82909dc0b30304d9df0cb9ac3",
+      "7a23216ee8f31168881a8a7e38fe3989b499707e7c1e08c4f698ec13e20a3766"
+    ],
+    "no_acredita_paridad_de_las_seis_rondas_predictivas": true
+  },
+  "acceso_drive": {
+    "file_id": "1sVcOKLnbU_l7N6RA6RXc_P2zgcnJNOqL",
+    "autorizado_por": "Fortino",
+    "cliente": "gdown 5.2.2",
+    "descarga_real_verificada": true,
+    "cookies": false,
+    "bytes": 29687194,
+    "sha256": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+    "copia_original_local_inalterada": true,
+    "codex_subio_archivos": false,
+    "codex_modifico_permisos": false
+  },
+  "colab": {
+    "preparacion_por_defecto": "Visible; solo dentro de Colab; raíces necesarias diferentes o ausentes",
+    "reinicio_automatico": false,
+    "reinicio_manual_si_cambia_modulo_cargado": true,
+    "entorno_global_de_google_no_clonado": true,
+    "notebook_regenerado_probado_en_colab_real": false,
+    "evidencia_reportada_por_fortino": "Su copia anterior funcionó con Python 3.13; no prueba esta edición generada",
+    "notebook_remoto_no_modificado": true
+  },
+  "recuperacion": {
+    "carpeta": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/artefactos_locales/migracion_py313_20261007",
+    "archivos_previos": "archivos_previos/",
+    "entorno_previo": ".venv_py312/",
+    "instruccion": "Con sesiones cerradas, conservar aparte la .venv nueva y restaurar la anterior a .venv junto con los archivos previos. No activar la copia como entorno paralelo: los scripts conservan rutas absolutas.",
+    "archivos_eliminados": 0
+  },
+  "entrenamientos": 0,
+  "predicciones_finales_generadas": 0,
+  "revisiones_tecnicas_de_otros_agentes": [
+    "Generador y soporte",
+    "Pruebas y paridad",
+    "Entorno y perfiles"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "version_esquema": 1,
+  "id": "AGC-DATASET-ORIGINAL",
+  "nombre": "DataSet.zip",
+  "ruta_local": "data/raw/DataSet.zip",
+  "bytes": 29687194,
+  "sha256": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+  "contenido": "Catálogo, series satelitales, geometrías, clima, topografía y documentación",
+  "origen": "Paquete proporcionado para el Reto AgroCebada 2026",
+  "proveedor_nube": "google_drive",
+  "publicacion_nube_realizada": true,
+  "publicacion_nube_realizada_por_codex": false,
+  "transporte": {
+    "drive": {
+      "file_id": "1sVcOKLnbU_l7N6RA6RXc_P2zgcnJNOqL",
+      "url_compartida": "https://drive.google.com/file/d/1sVcOKLnbU_l7N6RA6RXc_P2zgcnJNOqL/view?usp=sharing",
+      "autorizacion": "Fortino proporcionó el enlace y autorizó la descarga el 7 de octubre de 2026",
+      "permisos_modificados_por_codex": false,
+      "metadata_verificada": {"nombre": "DataSet.zip", "mime_type": "application/zip", "bytes": 29687194},
+      "descarga_verificada_por_codex": true,
+      "verificacion_descarga": "Cliente gdown 5.2.2 en Python 3.13.13, sin cookies; 29687194 bytes y SHA-256 idéntico al original"
+    },
+    "descarga_por_defecto": "Solo en Colab si falta una copia local; validar tamaño y SHA-256 antes de abrirla",
+    "cookies_de_navegador": false,
+    "publicacion_realizada_por": "Fortino; Codex no subió el archivo ni cambió permisos"
+  },
+  "archivos_principales": [
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Conjunto_datos_BASICO_AgroCebada2026.csv",
+      "bytes": 33668409,
+      "sha256": "96d68040d954d0903d761fd8ceed0dcd4a08e3842915a3ca44517d60e8bee4ef"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Conjunto_datos_PRO_AgroCebada.csv",
+      "bytes": 5000244,
+      "sha256": "91697f8f8d4ad5e59f766acbce2ef76f3c405eb02b41c1de92d62a07e8321888"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Descripcion_general_variables_DataSet.docx",
+      "bytes": 148153,
+      "sha256": "9fe996d3634eeedec1596aab0c187856d81047e10dcb78663fd8f69bb21ca1f7"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Diccionario_de_indices_satelitales.docx",
+      "bytes": 147776,
+      "sha256": "f6b5aed4036295343d1927e0cff40d5e960a85c58622626812e98455c1442cc3"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/ID_area_rendimiento_70_30_Reto_AgroCebada.csv",
+      "bytes": 6241,
+      "sha256": "ec07b7ede0ae692109d91b3e941b1a353fe7f89410507db9bfbe6d7c112590ef"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Parcelas_Reto_AGC_CONJUNTO_70_30.zip",
+      "bytes": 85593,
+      "sha256": "bb7155e551e1f89fb0dfdb676e10bf0aa2c4b2964188bf7673fa1808717b1d02"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Reto_AgroCebada_CHIRPS_Precipitacion_2022_2025.zip",
+      "bytes": 483110,
+      "sha256": "f6523158ac78ea30646c3b83cf969c073faa5166e01826b8bded4ad662d5c822"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Reto_AgroCebada_Temperatura_2022_2025_RECORTADA_CHIRPS.zip",
+      "bytes": 1339334,
+      "sha256": "3935325c5e7c55e422b63d777e76ce61223a7a03640e6923b393295798de8094"
+    },
+    {
+      "nombre": "DATASET_RETO_AGRO_2026/Reto_AgroCebada_Topografia_INEGI_CEM4.zip",
+      "bytes": 17705629,
+      "sha256": "53434effd80ff57580d042a3dc716de43b12cbd21ce0c30db1e191ac8988a4e0"
+    }
+  ]
+}

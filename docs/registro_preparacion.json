@@ -1,0 +1,88 @@
+{
+  "fecha_utc": "2026-10-07T14:48:19.080722+00:00",
+  "fase": "base_documental_y_dependencias_no_migracion",
+  "destino": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv",
+  "plantillas_originales_recuperables": {
+    "pyproject.toml": {
+      "sha256": "de64c827f097e8fce86f99afa76b99a4be88dfe94ffb444b8f743bac5fa7d090",
+      "contenido": "[project]\nname = \"agrocebada-uv\"\nversion = \"0.1.0\"\ndescription = \"Add your description here\"\nreadme = \"README.md\"\nrequires-python = \">=3.12\"\ndependencies = []\n"
+    },
+    "README.md": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "contenido": ""
+    },
+    ".python-version": {
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+      "contenido": "3.12\n"
+    },
+    ".gitignore": {
+      "sha256": "ed7b84e816359d17276a801802de5c362c2c572ce3e50a8670c8362b08351380",
+      "contenido": "# Python-generated files\n__pycache__/\n*.py[oc]\nbuild/\ndist/\nwheels/\n*.egg-info\n\n# Virtual environments\n.venv\n"
+    }
+  },
+  "archivos_publicados": {
+    "pyproject.toml": {
+      "bytes": 853,
+      "sha256": "96b392a8190206f9e225b67181df23d2d311c85897ad80a768256fd889a84f9a"
+    },
+    "README.md": {
+      "bytes": 3177,
+      "sha256": "0b252708264ce3f263df37ac777fa73498254d103289b5619eb23b809d7dc7fc"
+    },
+    ".python-version": {
+      "bytes": 8,
+      "sha256": "f50159fad3f4319868eb38717b91d55843c41e9803014c8de05e116a6d0bcfdc"
+    },
+    ".gitignore": {
+      "bytes": 554,
+      "sha256": "92cc66caad92fa6f9c73c39ee4299536a35a4f2da1858746bf0e6959940f76c0"
+    },
+    "docs/01_contexto_y_estado.md": {
+      "bytes": 5553,
+      "sha256": "2aea9d64ecda0db5718a4279a536cb0091c26f5c7f5794604fc19244b775e5c6"
+    },
+    "docs/02_metodologia.md": {
+      "bytes": 6381,
+      "sha256": "0c7a0c61729b4806ac26be849a2647c5ab349e7423bb3b9aa23b476819236923"
+    },
+    "docs/03_plan_de_trabajo.md": {
+      "bytes": 4568,
+      "sha256": "1571731252d8135e32141343996eecb56c40ac4902662a90ac1cfd822230ee29"
+    },
+    "docs/04_notebooks_y_colab.md": {
+      "bytes": 6357,
+      "sha256": "5e2a5905a82437312de63c2f42bd6523793ef368b9bac066404f605ec2016575"
+    },
+    "notebooks/README.md": {
+      "bytes": 889,
+      "sha256": "b00781b667cc5e62b3b9a3fedcb919dd140ef6832cc1010eeaf4575381fb86ad"
+    },
+    "config/indice_experimentos.json": {
+      "bytes": 13655,
+      "sha256": "0c8feb1bab498d8f1150110f5f9054aeed0fec63b04459ca7960481c7331ac0f"
+    },
+    "config/insumos.example.json": {
+      "bytes": 419,
+      "sha256": "0016d556f32ed7867965b948d0119d34c3478e0f1c1c097acf1ce3be4bef9763"
+    },
+    "scripts/verificar_entorno.py": {
+      "bytes": 3101,
+      "sha256": "9b3eccb827d5d1babd551bc2bd841686f14c697eec0e091fc64833a25a77aed0"
+    },
+    "tests/test_base_proyecto.py": {
+      "bytes": 2918,
+      "sha256": "47b7ad6a8508b0828d4b03409c515e12ae2c5541bca04a3c1462ff3e86320c63"
+    },
+    "uv.lock": {
+      "bytes": 178651,
+      "sha256": "83aeeda7d1fcf6d48c6c4e7d475d459501d259588854c5dc127de898da80fc35"
+    }
+  },
+  "main_py_intacto_sha256": "579cffc8ce72381f427cee6395cf76509b2e7dccfcd7388d422285d0bef22d79",
+  "experimentos_copiados": 0,
+  "datos_copiados": 0,
+  "ajustes_modelos": 0,
+  "subidas_nube": 0,
+  "git_no_modificado": true,
+  "notebooks_colab_verificados": false
+}
