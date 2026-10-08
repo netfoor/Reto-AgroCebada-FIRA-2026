@@ -16,6 +16,8 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 8. [Primera ronda: bloques de variables sobre municipio](notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb).
 9. [Segunda ronda: ponderación temporal de tres medias](notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb).
 10. [Tercera ronda: variables temporales y familias de modelos](notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb).
+11. [Cuarta ronda: lluvia de octubre y agrupación territorial](notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb).
+12. [Quinta ronda: histórico y lluvia actual de octubre](notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb).
 
 Si aparece un término nuevo, consultar el [glosario breve](docs/06_glosario.md). No hace falta leerlo completo antes de empezar.
 
@@ -42,6 +44,20 @@ Es la lectura autónoma de **T1, ejecutado el 29 de septiembre**, adaptada el **
 El diseño cruza dos representaciones con dos procedimientos: Ridge original y ampliado (**R_B/R_T**), y HistGradientBoosting original y ampliado (**H_B/H_T**). Así separa añadir el bloque de cambiar de familia, dentro de las rejillas registradas. Ninguna variante superó MIX/MUN; el bloque empeoró Ridge y, con HGB, redujo ligeramente RMSE mientras empeoró MAE. No demuestra inutilidad de toda ingeniería temporal ni de todos los árboles.
 
 Es la lectura autónoma de **V1 del 29 de septiembre en México**, adaptada el **8 de octubre**. Recalcula cuatro variables y evalúa **9,660 OOF guardadas de siete procedimientos**; verifica 200 selecciones usando 900 scores guardados. Hace **cero ajustes actuales**, no recalcula los scores y no genera las 59 predicciones de entrega. La fecha UTC de la corrida, 30 de septiembre, se conserva junto a la fecha local del 29; no se presenta un registro previo nuevo.
+
+**EXP_04** pregunta si la lluvia de octubre y su desviación respecto de 2022–2024 aportan información, y cómo cambia el resultado al agrupar municipios. Muestra los píxeles de una parcela, sus áreas válidas y la suma ponderada; generaliza a **788 lluvias parcela–año** y construye las variables de 197 parcelas. Usa **230 áreas de intersección históricas** y **116 valores de píxel derivados de los GeoTIFF originales el 8 de octubre**: recalcula la aritmética, **no vuelve a intersectar polígonos ni certifica una extracción geoespacial independiente**.
+
+Conserva los cinco candidatos históricos y sus comparadores: **13,800 OOF de diez procedimientos**. Comprueba 200 selecciones desde 1,150 scores guardados, sin recalcular esos scores, entrenar modelos ni reconstruir nuevas predicciones. J5_PCT cumple la regla original en FULL138, pero no en el diagnóstico posterior SEEN135; este último no equivale al desempeño sobre las 59 ocultas. El candidato permanece **con reservas, no como modelo final**.
+
+La lectura incorpora las precisiones del cierre: la representación porcentual mejora RMSE a costa de MAE, no es superior en general; cambiar grupos modifica conjuntamente medias, residuos, escala y respaldos. Tampoco demuestra causalidad de la lluvia ni que haya exactamente 23 observaciones independientes: son 23 celdas por centroide de las etiquetas, frente a 27 píxeles aportantes. El trabajo V2 es del **1 de octubre**, la adaptación del **8 de octubre**; su registro previo interno no borra la selección exploratoria anterior de la hipótesis.
+
+**EXP_05** pregunta si el histórico corto H, la lluvia actual P o ambos explican la ventaja aparente del porcentaje. Calcula **H = media de octubre de 2022–2024**, **P = octubre de 2025** y **A_pct = 100 × (P − H) / H** desde las cuatro lluvias guardadas de las 197 parcelas. No vuelve a leer GeoTIFF ni a intersectar polígonos. Tres años no son una normal climatológica; una correlación con el denominador no demuestra que H sola prediga mejor.
+
+La comparación mantiene municipio, Ridge, ventana, extracción, particiones y rejilla: **R9_H, R9_HP, R9_P y R9_PCT**, con MUN/MIX como referencias y J5_PCT como contexto histórico. El escenario principal **SEEN135** se fijó antes de ajustar V3; FULL138 se conserva como secundario. No cambia retrospectivamente la evaluación de V2 ni garantiza el error de las 59 ocultas. Ninguna receta avanza: H y H+P quedan detrás del porcentaje en RMSE, y este tampoco cumple la regla conservadora.
+
+Es el lector autónomo de **V3 del 1 de octubre en México —2 de octubre UTC—**, adaptado el **8 de octubre**. Incorpora 21 insumos; recalcula las variables, evalúa **9,660 OOF guardadas de siete procedimientos** y verifica **200 selecciones desde 1,200 scores guardados**. No recalcula los scores, reentrena ni produce nuevas predicciones. La comparación es exploratoria: el registro de esta ronda no elimina el uso anterior de las mismas etiquetas.
+
+Cuando un municipio solo tiene un rendimiento observado repetido, R² no está definido. El lector muestra NaN en 14 entradas numéricamente espurias de Tepeapulco, preservando el CSV histórico; RMSE, MAE y decisiones no cambian.
 
 ## Ejecutar en local
 
@@ -104,6 +120,22 @@ uv run --locked --all-groups python scripts/ejecutar_exp_03.py
 ```
 
 La salida se conserva en `resultados_locales/exp_03_variables_y_familias/`. `scripts/construir_exp_03.py` utiliza `config/exp_03_variables_y_familias.json`; los insumos y controles quedan incorporados en el notebook, sin archivos externos ni otro cuaderno. La distribución local es `artefactos_locales/exp_03_variables_y_familias_equipo.zip`. La corrida histórica utilizó Python 3.12.14/scikit-learn 1.9.1 y 3,800 ajustes; el lector en Python 3.13 **no reproduce esos ajustes**. Coincidir en métricas guardadas no acredita paridad de entrenamiento entre entornos.
+
+Para recalcular la aritmética espacial y evaluar los resultados guardados de V2:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_04.py
+```
+
+La salida se guarda en `resultados_locales/exp_04_lluvia_octubre/`. El generador `scripts/construir_exp_04.py` utiliza `config/exp_04_lluvia_octubre.json`; el notebook contiene sus insumos sin necesitar ZIP, Drive, GeoTIFF externos ni otro cuaderno. La distribución local es `artefactos_locales/exp_04_lluvia_octubre_equipo.zip`. El entrenamiento histórico utilizó **Python 3.12.3/scikit-learn 1.9.1**; esta lectura usa Python 3.13 y hace **cero ajustes**. Reproducir variables desde áreas guardadas y métricas desde OOF no demuestra paridad de extracción completa ni de entrenamiento entre entornos.
+
+Para reconstruir las representaciones de octubre y evaluar los resultados guardados de V3:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_05.py
+```
+
+La salida se conserva en `resultados_locales/exp_05_historico_octubre/`. `scripts/construir_exp_05.py` utiliza `config/exp_05_historico_octubre.json`; el notebook contiene sus insumos y no necesita ZIP, Drive, rásteres ni otro cuaderno. La distribución local es `artefactos_locales/exp_05_historico_octubre_equipo.zip`. V3 utilizó Python **3.12.14**; el lector Python 3.13 hace **cero ajustes** y no repite las 4,800 evaluaciones interiores ni 200 reajustes exteriores históricos. Coincidir en variables y métricas guardadas no demuestra paridad de entrenamiento entre entornos.
 
 | Grupo         | Para qué sirve                           |
 | ------------- | ----------------------------------------- |

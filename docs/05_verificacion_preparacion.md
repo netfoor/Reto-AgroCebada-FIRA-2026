@@ -1,6 +1,6 @@
 # 05. Qué está verificado y qué falta
 
-Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas e incorporación de lectores de las tres primeras rondas; no equivale a evaluar un candidato nuevo. La verificación final del lector EXP_03 se cierra por separado de su preparación.
+Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas y lectores históricos. Las cinco primeras rondas tienen lectores verificados localmente. No se repiten sus entrenamientos ni se evalúa un candidato nuevo.
 
 ## Entorno preparado
 
@@ -81,8 +81,8 @@ El 8 de octubre Fortino confirmó: «Muy bien ya revise el 02 y corre en colab, 
 
 ## Pendiente antes de una entrega completa
 
-- Incorporar las otras tres rondas con el formato común. Separar paridad de resultados guardados y paridad de entrenamiento en este entorno.
-- Ejecutar el cuaderno 03, EXP_01, EXP_02 y EXP_03 en una sesión real de Colab. La autonomía local no se confunde con esa comprobación. Los cuadernos 01 y 02 sí tienen confirmación de Fortino en Colab.
+- Incorporar EXP_06 con el formato común. Separar paridad de resultados guardados y paridad de entrenamiento en este entorno.
+- Ejecutar el cuaderno 03 y EXP_01–EXP_05 en una sesión real de Colab. Las revisiones anunciadas por Fortino de EXP_03 y EXP_04 aún no son confirmaciones de ejecución. La autonomía local no se confunde con esa comprobación; los cuadernos 01 y 02 sí tienen confirmación de Fortino.
 - Verificar las 59 predicciones de entrega y la herramienta que las consulta.
 
 El cuaderno 03 reajusta las tres referencias sencillas en los 50 entrenamientos exteriores: 150 ajustes, sin selección de hiperparámetros ni candidatos nuevos. No genera predicciones finales de las 59 parcelas. Codex no ha subido datos a la nube ni cambiado permisos; el ZIP de Drive lo compartió Fortino. `main.py` continúa como plantilla; no es una aplicación de predicción.
@@ -128,3 +128,37 @@ El registro previo es del **29/09 a las 18:22 UTC**, la corrida del **30/09 a la
 **Verificación final:** 403 pruebas pasan, incluidas 76 de EXP_03; Ruff pasa sobre `scripts tests`. Dos kernels nuevos, cada uno iniciado desde una carpeta que contenía solo el notebook, producen 35 salidas y dos PNG idénticos, normalizando exclusivamente la fecha de ejecución. El cuaderno tiene 33 celdas, 17 de código: dos técnicas plegadas y 15 visibles. Se comprueban 18 contratos con tamaño y SHA-256, 2,758 medias mensuales, cuatro variables reconstruidas, seis entradas E2 conservadas, 9,660 OOF y 200 selecciones desde 900 scores guardados. Las pruebas sintéticas cubren fechas, sensores, ausencias, duplicados, pesos, empates y corrupción de insumos. Los gráficos se revisaron visualmente.
 
 El registro `docs/registros/20261008_exp03_variables_y_familias.json` conserva hashes, controles y copias recuperables de los archivos de coordinación actualizados. Fuentes históricas, entorno uv, notebooks anteriores y sus paquetes permanecen intactos. La revisión independiente corrigió una asignación innecesaria en una prueba, sin cambiar lógica científica. **No se ha probado EXP_03 en una sesión real de Colab**, ni reproducido sus 3,800 ajustes históricos. Es una lectura verificada de una ronda existente, no una ronda nueva.
+
+## EXP_04: lluvia de octubre — verificación local
+
+`notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb` corresponde a V2 del **1 de octubre**, adaptado el **8 de octubre**. El generador es `scripts/construir_exp_04.py`, el contrato `config/exp_04_lluvia_octubre.json` y el ejecutor `scripts/ejecutar_exp_04.py`; las ejecuciones se conservan en `resultados_locales/exp_04_lluvia_octubre/`. La distribución local es `artefactos_locales/exp_04_lluvia_octubre_equipo.zip`.
+
+La reconstrucción tiene un límite explícito: **230 áreas de intersección históricas** y **116 valores de píxel derivados hoy** permiten recalcular por suma ponderada **788 lluvias parcela–año**, más H, anomalía absoluta y porcentual para las 197 parcelas. El recorte de valores tiene fecha, procedencia y hash del 8 de octubre; las áreas conservan su registro histórico. No se reejecuta GEOS, no se vuelven a intersectar polígonos y no se afirma una segunda verificación completa desde GeoTIFF. La coincidencia aritmética no acredita por sí sola una receta geométrica ni ausencia de error de medición del ráster.
+
+Las **13,800 OOF de diez procedimientos** son resultados guardados, no nuevas predicciones. Se comprueban **150 selecciones Ridge mediante 900 scores** y **50 selecciones R_B mediante 250 scores**; esos 1,150 scores no se recalculan desde errores interiores. El lector hace **cero ajustes** y no genera las 59 predicciones finales. El registro histórico consigna Python **3.12.3**, NumPy 2.5.3, pandas 3.0.6 y scikit-learn 1.9.1; el lector Python 3.13 no reproduce aquel entorno de entrenamiento.
+
+Se conserva el cumplimiento original de J5_PCT en FULL138, **10/10** repeticiones para ambas condiciones. SEEN135 es un análisis posterior: RMSE mejora frente a MIX en **8/10**, pero MAE no cumple frente a MUN en ninguna. No modifica el veredicto registrado ni equivale a la evaluación de las 59 ocultas; permanece la limitación de AGC_120 con una sola etiqueta en Nanacamilpa.
+
+La fe de erratas se incorpora en la interpretación: R9_PCT mejora RMSE a costa de MAE frente a R9_MM; no demuestra superioridad general ni aporte independiente de H. J5 frente a J9 es un cambio conjunto de agrupación, medias, residuos, escala y respaldos. Las pendientes estandarizadas no se interpretan directamente en unidades originales. Las 138 etiquetas ocupan **23 celdas por centroide** y reciben aportaciones de **27 píxeles**; las 197 reciben 29. No se estima un tamaño muestral efectivo de 23. J5_PCT sigue siendo candidato exploratorio con reservas, no modelo final ni efecto causal.
+
+**Verificación final:** 497 pruebas pasan, incluidas 94 de EXP_04; Ruff pasa sobre `scripts tests`. Dos kernels nuevos, desde carpetas que inicialmente contenían solo el notebook, producen 39 salidas y dos PNG idénticos, normalizando únicamente la fecha de ejecución. Son 36 celdas, 19 de código: dos técnicas plegadas y 17 visibles. Se verifican 22 contratos, 788 lluvias, las variables de 197 parcelas, 13,800 OOF y 200 decisiones desde 1,150 scores guardados. Las pruebas sintéticas cubren ponderación, NoData, cobertura, años ausentes, empates y corrupción. También contrastan zona y grupos no vistos con metadatos y roles; no se infieren de errores. Los gráficos se revisaron visualmente.
+
+La adaptación no se presenta como un registro previo nuevo. Se conservan el registro histórico, el cierre del 1 de octubre y los resultados guardados. `docs/registros/20261008_exp04_lluvia_octubre.json` identifica fuentes, archivos y copias recuperables; entorno uv, originales y cuadernos anteriores permanecen intactos. Una primera comprobación de ruta se detuvo al buscar TIF fuera del ZIP climático anidado; se corrigió su resolución y se comprobó identidad byte a byte antes del recorte. Dos expectativas de pruebas se corrigieron para usar el esquema real de hashes y la prosa normalizada, sin modificar datos ni lógica científica. **No hay confirmación de EXP_04 en una sesión real de Colab**, ni paridad comprobada de su entrenamiento histórico.
+
+## EXP_05: histórico de octubre — verificación y alcance
+
+Se genera `notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb` con `scripts/construir_exp_05.py` y `config/exp_05_historico_octubre.json`. `scripts/ejecutar_exp_05.py` conserva cada salida nueva en `resultados_locales/exp_05_historico_octubre/`; la distribución local es `artefactos_locales/exp_05_historico_octubre_equipo.zip`. El lector incorpora **21 insumos** identificados por tamaño y SHA-256 y no solicita ZIP, Drive, rásteres ni otros notebooks.
+
+El alcance es reconstruir H, P y A_pct para las **197 parcelas desde sus cuatro lluvias guardadas** y evaluar **9,660 OOF de siete procedimientos**. No se reextraen GeoTIFF ni se intersectan polígonos. Se verifican **200 selecciones desde 1,200 scores guardados**; esos scores y las OOF no se recalculan mediante nuevos modelos. **Cero ajustes actuales y cero predicciones finales de las 59 parcelas.**
+
+SEEN135 conserva **1,350 OOF por procedimiento** y es la lectura principal fijada antes de ajustar V3; FULL138 conserva **1,380** como secundaria. No se elige población mirando qué procedimiento gana, no se retiran etiquetas de entrenamiento y no se cambia retrospectivamente V2. MUN/MIX son las referencias; J5_PCT se mantiene como contexto con reservas. Ninguna de R9_H/R9_HP/R9_P/R9_PCT cumple la regla de desarrollo principal. La evaluación no equivale a la entrega: Nanacamilpa conocida con una etiqueta carece de OOF equivalente.
+
+Diseño y ejecución original: **1 de octubre de 2026 en México, 2 de octubre UTC**. Adaptación actual: **8 de octubre**. El registro histórico consigna Python **3.12.14**, NumPy 2.4.4 y pandas 2.2.3; la lectura usa Python 3.13 sin acreditar paridad del ajuste. El presupuesto histórico de **4,800 evaluaciones interiores —800 baseline y 4,000 ajustes Ridge— y 200 reajustes exteriores**, las **34 pruebas unitarias** y las **nueve autopruebas** originales se citan como evidencia histórica, no como corridas actuales.
+
+Se conserva el fallo inicial y la revisión r1: se leía la columna vacía `alpha` en vez de `alpha_estado`; el intento se detuvo antes de ajustar H/HP. La corrección no cambió hipótesis, datos, procedimientos ni selector. Se distingue de la verificación actual del lector.
+
+**Verificación actual cerrada:** 580 pruebas pasan, incluidas 83 específicas de EXP_05; Ruff pasa sobre `scripts tests`. Dos kernels nuevos iniciados en carpetas que contenían solo el notebook reproducen **35 salidas y dos PNG idénticos**, normalizando exclusivamente la fecha de ejecución. El cuaderno tiene **37 celdas, 19 de código: dos técnicas plegadas y 17 visibles**. Se verifican fórmulas, contratos, particiones, 9,660 OOF, selección guardada, controles V2, regla, contrastes, soporte y concentración. Figuras revisadas visualmente. La revisión independiente de evidencia y generador no encontró fallos científicos materiales.
+
+**Corrección de presentación explícita:** 14 R² municipales de Tepeapulco en el CSV histórico tienen magnitudes espurias de 10²⁷–10²⁹ porque 4.45 repetido deja SST≈7.9·10⁻³⁰ por redondeo. El lector muestra NaN si SST≤1e−12; no modifica el CSV ni las OOF. RMSE, MAE, métricas globales y regla se conservan. Las pruebas ejercitan el caso constante, además de lluvias negativas, ausencia de años, identificadores, empates y corrupción de insumos.
+
+`docs/registros/20261008_exp05_historico_octubre.json` identifica evidencia, hashes y copias recuperables de los seis documentos de coordinación actualizados. Se conservan 82 fuentes históricas inventariadas, entorno uv y cuadernos anteriores. Un primer fallo de prueba fue solo una expectativa literal de prosa, corregida sin cambiar el cálculo. **No se ha probado este lector en Colab real** ni repetido sus ajustes históricos.

@@ -1,0 +1,307 @@
+{
+  "registrado_utc": "2026-10-08T15:41:05.009117+00:00",
+  "fecha_edicion_mexico": "2026-10-08",
+  "id": "EXP_05",
+  "id_historico": "AGC-EXP-V3",
+  "fecha_trabajo_original_mexico": "2026-10-01",
+  "fecha_trabajo_original_utc": "2026-10-02",
+  "alcance": "Lector retrospectivo: reconstruye fórmulas de 197 parcelas desde cuatro lluvias guardadas, puntúa OOF y verifica selecciones desde scores guardados. No extrae GeoTIFF, reintersecta, reajusta modelos ni recalcula predicciones o scores interiores.",
+  "poblacion_principal": "SEEN135",
+  "poblacion_secundaria": "FULL138",
+  "ajustes_actuales_cuaderno": 0,
+  "intersecciones_recalculadas": false,
+  "lluvias_reextraidas": false,
+  "scores_interiores_recalculados": false,
+  "predicciones_recalculadas": false,
+  "predicciones_finales_generadas": 0,
+  "variantes_adoptadas": [],
+  "candidato_historico_con_reservas": [
+    "J5_PCT"
+  ],
+  "pruebas": {
+    "total": 580,
+    "exp05": 83,
+    "fallos_finales": 0,
+    "errores_finales": 0,
+    "omitidas_finales": 0,
+    "ruff_scope": "scripts tests",
+    "ruff": "pasa",
+    "junit": "verificacion_local/exp05_historico_octubre_20261008/pruebas.xml"
+  },
+  "verificacion_local": {
+    "celdas": 37,
+    "celdas_codigo": 19,
+    "salidas_identicas_salvo_fecha": 35,
+    "png_identicos": 2,
+    "kernels_nuevos": 2,
+    "fuentes_originales_intactas": true,
+    "colab_real_probado": false,
+    "notebook_sha256": "f99e113361c5546929eadb9c43abf92ecc1944592fc2fb84860d9c7b469ba6f2"
+  },
+  "colab_real_probado": false,
+  "r2_presentacion": {
+    "n_filas": 14,
+    "municipio": "Tepeapulco",
+    "parcela": "AGC_047",
+    "SST_historico": 7.888609052210118e-30,
+    "regla": "SST<=1e-12: NaN",
+    "CSV_historico_modificado": false,
+    "OOF_modificadas": false,
+    "RMSE_MAE_reglas_modificadas": false
+  },
+  "incidencias_preparacion": [
+    "Se verifican 8 archivos de registro histórico r1 y 13 CSV originales, sin ejecutar módulos de entrenamiento. La historia del fallo inicial alpha/alpha_estado queda intacta.",
+    "Una primera prueba esperaba una frase literal distinta; se corrigió esa expectativa con prosa normalizada y AST. No se cambió ciencia ni datos.",
+    "Se documenta la diferencia R² municipal por redondeo; el lector representa valores indefinidos como NaN, preservando la evidencia histórica.",
+    "La ejecución preliminar comprobó todas las celdas. Dos ejecuciones definitivas posteriores, solo con notebook en su carpeta, reproducen todas las salidas salvo la fecha actual.",
+    "Revisión independiente de fuentes, métricas, reglas, concentración y generador: sin fallos científicos materiales; no acredita Colab real."
+  ],
+  "modificaciones": {
+    "README.md": {
+      "antes": "7332b9b211388a04a193c46cdf864fe91eaf7d3be4164b3017cc928775ade980",
+      "despues": "365c759144419c5c6742091efcd91814e8359776c01711714999dd71d32ed7a6",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/README.md"
+    },
+    "notebooks/README.md": {
+      "antes": "8d04499f7135c2ec524ae233cc7f815039899171b542dcec1e21ce0f7cff9bb2",
+      "despues": "ce0b4162c7590af1095413cf64bbbb6ef95d685e2e3bdb4c0c1e1ba79b0f8547",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/notebooks/README.md"
+    },
+    "docs/05_verificacion_preparacion.md": {
+      "antes": "be525b9d42fb8e6ee24cac08da1b4913fe6502398a02ea0b41266ebba8c6904a",
+      "despues": "e3a7a2b5da85992064ff6c2def32e000c16eaa20a8a9e8009f8913d330e3478b",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/docs/05_verificacion_preparacion.md"
+    },
+    "gestion/estado_y_decisiones.md": {
+      "antes": "229afb7f3e991ccb581856b060dfec5d6b77e7c1d7ec451de192c93789ee86de",
+      "despues": "66284d6ed0c835763ae55bc25a10ce639081c5700a82a57b8b37f289ef2ba211",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/gestion/estado_y_decisiones.md"
+    },
+    "config/indice_experimentos.json": {
+      "antes": "8e889e42caf03d983f9ad8fec158ddc00b042adc2a3e5a3428f1a3e66aaf1386",
+      "despues": "8ef50cb5f507cda931562e792a8245684073e0fe829cbd092a3977e274731ecd",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/config/indice_experimentos.json"
+    },
+    "tests/test_base_proyecto.py": {
+      "antes": "3819f43f246bd20823c5aba91218c0e3be79b4b4f228b3a8f6b1c0252e67071b",
+      "despues": "6cf0f36c9ade496b523b78dc1341d0b88cb7542720c0bbcd9afb2036a84aaade",
+      "copia": "artefactos_locales/exp05_historico_octubre_20261008/archivos_previos/tests/test_base_proyecto.py"
+    }
+  },
+  "nuevos": {
+    "config/exp_05_historico_octubre.json": {
+      "sha256": "c7bd9066ea691dc17ee4fe7558b13b9712e6aa035956b4c7109dcbc863bcdd82",
+      "bytes": 8125
+    },
+    "scripts/construir_exp_05.py": {
+      "sha256": "91c69ddcb11b1deb9114f0dfa42dff5ff8c3a1f0eab44fe94d96bae4eaefe82e",
+      "bytes": 44339
+    },
+    "scripts/ejecutar_exp_05.py": {
+      "sha256": "e2e7a7cc8b0f28d223cefdb9932b759e48ed3df75d88949547dd300038a8ccf1",
+      "bytes": 4158
+    },
+    "tests/test_exp_05.py": {
+      "sha256": "a9017753508e50c929bf8addb23d5d0f2471a8c65926424dc6dbb4cef5901b78",
+      "bytes": 36229
+    },
+    "notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb": {
+      "sha256": "f99e113361c5546929eadb9c43abf92ecc1944592fc2fb84860d9c7b469ba6f2",
+      "bytes": 790857
+    },
+    "notebooks/experimentos/exp_05_historico_octubre/README.md": {
+      "sha256": "95b0daf43f7f91b8b4abb99959334ca1a18c0b2b68008b471a34cf8170f442db",
+      "bytes": 4795
+    },
+    "data/exp_05_historico_octubre/variables_fuente.csv": {
+      "sha256": "ac0ede8be20cfdb0b1b0d67c479806f19f44ff226a0403b652438eac4e654175",
+      "bytes": 45849
+    },
+    "data/exp_05_historico_octubre/etiquetas.csv": {
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "bytes": 2942
+    },
+    "data/exp_05_historico_octubre/externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/exp_05_historico_octubre/internas.csv": {
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731
+    },
+    "data/exp_05_historico_octubre/v2_oof.csv": {
+      "sha256": "796499953794c62eae836c4378121ea0487809c716055a0cfc32617a00a49276",
+      "bytes": 1386384
+    },
+    "data/exp_05_historico_octubre/protocolo.md": {
+      "sha256": "f391d0951ed974aac3e3772b57e14d0fee95819bc120bc68b2f62eb18553b888",
+      "bytes": 8404
+    },
+    "data/exp_05_historico_octubre/manifiesto.json": {
+      "sha256": "ec817f856cd65667c09ecc66e80d904fd577105c4c8c2911b8af1caeca50dc67",
+      "bytes": 2003
+    },
+    "data/exp_05_historico_octubre/oof.csv": {
+      "sha256": "7f9acdc8bfe3385f396c173e4e9a0b60004e19a1f49b884a69a70ab56264ae13",
+      "bytes": 966146
+    },
+    "data/exp_05_historico_octubre/parametros.csv": {
+      "sha256": "184f4c73cde51ba9514062ef326f76ac001e660083364a8b140e5ba4af7b6b98",
+      "bytes": 21092
+    },
+    "data/exp_05_historico_octubre/seleccion.csv": {
+      "sha256": "3c958418a312d354698373a48160c43f985a6eb360a09143d00a97833b38432a",
+      "bytes": 77950
+    },
+    "data/exp_05_historico_octubre/metricas_control.csv": {
+      "sha256": "ed24c5edcdb50356621b72ae5557ada1022017f83f511ca69f5d0f99fa194238",
+      "bytes": 1857
+    },
+    "data/exp_05_historico_octubre/repeticiones_control.csv": {
+      "sha256": "285f261e47a5e4e380a0dba6921f90236fe96ce92991c5dbbe2deb0d7d60cf5e",
+      "bytes": 18417
+    },
+    "data/exp_05_historico_octubre/municipios_control.csv": {
+      "sha256": "71795b0dc6db4588a6283a12545c0cd493c920f1d2e2824704ad4eed6d275f45",
+      "bytes": 11555
+    },
+    "data/exp_05_historico_octubre/zonas_control.csv": {
+      "sha256": "b2510aca7491b788b5b1a4f7d5832361eb23d28e061041bbcad50d82ec58057a",
+      "bytes": 3331
+    },
+    "data/exp_05_historico_octubre/regla_control.csv": {
+      "sha256": "2a8fe03a1fbfbba16ffbfbfb77bdb138f8d323207871423634fd75377d672d28",
+      "bytes": 968
+    },
+    "data/exp_05_historico_octubre/contrastes_control.csv": {
+      "sha256": "1fe4d68c1c0b02985cbbbd3e7bdff6d022970c24a75c4b16ba15f7976bf48cbc",
+      "bytes": 1252
+    },
+    "data/exp_05_historico_octubre/soporte_control.csv": {
+      "sha256": "a6763b4e80cf1751e0123985eceb49213df64b821e6af3deec0ae85d4537b846",
+      "bytes": 764
+    },
+    "data/exp_05_historico_octubre/deltas_control.csv": {
+      "sha256": "b6f0232736d15a257cad0fccae9874fb3d34f41eb1cc291155cfee5e5096d6cb",
+      "bytes": 73295
+    },
+    "data/exp_05_historico_octubre/concentracion_control.csv": {
+      "sha256": "53562ec6ad3b00153bf6821d6c3b03a73b63c8719bc4687ae54a7babe08a7166",
+      "bytes": 1206
+    },
+    "data/exp_05_historico_octubre/registro_previo.json": {
+      "sha256": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411",
+      "bytes": 1370
+    },
+    "data/exp_05_historico_octubre/registro_ejecucion.json": {
+      "sha256": "9991008e1b9b7c9803411a29a94c02c8e49b77fcdff8e8cfe14d6511279ae800",
+      "bytes": 1861
+    }
+  },
+  "fuentes_historicas_intactas": {
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/protocolo.md": "f391d0951ed974aac3e3772b57e14d0fee95819bc120bc68b2f62eb18553b888",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/experimento_v3.py": "1718fcc105224765b6b0165cda2ddb059bbfbbd926e6ba755638e8b5376dbb55",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/test_experimento_v3.py": "b76eb5b28bc73258871c83d4f4922e819b1a9dc6d8e35a5cb48cc6cfe6ecbb6f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/preparar_paquete.py": "de4a37efaaed4bf433346b81c75d93c12740fab2a0e656f4da5578692ff6ad88",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecutar_v3.py": "3222795a7a9e4ca487c3d9bfc33c68a6d3be73dedf89ea2658476c8e5bb4f6e3",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/construir_notebook_v3.py": "7e5fa776e02345a870141bf3522b592b961b16f90d1d5279556d65ddaf9abe3e",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/insumos_v3.zip": "521dd8142579b7b5b408ec55d344ca86a5b8a08d2354ad62a8e55c9944859649",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/01_experimento_equipo.ipynb": "448635f85b790c2ab13c8077176604d7f519d4798d009818b4990808832fe8b4",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/predicciones_oof.csv": "7f9acdc8bfe3385f396c173e4e9a0b60004e19a1f49b884a69a70ab56264ae13",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_escenario.csv": "ed24c5edcdb50356621b72ae5557ada1022017f83f511ca69f5d0f99fa194238",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_repeticion.csv": "285f261e47a5e4e380a0dba6921f90236fe96ce92991c5dbbe2deb0d7d60cf5e",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_municipio.csv": "71795b0dc6db4588a6283a12545c0cd493c920f1d2e2824704ad4eed6d275f45",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_zona.csv": "b2510aca7491b788b5b1a4f7d5832361eb23d28e061041bbcad50d82ec58057a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/regla_avance.csv": "2a8fe03a1fbfbba16ffbfbfb77bdb138f8d323207871423634fd75377d672d28",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/parametros_exteriores.csv": "184f4c73cde51ba9514062ef326f76ac001e660083364a8b140e5ba4af7b6b98",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/seleccion_interna.csv": "3c958418a312d354698373a48160c43f985a6eb360a09143d00a97833b38432a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/contrastes.csv": "1fe4d68c1c0b02985cbbbd3e7bdff6d022970c24a75c4b16ba15f7976bf48cbc",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/soporte_entrega.csv": "a6763b4e80cf1751e0123985eceb49213df64b821e6af3deec0ae85d4537b846",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/deltas_parcela.csv": "b6f0232736d15a257cad0fccae9874fb3d34f41eb1cc291155cfee5e5096d6cb",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/concentracion.csv": "53562ec6ad3b00153bf6821d6c3b03a73b63c8719bc4687ae54a7babe08a7166",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/controles.csv": "ec20a95a5b6069c100d5c8018413d143044561e8e54c4b9408edfbc068bfb029",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/determinismo.json": "637e7ed8672e082cbf7f91300ed399380c5dd62b39b481cc794b3753c599f089",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/02_experimento_equipo_ejecutado.ipynb": "20296b73e95b21c588675a3164c3d5d755b8e1f2d824734177c4530cb17e0ea4",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/inventario_fuentes_previo.json": "904379d12dec95f29d622bee594d8b53e11297d179741671dd43ab68adead522",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/RESUMEN_EXPERIMENTO_V3.md": "ada0c27a2211abc732b1bfc318564dae7e9312f327786e43639e318a09108a34",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/registro_previo_v3.json": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/verificacion_final.json": "ec40c1d7218b6a595ffdd6ee46ae6bd5e82e66bb11c89e469f3fe7bc8871e9ac",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/03_prompt_revision_claude.md": "e1ad4529891cdca274990855cc96f85b0b3999d0c32a289d68f72df31ca7ae4d",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/verificacion_notebook.json": "b99856031632b398c5710574f94cf5940647e3ae935d02c3c3eb7419b6bf1663",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/auditar_y_publicar.py": "fd7fd066ad2def5cd15b9ad1841cca310e8fad93b545b108a4c07c26ce741307",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/README.md": "01cbbe36d6ed3f29c7055199e9da66af0eae67de6d86da7369d5f4931beb8a94",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/verificar_notebook.py": "421124b5a78e0497e7498a56bfca983c5421d4bf93083d668f21255ae14cf1a0",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/REVISION_IMPLEMENTACION_R1.md": "2463606008aa692cb4a3d5c23e8cdd5b865d273ef2a2b8dd8e2f6fd65f371840",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/verificacion_originales.json": "fa5806f106b6832d6a36ca57095656d670ef2174339a12508c279556712f00ad",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/verificacion_publicacion.json": "b720742a5d94013b58701ce4a876a8e6455bca5728867f402b64462e6dbaa0aa",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/ejecutar_v3.py": "3222795a7a9e4ca487c3d9bfc33c68a6d3be73dedf89ea2658476c8e5bb4f6e3",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/preparar_paquete.py": "de4a37efaaed4bf433346b81c75d93c12740fab2a0e656f4da5578692ff6ad88",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/insumos_v3.zip": "bc12c411a8e516e08e572855dd3a07b6c0a372168e9a7f6353f621ada23f7ac1",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/protocolo.md": "f391d0951ed974aac3e3772b57e14d0fee95819bc120bc68b2f62eb18553b888",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/inventario_fuentes_previo.json": "904379d12dec95f29d622bee594d8b53e11297d179741671dd43ab68adead522",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/01_experimento_equipo.ipynb": "52a6db09c732a49ae4c2e30bedcf8680db228c0b9c6c3cb9f00a1eb87038854f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/construir_notebook_v3.py": "7e5fa776e02345a870141bf3522b592b961b16f90d1d5279556d65ddaf9abe3e",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/registro_previo_v3.json": "12456385a02231fa81bff54267403c86fb4626d3f5a42066b2207db7d8c0bb4c",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/test_experimento_v3.py": "0c9b92724ef4292c216d23f2133a74a8f54dec984b6bc9a5b7916f95aa8d07bf",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/experimento_v3.py": "53aaa24e6eb3af8aadd83e7448b7a958e09cc5d6b660a257bbfaa994b7953b8f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/auditar_y_publicar.py": "fd7fd066ad2def5cd15b9ad1841cca310e8fad93b545b108a4c07c26ce741307",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/README.md": "25d01e066612c7c5d40fb46eb33c5e51c456f3501e62ef5f6c3a28c541e83f7f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/verificar_notebook.py": "421124b5a78e0497e7498a56bfca983c5421d4bf93083d668f21255ae14cf1a0",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z.zip": "88508dc8a1164c4d4a3810887b21fd7e5411751ff765dff0ce35ea4222d3b878",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/contrastes.csv": "1fe4d68c1c0b02985cbbbd3e7bdff6d022970c24a75c4b16ba15f7976bf48cbc",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/metricas_municipio.csv": "71795b0dc6db4588a6283a12545c0cd493c920f1d2e2824704ad4eed6d275f45",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/conclusiones.md": "83d80907fab52dfe0efdd2590e82a85ce502671a5d10e0fb512c8d58af3a7756",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/metricas_escenario.csv": "ed24c5edcdb50356621b72ae5557ada1022017f83f511ca69f5d0f99fa194238",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/concentracion.csv": "53562ec6ad3b00153bf6821d6c3b03a73b63c8719bc4687ae54a7babe08a7166",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/soporte_entrega.csv": "a6763b4e80cf1751e0123985eceb49213df64b821e6af3deec0ae85d4537b846",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/registro_ejecucion.json": "2cc4d28f46b22393918ca36e5fe5aaa029ee2e7fee3f844f4f6294a86a0bc420",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/metricas_repeticion.csv": "285f261e47a5e4e380a0dba6921f90236fe96ce92991c5dbbe2deb0d7d60cf5e",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/seleccion_interna.csv": "3c958418a312d354698373a48160c43f985a6eb360a09143d00a97833b38432a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/controles.csv": "ec20a95a5b6069c100d5c8018413d143044561e8e54c4b9408edfbc068bfb029",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/predicciones_oof.csv": "7f9acdc8bfe3385f396c173e4e9a0b60004e19a1f49b884a69a70ab56264ae13",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/parametros_exteriores.csv": "184f4c73cde51ba9514062ef326f76ac001e660083364a8b140e5ba4af7b6b98",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/deltas_parcela.csv": "b6f0232736d15a257cad0fccae9874fb3d34f41eb1cc291155cfee5e5096d6cb",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/metricas_zona.csv": "b2510aca7491b788b5b1a4f7d5832361eb23d28e061041bbcad50d82ec58057a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/resultados_v3/v3_20261002T032041_430938Z/regla_avance.csv": "2a8fe03a1fbfbba16ffbfbfb77bdb138f8d323207871423634fd75377d672d28",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/contrastes.csv": "1fe4d68c1c0b02985cbbbd3e7bdff6d022970c24a75c4b16ba15f7976bf48cbc",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/metricas_municipio.csv": "71795b0dc6db4588a6283a12545c0cd493c920f1d2e2824704ad4eed6d275f45",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/conclusiones.md": "83d80907fab52dfe0efdd2590e82a85ce502671a5d10e0fb512c8d58af3a7756",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/metricas_escenario.csv": "ed24c5edcdb50356621b72ae5557ada1022017f83f511ca69f5d0f99fa194238",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/concentracion.csv": "53562ec6ad3b00153bf6821d6c3b03a73b63c8719bc4687ae54a7babe08a7166",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/soporte_entrega.csv": "a6763b4e80cf1751e0123985eceb49213df64b821e6af3deec0ae85d4537b846",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/registro_ejecucion.json": "f9b31af03bd17ab054e12cfc6e462b8876a1868223a6ac9a36290bb6ea6f3a23",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/metricas_repeticion.csv": "285f261e47a5e4e380a0dba6921f90236fe96ce92991c5dbbe2deb0d7d60cf5e",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/seleccion_interna.csv": "3c958418a312d354698373a48160c43f985a6eb360a09143d00a97833b38432a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/controles.csv": "ec20a95a5b6069c100d5c8018413d143044561e8e54c4b9408edfbc068bfb029",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/predicciones_oof.csv": "7f9acdc8bfe3385f396c173e4e9a0b60004e19a1f49b884a69a70ab56264ae13",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/parametros_exteriores.csv": "184f4c73cde51ba9514062ef326f76ac001e660083364a8b140e5ba4af7b6b98",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/deltas_parcela.csv": "b6f0232736d15a257cad0fccae9874fb3d34f41eb1cc291155cfee5e5096d6cb",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/metricas_zona.csv": "b2510aca7491b788b5b1a4f7d5832361eb23d28e061041bbcad50d82ec58057a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031957_041415Z/regla_avance.csv": "2a8fe03a1fbfbba16ffbfbfb77bdb138f8d323207871423634fd75377d672d28",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/conclusiones.md": "83d80907fab52dfe0efdd2590e82a85ce502671a5d10e0fb512c8d58af3a7756",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/registro_ejecucion.json": "9991008e1b9b7c9803411a29a94c02c8e49b77fcdff8e8cfe14d6511279ae800",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/antecedente_fallo_inicial/ejecuciones/v3_20261002T031531_008501Z/FALLO.json": "29142e89c8ca057de8a5cc03c5550096775addb4b1d94ce4443ebab4863ded5a"
+  },
+  "notebooks_previos_protegidos": {
+    "notebooks/02_fuentes_a_variables.ipynb": "f7849db02027b8df91a488e6521183213d8f1fd0d0f4b57e84035f6967cfab87",
+    "notebooks/03_referencias_y_validacion.ipynb": "6eca2d9ed3746211502cd91331627c9ccc7f11729e58c44e9cfd9c7d99a20ff7",
+    "notebooks/01_auditoria_y_unidad_parcela.ipynb": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e",
+    "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb": "c74f4703d46a83022d675c42e5834ffea721112be531edab5deae6592b7e318c",
+    "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb": "47c777915832c940bd0df2a8d8339ca77a05953c4921e94a8181141e65bdcc47",
+    "notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb": "ca84ad2999bda26496848898a4e77385423e8a544699a1c2883ec28267457fc0",
+    "notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb": "b5086d1acaab17ae53dd9e260692b754bc198f7976dd372696e4b2ba88730f39"
+  },
+  "entorno_uv_protegido": {
+    ".python-version": "56c16a411e41fec3219e828087f312d9891641e3b29093c69d08a05ec1e5d693",
+    "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+    "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+    "requirements-colab-auditoria.txt": "8f18975fe344552700b5efe887bc0ede3128554a73f1457649652b35eb9cd95e",
+    "requirements-colab.txt": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a"
+  },
+  "paquete": {
+    "ruta": "artefactos_locales/exp_05_historico_octubre_equipo.zip",
+    "sha256": "1ee21ff96565b67400b65ea8bb638413a8e0291e7b8e68922ff612885d068245",
+    "bytes": 510756
+  },
+  "interpretacion": "Ninguna de las cuatro recetas avanza. H/HP no superan las referencias; porcentaje tiene RMSE algo menor a MIX pero MAE peor a MUN y estabilidad insuficiente. No prueba inutilidad del clima ni causalidad; mantiene J5_PCT con reservas sin retrocambiar V2."
+}

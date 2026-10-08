@@ -1,0 +1,160 @@
+{
+  "id": "EXP_05",
+  "id_historico": "AGC-EXP-V3",
+  "modo": "lector_retrospectivo_sin_ajustes",
+  "fecha_original_mexico": "2026-10-01",
+  "fecha_original_utc": "2026-10-02",
+  "fecha_adaptacion": "2026-10-08",
+  "poblacion_principal": "SEEN135",
+  "poblacion_secundaria": "FULL138",
+  "ajustes_actuales": 0,
+  "insumos": {
+    "variables_fuente": {
+      "ruta_local": "data/exp_05_historico_octubre/variables_fuente.csv",
+      "sha256": "ac0ede8be20cfdb0b1b0d67c479806f19f44ff226a0403b652438eac4e654175",
+      "bytes": 45849,
+      "uso": "variables_octubre_guardadas",
+      "origen": "insumos_v3.zip::variables.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_05_historico_octubre/etiquetas.csv",
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "bytes": 2942,
+      "uso": "etiquetas_oficiales",
+      "origen": "insumos_v3.zip::etiquetas.csv"
+    },
+    "externas": {
+      "ruta_local": "data/exp_05_historico_octubre/externas.csv",
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295,
+      "uso": "particiones",
+      "origen": "insumos_v3.zip::exteriores.csv"
+    },
+    "internas": {
+      "ruta_local": "data/exp_05_historico_octubre/internas.csv",
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731,
+      "uso": "particiones",
+      "origen": "insumos_v3.zip::interiores.csv"
+    },
+    "v2_oof": {
+      "ruta_local": "data/exp_05_historico_octubre/v2_oof.csv",
+      "sha256": "796499953794c62eae836c4378121ea0487809c716055a0cfc32617a00a49276",
+      "bytes": 1386384,
+      "uso": "resultados_guardados",
+      "origen": "insumos_v3.zip::referentes_v2.csv"
+    },
+    "protocolo": {
+      "ruta_local": "data/exp_05_historico_octubre/protocolo.md",
+      "sha256": "f391d0951ed974aac3e3772b57e14d0fee95819bc120bc68b2f62eb18553b888",
+      "bytes": 8404,
+      "uso": "protocolo_historico",
+      "origen": "insumos_v3.zip::protocolo.md"
+    },
+    "manifiesto": {
+      "ruta_local": "data/exp_05_historico_octubre/manifiesto.json",
+      "sha256": "ec817f856cd65667c09ecc66e80d904fd577105c4c8c2911b8af1caeca50dc67",
+      "bytes": 2003,
+      "uso": "registro_historico",
+      "origen": "insumos_v3.zip::manifiesto_insumos.json"
+    },
+    "oof": {
+      "ruta_local": "data/exp_05_historico_octubre/oof.csv",
+      "sha256": "7f9acdc8bfe3385f396c173e4e9a0b60004e19a1f49b884a69a70ab56264ae13",
+      "bytes": 966146,
+      "uso": "resultados_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/predicciones_oof.csv"
+    },
+    "parametros": {
+      "ruta_local": "data/exp_05_historico_octubre/parametros.csv",
+      "sha256": "184f4c73cde51ba9514062ef326f76ac001e660083364a8b140e5ba4af7b6b98",
+      "bytes": 21092,
+      "uso": "parametros_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/parametros_exteriores.csv"
+    },
+    "seleccion": {
+      "ruta_local": "data/exp_05_historico_octubre/seleccion.csv",
+      "sha256": "3c958418a312d354698373a48160c43f985a6eb360a09143d00a97833b38432a",
+      "bytes": 77950,
+      "uso": "scores_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/seleccion_interna.csv"
+    },
+    "metricas_control": {
+      "ruta_local": "data/exp_05_historico_octubre/metricas_control.csv",
+      "sha256": "ed24c5edcdb50356621b72ae5557ada1022017f83f511ca69f5d0f99fa194238",
+      "bytes": 1857,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_escenario.csv"
+    },
+    "repeticiones_control": {
+      "ruta_local": "data/exp_05_historico_octubre/repeticiones_control.csv",
+      "sha256": "285f261e47a5e4e380a0dba6921f90236fe96ce92991c5dbbe2deb0d7d60cf5e",
+      "bytes": 18417,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_repeticion.csv"
+    },
+    "municipios_control": {
+      "ruta_local": "data/exp_05_historico_octubre/municipios_control.csv",
+      "sha256": "71795b0dc6db4588a6283a12545c0cd493c920f1d2e2824704ad4eed6d275f45",
+      "bytes": 11555,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_municipio.csv"
+    },
+    "zonas_control": {
+      "ruta_local": "data/exp_05_historico_octubre/zonas_control.csv",
+      "sha256": "b2510aca7491b788b5b1a4f7d5832361eb23d28e061041bbcad50d82ec58057a",
+      "bytes": 3331,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/metricas_zona.csv"
+    },
+    "regla_control": {
+      "ruta_local": "data/exp_05_historico_octubre/regla_control.csv",
+      "sha256": "2a8fe03a1fbfbba16ffbfbfb77bdb138f8d323207871423634fd75377d672d28",
+      "bytes": 968,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/regla_avance.csv"
+    },
+    "contrastes_control": {
+      "ruta_local": "data/exp_05_historico_octubre/contrastes_control.csv",
+      "sha256": "1fe4d68c1c0b02985cbbbd3e7bdff6d022970c24a75c4b16ba15f7976bf48cbc",
+      "bytes": 1252,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/contrastes.csv"
+    },
+    "soporte_control": {
+      "ruta_local": "data/exp_05_historico_octubre/soporte_control.csv",
+      "sha256": "a6763b4e80cf1751e0123985eceb49213df64b821e6af3deec0ae85d4537b846",
+      "bytes": 764,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/soporte_entrega.csv"
+    },
+    "deltas_control": {
+      "ruta_local": "data/exp_05_historico_octubre/deltas_control.csv",
+      "sha256": "b6f0232736d15a257cad0fccae9874fb3d34f41eb1cc291155cfee5e5096d6cb",
+      "bytes": 73295,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/deltas_parcela.csv"
+    },
+    "concentracion_control": {
+      "ruta_local": "data/exp_05_historico_octubre/concentracion_control.csv",
+      "sha256": "53562ec6ad3b00153bf6821d6c3b03a73b63c8719bc4687ae54a7babe08a7166",
+      "bytes": 1206,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/concentracion.csv"
+    },
+    "registro_previo": {
+      "ruta_local": "data/exp_05_historico_octubre/registro_previo.json",
+      "sha256": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411",
+      "bytes": 1370,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/registro_previo_v3.json"
+    },
+    "registro_ejecucion": {
+      "ruta_local": "data/exp_05_historico_octubre/registro_ejecucion.json",
+      "sha256": "9991008e1b9b7c9803411a29a94c02c8e49b77fcdff8e8cfe14d6511279ae800",
+      "bytes": 1861,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v3-historico-octubre-01oct-r1/ejecuciones/v3_20261002T031844_029439Z/registro_ejecucion.json"
+    }
+  }
+}
