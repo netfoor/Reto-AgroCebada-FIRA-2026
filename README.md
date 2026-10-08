@@ -12,16 +12,29 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 4. [Cómo leer y ejecutar los notebooks](docs/04_notebooks_y_colab.md).
 5. [Primer cuaderno: auditoría y unidad parcela](notebooks/01_auditoria_y_unidad_parcela.ipynb).
 6. [Segundo cuaderno: de las fuentes a las variables](notebooks/02_fuentes_a_variables.ipynb).
+7. [Tercer cuaderno: referencias y validación](notebooks/03_referencias_y_validacion.ipynb).
+8. [Primera ronda: bloques de variables sobre municipio](notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb).
+9. [Segunda ronda: ponderación temporal de tres medias](notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb).
 
 Si aparece un término nuevo, consultar el [glosario breve](docs/06_glosario.md). No hace falta leerlo completo antes de empezar.
 
 El formato común de los cuadernos es **pregunta → comprobación → resultado → decisión y límite**. Cada decisión se explica junto a la evidencia que la motiva. El orden de lectura es pedagógico; las fechas reales de los trabajos se conservan.
 
-Los cuadernos contienen sus salidas y se recalculan desde `data/raw/DataSet.zip`, cuya integridad se verifica antes de leerlo. En Colab utilizan Python 3.13 y, si falta el ZIP, descargan la copia de Drive autorizada por Fortino. El ID del archivo y su SHA-256 se incorporan desde el manifiesto al generar cada cuaderno.
+Los cuadernos **01–03** contienen sus salidas y se recalculan desde `data/raw/DataSet.zip`, cuya integridad se verifica antes de leerlo. En Colab utilizan Python 3.13 y, si falta el ZIP, descargan la copia de Drive autorizada por Fortino. El ID del archivo y su SHA-256 se incorporan desde el manifiesto al generar cada cuaderno.
 
-La preparación de bibliotecas se anuncia antes de ejecutarla y solo opera en Colab. Si necesita reiniciar por un módulo ya cargado, lo solicita: no reinicia automáticamente. El segundo cuaderno incorpora Rasterio para leer GeoTIFF en memoria; no cambia la preparación del primero. Los paquetes locales `artefactos_locales/01_auditoria_equipo.zip` y `artefactos_locales/02_fuentes_equipo.zip` permiten compartir notebook e insumos juntos, sin Git.
+La preparación de bibliotecas se anuncia antes de ejecutarla y solo opera en Colab. Si necesita reiniciar por un módulo ya cargado, lo solicita: no reinicia automáticamente. Los cuadernos 02 y 03 incorporan los mismos lectores verificados, sin cambiar la preparación del primero. Los paquetes locales `artefactos_locales/01_auditoria_equipo.zip`, `artefactos_locales/02_fuentes_equipo.zip` y `artefactos_locales/03_referencias_equipo.zip` permiten compartir notebook e insumos juntos, sin Git.
 
 El cuaderno 02 sigue una parcela y generaliza a las 197. Reconstruye 539 columnas de metadatos, resúmenes y controles, con diccionario y etiquetas aparte. **No son 539 predictores seleccionados.** La comparación con la salida integrada del 21 de septiembre comprueba reconstrucción, no desempeño predictivo. Los controles históricos incorporados se usan solo después de calcular las variables.
+
+El cuaderno 03 explica por qué necesitamos una referencia antes de incorporar complejidad. Reconstruye GLOBAL, MUN y MIX sobre las 50 particiones exteriores históricas, con **150 ajustes sencillos de referencia**. Comprueba las particiones internas para explicar validación anidada, sin seleccionar hiperparámetros. Muestra RMSE, MAE y R² sobre predicciones fuera de muestra; separa FULL138 y SEEN135 y no genera las 59 predicciones de entrega.
+
+**EXP_01** estudia si clima/topografía, satélite del ciclo o historia agregaron información sobre municipio. Es un lector autónomo de la ronda del **21 de septiembre**, adaptado el **8 de octubre**: incorpora tablas históricas con tamaño y SHA-256, sin necesitar el ZIP original, Drive ni otro cuaderno. Ejecutarlo recalcula variables derivadas, métricas de predicciones OOF guardadas y la elección de alpha desde sus scores internos guardados; realiza **cero ajustes nuevos**. No reproduce el entrenamiento ni vuelve a calcular esos scores. Conserva FULL138 y la regla de comparación de esa ronda; E0 es Ridge municipal penalizado, no exactamente MUN. El paquete `artefactos_locales/exp_01_bloques_equipo.zip` permite compartirlo sin Git.
+
+El resultado original se distingue de su reproducción: la historia E3 bajó algo el RMSE frente a E0, pero empeoró MAE, concentró su beneficio en pocas parcelas y no superó MIX. La lectura explica ese contraste sin adoptar un modelo final ni generar las 59 predicciones oficiales.
+
+**EXP_02** pregunta si la frecuencia desigual de capturas puede tratarse cambiando tres medias satelitales de E2: NDVI Planet, NDVI Sentinel-2 y NDWI Sentinel-2. Primero calcula una media por mes; después pondera abril–octubre por sus días, **30, 31, 30, 31, 31, 30, 31 sobre 214**. Muestra las capturas de una parcela y comprueba las 197. Conserva sin cambios las otras tres variables, municipio, ventana, calidad, Ridge y particiones. No filtra nubes ni imputa meses.
+
+Es la lectura autónoma de **T1, ejecutado el 29 de septiembre**, adaptada el **8 de octubre**. Incluye un recorte de capturas originales preparado en esa adaptación, con procedencia y hashes propios; no lo presenta como un nuevo insumo registrado antes de T1. Recalcula las variables y métricas desde OOF guardadas, sin reentrenar ni recalcular scores internos. T1 obtuvo RMSE **0.5225 t/ha**, frente a 0.5192 de E2 y 0.4938 de MIX: se cerró **sin adopción**. Cambiar una representación temporal no garantiza mejorar la predicción ni reconstruir el verdadero promedio diario.
 
 ## Ejecutar en local
 
@@ -52,6 +65,30 @@ uv run --locked --all-groups python scripts/ejecutar_notebook_02.py
 ```
 
 La ejecución se guarda en `resultados_locales/fuentes_02/`. Cada cuaderno puede ejecutarse por separado; el segundo no necesita las variables de una sesión previa del primero.
+
+Para reconstruir las referencias y su evaluación:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_notebook_03.py
+```
+
+La ejecución se guarda en `resultados_locales/referencias_03/`. Las particiones y los controles históricos vienen incrustados en el cuaderno; no se necesitan otro notebook ni descargas adicionales. Los controles de salida se abren después de predecir, no alimentan los estimadores.
+
+Para recalcular los resultados guardados de la primera ronda, sin reentrenar:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_01.py
+```
+
+La ejecución se guarda en `resultados_locales/exp_01_bloques/`, sin sobrescribir la evidencia original. `scripts/construir_exp_01.py` genera el lector a partir de los insumos identificados; el cuaderno incorpora esos insumos y puede ejecutarse solo. La ronda original utilizó Python 3.10.12 y scikit-learn 1.7.2; esta lectura utiliza el entorno Python 3.13 del proyecto. La coincidencia de métricas desde OOF guardados no demuestra paridad del entrenamiento entre entornos.
+
+Para recalcular las variables temporales y resultados guardados de T1:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_02.py
+```
+
+La salida se guarda en `resultados_locales/exp_02_ponderacion_temporal/`. El generador `scripts/construir_exp_02.py` utiliza `config/exp_02_ponderacion_temporal.json`; el notebook contiene sus insumos y no necesita ZIP, Drive ni ejecutar otro cuaderno. La distribución local es `artefactos_locales/exp_02_ponderacion_temporal_equipo.zip`. **Cero ajustes actuales** y ninguna predicción final de las 59 parcelas. T1 utilizó Python 3.12.14/scikit-learn 1.9.1; el control histórico de E2 se distingue de esta lectura en Python 3.13.
 
 | Grupo         | Para qué sirve                           |
 | ------------- | ----------------------------------------- |

@@ -92,6 +92,10 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     El resultado es una tabla de **197 × 539**, un diccionario de **660 variables** y
     una salida separada de noviembre–diciembre. Son variables candidatas y controles,
     no 539 predictores finales ni una demostración de utilidad predictiva.
+
+    **Cómo leerlo:** regla → cálculo visible sobre AGC_001 → comprobación con la
+    función → repetición sobre 197 parcelas. Los bloques plegados contienen el motor
+    de ejecución; las decisiones y los ejemplos se estudian en las celdas visibles.
     """)
     texto("""
     ## 1. Identificar el entorno y las reglas
@@ -103,7 +107,8 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     `PREPARAR_COLAB = True` prepara únicamente dentro de Colab las bibliotecas requeridas
     cuya versión falta o difiere. El perfil completo procede de uv. Si cambia una
     biblioteca ya cargada, solicita reiniciar manualmente la sesión y ejecutar todas
-    las celdas. En local no instala nada. El soporte técnico puede mantenerse contraído.
+    las celdas. En local no instala nada. Los bloques técnicos aparecen plegados en Colab;
+    **Mostrar código** permite revisarlos. Se ejecutan también con **Ejecutar todo**.
     """)
     codigo(soporte_derivado, tags=["soporte-colab"], oculta=True)
     celdas[-1].source = soporte_derivado  # Conservar también el salto final del texto identificado.
@@ -182,8 +187,25 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     La admisibilidad de noviembre–diciembre sigue pendiente, sin convertir esta
     separación en una regla agronómica universal.
 
-    Las siguientes celdas contienen los módulos y los controles históricos completos,
-    con hashes. No hace falta Git, otro notebook, una bóveda ni módulos de otra máquina.
+    ### Qué hay en los bloques plegados y dónde lo comprobamos
+
+    | Pieza técnica | Responsabilidad | Comprobación visible |
+    |---|---|---|
+    | Soporte de Colab | Preparar bibliotecas y validar la descarga | Secciones 1–2: versiones e identidad del ZIP |
+    | `auditoria_01` | Leer y validar originales, IDs y fechas | Sección 2: archivos, parcelas y etiquetas separadas |
+    | `fuentes_02_geo` | Proyectar, intersectar píxeles y ponderar | Secciones 3–4 y 7–8: área, celdas, pesos y cobertura |
+    | `fuentes_02_satelite` | Filtrar ventanas y resumir capturas | Secciones 5–6: filas usadas, medias, extremos e integral |
+    | `fuentes_02` | Coordinar fuentes y unir resultados por ID | Secciones 7–10: clima mensual, topografía y tabla final |
+    | Controles históricos | Conservar salidas anteriores para comparar | Sección 11: coincidencia por columna, después de reconstruir |
+
+    **Cargar módulos** define funciones; no construye todavía las 539 columnas ni
+    entrena un modelo. Cada llamada posterior se acompaña de su regla, entrada y salida.
+    No hay que leer todo el `.py` para entender el procedimiento, pero se puede abrir
+    con **Mostrar código** para inspeccionar su implementación y sus controles.
+
+    Los controles históricos no son los Excel de Andrea ni entradas de extracción:
+    son las salidas integradas del 21 de septiembre, contrastadas al final. Todo se
+    reconstruye desde el ZIP original, sin Git, otros cuadernos ni archivos de otra máquina.
     """)
     codigo("""
     FUENTES_MODULOS = __FUENTES__
@@ -269,6 +291,34 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     10,000 para obtener hectáreas. El área entregada y la geométrica responden a fuentes
     distintas; calculamos su diferencia sin obligarlas a coincidir.
     """)
+    texto("""
+    **Antes de automatizar: de coordenadas a hectáreas.** Una geometría en grados no
+    tiene un área en m². Conservamos el orden x/y al proyectarla a UTM14N y calculamos
+    **ha = área proyectada / 10,000**. El centroide es el centro de área del polígono,
+    no el promedio de sus vértices. La celda hace estas operaciones explícitamente y
+    las contrasta con los metadatos que `cargar_fuentes` ya había producido.
+    """)
+    codigo("""
+    from pyproj import Transformer
+    from shapely.geometry import Polygon
+    from shapely.ops import transform as transformar_geometria
+
+    PARCELA = "AGC_001"
+    transformar_utm = Transformer.from_crs(crs_geoms, 32614, always_xy=True).transform
+    poligono_utm_manual = transformar_geometria(transformar_utm, geoms[PARCELA])
+    area_ha_manual = poligono_utm_manual.area / 10_000
+    centroide_manual = poligono_utm_manual.centroid
+    fila_meta = meta.set_index("ID_POLIGONO").loc[PARCELA]
+    calculo_geo_manual = pd.DataFrame({
+        "magnitud": ["Área geométrica (ha)", "Centroide x (m)", "Centroide y (m)"],
+        "cálculo visible": [area_ha_manual, centroide_manual.x, centroide_manual.y],
+        "metadatos del motor": [fila_meta.area_geom_ha, fila_meta.x_m, fila_meta.y_m],
+    })
+    np.testing.assert_allclose(calculo_geo_manual["cálculo visible"],
+                               calculo_geo_manual["metadatos del motor"], atol=1e-8, rtol=0)
+    display(calculo_geo_manual.round(6))
+    print("Área del catálogo, conservada aparte (ha):", fila_meta.AREA_HA)
+    """, tags=["geometria-calculo-visible"])
     codigo("""
     PARCELA = "AGC_001"
     meta_uno = meta.loc[meta.ID_POLIGONO.eq(PARCELA)].copy()
@@ -326,6 +376,40 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     piezas_elev = geo02.piezas_parcela_raster(rasters[archivo_elev], geoms[PARCELA], crs_geoms)
     print("Celda del centroide:", piezas_elev["celda_centroide"], "| CRS:", piezas_elev["metadata"]["epsg"])
     """, tags=["inventario-mallas"])
+    texto("""
+    **De una fila/columna al cuadrado que intersectamos.** Con la afín
+    `(a, b, c, d, e, f)`, **x = a·col + b·fila + c** e
+    **y = d·col + e·fila + f**. La esquina usa enteros; el centro suma 0.5 a ambos
+    índices. Construimos las cuatro esquinas de una celda real de elevación y su
+    intersección con AGC_001, sin desplazar la malla ni redondear coordenadas.
+    Esta topografía usa EPSG:6372 en metros; clima requiere otra proyección de área.
+    """)
+    codigo("""
+    pieza_ejemplo = piezas_elev["piezas"][0]
+    fila_pixel, col_pixel = pieza_ejemplo["fila"], pieza_ejemplo["col"]
+    a, b, c, d, e, f = piezas_elev["metadata"]["transform"]
+
+    def coordenada_visible(columna, fila):
+        return a * columna + b * fila + c, d * columna + e * fila + f
+
+    esquinas_manuales = [coordenada_visible(col, fil) for col, fil in [
+        (col_pixel, fila_pixel), (col_pixel + 1, fila_pixel),
+        (col_pixel + 1, fila_pixel + 1), (col_pixel, fila_pixel + 1),
+    ]]
+    pixel_manual = Polygon(esquinas_manuales)
+    al_crs_raster = Transformer.from_crs(crs_geoms, piezas_elev["metadata"]["crs_wkt"],
+                                        always_xy=True).transform
+    parcela_en_raster = transformar_geometria(al_crs_raster, geoms[PARCELA])
+    interseccion_manual = parcela_en_raster.intersection(pixel_manual)
+    assert not interseccion_manual.is_empty and interseccion_manual.area > 0
+    np.testing.assert_allclose(esquinas_manuales, pieza_ejemplo["esquinas"], atol=1e-8, rtol=0)
+    np.testing.assert_allclose(coordenada_visible(col_pixel + .5, fila_pixel + .5),
+                               pieza_ejemplo["centro"], atol=1e-8, rtol=0)
+    np.testing.assert_allclose(interseccion_manual.area, pieza_ejemplo["area_peso"], atol=1e-8, rtol=0)
+    display(pd.DataFrame(esquinas_manuales, columns=["x esquina (m)", "y esquina (m)"]))
+    print("Área del píxel (m²):", pixel_manual.area,
+          "| Solo su intersección con la parcela (m²):", interseccion_manual.area)
+    """, tags=["afin-interseccion-visible"])
     codigo("""
     fig, ax = plt.subplots(figsize=(7, 4.5))
     valores_validos = [p["valor"] for p in piezas_elev["piezas"] if p["valido"]]
@@ -362,6 +446,10 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     contrastados con el aporte de **Andrea el 21/09/2026**. Sentinel-2 y Planet aportan
     NDVI en series separadas; Landsat aporta VI6T, cuya definición y escala son distintas.
     La media temporal usa `*_promedio`; el píxel extremo usa `*_max` o `*_min`.
+
+    Los índices y sus resúmenes espaciales **ya vienen calculados en los CSV**:
+    no tenemos aquí las bandas para volver a calcular NDVI. Nuestra operación consiste
+    en seleccionar capturas de una parcela/sensor/ventana y resumirlas en el tiempo.
     """)
     codigo("""
     basico_uno = basico.loc[basico.ID_POLIGONO.eq(PARCELA)].copy()
@@ -400,6 +488,69 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     assert extremo.ndvi_max.eq(.993).all() and extremo.porcentaje_nubosidad.eq(0).all()
     """, tags=["satelite-parcela"])
     texto("""
+    **Abrir el resumen: qué filas entraron y qué operación produjo la columna.**
+    Filtramos Planet, AGC_001 y abril–octubre. La receta exige NDVI presente y no
+    establece umbral de nubosidad (`None`); una nube ausente no se convierte en cero.
+    Sobre esas filas, calculamos media, mediana, pico del promedio y máximo de
+    `ndvi_max`. Los comparamos con `construir_satelite`, no con una etiqueta de rendimiento.
+    """)
+    codigo("""
+    inicio_ciclo = pd.Timestamp(CONFIG["ventana_objetivo"]["inicio"])
+    fin_ciclo = pd.Timestamp(CONFIG["ventana_objetivo"]["fin"])
+    planet_ventana = pro_uno.loc[pro_uno.sensor.eq("Planet") &
+                                pro_uno.FECHA.between(inicio_ciclo, fin_ciclo)].sort_values("FECHA")
+    umbral_nube_planet = CONFIG["nubosidad_max_por_sensor"]["PL"]
+    planet_admitidas = planet_ventana.copy()
+    if umbral_nube_planet is not None:
+        planet_admitidas = planet_admitidas.loc[planet_admitidas.porcentaje_nubosidad.le(umbral_nube_planet)]
+    planet_ndvi = planet_admitidas.dropna(subset=["ndvi_promedio"]).copy()
+    fila_pico = planet_ndvi.loc[planet_ndvi.ndvi_promedio.idxmax()]
+    stats_manuales = {
+        "C_PL_ndvi_media": planet_ndvi.ndvi_promedio.mean(),
+        "C_PL_ndvi_mediana": planet_ndvi.ndvi_promedio.median(),
+        "C_PL_ndvi_pico_prom": planet_ndvi.ndvi_promedio.max(),
+        "C_PL_ndvi_pixmax": planet_ndvi.ndvi_max.max(),
+        "C_PL_ndvi_std_media": planet_ndvi.ndvi_std.mean(),
+        "C_PL_ndvi_n": len(planet_ndvi),
+    }
+    contraste_sat_visible = pd.DataFrame([
+        {"columna": nombre, "cálculo visible": valor, "motor": ciclo_uno.loc[PARCELA, nombre]}
+        for nombre, valor in stats_manuales.items()
+    ])
+    np.testing.assert_allclose(contraste_sat_visible["cálculo visible"],
+                               contraste_sat_visible.motor, atol=1e-12, rtol=0)
+    display(planet_ndvi[["FECHA", "ndvi_promedio", "ndvi_max", "ndvi_std", "porcentaje_nubosidad"]].head(6))
+    display(contraste_sat_visible.round(6))
+    print("Pico del promedio:", fila_pico.FECHA.date(), "| Capturas usadas:", len(planet_ndvi))
+    print("STD temporal, solo diagnóstico:", planet_ndvi.ndvi_promedio.std(ddof=1))
+    """, tags=["satelite-calculo-visible"])
+    texto("""
+    **Una regla de calidad también necesita denominador.** En esta reconstrucción el
+    LAI negativo se conserva, no se recorta ni se imputa. Su media usa LAI presente.
+    La bandera `C_S2_q_lai_frac_neg` es distinta: divide capturas con LAI negativo
+    entre capturas Sentinel admitidas **con NDVI presente**, el índice de referencia.
+    Ese denominador histórico incluye una eventual ausencia de LAI; no se cambia aquí.
+    """)
+    codigo("""
+    s2_ventana = basico_uno.loc[basico_uno.sensor.eq("Sentinel-2") &
+                               basico_uno.FECHA.between(inicio_ciclo, fin_ciclo)].copy()
+    umbral_nube_s2 = CONFIG["nubosidad_max_por_sensor"]["S2"]
+    s2_admitidas = s2_ventana.copy()
+    if umbral_nube_s2 is not None:
+        s2_admitidas = s2_admitidas.loc[s2_admitidas.porcentaje_nubosidad.le(umbral_nube_s2)]
+    s2_para_bandera = s2_admitidas.dropna(subset=["ndvi_promedio"])
+    lai_negativos = int(s2_para_bandera.lai_promedio.lt(0).sum())
+    fraccion_lai_neg_manual = lai_negativos / len(s2_para_bandera) if len(s2_para_bandera) else np.nan
+    lai_media_manual = s2_admitidas.lai_promedio.dropna().mean()
+    assert CONFIG["lai_negativos"] == "conservar"
+    np.testing.assert_allclose(fraccion_lai_neg_manual, ciclo_uno.loc[PARCELA, "C_S2_q_lai_frac_neg"],
+                               atol=1e-12, rtol=0)
+    np.testing.assert_allclose(lai_media_manual, ciclo_uno.loc[PARCELA, "C_S2_lai_media"], atol=1e-12, rtol=0)
+    display(pd.DataFrame([{"filas de la ventana": len(s2_ventana), "con NDVI presente": len(s2_para_bandera),
+                           "LAI negativos para bandera": lai_negativos, "fracción negativa": fraccion_lai_neg_manual,
+                           "media LAI sin recortar": lai_media_manual}]))
+    """, tags=["lai-calidad-visible"])
+    texto("""
     **Resultado y límite.** Planet muestra un pico del promedio de **0.836 el 2 de
     septiembre** y un píxel extremo de **0.993 el 21 de octubre**. La nubosidad registrada
     de esa última captura es **0 %**; no atribuimos el extremo a una nube.
@@ -434,6 +585,55 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     print("Integral sintética: el hueco de 30 días entra y el de 31 queda fuera.")
     """, tags=["diagnostico-temporal"])
     texto("""
+    **Abrir la operación temporal.** Primero agrupamos las capturas por mes y
+    calculamos **Σ(media mensual × días del mes) / Σ(días)**. Exigimos los siete
+    meses: un mes sin dato no se rellena ni se elimina para cambiar el denominador.
+
+    Después abrimos la integral: cada par de fechas aporta
+    **(valor anterior + valor siguiente) / 2 × días transcurridos**, solo si su
+    hueco es mayor que cero y no supera 30 días. La tabla muestra seis tramos;
+    la suma usa todos los admitidos. Promediar fechas repetidas conserva la receta.
+    """)
+    codigo("""
+    meses_ciclo = pd.period_range(inicio_ciclo, fin_ciclo, freq="M")
+    mensual_visible = (planet_ndvi.assign(mes=planet_ndvi.FECHA.dt.to_period("M"))
+                       .groupby("mes").ndvi_promedio.agg(media="mean", n="count")
+                       .reindex(meses_ciclo))
+    mensual_visible["dias_mes"] = mensual_visible.index.days_in_month
+    mensual_visible["media_por_dias"] = mensual_visible.media * mensual_visible.dias_mes
+    media_mensual_visible = (mensual_visible.media_por_dias.sum(min_count=len(meses_ciclo))
+                             / mensual_visible.dias_mes.sum())
+    np.testing.assert_allclose(media_mensual_visible,
+                               diagnostico_temporal.loc[PARCELA, "media_mensual_por_dias"], atol=1e-12, rtol=0)
+    display(mensual_visible.round(6))
+
+    serie_fechas = planet_ndvi.groupby("FECHA", as_index=False).ndvi_promedio.mean()
+    tramos = serie_fechas.rename(columns={"FECHA": "hasta", "ndvi_promedio": "valor_hasta"})
+    tramos["desde"] = tramos.hasta.shift()
+    tramos["valor_desde"] = tramos.valor_hasta.shift()
+    tramos["dias"] = (tramos.hasta - tramos.desde).dt.total_seconds() / 86_400
+    tramos["admitido"] = tramos.dias.gt(0) & tramos.dias.le(CONFIG["integral_hueco_max_dias"])
+    tramos["trapecio"] = (tramos.valor_desde + tramos.valor_hasta) / 2 * tramos.dias
+    tramos = tramos.iloc[1:].copy()
+    admitidos = tramos.loc[tramos.admitido]
+    integral_visible = admitidos.trapecio.sum() if len(admitidos) else np.nan
+    dias_visibles = admitidos.dias.sum()
+    np.testing.assert_allclose([integral_visible, dias_visibles],
+                               ciclo_uno.loc[PARCELA, ["C_PL_ndvi_integral", "C_PL_ndvi_dias_integ"]],
+                               atol=1e-12, rtol=0)
+    display(tramos[["desde", "hasta", "valor_desde", "valor_hasta", "dias", "admitido", "trapecio"]].iloc[6:12])
+    display(pd.DataFrame([
+        {"operación": "Media mensual × días (diagnóstico)", "cálculo visible": media_mensual_visible,
+         "motor": diagnostico_temporal.loc[PARCELA, "media_mensual_por_dias"]},
+        {"operación": "Integral parcial (NDVI·día)", "cálculo visible": integral_visible,
+         "motor": ciclo_uno.loc[PARCELA, "C_PL_ndvi_integral"]},
+        {"operación": "Días integrados", "cálculo visible": dias_visibles,
+         "motor": ciclo_uno.loc[PARCELA, "C_PL_ndvi_dias_integ"]},
+    ]).round(6))
+    print("Tramos admitidos:", len(admitidos), "| Primera y última captura:",
+          serie_fechas.FECHA.min().date(), serie_fechas.FECHA.max().date())
+    """, tags=["tiempo-calculo-visible"])
+    texto("""
     **Interpretación.** Las tres medias responden preguntas diferentes. Ni la media
     mensual ni el cociente integral/días reconstruyen automáticamente el verdadero
     promedio diario. La integral describe los tramos admitidos y conserva el signo del
@@ -446,7 +646,8 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     **Qué comprobamos y cómo.** Para cada celda intersectada, usamos el área de su
     intersección con la parcela: **Σ(valor × área válida) / Σ(área válida)**.
     Para clima calculamos esas áreas en EPSG:32614; NoData y máscaras se excluyen.
-    Extraemos los **144 meses** disponibles de AGC_001 reutilizando una caché por malla.
+    Extraemos los **144 registros mensuales** de AGC_001 (48 meses × tres variables)
+    reutilizando una caché por malla.
 
     El control por centroide toma la celda bajo el centroide planar del polígono en el
     **CRS del ráster**. No es el centroide UTM de los metadatos reproyectado después.
@@ -466,6 +667,96 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     display(pd.DataFrame([{k: p[k] for k in ["fila", "col", "valor", "valido", "area_peso",
                                            "peso_valido_normalizado"]} for p in piezas_prec["piezas"]]))
     """, tags=["clima-parcela"])
+    texto("""
+    **Abrir la ponderación espacial.** Un píxel que solo toca un borde no recibe
+    el mismo peso que otro que cubre casi toda la parcela. Usamos las áreas de las
+    piezas, no el área completa del píxel ni su fracción en grados cuadrados.
+    En AGC_001, abril de 2025 cae en una sola celda. Añadimos **AGC_051**, que cruza
+    dos, para ver **peso = área válida de la pieza / área válida total** y
+    **aporte = valor × peso**. Sumamos los aportes y contrastamos con `extraer_raster`.
+
+    Las intersecciones de lluvia están en grados: proyectamos cada pieza a UTM14N
+    antes de medir m². Elevación, en cambio, ya está en un CRS métrico.
+
+    Aquí las piezas vienen del motor geométrico: este es un **contraste aritmético**,
+    no una reimplementación independiente de toda la extracción. La sección 4 abre
+    una intersección; las pruebas del proyecto comprueban mallas, máscaras y caché.
+    """)
+    codigo("""
+    contrastes_lluvia = []
+    for id_ejemplo in [PARCELA, "AGC_051"]:
+        piezas_ejemplo = geo02.piezas_parcela_raster(rasters["PREC_2025_04.tif"],
+                                                    geoms[id_ejemplo], crs_geoms)
+        piezas_validas = pd.DataFrame([
+            {"celda": f"R{p['fila']}_C{p['col']}", "lluvia_mm": p["valor"],
+             "area_m2": transformar_geometria(transformar_utm, p["interseccion"]).area}
+            for p in piezas_ejemplo["piezas"] if p["valido"]
+        ])
+        np.testing.assert_allclose(piezas_validas.area_m2,
+                                   [p["area_peso"] for p in piezas_ejemplo["piezas"] if p["valido"]],
+                                   atol=1e-8, rtol=0)
+        area_valida = piezas_validas.area_m2.sum()
+        piezas_validas["peso"] = piezas_validas.area_m2 / area_valida
+        piezas_validas["aporte_mm"] = piezas_validas.lluvia_mm * piezas_validas.peso
+        lluvia_visible = piezas_validas.aporte_mm.sum()
+        control_lluvia = geo02.extraer_raster(rasters["PREC_2025_04.tif"],
+                                              {id_ejemplo: geoms[id_ejemplo]}, crs_geoms)[id_ejemplo]
+        np.testing.assert_allclose(piezas_validas.peso.sum(), 1., atol=1e-12, rtol=0)
+        np.testing.assert_allclose(lluvia_visible, control_lluvia["pond"], atol=1e-12, rtol=0)
+        display(piezas_validas.assign(ID_POLIGONO=id_ejemplo).round(6))
+        contrastes_lluvia.append({"ID_POLIGONO": id_ejemplo, "cálculo visible (mm)": lluvia_visible,
+                                  "motor (mm)": control_lluvia["pond"],
+                                  "centroide (mm)": control_lluvia["cent"]})
+    display(pd.DataFrame(contrastes_lluvia).round(6))
+    """, tags=["lluvia-calculo-visible"])
+    texto("""
+    **Por qué NoData no equivale a cero.** El siguiente ejemplo es **inventado**,
+    no una parcela del reto. Una pieza sin dato conserva su área para medir cobertura,
+    pero no entra al denominador del promedio. Poner cero inventaría lluvia conocida.
+    Si ninguna pieza fuera válida, la salida sería NaN, no cero.
+    """)
+    codigo("""
+    ejemplo_nodata = pd.DataFrame({"valor": [10., np.nan, 30.], "area": [1., 2., 1.]})
+    validas_sinteticas = ejemplo_nodata.valor.notna()
+    area_valida_sintetica = ejemplo_nodata.loc[validas_sinteticas, "area"].sum()
+    media_valida_sintetica = (ejemplo_nodata.loc[validas_sinteticas, "valor"] *
+                             ejemplo_nodata.loc[validas_sinteticas, "area"]).sum() / area_valida_sintetica
+    media_cero_erronea = (ejemplo_nodata.valor.fillna(0) * ejemplo_nodata.area).sum() / ejemplo_nodata.area.sum()
+    assert media_valida_sintetica == 20. and media_cero_erronea == 10.
+    display(ejemplo_nodata)
+    print("Media sobre área válida:", media_valida_sintetica,
+          "| Si se inventaran ceros:", media_cero_erronea,
+          "| Fracción válida:", area_valida_sintetica / ejemplo_nodata.area.sum())
+    """, tags=["nodata-calculo-visible"])
+    texto("""
+    **De siete meses a una variable del ciclo.** La lluvia mensual es un acumulado
+    en mm: **sumamos** los siete valores. La temperatura mensual es un promedio en
+    °C: calculamos **Σ(°C mensual × días) / 214**. Abrimos ambas operaciones para
+    AGC_001 y las comparamos con las columnas finales. Una ausencia mensual propaga
+    NaN; no quitamos meses para obtener un ciclo aparentemente completo.
+    """)
+    codigo("""
+    meses_numeros = meses_ciclo.month.tolist()
+    clima_meses_visible = (clima_uno_largo.loc[clima_uno_largo.anio.eq(inicio_ciclo.year)
+                                             & clima_uno_largo.mes.isin(meses_numeros)]
+                           .pivot(index="mes", columns="variable", values="pond")
+                           .reindex(meses_numeros))
+    clima_meses_visible["dias"] = meses_ciclo.days_in_month.to_numpy()
+    clima_meses_visible["tmin_por_dias"] = clima_meses_visible.tmin * clima_meses_visible.dias
+    lluvia_ciclo_visible = clima_meses_visible.prec.sum(min_count=len(meses_numeros))
+    tmin_ciclo_visible = (clima_meses_visible.tmin_por_dias.sum(min_count=len(meses_numeros))
+                          / clima_meses_visible.dias.sum())
+    np.testing.assert_allclose([lluvia_ciclo_visible, tmin_ciclo_visible],
+                               clima_uno.loc[PARCELA, ["clim_prec_ciclo_mm", "clim_tmin_ciclo_C"]].to_numpy(dtype=float),
+                               atol=1e-12, rtol=0)
+    display(clima_meses_visible.round(6))
+    display(pd.DataFrame([
+        {"columna": "clim_prec_ciclo_mm", "cálculo visible": lluvia_ciclo_visible,
+         "motor": clima_uno.loc[PARCELA, "clim_prec_ciclo_mm"]},
+        {"columna": "clim_tmin_ciclo_C", "cálculo visible": tmin_ciclo_visible,
+         "motor": clima_uno.loc[PARCELA, "clim_tmin_ciclo_C"]},
+    ]).round(6))
+    """, tags=["clima-tiempo-visible"])
     texto("""
     **Decisión y límite.** La lluvia ponderada queda como valor histórico y el centroide
     viaja como control. Si una parcela toca una sola celda válida, ambos pueden coincidir;
@@ -495,6 +786,41 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     assert np.isclose(control_170["frac_valida"], .021, atol=.001, rtol=0)
     assert np.isnan(control_170["cent"]) and np.isfinite(control_170["pond"])
     """, tags=["topografia-parcela"])
+    texto("""
+    **Abrir media, dispersión y cobertura.** Sobre las piezas válidas de elevación
+    calculamos **μ = Σ(valor × área) / Σ(área)** y
+    **σ = √[Σ(área × (valor − μ)²) / Σ(área)]**. Es dispersión poblacional
+    ponderada de la superficie, no desviación temporal ni incertidumbre predictiva.
+    El mínimo y máximo son valores de celdas con intersección válida.
+    La cobertura histórica divide por las piezas dentro de la malla;
+    `cobertura_total` usa toda el área de parcela. No intercambiamos denominadores.
+    """)
+    codigo("""
+    elev_visible = pd.DataFrame([
+        {"valor": p["valor"], "area": p["interseccion"].area}
+        for p in piezas_elev["piezas"] if p["valido"]
+    ])
+    area_elev_valida = elev_visible.area.sum()
+    media_elev_visible = (elev_visible.valor * elev_visible.area).sum() / area_elev_valida
+    varianza_elev_visible = (elev_visible.area * (elev_visible.valor - media_elev_visible) ** 2).sum() / area_elev_valida
+    stats_elev_visibles = {
+        "topo_elev_media_m": media_elev_visible,
+        "topo_elev_std_m": np.sqrt(varianza_elev_visible),
+        "topo_elev_min_m": elev_visible.valor.min(),
+        "topo_elev_max_m": elev_visible.valor.max(),
+        "topo_elev_rango_m": elev_visible.valor.max() - elev_visible.valor.min(),
+        "topo_elev_npix": len(elev_visible),
+        "topo_elev_cobertura": area_elev_valida / piezas_elev["area_malla"],
+    }
+    contraste_elev_visible = pd.DataFrame([
+        {"columna": nombre, "cálculo visible": valor, "motor": topo_uno.loc[PARCELA, nombre]}
+        for nombre, valor in stats_elev_visibles.items()
+    ])
+    np.testing.assert_allclose(contraste_elev_visible["cálculo visible"],
+                               contraste_elev_visible.motor, atol=1e-10, rtol=0)
+    display(contraste_elev_visible.round(6))
+    print("Cobertura total de elevación:", area_elev_valida / piezas_elev["area_parcela"])
+    """, tags=["topografia-calculo-visible"])
     texto("""
     **Resultado y límite.** AGC_170 tiene cobertura de pendiente cercana a **2.1 %**.
     El promedio zonal existe porque hay área con dato, pero el centroide es NaN.
@@ -536,6 +862,27 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     display(tabla_base[vista].head(6).round(6))
     print("Control una parcela ↔ 197:", int(contraste_uno.coincide.sum()), "columnas coincidentes")
     """, tags=["ensamblar-197"])
+    texto("""
+    **Abrir la unión: de fuentes distintas a una misma fila.** Seleccionamos una
+    columna de cada bloque y las unimos explícitamente por `ID_POLIGONO`, con
+    `validate="one_to_one"` para rechazar duplicados. No asumimos que las tablas
+    estén en el mismo orden. La fila reducida se compara con la tabla completa;
+    es una vista didáctica, no una tabla nueva para entrenar.
+    """)
+    codigo("""
+    fila_visible = meta_uno[["ID_POLIGONO", "AREA_HA"]].copy()
+    for bloque, columna in [
+        (ciclo_uno, "C_PL_ndvi_media"), (clima_uno, "clim_prec_ciclo_mm"),
+        (topo_uno, "topo_elev_media_m"),
+    ]:
+        fila_visible = fila_visible.merge(bloque[[columna]].reset_index(),
+                                           on="ID_POLIGONO", how="left", validate="one_to_one")
+    fila_completa = tabla_base.set_index("ID_POLIGONO").loc[[PARCELA], fila_visible.columns[1:]].reset_index()
+    pd.testing.assert_frame_equal(fila_visible, fila_completa.reset_index(drop=True), check_exact=False,
+                                   atol=1e-10, rtol=0)
+    display(fila_visible.round(6))
+    print("Misma clave, misma fila; en la tabla completa:", tabla_base.shape, "sin unir rendimiento.")
+    """, tags=["union-calculo-visible"])
     texto("""
     **Decisión y límite.** La misma parcela conserva su fila al generalizar. Ningún
     faltante se imputa y ningún índice se selecciona según rendimiento. Las 539
@@ -621,6 +968,13 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
     variables, las etiquetas quedan separadas y el postciclo conserva su propio producto.
     La siguiente celda registra conteos y comprueba otra vez que el ZIP sigue intacto.
 
+    **Qué se estudia y qué se automatiza.** Las celdas visibles muestran unidades,
+    filtros, denominadores, pesos y uniones con datos concretos. Cada contraste
+    comprueba una operación; no certifica por sí solo todo el motor ni la validez
+    agronómica de la receta. Los módulos plegados permiten repetirla sobre todas las
+    parcelas sin ocultar esas decisiones. Estos ejemplos no agregan variables a la
+    base histórica ni usan rendimiento para elegir reglas.
+
     **Siguiente pregunta — NB03:** ¿qué referencias sencillas debemos reconstruir y
     cómo compararlas sobre parcelas no utilizadas para ajustarlas? La utilidad de estas
     variables se estudiará mediante validación; este cuaderno no anticipa sus resultados.
@@ -702,6 +1056,20 @@ def construir(raiz: Path | None = None) -> nbformat.NotebookNode:
                             for nombre, registro in referencias.items()},
         },
     }
+    titulos_tecnicos = {
+        "soporte-colab": "Soporte de ejecución (ejecutar; no requiere edición)",
+        "modulos-tecnicos": "Cargar módulos verificados (código técnico completo)",
+        "referencias-tecnicas": "Cargar controles históricos (no son entradas predictivas)",
+    }
+    for celda in cuaderno.cells:
+        if celda.cell_type == "code" and celda.metadata.get("jupyter", {}).get("source_hidden"):
+            tags = celda.metadata.get("tags", [])
+            titulos = [titulo for tag, titulo in titulos_tecnicos.items() if tag in tags]
+            if len(titulos) != 1:
+                raise ValueError("Una celda técnica requiere un título de Colab inequívoco")
+            # Anotación visual: el cuerpo identificado y los cálculos no cambian.
+            celda.source = f'# @title {titulos[0]} {{ display-mode: "form" }}\n' + celda.source
+            celda.metadata["cellView"] = "form"
     for numero, celda in enumerate(cuaderno.cells, start=1):
         celda.id = f"fuentes02-{numero:02d}"
     nbformat.validate(cuaderno)

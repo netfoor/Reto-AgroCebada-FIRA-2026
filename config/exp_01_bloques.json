@@ -1,0 +1,83 @@
+{
+  "id": "EXP_01",
+  "id_historico": "AGC-EXP-RONDA1",
+  "modo": "lector_retrospectivo_sin_ajustes",
+  "fecha_original": "2026-09-21",
+  "fecha_adaptacion": "2026-10-08",
+  "poblacion_original": "FULL138",
+  "ajustes_actuales": 0,
+  "ajustes_interiores_historicos": 5000,
+  "reajustes_exteriores_historicos": 250,
+  "insumos": {
+    "variables": {
+      "ruta_local": "data/exp_01_bloques/variables.csv",
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024,
+      "uso": "predictores_fuente",
+      "origen": "integracion_v0/salidas/variables_v0_197.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_01_bloques/etiquetas.csv",
+      "sha256": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+      "bytes": 1765,
+      "uso": "etiquetas",
+      "origen": "integracion_v0/salidas/etiquetas_138.csv"
+    },
+    "externas": {
+      "ruta_local": "data/exp_01_bloques/externas.csv",
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295,
+      "uso": "particiones",
+      "origen": "analysis/reunion_inicial/particiones_cv_5x10.csv"
+    },
+    "internas": {
+      "ruta_local": "data/exp_01_bloques/internas.csv",
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731,
+      "uso": "particiones",
+      "origen": "integracion_v0/experimentos/ronda1/salidas/particiones_internas.csv"
+    },
+    "oof": {
+      "ruta_local": "data/exp_01_bloques/oof.csv",
+      "sha256": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+      "bytes": 290192,
+      "uso": "resultados_guardados",
+      "origen": "integracion_v0/experimentos/ronda1/salidas/predicciones_oof_ronda1.csv"
+    },
+    "referencias": {
+      "ruta_local": "data/exp_01_bloques/referencias.csv",
+      "sha256": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+      "bytes": 209628,
+      "uso": "resultados_guardados",
+      "origen": "analysis/reunion_inicial/predicciones_oof_referencias.csv"
+    },
+    "seleccion": {
+      "ruta_local": "data/exp_01_bloques/seleccion.csv",
+      "sha256": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+      "bytes": 26658,
+      "uso": "scores_guardados",
+      "origen": "integracion_v0/experimentos/ronda1/salidas/alphas_seleccionados.csv"
+    },
+    "metricas_control": {
+      "ruta_local": "data/exp_01_bloques/metricas_control.csv",
+      "sha256": "db13296f6a985f321e207310fcbc12522b913251ee48faff63e062223cfdc226",
+      "bytes": 1677,
+      "uso": "control_posterior",
+      "origen": "integracion_v0/experimentos/ronda1/salidas/metricas_globales.csv"
+    },
+    "manifiesto": {
+      "ruta_local": "data/exp_01_bloques/manifiesto.json",
+      "sha256": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401",
+      "bytes": 7145,
+      "uso": "receta_historica",
+      "origen": "integracion_v0/experimentos/ronda1/manifiesto_previo.json"
+    },
+    "registro": {
+      "ruta_local": "data/exp_01_bloques/registro.json",
+      "sha256": "f06c06fe536b07473bf2b8b945fe17e3f4ffa0dd85c8953e97af5eef8edf509f",
+      "bytes": 2822,
+      "uso": "registro_historico",
+      "origen": "integracion_v0/experimentos/ronda1/salidas/registro_ejecucion.json"
+    }
+  }
+}

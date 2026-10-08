@@ -42,7 +42,7 @@ Si la pregunta es de extracción o calidad, mostramos cobertura, diferencias ent
 ## Qué hace ejecutar una celda
 
 - **Leer:** muestra salidas documentadas.
-- **Recalcular:** vuelve a calcular variables, métricas o controles; identifica si utiliza resultados guardados y no entrena por defecto.
+- **Recalcular:** vuelve a calcular variables, métricas o controles; identifica qué reconstruye y si utiliza resultados guardados. Los cuadernos 01 y 02 no ajustan modelos. El 03 anuncia y recalcula 150 ajustes sencillos de referencias históricas, sin seleccionar hiperparámetros.
 - **Reentrenar:** repite ajustes de forma explícita, con presupuesto y salida nuevos.
 
 El modo debe estar identificado antes de la primera ejecución. Estudiar la evidencia no debe activar por sorpresa miles de ajustes.
@@ -61,7 +61,11 @@ uv export --locked --no-default-groups --group colab --no-emit-project --no-hash
 
 El perfil incluye núcleo, gráficos y gdown. El perfil `requirements-colab-auditoria.txt` incorpora también `geo`, exportado con el mismo comando y `--group geo`.
 
-Los cuadernos se ejecutan por separado. El 01 necesita sus bibliotecas de lectura y geometría; el 02 añade Rasterio para leer los GeoTIFF directamente desde el ZIP en memoria. Ambos incluyen todo el código que utilizan y comparten el contrato del ZIP original. No requieren Git ni haber ejecutado otro notebook.
+Los cuadernos se ejecutan por separado. El 01 necesita sus bibliotecas de lectura y geometría; el 02 añade Rasterio para leer los GeoTIFF directamente desde el ZIP en memoria. El 03 reutiliza los módulos de fuentes para conservar metadatos y etiquetas, y reconstruye las tres referencias con NumPy y pandas. Los tres incluyen todo el código que utilizan y comparten el contrato del ZIP original. No requieren Git ni haber ejecutado otro notebook.
+
+El 03 incorpora las particiones externas e internas con su identidad histórica; no vuelve a sortearlas. También incluye controles de predicciones y métricas que se abren después de recalcular. No se descarga un segundo paquete de Drive ni se utiliza una tabla de predicciones como entrada del ajuste.
+
+En los cuadernos 02 y 03, los tres bloques técnicos —soporte, módulos y controles incrustados— se presentan plegados con título en Colab. **Mostrar código / Show code** permite abrirlos; **Ejecutar todo / Run all** los ejecuta igualmente. El código didáctico permanece visible. El título y la vista de formulario cambian la presentación, no las fuentes ni los cálculos.
 
 **Preparación visible en Colab:** antes de leer datos, `PREPARAR_COLAB = True` permite instalar las bibliotecas requeridas cuya versión falta o difiere. La celda imprime el plan, utiliza paquetes binarios y limita las dependencias necesarias mediante el perfil de uv. No intenta reinstalar todo el entorno de Google ni modifica el entorno local.
 

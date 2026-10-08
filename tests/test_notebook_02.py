@@ -14,6 +14,7 @@ import zlib
 from pathlib import Path
 
 import nbformat
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -78,7 +79,9 @@ def test_preparacion_deriva_solo_una_tupla_y_preserva_soporte_compartido(noteboo
     original = (ROOT / "scripts/colab_soporte.py").read_text()
     derivado = BUILDER.derivar_soporte(original)
     celda = _celda(notebook, "soporte-colab")
-    assert celda.source == derivado
+    cabecera, salto, cuerpo = celda.source.partition("\n")
+    assert cabecera.startswith("# @title ") and '{ display-mode: "form" }' in cabecera
+    assert salto == "\n" and cuerpo == derivado
     assert (ROOT / "scripts/colab_soporte.py").read_text() == original
     before = _literal(nbformat.v4.new_code_cell(original), "REQUERIDOS_AUDITORIA")
     after = _literal(celda, "REQUERIDOS_AUDITORIA")
@@ -93,6 +96,146 @@ def test_preparacion_deriva_solo_una_tupla_y_preserva_soporte_compartido(noteboo
     assert celda.metadata.jupyter.source_hidden is True
     with pytest.raises(ValueError, match="soporte compartido cambió"):
         BUILDER.derivar_soporte(original.replace("REQUERIDOS_AUDITORIA", "OTRA_TUPLA"))
+
+
+def test_bloques_tecnicos_plegados_en_colab_sin_alterar_cuerpo(notebook):
+    tags_tecnicos = {"soporte-colab", "modulos-tecnicos", "referencias-tecnicas"}
+    encontradas = set()
+    for celda in notebook.cells:
+        tags = set(celda.metadata.get("tags", [])) & tags_tecnicos
+        if tags:
+            assert len(tags) == 1
+            encontradas.update(tags)
+            assert celda.metadata.cellView == "form"
+            assert celda.metadata.jupyter.source_hidden is True
+            titulo, salto, cuerpo = celda.source.partition("\n")
+            assert titulo.startswith("# @title ")
+            assert titulo.endswith('{ display-mode: "form" }') and salto == "\n"
+            assert len(titulo) < 160
+            ast.parse(cuerpo)
+            assert ast.dump(ast.parse(celda.source)) == ast.dump(ast.parse(cuerpo))
+    assert encontradas == tags_tecnicos
+
+
+def test_codigo_didactico_permanece_visible_y_sin_formulario(notebook):
+    visibles = [c for c in notebook.cells if c.cell_type == "code"
+                and not c.metadata.get("jupyter", {}).get("source_hidden")]
+    assert len(visibles) == 25
+    for celda in visibles:
+        assert "cellView" not in celda.metadata
+        assert not celda.source.startswith("# @title ")
+
+
+def test_puentes_tienen_calculo_contraste_y_permanecen_visibles(notebook):
+    tags = ["geometria-calculo-visible", "afin-interseccion-visible", "satelite-calculo-visible",
+            "lai-calidad-visible", "tiempo-calculo-visible", "lluvia-calculo-visible",
+            "nodata-calculo-visible", "clima-tiempo-visible", "topografia-calculo-visible",
+            "union-calculo-visible"]
+    for tag in tags:
+        celda = _celda(notebook, tag)
+        assert celda.cell_type == "code"
+        assert not celda.metadata.get("jupyter", {}).get("source_hidden", False)
+        assert "display(" in celda.source
+        assert "assert" in celda.source
+        tree = ast.parse(celda.source)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Name):
+                assert node.id not in {"etiquetas", "referencia_base", "referencia_postciclo"}
+                if isinstance(node.ctx, ast.Store):
+                    assert node.id not in {"CONFIG", "meta", "basico", "pro", "geoms", "tabla_base"}
+    texto = "\n".join(c.source for c in notebook.cells if c.cell_type == "markdown")
+    assert "contraste aritmético" in texto
+    assert "no una reimplementación independiente" in texto
+    assert "no agregan variables" in texto
+    for modulo in ("auditoria_01", "fuentes_02_geo", "fuentes_02_satelite", "fuentes_02"):
+        assert f"`{modulo}`" in texto
+
+
+def test_operaciones_geometricas_explicitas_no_desplazan_malla(notebook):
+    geo = _celda(notebook, "geometria-calculo-visible").source
+    assert "always_xy=True" in geo and ".area / 10_000" in geo and ".centroid" in geo
+    afin = _celda(notebook, "afin-interseccion-visible").source
+    assert "a * columna + b * fila + c, d * columna + e * fila + f" in afin
+    assert "col_pixel + .5, fila_pixel + .5" in afin
+    assert "parcela_en_raster.intersection(pixel_manual)" in afin
+    lluvia = _celda(notebook, "lluvia-calculo-visible").source
+    assert '[PARCELA, "AGC_051"]' in lluvia
+    assert 'transformar_geometria(transformar_utm, p["interseccion"]).area' in lluvia
+    assert 'piezas_validas.area_m2 / area_valida' in lluvia
+    assert 'control_lluvia["pond"]' in lluvia
+
+
+def test_filtros_y_denominador_lai_se_explican_sin_cambiar_receta(notebook):
+    sat = _celda(notebook, "satelite-calculo-visible").source
+    assert 'pro_uno.sensor.eq("Planet")' in sat
+    assert '.FECHA.between(inicio_ciclo, fin_ciclo)' in sat
+    assert 'if umbral_nube_planet is not None:' in sat
+    assert 'dropna(subset=["ndvi_promedio"])' in sat
+    assert 'planet_ndvi.ndvi_std.mean()' in sat
+    lai = _celda(notebook, "lai-calidad-visible").source
+    assert 's2_para_bandera = s2_admitidas.dropna(subset=["ndvi_promedio"])' in lai
+    assert 'lai_negativos / len(s2_para_bandera)' in lai
+    assert 's2_admitidas.lai_promedio.dropna().mean()' in lai
+    assert '.clip(' not in sat + lai and '.fillna(' not in sat + lai
+
+
+def test_tiempo_visible_conserva_huecos_y_meses_ausentes(notebook):
+    tiempo = _celda(notebook, "tiempo-calculo-visible").source
+    assert '.reindex(meses_ciclo)' in tiempo
+    assert '.sum(min_count=len(meses_ciclo))' in tiempo
+    assert 'tramos.dias.gt(0) & tramos.dias.le(CONFIG["integral_hueco_max_dias"])' in tiempo
+    assert 'planet_ndvi.groupby("FECHA", as_index=False).ndvi_promedio.mean()' in tiempo
+    assert 'if len(admitidos) else np.nan' in tiempo
+    clima = _celda(notebook, "clima-tiempo-visible").source
+    assert 'prec.sum(min_count=len(meses_numeros))' in clima
+    assert 'tmin_por_dias.sum(min_count=len(meses_numeros))' in clima
+    assert '.dropna(' not in tiempo + clima and '.fillna(' not in tiempo + clima
+
+
+def test_nodata_sintetico_y_dispersion_poblacional_sin_imputar_fuentes(notebook):
+    demo = _celda(notebook, "nodata-calculo-visible").source
+    assert 'pd.DataFrame({"valor": [10., np.nan, 30.], "area": [1., 2., 1.]})' in demo
+    assert 'media_valida_sintetica == 20. and media_cero_erronea == 10.' in demo
+    assert '.fillna(0)' in demo  # Solo contraejemplo sintético, no la extracción.
+    assert "rasters" not in demo and "clima_uno" not in demo
+    topo = _celda(notebook, "topografia-calculo-visible").source
+    assert '(elev_visible.valor - media_elev_visible) ** 2' in topo
+    assert 'np.sqrt(varianza_elev_visible)' in topo
+    assert 'area_elev_valida / piezas_elev["area_malla"]' in topo
+    assert 'area_elev_valida / piezas_elev["area_parcela"]' in topo
+
+
+def test_union_visible_es_por_clave_y_no_alimenta_base(notebook):
+    union = _celda(notebook, "union-calculo-visible").source
+    assert 'on="ID_POLIGONO", how="left", validate="one_to_one"' in union
+    assert 'pd.testing.assert_frame_equal(' in union
+    assert 'tabla_base.set_index("ID_POLIGONO").loc[[PARCELA]' in union
+    ensamblar = _celda(notebook, "ensamblar-197").source
+    assert "fila_visible" not in ensamblar
+    for nombre in ("stats_manuales", "mensual_visible", "lluvia_visible", "stats_elev_visibles"):
+        assert nombre not in ensamblar
+
+
+@pytest.mark.parametrize("mes_ausente", [False, True])
+def test_clima_visible_compara_numeros_en_tabla_mixta_y_propaga_nan(notebook, mes_ausente):
+    meses = pd.period_range("2025-04", "2025-10", freq="M")
+    largo = pd.DataFrame([
+        {"anio": 2025, "mes": mes, "variable": variable,
+         "pond": np.nan if mes_ausente and mes == 6 else valor}
+        for mes in meses.month for variable, valor in (("prec", 10.), ("tmin", 5.), ("tmax", 20.))
+    ])
+    clima = pd.DataFrame({"clim_prec_ciclo_mm": [np.nan if mes_ausente else 70.],
+                          "clim_tmin_ciclo_C": [np.nan if mes_ausente else 5.],
+                          "control_celda": ["R37_C27"]}, index=["AGC_001"])
+    salidas = []
+    ns = {"pd": pd, "np": np, "meses_ciclo": meses, "inicio_ciclo": pd.Timestamp("2025-04-01"),
+          "clima_uno_largo": largo, "clima_uno": clima, "PARCELA": "AGC_001", "display": salidas.append}
+    exec(compile(_celda(notebook, "clima-tiempo-visible").source, "<clima-visible>", "exec"), ns)
+    assert len(salidas) == 2
+    if mes_ausente:
+        assert np.isnan(ns["lluvia_ciclo_visible"]) and np.isnan(ns["tmin_ciclo_visible"])
+    else:
+        assert ns["lluvia_ciclo_visible"] == 70. and ns["tmin_ciclo_visible"] == 5.
 
 
 def test_perfil_config_y_versiones_son_los_archivos_identificados(notebook):

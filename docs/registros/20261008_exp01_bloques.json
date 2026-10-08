@@ -1,0 +1,164 @@
+{
+  "registrado_utc": "2026-10-08T13:26:01.511882+00:00",
+  "fecha_edicion_mexico": "2026-10-08",
+  "id": "EXP_01",
+  "id_historico": "AGC-EXP-RONDA1",
+  "fecha_trabajo_original": "2026-09-21",
+  "alcance": "Lector retrospectivo; reconstruye 14 variables y recalcula métricas de OOF guardadas. No reentrena ni reproduce scores internos.",
+  "poblacion": "FULL138",
+  "ajustes_actuales": 0,
+  "predicciones_finales_generadas": 0,
+  "pruebas": {
+    "total": 269,
+    "exp01": 28,
+    "fallos": 0,
+    "errores": 0,
+    "omitidas": 0,
+    "ruff": "pasa",
+    "junit": "verificacion_local/exp01_bloques_20261008/pruebas.xml"
+  },
+  "verificacion_local": {
+    "celdas": 30,
+    "celdas_codigo": 16,
+    "salidas_identicas_salvo_fecha": 27,
+    "png_identicos": 1,
+    "kernels_nuevos": 2,
+    "fuentes_originales_intactas": true,
+    "colab_real_probado": false,
+    "notebook_sha256": "c74f4703d46a83022d675c42e5834ffea721112be531edab5deae6592b7e318c"
+  },
+  "colab_real_probado": false,
+  "incidencias_preparacion": [
+    "Se perdió la copia temporal anterior antes de publicar; se recuperó la edición en una carpeta persistente y se verificó de nuevo.",
+    "El control de referencias conservaba nombres largos; se corrigieron solo alias de lectura y se añadió una prueba. Predicciones, métricas y CSV originales intactos.",
+    "La prueba nueva se adaptó al contenedor de tablas del fixture recuperado; no cambió la función métrica."
+  ],
+  "modificaciones": {
+    "README.md": {
+      "antes": "99dcdcf6d93a5651d6b5d353e80a13a0a4c41a88c203731953582f5651881d64",
+      "despues": "73aded1cca8c2b270b63cbfa16622c1e4fcc27d3f9a86055353bbcc7319888bb",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/README.md"
+    },
+    "notebooks/README.md": {
+      "antes": "4247cd5448517842f352994cef2eb23db0491c97ec12e761f26ab5bf9f1a58cc",
+      "despues": "7e3b3456f7bae968d357040cb4caaf81cd6b0f474a20264443931df1eeaaa604",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/notebooks/README.md"
+    },
+    "docs/05_verificacion_preparacion.md": {
+      "antes": "789e2d46ea69f856a2700d474dc66a0328b80185e7f296d07061fbdf62ee3a3f",
+      "despues": "d1d622e668e4e33da408476ee8786e8d8eb107bfe1ad8d9b047401b200a1bd35",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/docs/05_verificacion_preparacion.md"
+    },
+    "gestion/estado_y_decisiones.md": {
+      "antes": "ed08b500c9d603dbb401d7baed8fc2893199b911e24202f4f5e66c5bd0327c8c",
+      "despues": "ee5deff38693f5a9d797f275c2783cfed09a6815956de1c1286f4b7dca556223",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/gestion/estado_y_decisiones.md"
+    },
+    "config/indice_experimentos.json": {
+      "antes": "0c8feb1bab498d8f1150110f5f9054aeed0fec63b04459ca7960481c7331ac0f",
+      "despues": "23f33ea9f66036660879118ca2c50468b8ca7b0064f638abb10cab05d7d2411d",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/config/indice_experimentos.json"
+    },
+    "tests/test_base_proyecto.py": {
+      "antes": "89be7ec1edfe6e8c0c199d223c00f48157125abb3a511f6f143321aae738fadc",
+      "despues": "30f6e31d0cf1cad35b774f81170a133de1298bd23806393f5675b1d0b8773e65",
+      "copia": "artefactos_locales/exp01_bloques_20261008/archivos_previos/tests/test_base_proyecto.py"
+    }
+  },
+  "nuevos": {
+    "config/exp_01_bloques.json": {
+      "sha256": "a6c880c3e734c4b3e60133fa75adfcd219d2c028c6cb3e7d60d53918ea1de944",
+      "bytes": 3325
+    },
+    "scripts/construir_exp_01.py": {
+      "sha256": "156d405972016acdbefaa193c9d7fb24ec338def4d9b9bc6ab70f80300c0fd23",
+      "bytes": 35313
+    },
+    "scripts/ejecutar_exp_01.py": {
+      "sha256": "4286bed27d7d7afde689a9741ec36c15cef6341add8ca9e5874e29fb4de89563",
+      "bytes": 3682
+    },
+    "tests/test_exp_01.py": {
+      "sha256": "20b3aaae04f25635301bb068d80325bda333442d52ad48e5601fead55b9f18f0",
+      "bytes": 20039
+    },
+    "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb": {
+      "sha256": "c74f4703d46a83022d675c42e5834ffea721112be531edab5deae6592b7e318c",
+      "bytes": 871951
+    },
+    "notebooks/experimentos/exp_01_bloques/README.md": {
+      "sha256": "5249c995cc20931e2ee5207b5113e8e185b54685d8132adeeb1ece1fcf31f5f2",
+      "bytes": 1108
+    },
+    "data/exp_01_bloques/variables.csv": {
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024
+    },
+    "data/exp_01_bloques/etiquetas.csv": {
+      "sha256": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+      "bytes": 1765
+    },
+    "data/exp_01_bloques/externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/exp_01_bloques/internas.csv": {
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731
+    },
+    "data/exp_01_bloques/oof.csv": {
+      "sha256": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+      "bytes": 290192
+    },
+    "data/exp_01_bloques/referencias.csv": {
+      "sha256": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+      "bytes": 209628
+    },
+    "data/exp_01_bloques/seleccion.csv": {
+      "sha256": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+      "bytes": 26658
+    },
+    "data/exp_01_bloques/metricas_control.csv": {
+      "sha256": "db13296f6a985f321e207310fcbc12522b913251ee48faff63e062223cfdc226",
+      "bytes": 1677
+    },
+    "data/exp_01_bloques/manifiesto.json": {
+      "sha256": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401",
+      "bytes": 7145
+    },
+    "data/exp_01_bloques/registro.json": {
+      "sha256": "f06c06fe536b07473bf2b8b945fe17e3f4ffa0dd85c8953e97af5eef8edf509f",
+      "bytes": 2822
+    }
+  },
+  "fuentes_historicas_intactas": {
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/salidas/variables_v0_197.csv": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/salidas/etiquetas_138.csv": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+    "/home/netfoor/Documents/projects-2026/agro/analysis/reunion_inicial/particiones_cv_5x10.csv": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/particiones_internas.csv": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/predicciones_oof_ronda1.csv": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+    "/home/netfoor/Documents/projects-2026/agro/analysis/reunion_inicial/predicciones_oof_referencias.csv": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/alphas_seleccionados.csv": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/metricas_globales.csv": "db13296f6a985f321e207310fcbc12522b913251ee48faff63e062223cfdc226",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/manifiesto_previo.json": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/integracion_v0/experimentos/ronda1/salidas/registro_ejecucion.json": "f06c06fe536b07473bf2b8b945fe17e3f4ffa0dd85c8953e97af5eef8edf509f"
+  },
+  "notebooks_01_03_protegidos": {
+    "notebooks/02_fuentes_a_variables.ipynb": "f7849db02027b8df91a488e6521183213d8f1fd0d0f4b57e84035f6967cfab87",
+    "notebooks/03_referencias_y_validacion.ipynb": "6eca2d9ed3746211502cd91331627c9ccc7f11729e58c44e9cfd9c7d99a20ff7",
+    "notebooks/01_auditoria_y_unidad_parcela.ipynb": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e"
+  },
+  "entorno_uv_protegido": {
+    ".python-version": "56c16a411e41fec3219e828087f312d9891641e3b29093c69d08a05ec1e5d693",
+    "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+    "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+    "requirements-colab-auditoria.txt": "8f18975fe344552700b5efe887bc0ede3128554a73f1457649652b35eb9cd95e",
+    "requirements-colab.txt": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a"
+  },
+  "paquete": {
+    "ruta": "artefactos_locales/exp_01_bloques_equipo.zip",
+    "sha256": "c194249371a4a67c2e928f4afb3273ce555cbd1652ffc4fa34ca496b61c9f92b",
+    "bytes": 588876
+  },
+  "interpretacion": "E3 mejora ligeramente RMSE vs E0, empeora MAE, no supera MIX; beneficio concentrado, sin adopción de bloques."
+}

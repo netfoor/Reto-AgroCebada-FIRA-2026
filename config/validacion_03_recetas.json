@@ -1,0 +1,36 @@
+{
+  "version_esquema": 1,
+  "id": "AGC-REFERENCIAS-03-RECONSTRUCCION",
+  "fecha_adaptacion": "2026-10-07",
+  "tipo": "reconstruccion_retrospectiva_no_preregistro",
+  "alcance": "Referencias y evaluación reproducible; sin nuevos candidatos, sin selección de hiperparámetros y sin predicciones oficiales",
+  "zip_sha256": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+  "referencias": {
+    "GLOBAL": {"regla": "media del rendimiento de entrenamiento"},
+    "MUN": {"regla": "media municipal del entrenamiento", "municipio_no_visto": "GLOBAL"},
+    "MIX": {"regla": "0.5 MUN + 0.5 IDW", "peso_municipal": 0.5, "idw_k": 20, "idw_potencia": 2, "distancia_minima_m": 1.0, "crs_distancias": "EPSG:32614", "centroide": "centroide de área en UTM14N; no promedio de vértices"}
+  },
+  "particiones": {
+    "id": "COD-CV-5x10-20260920",
+    "unidad": "parcela",
+    "externas": {"repeticiones": 10, "pliegues": 5, "semilla_historica": 20260920, "esquema_historico": "RepeatedKFold aleatoria no estratificada; se reutilizan IDs del CSV, no se regeneran"},
+    "internas": {"pliegues": 4, "semilla_historica": "20260921 + repeticion*5 + pliegue", "uso_en_este_cuaderno": "validar contención y explicar selección anidada; no seleccionar ajustes"}
+  },
+  "evaluacion": {
+    "principal_de_lectura": "FULL138 para reconstrucción histórica; no selecciona modelo final",
+    "escenarios": ["FULL138", "SEEN135"],
+    "seen": "municipio de validación presente en entrenamiento exterior; máscara definida sin valores de rendimiento, igual para todos los modelos",
+    "agregacion": "errores de cada predicción OOF, sin promediar predicciones por parcela antes de puntuar",
+    "metricas": ["RMSE", "MAE", "R2"],
+    "R2": "1 - SSE/SST respecto a media del conjunto evaluado; NaN si SST <= 1e-12",
+    "replicas_no_son_independientes": true,
+    "tol_reproduccion_predicciones_t_ha": 1e-8,
+    "equivale_al_split_fira": false
+  },
+  "insumos": {
+    "externas": {"ruta_local": "data/validacion_03/particiones_externas.csv", "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec", "bytes": 175295, "uso": "particiones", "origen": "Particiones de la demostración del 20/09/2026"},
+    "internas": {"ruta_local": "data/validacion_03/particiones_internas.csv", "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a", "bytes": 601731, "uso": "particiones", "origen": "Particiones internas de la ronda de bloques del 21/09/2026"},
+    "oof_historico": {"ruta_local": "data/validacion_03/oof_referencias_historico.csv", "sha256": "e9768cec1165f3d7f1c8ab556201bc12c8073864c9ed5b0924c7bc00466dd6d1", "bytes": 416403, "uso": "control_de_salida", "origen": "Reconstrucción de referencias de la integración del 21/09/2026; se contrastan GLOBAL/MUN/MIX"},
+    "metricas_historicas": {"ruta_local": "data/validacion_03/metricas_globales_historicas.csv", "sha256": "d094bea2a3c033df6122213c4f1eb5cfa72599e15923443defdeff844700a3e8", "bytes": 957, "uso": "control_de_salida", "origen": "Métricas de la integración del 21/09/2026; solo control después de recalcular"}
+  }
+}

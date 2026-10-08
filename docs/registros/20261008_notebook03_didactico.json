@@ -1,0 +1,127 @@
+{
+  "registrado_utc": "2026-10-08T06:48:58.546918+00:00",
+  "fecha_cliente": "2026-10-08",
+  "tipo": "revision_didactica_nb03_sin_nueva_hipotesis",
+  "alcance": "NB03: seis puentes didácticos; no cambia recetas, OOF, métricas, particiones ni NB02",
+  "colab_real_probado": false,
+  "archivos_actualizados": {
+    "scripts/construir_notebook_03.py": {
+      "sha256_antes": "a2c03881d2c382cedaafe22e905a253fe1d20e7daa1a2db72c16dce23db81c99",
+      "sha256_despues": "079b12fce8a90b5a8371c4841dbea29f88631ffce4535a4d365f8f8f95ac6fa9"
+    },
+    "tests/test_notebook_03.py": {
+      "sha256_antes": "4279df6080a9fc49998026d3cff29419105044a8874c3c16b0059ccb92814e3f",
+      "sha256_despues": "a2657cb5e454276489b3c66b5ded0e8b180c3e4def7e42f68cdacba01e7c68b8"
+    },
+    "docs/05_verificacion_preparacion.md": {
+      "sha256_antes": "90573a0f417b46164c561724607e7af17e21738a123c6ff2a4cead9e88d9da3e",
+      "sha256_despues": "789e2d46ea69f856a2700d474dc66a0328b80185e7f296d07061fbdf62ee3a3f"
+    },
+    "notebooks/03_referencias_y_validacion.ipynb": {
+      "sha256_antes": "a030918e84ab782424b22ed8c00672c4af89ab8b4c88c57a06d5b86c134dd5cb",
+      "sha256_despues": "6eca2d9ed3746211502cd91331627c9ccc7f11729e58c44e9cfd9c7d99a20ff7"
+    }
+  },
+  "paquete_03": {
+    "sha256_antes": "11d45218c868b204e877bde48feb7c4120f8dc08397ba49f4ef25bdcc5812eaf",
+    "sha256_despues": "9c2e9897efd03be575d96fdd8268eb89ad1491f2fc27ea8b58831925ebaf4cb6"
+  },
+  "confirmacion_colab02": {
+    "archivo": "docs/registros/20261008_confirmacion_colab02_usuario.json",
+    "sha256": "d481059d466a8f0129651168972032aa2957146fb3b2cd69107e66add8e32031",
+    "tipo_evidencia": "reportada_por_usuario_no_comprobacion_independiente"
+  },
+  "copias_recuperables": "artefactos_locales/notebook03_didactico_20261008/archivos_previos",
+  "evidencia": "verificacion_local/notebook03_didactico_20261008",
+  "pruebas": {
+    "pasadas": 241,
+    "fallidas": 0,
+    "omitidas": 0
+  },
+  "codigo_original_identico": 17,
+  "salidas_originales_iguales": true,
+  "salidas_nuevas_deterministas": true,
+  "celdas": {
+    "totales": 53,
+    "codigo": 23,
+    "visibles": 20,
+    "tecnicas_plegadas": 3
+  },
+  "png_identicos": [
+    "c3bb30619aeb469e9d002a2078ab363aa463bf5f7e4490f9f1b4e32d36c32ba9",
+    "7662ba47d8d0a882611033de5dab115b5d7fc25b8c5fbc50e31cbce4106f91a1",
+    "269bfe7c136ada55d717c27c923c6d5967c3f13a052fad750471012b78aed364"
+  ],
+  "fuentes_protegidas": {
+    ".gitignore": "6698a4587e552a9b927488c4d2bb3e9b37b75562440bf8513ebeb7a9ceb705d6",
+    "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+    "README.md": "99dcdcf6d93a5651d6b5d353e80a13a0a4c41a88c203731953582f5651881d64",
+    "requirements-colab.txt": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a",
+    "main.py": "579cffc8ce72381f427cee6395cf76509b2e7dccfcd7388d422285d0bef22d79",
+    ".python-version": "56c16a411e41fec3219e828087f312d9891641e3b29093c69d08a05ec1e5d693",
+    "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+    "requirements-colab-auditoria.txt": "8f18975fe344552700b5efe887bc0ede3128554a73f1457649652b35eb9cd95e",
+    "docs/02_metodologia.md": "455ff24b57c784fea57072abd7daeb2acf8c949be1a39e6117e6970f1e2fc5d1",
+    "docs/06_glosario.md": "2aab4d1cc2842fc88873a8edf056eb86c8de70fc8c430880ff8c967917f79fc7",
+    "docs/registro_preparacion.json": "8c428a57eda5fad61f4c2657eb846ebe5d98ca2841f3b9b258adaf26eaca5257",
+    "docs/03_plan_de_trabajo.md": "68c3eb3a5e25221cae06383d995e3aceb1bd3fbbb935a11f5f6c7f49264ad735",
+    "docs/04_notebooks_y_colab.md": "439445fe796400453b2d2e9a4d3788b1b1a2230d4a99cffcadc067a5ecf54757",
+    "docs/01_contexto_y_estado.md": "610e21406085e211834e58ed8aaae05d23f7bb1836a6b59147fea448aa5c46a6",
+    "docs/verificacion_preparacion.json": "ddc898b93bdf0b2e3bf0212c8249ecadf458f3a4d18d03a72ce3c082ecbca574",
+    "docs/registros/20261007_python313_colab.json": "8f50444ea885e3bba7af535eac243cc4dbc601ff09ffb250663b53b18fd3b151",
+    "docs/registros/20261007_notebook01.json": "9d2e0494adabc8333b70b6a6a7b123fd5cf6acb00074e4a096473ed5c429c7a2",
+    "docs/registros/20261007_redaccion_autocontenida.json": "279594a95727f3f03ccc4790872b5518201a6305d6d24d902da3c53ae3fce7eb",
+    "docs/registros/20261007_colab_vista_02_03.json": "c9b753ac7769f505a29d1d35e513ff35a38d46d8ce77e394e8d45401d25740e7",
+    "docs/registros/20261007_notebook03.json": "1cb312a4de605b57de0b7219e8bae4108894bfaec6dea648f0b304eef6afe1fd",
+    "docs/registros/20261007_ajustes_lectura_equipo.json": "bcc6cd0e2c9379fedf9d585892b60917f80e6dead804f39c2aa7a940bdf6c491",
+    "docs/registros/20261007_notebook02_didactico.json": "b67883d45f277c2f9333ccd1f06258b3c889a5ec97044371e60636e83263603b",
+    "docs/registros/20261007_restauracion_readme.json": "08fa609f5a7c0d229a3bac1537b1a759f44e87f1d66849769be8ccc609a6200a",
+    "docs/registros/20261007_notebook02.json": "66af508d486ba9cc0cdbb9ed85b719b4bd44c78945a3e2baa961e1f16e4c2ecb",
+    "gestion/estado_y_decisiones.md": "ed08b500c9d603dbb401d7baed8fc2893199b911e24202f4f5e66c5bd0327c8c",
+    "notebooks/02_fuentes_a_variables.ipynb": "f7849db02027b8df91a488e6521183213d8f1fd0d0f4b57e84035f6967cfab87",
+    "notebooks/01_auditoria_y_unidad_parcela.ipynb": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e",
+    "notebooks/README.md": "4247cd5448517842f352994cef2eb23db0491c97ec12e761f26ab5bf9f1a58cc",
+    "scripts/fuentes_02_geo.py": "571d255ff9a413918133a2198177ce39bdf37d82030e334a06fef9e90942d2b1",
+    "scripts/construir_notebook_01.py": "e660739dd038fc9f45407ea84e555c4457f766db7bccc1dbbbb878bf3e33de43",
+    "scripts/ejecutar_notebook_02.py": "f69b67e20c94aef37282a86015f6314f8b8637e45c208a7e52dc7bc646f783e3",
+    "scripts/ejecutar_notebook_03.py": "03385859cc6f533453ac388c8d1ea9ac640d9d9547276ce264a094568687fe96",
+    "scripts/colab_soporte.py": "5b990c4a7a3f5eaafd316280a428e995f82d1b7cf14945569f93dc6d17d7745a",
+    "scripts/fuentes_02.py": "013faea68c1020be4612d2c2e64456ea5fe9906fff7c0f4bdb9a17ef5a0856b8",
+    "scripts/auditoria_01.py": "fd46a23c5b79639862108074d732fd2e4533c6a02f8fa7240a0bd931b28364df",
+    "scripts/fuentes_02_satelite.py": "e9bdcb4015b052ad13f8821d753cfcfec386b7406e1f9c15ea021aeb84c9aa29",
+    "scripts/ejecutar_notebook_01.py": "7a967a52c9220d3a03bd74b178f659774780f7f981847fd5c5ad8fdaf5cf9a2e",
+    "scripts/validacion_03.py": "ccd5d233ed44a0f176e092a5c4e5f1a88f82961fc3c35ccd203faa59b8034adf",
+    "scripts/verificar_entorno.py": "f211469d9a9d1ba5c4ce573db801de4fd69ee95326910d74aaea9e97b3b71b52",
+    "scripts/construir_notebook_02.py": "68e4eb5851677ea1cac2f856d8640cab392a50c09bb2fb22cc6cb355006783ed",
+    "tests/test_auditoria_01.py": "9b1cf5253a48627c46877aa9365362ebadc901ffd2325892cf253f65178beb3f",
+    "tests/test_fuentes_02.py": "c6a4baad2f02dd38f1e67631b7f1e35508214aa86a1b1113f5635a4ce1a2a2ba",
+    "tests/test_base_proyecto.py": "89be7ec1edfe6e8c0c199d223c00f48157125abb3a511f6f143321aae738fadc",
+    "tests/test_notebook_01.py": "5a37cffe223f7a21150d05517d9d35fbd095f06e1980c2783c3ebc4dae1ce185",
+    "tests/test_colab_soporte.py": "9361eb5256de7f0fca62000f44723ca2fc761823d930408cfd62c43744bd2bd2",
+    "tests/test_notebook_02.py": "4a8a4daf58c8113f684963ff6486277b4b76a8bbfe72352cfd0ca24924ffffda",
+    "tests/test_validacion_03.py": "9fe7cc0cd97e2a5c3cc7f73606eaafabaf2a867c64aaa131acad669f3509d9a1",
+    "tests/test_fuentes_02_geo.py": "5f2a046471629027711f2f2f83fb261d292850333146ea090ec320611969bbee",
+    "tests/test_fuentes_02_satelite.py": "2fbbcb5c3c64761c531429057659db243d54f9a51cdd76e9e05055a3bcc1941c",
+    "config/fuentes_02_recetas.json": "3538413ea2d5d89018d7a519166d04509fc4460128db1a806687a2de4c350b90",
+    "config/indice_experimentos.json": "0c8feb1bab498d8f1150110f5f9054aeed0fec63b04459ca7960481c7331ac0f",
+    "config/insumos.example.json": "0016d556f32ed7867965b948d0119d34c3478e0f1c1c097acf1ce3be4bef9763",
+    "config/auditoria_01_dataset.json": "2ae903238b618f8cb06781ea6507cfa1e105dd28b09fef9f2b67fc7c63625e7f",
+    "config/validacion_03_recetas.json": "a003431aaaa7066f66258a93238eed147e682b77ec7fd04f4320bee14badb45f",
+    "data/raw/DataSet.zip": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+    "data/referencias/variables_v0_197.csv": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+    "data/referencias/postciclo_PENDIENTE_197.csv": "7a407ddcb87e702d3cc52dc694560006fa03012cdd7acb2959d8774fa9c54fa4",
+    "data/validacion_03/particiones_externas.csv": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "data/validacion_03/particiones_internas.csv": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+    "data/validacion_03/oof_referencias_historico.csv": "e9768cec1165f3d7f1c8ab556201bc12c8073864c9ed5b0924c7bc00466dd6d1",
+    "data/validacion_03/metricas_globales_historicas.csv": "d094bea2a3c033df6122213c4f1eb5cfa72599e15923443defdeff844700a3e8"
+  },
+  "paquetes_01_02_inalterados": {
+    "artefactos_locales/01_auditoria_equipo.zip": "4f07330daf0d5b20eedcb57e5c0f35e59f6d6a8d49b06e28a861c89a1c03eba9",
+    "artefactos_locales/02_fuentes_equipo.zip": "2b5a82fd79808e893764b3e94693b286f8c9efe72a9d440bb4c0b18ad8714160"
+  },
+  "ensayos_preliminares": {
+    "error_de_test": "Expectativa textual incorrecta: no frente a ni; saltos de línea",
+    "correccion": "Se corrige la frase esperada y normalizan espacios solo en el test de narrativa",
+    "errores_notebook": 0
+  }
+}

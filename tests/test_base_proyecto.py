@@ -40,7 +40,7 @@ def test_grupos_sin_stack_de_produccion_ni_nuevas_familias():
     assert not (nombres & no_autorizadas)
 
 
-def test_catalogo_conserva_identidad_y_no_declara_migraciones():
+def test_catalogo_conserva_identidad_y_migra_dos_lectores_sin_ajustes():
     indice = json.loads((RAIZ / "config/indice_experimentos.json").read_text())
     experimentos = indice["experimentos"]
     assert len(experimentos) == 6
@@ -51,7 +51,28 @@ def test_catalogo_conserva_identidad_y_no_declara_migraciones():
         "exp_01_bloques", "exp_02_ponderacion_temporal", "exp_03_variables_y_familias",
         "exp_04_lluvia_octubre", "exp_05_historico_octubre", "exp_06_pico_soportado",
     ]
-    assert all(experimento["estado_migracion"] == "pendiente" for experimento in experimentos)
+    primero = experimentos[0]
+    assert primero["estado_migracion"] == "lector_verificado_sin_reentrenar"
+    assert primero["fecha_trabajo_segun_fuente_mexico"] == "2026-09-21"
+    assert primero["fecha_catalogacion"] == "2026-10-07"
+    assert primero["fecha_adaptacion"] == "2026-10-08"
+    assert primero["ruta_cuaderno"] == (
+        "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb"
+    )
+    assert primero["estado_predictivo"] == "cerrado_sin_adopcion"
+    segundo = experimentos[1]
+    assert segundo["estado_migracion"] == "lector_verificado_sin_reentrenar"
+    assert segundo["fecha_trabajo_segun_fuente_mexico"] == "2026-09-29"
+    assert segundo["fecha_catalogacion"] == "2026-10-07"
+    assert segundo["fecha_adaptacion"] == "2026-10-08"
+    assert segundo["ruta_cuaderno"] == (
+        "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb"
+    )
+    assert segundo["estado_predictivo"] == "cerrado_sin_adopcion"
+    assert all(experimento["estado_migracion"] == "pendiente" for experimento in experimentos[2:])
+    assert indice["experimentos_copiados"] == 2
+    assert indice["ajustes_al_catalogar"] == 0
+    assert indice["fecha_corte"] == "2026-10-08"
 
 
 def test_manifest_de_insumos_no_activa_descargas():
@@ -68,6 +89,7 @@ def test_documentacion_y_verificacion_presentes():
         "docs/03_plan_de_trabajo.md",
         "docs/04_notebooks_y_colab.md",
         "notebooks/README.md",
+        "notebooks/experimentos/exp_02_ponderacion_temporal/README.md",
         "scripts/verificar_entorno.py",
     )
     for nombre in archivos:
