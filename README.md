@@ -11,14 +11,17 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 3. [Etapas y evidencias que produce cada una](docs/03_plan_de_trabajo.md).
 4. [Cómo leer y ejecutar los notebooks](docs/04_notebooks_y_colab.md).
 5. [Primer cuaderno: auditoría y unidad parcela](notebooks/01_auditoria_y_unidad_parcela.ipynb).
+6. [Segundo cuaderno: de las fuentes a las variables](notebooks/02_fuentes_a_variables.ipynb).
 
 Si aparece un término nuevo, consultar el [glosario breve](docs/06_glosario.md). No hace falta leerlo completo antes de empezar.
 
 El formato común de los cuadernos es **pregunta → comprobación → resultado → decisión y límite**. Cada decisión se explica junto a la evidencia que la motiva. El orden de lectura es pedagógico; las fechas reales de los trabajos se conservan.
 
-El primer cuaderno contiene sus salidas y se recalcula desde `data/raw/DataSet.zip`, cuya integridad se verifica antes de leerlo. En Colab utiliza Python 3.13 y, si falta el ZIP, descarga la copia de Drive autorizada por Fortino. El ID del archivo y su SHA-256 se incorporan desde el manifiesto al generar el cuaderno.
+Los cuadernos contienen sus salidas y se recalculan desde `data/raw/DataSet.zip`, cuya integridad se verifica antes de leerlo. En Colab utilizan Python 3.13 y, si falta el ZIP, descargan la copia de Drive autorizada por Fortino. El ID del archivo y su SHA-256 se incorporan desde el manifiesto al generar cada cuaderno.
 
-La preparación de bibliotecas se anuncia antes de ejecutarla y solo opera en Colab. Si necesita reiniciar por un módulo ya cargado, lo solicita: no reinicia automáticamente. Para compartir notebook e insumos juntos, sin Git, sigue disponible el paquete local `artefactos_locales/01_auditoria_equipo.zip`.
+La preparación de bibliotecas se anuncia antes de ejecutarla y solo opera en Colab. Si necesita reiniciar por un módulo ya cargado, lo solicita: no reinicia automáticamente. El segundo cuaderno incorpora Rasterio para leer GeoTIFF en memoria; no cambia la preparación del primero. Los paquetes locales `artefactos_locales/01_auditoria_equipo.zip` y `artefactos_locales/02_fuentes_equipo.zip` permiten compartir notebook e insumos juntos, sin Git.
+
+El cuaderno 02 sigue una parcela y generaliza a las 197. Reconstruye 539 columnas de metadatos, resúmenes y controles, con diccionario y etiquetas aparte. **No son 539 predictores seleccionados.** La comparación con la salida integrada del 21 de septiembre comprueba reconstrucción, no desempeño predictivo. Los controles históricos incorporados se usan solo después de calcular las variables.
 
 ## Ejecutar en local
 
@@ -41,6 +44,14 @@ uv run --locked --all-groups python scripts/ejecutar_notebook_01.py
 ```
 
 La salida se guarda en `resultados_locales/auditoria_01/`, sin sobrescribir el cuaderno de lectura ni los insumos.
+
+Para recalcular el recorrido de fuentes a variables:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_notebook_02.py
+```
+
+La ejecución se guarda en `resultados_locales/fuentes_02/`. Cada cuaderno puede ejecutarse por separado; el segundo no necesita las variables de una sesión previa del primero.
 
 | Grupo         | Para qué sirve                           |
 | ------------- | ----------------------------------------- |

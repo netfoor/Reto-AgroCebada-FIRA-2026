@@ -1,0 +1,41 @@
+{
+  "version_esquema": 1,
+  "id": "AGC-FUENTES-02-RECONSTRUCCION",
+  "fecha_adaptacion": "2026-10-07",
+  "trabajo_original": "Integración de fuentes del 21 de septiembre de 2026; controles espaciales posteriores identificados en el cuaderno",
+  "alcance": "Reconstrucción y explicación de recetas históricas; no selecciona predictores ni entrena modelos",
+  "zip_sha256": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+  "ventana_objetivo": {"inicio": "2025-04-01", "fin": "2025-10-31"},
+  "ventana_postciclo": {"inicio": "2025-11-01", "fin": "2025-12-31", "incluir_en_tabla_propuesta": false},
+  "historico": {
+    "anios": [2022, 2023, 2024], "mes_inicio": 4, "mes_fin": 10,
+    "indices": {"S2": ["ndvi", "evi", "savi", "lai", "ndwi", "msi"], "LS": ["vi6t"]}
+  },
+  "postciclo_indices": {"S2": ["ndvi", "evi", "crc", "mcrc", "ndti", "sti", "ndsvi"], "PL": ["ndvi", "evi", "lai", "msavi"]},
+  "nubosidad_max_por_sensor": {"S2": null, "PL": null, "LS": null},
+  "nubosidad_desconocida": "excluir_si_hay_umbral",
+  "lai_negativos": "conservar",
+  "integral_hueco_max_dias": 30,
+  "clima_ponderacion": "area_UTM14N_normalizada_sobre_area_valida",
+  "topografia_ponderacion": "area_en_CRS_nativo_EPSG6372_normalizada_sobre_area_valida",
+  "centroide_control_raster": "centroide planar de la parcela en el CRS de cada raster; no es el centroide de metadatos UTM",
+  "cobertura_historica": "area_valida/area_de_intersecciones_en_malla",
+  "cobertura_total_control": "area_valida/area_total_de_parcela; control aparte sin imponer umbral nuevo a topografia",
+  "controles_aparte": true,
+  "geometrias": "No reparar ni ajustar a rejilla; rechazar geometrías inválidas",
+  "fecha_corte_no_equivale_a_fenologia": true,
+  "referencias": {
+    "base": {
+      "ruta_local": "data/referencias/variables_v0_197.csv",
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024,
+      "origen": "Tabla integrada del 21/09/2026; se usa exclusivamente como control de reconstrucción"
+    },
+    "postciclo": {
+      "ruta_local": "data/referencias/postciclo_PENDIENTE_197.csv",
+      "sha256": "7a407ddcb87e702d3cc52dc694560006fa03012cdd7acb2959d8774fa9c54fa4",
+      "bytes": 185770,
+      "origen": "Salida postciclo separada de la integración del 21/09/2026; no se añade a la base"
+    }
+  }
+}

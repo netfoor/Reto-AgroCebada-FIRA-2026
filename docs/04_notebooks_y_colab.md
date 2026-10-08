@@ -61,6 +61,8 @@ uv export --locked --no-default-groups --group colab --no-emit-project --no-hash
 
 El perfil incluye núcleo, gráficos y gdown. El perfil `requirements-colab-auditoria.txt` incorpora también `geo`, exportado con el mismo comando y `--group geo`.
 
+Los cuadernos se ejecutan por separado. El 01 necesita sus bibliotecas de lectura y geometría; el 02 añade Rasterio para leer los GeoTIFF directamente desde el ZIP en memoria. Ambos incluyen todo el código que utilizan y comparten el contrato del ZIP original. No requieren Git ni haber ejecutado otro notebook.
+
 **Preparación visible en Colab:** antes de leer datos, `PREPARAR_COLAB = True` permite instalar las bibliotecas requeridas cuya versión falta o difiere. La celda imprime el plan, utiliza paquetes binarios y limita las dependencias necesarias mediante el perfil de uv. No intenta reinstalar todo el entorno de Google ni modifica el entorno local.
 
 Si cambia un módulo ya importado, la ejecución se detiene y solicita reiniciar la sesión y ejecutar todas las celdas. No mata el proceso ni reinicia automáticamente. La comprobación cubre las bibliotecas utilizadas, no todos los paquetes preinstalados de Colab; los avisos sobre bibliotecas ajenas se distinguen de un fallo de la auditoría.

@@ -1,5 +1,10 @@
 # Notebooks — recorrido de evidencia
 
+1. [Auditoría y unidad parcela](01_auditoria_y_unidad_parcela.ipynb): inventario, objetivo, fechas y geografía.
+2. [De las fuentes a las variables](02_fuentes_a_variables.ipynb): una parcela, recetas espaciales y temporales, tabla de 197 parcelas y diccionario.
+
+Cada cuaderno incorpora sus lectores y controles; puede ejecutarse en una sesión nueva de Colab sin ejecutar el anterior. El segundo reconstruye la tabla integrada y contrasta su resultado, sin entrenar ni seleccionar predictores.
+
 El recorrido de estudio es **auditoría → fuentes y variables → referencias y validación → seis rondas**. El contexto y la metodología presentan el objetivo antes de empezar con las comprobaciones.
 
 ## 01. Entender los datos
