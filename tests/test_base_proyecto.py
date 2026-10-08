@@ -40,7 +40,7 @@ def test_grupos_sin_stack_de_produccion_ni_nuevas_familias():
     assert not (nombres & no_autorizadas)
 
 
-def test_catalogo_conserva_identidad_y_migra_dos_lectores_sin_ajustes():
+def test_catalogo_conserva_identidad_y_migra_tres_lectores_sin_ajustes():
     indice = json.loads((RAIZ / "config/indice_experimentos.json").read_text())
     experimentos = indice["experimentos"]
     assert len(experimentos) == 6
@@ -69,8 +69,19 @@ def test_catalogo_conserva_identidad_y_migra_dos_lectores_sin_ajustes():
         "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb"
     )
     assert segundo["estado_predictivo"] == "cerrado_sin_adopcion"
-    assert all(experimento["estado_migracion"] == "pendiente" for experimento in experimentos[2:])
-    assert indice["experimentos_copiados"] == 2
+    tercero = experimentos[2]
+    assert tercero["estado_migracion"] == "lector_verificado_sin_reentrenar"
+    assert tercero["fecha_trabajo_segun_fuente_mexico"] == "2026-09-29"
+    assert tercero["fecha_catalogacion"] == "2026-10-07"
+    assert tercero["fecha_adaptacion"] == "2026-10-08"
+    assert tercero["ruta_cuaderno"] == (
+        "notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb"
+    )
+    assert tercero["modalidad_cuaderno_fuente"] == "ejecutable_con_ajustes_no_presentar_como_lector"
+    assert tercero["modo_futuro_por_defecto"] == "lector_sin_ajustes"
+    assert tercero["estado_predictivo"] == "cerrado_sin_adopcion"
+    assert all(experimento["estado_migracion"] == "pendiente" for experimento in experimentos[3:])
+    assert indice["experimentos_copiados"] == 3
     assert indice["ajustes_al_catalogar"] == 0
     assert indice["fecha_corte"] == "2026-10-08"
 
@@ -90,6 +101,7 @@ def test_documentacion_y_verificacion_presentes():
         "docs/04_notebooks_y_colab.md",
         "notebooks/README.md",
         "notebooks/experimentos/exp_02_ponderacion_temporal/README.md",
+        "notebooks/experimentos/exp_03_variables_y_familias/README.md",
         "scripts/verificar_entorno.py",
     )
     for nombre in archivos:

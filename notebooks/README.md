@@ -5,6 +5,7 @@
 3. [Referencias y validación](03_referencias_y_validacion.ipynb): particiones, GLOBAL/MUN/MIX, métricas fuera de muestra y límites de comparación.
 4. [EXP_01: bloques de variables sobre municipio](experimentos/exp_01_bloques/exp_01_bloques.ipynb): hipótesis A/B/C, Ridge, selector interno y resultados guardados de la primera ronda.
 5. [EXP_02: ponderación temporal](experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb): capturas, medias mensuales, pesos por días y contraste T1 frente a E2.
+6. [EXP_03: variables temporales y familias](experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb): cuatro descriptores de curva y comparación controlada Ridge/HGB.
 
 Cada cuaderno incorpora sus lectores y controles; puede ejecutarse en una sesión nueva de Colab sin ejecutar el anterior. El segundo reconstruye la tabla integrada y contrasta su resultado, sin entrenar ni seleccionar predictores.
 
@@ -13,6 +14,8 @@ El tercero recalcula **150 ajustes de referencias sencillas**, no una búsqueda 
 EXP_01 incorpora sus tablas históricas y controles: **no necesita el ZIP original ni descargar datos de Drive**. Ejecutarlo no ajusta modelos. Recalcula métricas desde predicciones guardadas y reproduce la elección de alpha usando scores internos guardados, sin recalcular esos scores ni el entrenamiento que los produjo. `exp_01` identifica la ronda de lectura; `E0`–`E4` identifican sus cinco procedimientos, no otros notebooks.
 
 EXP_02 también es autónomo y hace **cero ajustes**. Añade capturas reales recortadas de los originales para recalcular tres variables temporales, y después puntúa las OOF guardadas de T1 y sus comparadores. El recorte se prepara el 8 de octubre; las predicciones y el cierre T1 conservan su fecha del 29 de septiembre. Recalcular variables y métricas no equivale a producir nuevas predicciones.
+
+EXP_03 conserva las seis entradas E2, añade cuatro descriptores calculados visiblemente desde las capturas y cruza las dos representaciones con Ridge/HGB. También hace **cero ajustes** y es autónomo: reconstruye variables y recalcula evaluación y selecciones desde resultados guardados, sin entrenar ni recalcular scores internos. No depende de haber ejecutado EXP_02.
 
 El recorrido de estudio es **auditoría → fuentes y variables → referencias y validación → seis rondas**. El contexto y la metodología presentan el objetivo antes de empezar con las comprobaciones.
 
@@ -51,5 +54,19 @@ La evaluación mantiene **FULL138 y 1,380 OOF por procedimiento**, las mismas pa
 T1 no se adopta: RMSE **0.5225 t/ha**, frente a 0.5192 de E2 y 0.4938 de MIX; MAE prácticamente igual a E2. Las diferencias por repetición, zona y parcela explican por qué una mejora local no basta. La sensibilidad sin AGC_127/171 estaba prevista para T1 y solo cambia la puntuación, no los entrenamientos. No se infiere causalidad, extrapolación ni inutilidad general de las representaciones temporales.
 
 Para compartirlo basta el `.ipynb`. No requiere subir un ZIP, descargar de Drive, conocer Git ni ejecutar otro notebook. `artefactos_locales/exp_02_ponderacion_temporal_equipo.zip` reúne su distribución; `scripts/ejecutar_exp_02.py` guarda una ejecución nueva en `resultados_locales/exp_02_ponderacion_temporal/`, sin modificar la evidencia histórica ni generar las 59 predicciones finales.
+
+## EXP_03. Distinguir representación y procedimiento
+
+[Variables temporales y familias](experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb) plantea dos preguntas: ¿cuatro descriptores de curva añaden información a los seis resúmenes E2?, ¿cambia la respuesta con un procedimiento no lineal? No sustituye medias como T1: mantiene la base y añade el bloque. Las reglas, capturas de AGC_001, medias mensuales y cuatro cálculos están visibles antes de verificar las 197 filas.
+
+Las nuevas variables son dos cambios de NDVI Planet entre bimestres, su amplitud mensual y un cambio de NDWI Sentinel-2. Cada bimestre pondera **medias mensuales por días**, no fotografías por días. Las dos series requieren siete meses: **2,758 medias** en total. No hay imputación mensual, filtro de nubes ni identificación de etapas fenológicas. Los seis resúmenes originales se comprueban sin alterar sus definiciones.
+
+La comparación 2×2 distingue **R_B/R_T** (Ridge con base/bloque ampliado) y **H_B/H_T** (HGB con base/bloque ampliado). Las rejillas históricas son pequeñas y tienen presupuestos diferentes; no representan una comparación exhaustiva de familias. Se conserva el ajuste de preprocesamiento dentro de cada entrenamiento y los CSV de particiones originales. La lectura examina sus resultados guardados, no repite el ajuste.
+
+V1 se registró el **29 de septiembre de 2026 a las 18:22 UTC** y se ejecutó el **30 a las 02:06 UTC**, todavía 29 de septiembre en México. La adaptación didáctica es del **8 de octubre**. Se mantiene FULL138: **1,380 OOF por procedimiento**, siete procedimientos, **9,660 predicciones**. Se comprueban **200 selecciones** desde **900 scores interiores guardados**; no se recalculan esos scores. El presupuesto original fue **2,000 ajustes Ridge interiores + 1,600 HGB interiores + 200 reajustes exteriores**. El lector hace cero.
+
+Ninguna variante cumplió la regla previa de avanzar frente a MIX por RMSE y MUN por MAE. R_T empeoró frente a R_B; H_T mejoró ligeramente RMSE frente a H_B, pero empeoró MAE. Las diferencias por repetición, Chignahuapan/resto y la sensibilidad prevista sin AGC_127/171 evitan rescatar una variante por su única métrica favorable. Se conserva el cierre sin adopción, no una conclusión universal sobre índices o árboles.
+
+Para compartirlo basta el `.ipynb`; no requiere ZIP, Drive, módulos locales ni otro notebook. `artefactos_locales/exp_03_variables_y_familias_equipo.zip` reúne la distribución. `scripts/ejecutar_exp_03.py` guarda una ejecución nueva en `resultados_locales/exp_03_variables_y_familias/`, sin modificar fuentes ni producir las 59 predicciones finales. La versión histórica Python 3.12.14/scikit-learn 1.9.1 se distingue del entorno lector Python 3.13: recalcular métricas no demuestra paridad del entrenamiento.
 
 El [formato común](../docs/04_notebooks_y_colab.md) define estas convenciones. El [glosario](../docs/06_glosario.md) permite consultar términos sin interrumpir el recorrido.

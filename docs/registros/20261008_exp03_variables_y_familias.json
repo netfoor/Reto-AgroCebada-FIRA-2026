@@ -1,0 +1,275 @@
+{
+  "registrado_utc": "2026-10-08T14:45:42.669148+00:00",
+  "fecha_edicion_mexico": "2026-10-08",
+  "id": "EXP_03",
+  "id_historico": "AGC-EXP-V1",
+  "fecha_trabajo_original_mexico": "2026-09-29",
+  "alcance": "Lector retrospectivo: calcula cuatro descriptores desde dos series de capturas, conserva las seis entradas E2, puntúa OOF y comprueba decisiones desde scores guardados. No reentrena ni recalcula scores interiores.",
+  "poblacion": "FULL138",
+  "ajustes_actuales_cuaderno": 0,
+  "ajustes_historicos": {
+    "interiores_Ridge": 2000,
+    "interiores_HGB": 1600,
+    "exteriores": 200
+  },
+  "predicciones_finales_generadas": 0,
+  "variantes_adoptadas": [],
+  "pruebas": {
+    "total": 403,
+    "exp03": 76,
+    "fallos_finales": 0,
+    "errores_finales": 0,
+    "omitidas_finales": 0,
+    "ruff_scope": "scripts tests",
+    "ruff": "pasa",
+    "junit": "verificacion_local/exp03_variables_y_familias_20261008/pruebas.xml"
+  },
+  "verificacion_local": {
+    "celdas": 33,
+    "celdas_codigo": 17,
+    "salidas_identicas_salvo_fecha": 35,
+    "png_identicos": 2,
+    "kernels_nuevos": 2,
+    "fuentes_originales_intactas": true,
+    "colab_real_probado": false,
+    "notebook_sha256": "ca84ad2999bda26496848898a4e77385423e8a544699a1c2883ec28267457fc0"
+  },
+  "colab_real_probado": false,
+  "recortes_derivados": {
+    "planet": {
+      "fecha_recorte": "2026-10-08",
+      "sha256_original": "91697f8f8d4ad5e59f766acbce2ef76f3c405eb02b41c1de92d62a07e8321888",
+      "sha256_recorte": "198c0d94cfb9f0f4fb4906d42c9669abb5a8da3fbcafd2644b74632b647aa3cd",
+      "miembro_zip": "DATASET_RETO_AGRO_2026/Conjunto_datos_PRO_AgroCebada.csv",
+      "columnas": [
+        "ID_POLIGONO",
+        "sensor",
+        "fecha_captura",
+        "ndvi_promedio"
+      ],
+      "filas": 26255,
+      "no_ausentes": {
+        "ndvi_promedio": 18248
+      },
+      "sensor": "Planet",
+      "ventana": [
+        "2025-04-01",
+        "2025-10-31"
+      ],
+      "filtro_nubes": false,
+      "regla": "seleccionar columnas, sensor y ventana; conservar NaN; ordenar estable ID/fecha; exportar %.17g"
+    },
+    "s2": {
+      "fecha_recorte": "2026-10-08",
+      "sha256_original": "96d68040d954d0903d761fd8ceed0dcd4a08e3842915a3ca44517d60e8bee4ef",
+      "sha256_recorte": "9ed36969f168ecf58dcfa0603c9de2c12477ec46d122bee4820d9895c0b3fcb9",
+      "miembro_zip": "DATASET_RETO_AGRO_2026/Conjunto_datos_BASICO_AgroCebada2026.csv",
+      "columnas": [
+        "ID_POLIGONO",
+        "sensor",
+        "fecha_captura",
+        "ndvi_promedio",
+        "ndwi_promedio"
+      ],
+      "filas": 9986,
+      "no_ausentes": {
+        "ndvi_promedio": 7352,
+        "ndwi_promedio": 7352
+      },
+      "sensor": "Sentinel-2",
+      "ventana": [
+        "2025-04-01",
+        "2025-10-31"
+      ],
+      "filtro_nubes": false,
+      "regla": "seleccionar columnas, sensor y ventana; conservar NaN; ordenar estable ID/fecha; exportar %.17g"
+    }
+  },
+  "incidencias_preparacion": [
+    "Se conserva el soporte de EXP02; al construir se limpian sus salidas y metadatos de ejecución, sin modificar el cuaderno anterior.",
+    "La revisión independiente de pruebas corrigió una asignación inútil y su fixture de notebook; no cambió cálculos ni recetas.",
+    "El intento inicial de comunicación de kernel restringido se canceló; las dos ejecuciones comprobadas usaron kernels nuevos por IPC, sin ajustes de modelos."
+  ],
+  "modificaciones": {
+    "README.md": {
+      "antes": "12b4cfa9bf873734d0473a3b647886f999b36bf8bf2e93202374d6747a9f3562",
+      "despues": "f30bf156f61c317d0949683598bfa5a5108ea4bdf12ed6c745620c9776e295e6",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/README.md"
+    },
+    "notebooks/README.md": {
+      "antes": "29e9812428d85eb25fb5992aa9dc744e70a6805ec44bf53b4e6953e3a64886a3",
+      "despues": "b3bb1ca124055acf48e25dae24836ee013ca55daf5d74d93e8610ee6d85a3d9d",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/notebooks/README.md"
+    },
+    "docs/05_verificacion_preparacion.md": {
+      "antes": "c11a7a995b7c48b3eb934d0b5ce9c25369819877c64b72560bb6cb23b23a8cf2",
+      "despues": "2ccfb9864e43a46b82b7ebf4c72e80fbc192f9315d7edba5c81dc806ea0e5246",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/docs/05_verificacion_preparacion.md"
+    },
+    "gestion/estado_y_decisiones.md": {
+      "antes": "1c2f8389317a844d9d5a6ae1346ec3edaa1762a03fb080a5d7c83b052915d6cc",
+      "despues": "48c6fc1adfadab59bdf6522f92ed7764a93b77e71e90f3a4c94d315d29ff5b4f",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/gestion/estado_y_decisiones.md"
+    },
+    "config/indice_experimentos.json": {
+      "antes": "59ee06d61dff095184f3cdcbad7c3094bdbdd2a9d8ba728ac4819d39a88e03a7",
+      "despues": "0c87808dc729c45daa3c3bd8854ec13e23314e7721384458bcfb8ba9894fb3da",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/config/indice_experimentos.json"
+    },
+    "tests/test_base_proyecto.py": {
+      "antes": "de804f524a9823029277d7ad0cef1844d00c98def4ef362bfbce0adec430c90f",
+      "despues": "0751e75860b97fdbcf814b084c2ed1bbb4227039697f52225db57b9e99c00ce0",
+      "copia": "artefactos_locales/exp03_variables_y_familias_20261008/archivos_previos/tests/test_base_proyecto.py"
+    }
+  },
+  "nuevos": {
+    "config/exp_03_variables_y_familias.json": {
+      "sha256": "a6bbcda46f4a54257dad11e528aba1682485e60b8c65703fa5661442c98c48ad",
+      "bytes": 8901
+    },
+    "scripts/construir_exp_03.py": {
+      "sha256": "6edc07005b0b56a5c28442905b70742d36194a8001a96f7618de8db8a736d738",
+      "bytes": 35889
+    },
+    "scripts/ejecutar_exp_03.py": {
+      "sha256": "9c4c0a016272db15279b626372b3e57b95b27bb9e9e9f91c8f7544fc6504b346",
+      "bytes": 4117
+    },
+    "tests/test_exp_03.py": {
+      "sha256": "1e032e9937ed9315c3c8ecc3363f757abdf7ab2a970e66769f97a8f5340360a4",
+      "bytes": 31224
+    },
+    "notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb": {
+      "sha256": "ca84ad2999bda26496848898a4e77385423e8a544699a1c2883ec28267457fc0",
+      "bytes": 1418097
+    },
+    "notebooks/experimentos/exp_03_variables_y_familias/README.md": {
+      "sha256": "781220433f02b5dfec94d9f2a623144be8d5fc3a7c519ecb24bb8087cfd99fab",
+      "bytes": 3802
+    },
+    "data/exp_03_variables_y_familias/variables_control.csv": {
+      "sha256": "761074ef2be82713ef5f9f0134c33e85e76819f4ed4866340b2ad689de0b3385",
+      "bytes": 54486
+    },
+    "data/exp_03_variables_y_familias/mensuales_control.csv": {
+      "sha256": "de6c186266ce00d6ee182d91e4f33695c8509dcde8adcf0dfc7a75db55064b6d",
+      "bytes": 158404
+    },
+    "data/exp_03_variables_y_familias/etiquetas.csv": {
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "bytes": 2942
+    },
+    "data/exp_03_variables_y_familias/oof.csv": {
+      "sha256": "1a68054bbd11f8048fa0fb87529306d6703e11ab53e985888f3610a559b2d886",
+      "bytes": 756223
+    },
+    "data/exp_03_variables_y_familias/seleccion.csv": {
+      "sha256": "293dc7413b61edb40c2952e5b2273ba012249deaefd60cd8d478b8e8a79b16d7",
+      "bytes": 27177
+    },
+    "data/exp_03_variables_y_familias/metricas_control.csv": {
+      "sha256": "92dc27f75aa4b7cc10638ec9a0712defa8a86cdf3b16dad79d30c2b5771fa2b6",
+      "bytes": 548
+    },
+    "data/exp_03_variables_y_familias/contrastes_control.csv": {
+      "sha256": "b3ab350afb9f75c381ffe88ce2f837795321a763d6908689917a8bfee8296f53",
+      "bytes": 714
+    },
+    "data/exp_03_variables_y_familias/sensibilidad_control.csv": {
+      "sha256": "90e1333d8cfeeb9beedbf36548c70ee7c49ba496b76525f5dd84d4267f6b1955",
+      "bytes": 549
+    },
+    "data/exp_03_variables_y_familias/manifiesto.json": {
+      "sha256": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d",
+      "bytes": 3593
+    },
+    "data/exp_03_variables_y_familias/registro.json": {
+      "sha256": "22cabdf22a77f6978e513df49086cf4e1c2d571af2a2c4b94714e52538d86115",
+      "bytes": 6461
+    },
+    "data/exp_03_variables_y_familias/variables_base.csv": {
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024
+    },
+    "data/exp_03_variables_y_familias/externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/exp_03_variables_y_familias/internas.csv": {
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731
+    },
+    "data/exp_03_variables_y_familias/oof_ronda1.csv": {
+      "sha256": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+      "bytes": 290192
+    },
+    "data/exp_03_variables_y_familias/alpha_ronda1.csv": {
+      "sha256": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+      "bytes": 26658
+    },
+    "data/exp_03_variables_y_familias/referencias.csv": {
+      "sha256": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+      "bytes": 209628
+    },
+    "data/exp_03_variables_y_familias/capturas_planet.csv": {
+      "sha256": "198c0d94cfb9f0f4fb4906d42c9669abb5a8da3fbcafd2644b74632b647aa3cd",
+      "bytes": 1000193
+    },
+    "data/exp_03_variables_y_familias/capturas_s2.csv": {
+      "sha256": "9ed36969f168ecf58dcfa0603c9de2c12477ec46d122bee4820d9895c0b3fcb9",
+      "bytes": 546969
+    }
+  },
+  "fuentes_historicas_intactas": {
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/variables_197.csv": "761074ef2be82713ef5f9f0134c33e85e76819f4ed4866340b2ad689de0b3385",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/medias_mensuales_197.csv": "de6c186266ce00d6ee182d91e4f33695c8509dcde8adcf0dfc7a75db55064b6d",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/etiquetas_138.csv": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/predicciones_oof.csv": "1a68054bbd11f8048fa0fb87529306d6703e11ab53e985888f3610a559b2d886",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/seleccion_interna.csv": "293dc7413b61edb40c2952e5b2273ba012249deaefd60cd8d478b8e8a79b16d7",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_globales.csv": "92dc27f75aa4b7cc10638ec9a0712defa8a86cdf3b16dad79d30c2b5771fa2b6",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/contrastes.csv": "b3ab350afb9f75c381ffe88ce2f837795321a763d6908689917a8bfee8296f53",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/sensibilidad_solo_evaluacion_sin_127_171.csv": "90e1333d8cfeeb9beedbf36548c70ee7c49ba496b76525f5dd84d4267f6b1955",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_previo.json": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/registro_ejecucion.json": "22cabdf22a77f6978e513df49086cf4e1c2d571af2a2c4b94714e52538d86115",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/experimento.py": "d57827a8e177375de36f7956a7980747bc584e44aa3f0581c4b7f2bbb385f203",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/test_experimento.py": "32d049dc9e235e7864a63062785200a45d8d5dd0f5480e33a39bef12cf76dd33",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/protocolo.md": "4efe008528b280e4bf8a24d1edb0e5ee91a4d563b644a568886dd34ab8c8fad4",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/insumos_revision.zip": "df47642af3f1d41d8c90d5e80a72623b580ffc7be1c922051f2cbecf475ad880",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/diferencias_repeticion.png": "9877a7da3fdaa3adc9d58f4b7f838a46e7bf2cddda2bac0ed19a18ab0675b72f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_municipio.csv": "105720f86ddb7efc45f2a042132d5cf66665f36edf1c3ebe07e046ff550e5283",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/conclusiones.md": "b2b17dedde1265b28550c2caa56e093b76bde1f15d5e8b5d48e9efd02613cf3f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/calidad_observacion.csv": "f76267cc7dee8df2f7c654cc0720e7c1a8b550d6b6c1d35b539476c3b6af93fe",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_repeticion.csv": "154112b105be39204f4c0a2d1d2d027e89e4ab4fb4ad0cdad84958babd67234f",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/deltas_repeticion.csv": "74e6967b9a74e6313a9608e38273220bb1ea98a25278c2eb37de4f5bc59e13d0",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/deltas_parcela.csv": "fa961c960522d53d4b01d10d7f62dab1eb3ee3e0521fbdf6787b2c4f9103e30d",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_zona.csv": "7b32c905b7cd66f2a81457c47e4340d89e8125e7ecf498366068c93bdb1b4a62",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_pliegue.csv": "820369f2098abc11e2c8efc1b0dcdbbb2a5ba72f78985b979b67d037d1726691",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/README.md": "4eeaea55f5ed4dc402eefd7dabd64b47d3b29a131b3baffa2191107e39d8de04",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/01_experimento_equipo.ipynb": "9e5de71b4bf0cbe943bc4a5d492e82eafcea426c7e94322bdb2f43e85b879386",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_insumos.json": "4a9d0e2202d3e8a2e13588056d40146257fa33da093b93f738a5f31c6d9c0e8d",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/data/exp_02_ponderacion_temporal/capturas_planet.csv": "198c0d94cfb9f0f4fb4906d42c9669abb5a8da3fbcafd2644b74632b647aa3cd",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/data/exp_02_ponderacion_temporal/capturas_s2.csv": "9ed36969f168ecf58dcfa0603c9de2c12477ec46d122bee4820d9895c0b3fcb9",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/data/raw/unzipped/DATASET_RETO_AGRO_2026/Conjunto_datos_PRO_AgroCebada.csv": "91697f8f8d4ad5e59f766acbce2ef76f3c405eb02b41c1de92d62a07e8321888",
+    "/home/netfoor/Documents/ObsidianVault/agrocebada/data/raw/unzipped/DATASET_RETO_AGRO_2026/Conjunto_datos_BASICO_AgroCebada2026.csv": "96d68040d954d0903d761fd8ceed0dcd4a08e3842915a3ca44517d60e8bee4ef"
+  },
+  "notebooks_previos_protegidos": {
+    "notebooks/02_fuentes_a_variables.ipynb": "f7849db02027b8df91a488e6521183213d8f1fd0d0f4b57e84035f6967cfab87",
+    "notebooks/03_referencias_y_validacion.ipynb": "6eca2d9ed3746211502cd91331627c9ccc7f11729e58c44e9cfd9c7d99a20ff7",
+    "notebooks/01_auditoria_y_unidad_parcela.ipynb": "6da9bb8a991042752ae698ff01a028f8373db5c273f6cdc6c15f2e5da4a25d2e",
+    "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb": "c74f4703d46a83022d675c42e5834ffea721112be531edab5deae6592b7e318c",
+    "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb": "47c777915832c940bd0df2a8d8339ca77a05953c4921e94a8181141e65bdcc47"
+  },
+  "entorno_uv_protegido": {
+    ".python-version": "56c16a411e41fec3219e828087f312d9891641e3b29093c69d08a05ec1e5d693",
+    "pyproject.toml": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+    "uv.lock": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+    "requirements-colab-auditoria.txt": "8f18975fe344552700b5efe887bc0ede3128554a73f1457649652b35eb9cd95e",
+    "requirements-colab.txt": "8d3d0e04091ddac50b5875e925606d013b5b179642887107ea4411e75291262a"
+  },
+  "paquete": {
+    "ruta": "artefactos_locales/exp_03_variables_y_familias_equipo.zip",
+    "sha256": "f0236c4df892f6cfbc2e0742299badc7398ea314639211415f50a120875cc635",
+    "bytes": 990613
+  },
+  "interpretacion": "Ninguna variante satisface la regla original frente a MIX/MUN. R_T empeora R_B; H_T reduce RMSE frente a H_B pero empeora MAE y depende de pocos casos. Cierre sin adopción, no conclusión universal sobre variables temporales ni árboles."
+}

@@ -15,6 +15,7 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 7. [Tercer cuaderno: referencias y validación](notebooks/03_referencias_y_validacion.ipynb).
 8. [Primera ronda: bloques de variables sobre municipio](notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb).
 9. [Segunda ronda: ponderación temporal de tres medias](notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb).
+10. [Tercera ronda: variables temporales y familias de modelos](notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb).
 
 Si aparece un término nuevo, consultar el [glosario breve](docs/06_glosario.md). No hace falta leerlo completo antes de empezar.
 
@@ -35,6 +36,12 @@ El resultado original se distingue de su reproducción: la historia E3 bajó alg
 **EXP_02** pregunta si la frecuencia desigual de capturas puede tratarse cambiando tres medias satelitales de E2: NDVI Planet, NDVI Sentinel-2 y NDWI Sentinel-2. Primero calcula una media por mes; después pondera abril–octubre por sus días, **30, 31, 30, 31, 31, 30, 31 sobre 214**. Muestra las capturas de una parcela y comprueba las 197. Conserva sin cambios las otras tres variables, municipio, ventana, calidad, Ridge y particiones. No filtra nubes ni imputa meses.
 
 Es la lectura autónoma de **T1, ejecutado el 29 de septiembre**, adaptada el **8 de octubre**. Incluye un recorte de capturas originales preparado en esa adaptación, con procedencia y hashes propios; no lo presenta como un nuevo insumo registrado antes de T1. Recalcula las variables y métricas desde OOF guardadas, sin reentrenar ni recalcular scores internos. T1 obtuvo RMSE **0.5225 t/ha**, frente a 0.5192 de E2 y 0.4938 de MIX: se cerró **sin adopción**. Cambiar una representación temporal no garantiza mejorar la predicción ni reconstruir el verdadero promedio diario.
+
+**EXP_03** conserva las seis variables de E2 y añade cuatro descriptores de forma temporal: dos diferencias entre periodos y la amplitud de NDVI Planet, más una diferencia de NDWI Sentinel-2. Las capturas, medias mensuales y operaciones se muestran antes de compararlas con el control histórico. Son ventanas de calendario, no fechas de siembra o cosecha conocidas. A diferencia de T1, **añade información sin sustituir las medias originales**.
+
+El diseño cruza dos representaciones con dos procedimientos: Ridge original y ampliado (**R_B/R_T**), y HistGradientBoosting original y ampliado (**H_B/H_T**). Así separa añadir el bloque de cambiar de familia, dentro de las rejillas registradas. Ninguna variante superó MIX/MUN; el bloque empeoró Ridge y, con HGB, redujo ligeramente RMSE mientras empeoró MAE. No demuestra inutilidad de toda ingeniería temporal ni de todos los árboles.
+
+Es la lectura autónoma de **V1 del 29 de septiembre en México**, adaptada el **8 de octubre**. Recalcula cuatro variables y evalúa **9,660 OOF guardadas de siete procedimientos**; verifica 200 selecciones usando 900 scores guardados. Hace **cero ajustes actuales**, no recalcula los scores y no genera las 59 predicciones de entrega. La fecha UTC de la corrida, 30 de septiembre, se conserva junto a la fecha local del 29; no se presenta un registro previo nuevo.
 
 ## Ejecutar en local
 
@@ -89,6 +96,14 @@ uv run --locked --all-groups python scripts/ejecutar_exp_02.py
 ```
 
 La salida se guarda en `resultados_locales/exp_02_ponderacion_temporal/`. El generador `scripts/construir_exp_02.py` utiliza `config/exp_02_ponderacion_temporal.json`; el notebook contiene sus insumos y no necesita ZIP, Drive ni ejecutar otro cuaderno. La distribución local es `artefactos_locales/exp_02_ponderacion_temporal_equipo.zip`. **Cero ajustes actuales** y ninguna predicción final de las 59 parcelas. T1 utilizó Python 3.12.14/scikit-learn 1.9.1; el control histórico de E2 se distingue de esta lectura en Python 3.13.
+
+Para reconstruir las cuatro variables y recalcular los resultados guardados de V1:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_03.py
+```
+
+La salida se conserva en `resultados_locales/exp_03_variables_y_familias/`. `scripts/construir_exp_03.py` utiliza `config/exp_03_variables_y_familias.json`; los insumos y controles quedan incorporados en el notebook, sin archivos externos ni otro cuaderno. La distribución local es `artefactos_locales/exp_03_variables_y_familias_equipo.zip`. La corrida histórica utilizó Python 3.12.14/scikit-learn 1.9.1 y 3,800 ajustes; el lector en Python 3.13 **no reproduce esos ajustes**. Coincidir en métricas guardadas no acredita paridad de entrenamiento entre entornos.
 
 | Grupo         | Para qué sirve                           |
 | ------------- | ----------------------------------------- |

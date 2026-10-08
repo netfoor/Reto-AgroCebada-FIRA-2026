@@ -1,6 +1,6 @@
 # 05. Qué está verificado y qué falta
 
-Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas e incorporación de lectores de las dos primeras rondas; no equivale a evaluar un candidato nuevo.
+Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas e incorporación de lectores de las tres primeras rondas; no equivale a evaluar un candidato nuevo. La verificación final del lector EXP_03 se cierra por separado de su preparación.
 
 ## Entorno preparado
 
@@ -81,8 +81,8 @@ El 8 de octubre Fortino confirmó: «Muy bien ya revise el 02 y corre en colab, 
 
 ## Pendiente antes de una entrega completa
 
-- Incorporar las otras cuatro rondas con el formato común. Separar paridad de resultados guardados y paridad de entrenamiento en este entorno.
-- Ejecutar el cuaderno 03, EXP_01 y EXP_02 en una sesión real de Colab. La autonomía local no se confunde con esa comprobación. Los cuadernos 01 y 02 sí tienen confirmación de Fortino en Colab.
+- Incorporar las otras tres rondas con el formato común. Separar paridad de resultados guardados y paridad de entrenamiento en este entorno.
+- Ejecutar el cuaderno 03, EXP_01, EXP_02 y EXP_03 en una sesión real de Colab. La autonomía local no se confunde con esa comprobación. Los cuadernos 01 y 02 sí tienen confirmación de Fortino en Colab.
 - Verificar las 59 predicciones de entrega y la herramienta que las consulta.
 
 El cuaderno 03 reajusta las tres referencias sencillas en los 50 entrenamientos exteriores: 150 ajustes, sin selección de hiperparámetros ni candidatos nuevos. No genera predicciones finales de las 59 parcelas. Codex no ha subido datos a la nube ni cambiado permisos; el ZIP de Drive lo compartió Fortino. `main.py` continúa como plantilla; no es una aplicación de predicción.
@@ -114,3 +114,17 @@ Se conserva FULL138, las mismas claves OOF y etiquetas, y el cierre sin adopció
 **Verificación final:** 327 pruebas pasan, incluidas 58 de EXP_02; Ruff pasa sobre `scripts tests`. Dos kernels nuevos, cada uno iniciado con solo el notebook, producen 33 salidas y dos PNG iguales, normalizando exclusivamente la fecha de ejecución. Hay 33 celdas: 17 de código, dos técnicas plegadas y 15 visibles. Se reconstruyen 4,137 medias mensuales, se concilian 8,280 OOF de seis procedimientos y se verifican 100 decisiones de alpha; T1 cambia alpha frente a E2 en 13 exteriores. Veinte insumos identificados; cero ajustes en el cuaderno y cero predicciones finales.
 
 El registro `docs/registros/20261008_exp02_ponderacion_temporal.json` conserva hashes, controles, copias recuperables del índice y las incidencias de preparación. Los notebooks 01–03 y EXP_01, entorno uv, paquetes anteriores y fuentes históricas permanecen intactos. La generación limpia salidas antiguas al reutilizar celdas; una guarda de prueba se corrigió para distinguir el helper de descarga inactivo de una descarga ejecutada. Ninguna corrección cambia variables, predicciones o resultados históricos. No se ha probado EXP_02 en una sesión real de Colab ni reproducido su entrenamiento original. Es otra lectura de una ronda existente, no un experimento nuevo.
+
+## EXP_03: variables temporales y familias — verificación local
+
+`notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb` se genera mediante `scripts/construir_exp_03.py` y `config/exp_03_variables_y_familias.json`. `scripts/ejecutar_exp_03.py` conserva ejecuciones nuevas en `resultados_locales/exp_03_variables_y_familias/`; la distribución local es `artefactos_locales/exp_03_variables_y_familias_equipo.zip`. El lector contiene sus insumos y no necesita otro cuaderno, ZIP, Drive ni módulos de otra máquina.
+
+La reconstrucción conserva las seis entradas de E2 y añade cuatro descriptores: dos diferencias bimestrales y amplitud de NDVI Planet, y diferencia bimestral de NDWI Sentinel-2. Las capturas recortadas tienen procedencia y hashes actuales; no se presentan como insumos del registro previo. Las medias mensuales, los pesos por días y los contrastes son operaciones visibles. Se contrastan **2,758 medias mensuales** y **197 filas**, manteniendo ausencias, ventana abril–octubre y ausencia de filtros nuevos de nubes. Los bimestres no se identifican como etapas fenológicas observadas.
+
+El diseño original cruza representaciones base/ampliada con Ridge/HGB. Sus **9,660 OOF** y **200 selecciones con 900 scores guardados** permiten recalcular métricas y comprobar el selector, no regenerar los scores ni los modelos. La corrida original requirió **3,800 ajustes**; el lector hace **cero**. Se conserva FULL138, el criterio previo, la sensibilidad solo de evaluación y el cierre sin adopción. No se generan las 59 predicciones finales.
+
+El registro previo es del **29/09 a las 18:22 UTC**, la corrida del **30/09 a las 02:06 UTC** —29/09 en México— y la adaptación del **08/10**. Python 3.12.14/scikit-learn 1.9.1 corresponden al entrenamiento histórico; Python 3.13, a esta lectura. La igualdad de métricas guardadas no prueba paridad del entrenamiento.
+
+**Verificación final:** 403 pruebas pasan, incluidas 76 de EXP_03; Ruff pasa sobre `scripts tests`. Dos kernels nuevos, cada uno iniciado desde una carpeta que contenía solo el notebook, producen 35 salidas y dos PNG idénticos, normalizando exclusivamente la fecha de ejecución. El cuaderno tiene 33 celdas, 17 de código: dos técnicas plegadas y 15 visibles. Se comprueban 18 contratos con tamaño y SHA-256, 2,758 medias mensuales, cuatro variables reconstruidas, seis entradas E2 conservadas, 9,660 OOF y 200 selecciones desde 900 scores guardados. Las pruebas sintéticas cubren fechas, sensores, ausencias, duplicados, pesos, empates y corrupción de insumos. Los gráficos se revisaron visualmente.
+
+El registro `docs/registros/20261008_exp03_variables_y_familias.json` conserva hashes, controles y copias recuperables de los archivos de coordinación actualizados. Fuentes históricas, entorno uv, notebooks anteriores y sus paquetes permanecen intactos. La revisión independiente corrigió una asignación innecesaria en una prueba, sin cambiar lógica científica. **No se ha probado EXP_03 en una sesión real de Colab**, ni reproducido sus 3,800 ajustes históricos. Es una lectura verificada de una ronda existente, no una ronda nueva.

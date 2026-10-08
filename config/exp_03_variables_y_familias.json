@@ -1,0 +1,189 @@
+{
+  "id": "EXP_03",
+  "id_historico": "AGC-EXP-V1",
+  "modo": "lector_retrospectivo_sin_ajustes",
+  "fecha_original": "2026-09-29",
+  "fecha_adaptacion": "2026-10-08",
+  "poblacion_original": "FULL138",
+  "ajustes_actuales": 0,
+  "ajustes_internos_historicos": 3600,
+  "reajustes_exteriores_historicos": 200,
+  "recortes_derivados": {
+    "planet": {
+      "fecha_recorte": "2026-10-08",
+      "sha256_original": "91697f8f8d4ad5e59f766acbce2ef76f3c405eb02b41c1de92d62a07e8321888",
+      "sha256_recorte": "198c0d94cfb9f0f4fb4906d42c9669abb5a8da3fbcafd2644b74632b647aa3cd",
+      "miembro_zip": "DATASET_RETO_AGRO_2026/Conjunto_datos_PRO_AgroCebada.csv",
+      "columnas": [
+        "ID_POLIGONO",
+        "sensor",
+        "fecha_captura",
+        "ndvi_promedio"
+      ],
+      "filas": 26255,
+      "no_ausentes": {
+        "ndvi_promedio": 18248
+      },
+      "sensor": "Planet",
+      "ventana": [
+        "2025-04-01",
+        "2025-10-31"
+      ],
+      "filtro_nubes": false,
+      "regla": "seleccionar columnas, sensor y ventana; conservar NaN; ordenar estable ID/fecha; exportar %.17g"
+    },
+    "s2": {
+      "fecha_recorte": "2026-10-08",
+      "sha256_original": "96d68040d954d0903d761fd8ceed0dcd4a08e3842915a3ca44517d60e8bee4ef",
+      "sha256_recorte": "9ed36969f168ecf58dcfa0603c9de2c12477ec46d122bee4820d9895c0b3fcb9",
+      "miembro_zip": "DATASET_RETO_AGRO_2026/Conjunto_datos_BASICO_AgroCebada2026.csv",
+      "columnas": [
+        "ID_POLIGONO",
+        "sensor",
+        "fecha_captura",
+        "ndvi_promedio",
+        "ndwi_promedio"
+      ],
+      "filas": 9986,
+      "no_ausentes": {
+        "ndvi_promedio": 7352,
+        "ndwi_promedio": 7352
+      },
+      "sensor": "Sentinel-2",
+      "ventana": [
+        "2025-04-01",
+        "2025-10-31"
+      ],
+      "filtro_nubes": false,
+      "regla": "seleccionar columnas, sensor y ventana; conservar NaN; ordenar estable ID/fecha; exportar %.17g"
+    }
+  },
+  "insumos": {
+    "variables_control": {
+      "ruta_local": "data/exp_03_variables_y_familias/variables_control.csv",
+      "sha256": "761074ef2be82713ef5f9f0134c33e85e76819f4ed4866340b2ad689de0b3385",
+      "bytes": 54486,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/variables_197.csv"
+    },
+    "mensuales_control": {
+      "ruta_local": "data/exp_03_variables_y_familias/mensuales_control.csv",
+      "sha256": "de6c186266ce00d6ee182d91e4f33695c8509dcde8adcf0dfc7a75db55064b6d",
+      "bytes": 158404,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/medias_mensuales_197.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_03_variables_y_familias/etiquetas.csv",
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "bytes": 2942,
+      "uso": "etiquetas",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/etiquetas_138.csv"
+    },
+    "oof": {
+      "ruta_local": "data/exp_03_variables_y_familias/oof.csv",
+      "sha256": "1a68054bbd11f8048fa0fb87529306d6703e11ab53e985888f3610a559b2d886",
+      "bytes": 756223,
+      "uso": "resultados_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/predicciones_oof.csv"
+    },
+    "seleccion": {
+      "ruta_local": "data/exp_03_variables_y_familias/seleccion.csv",
+      "sha256": "293dc7413b61edb40c2952e5b2273ba012249deaefd60cd8d478b8e8a79b16d7",
+      "bytes": 27177,
+      "uso": "scores_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/seleccion_interna.csv"
+    },
+    "metricas_control": {
+      "ruta_local": "data/exp_03_variables_y_familias/metricas_control.csv",
+      "sha256": "92dc27f75aa4b7cc10638ec9a0712defa8a86cdf3b16dad79d30c2b5771fa2b6",
+      "bytes": 548,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/metricas_globales.csv"
+    },
+    "contrastes_control": {
+      "ruta_local": "data/exp_03_variables_y_familias/contrastes_control.csv",
+      "sha256": "b3ab350afb9f75c381ffe88ce2f837795321a763d6908689917a8bfee8296f53",
+      "bytes": 714,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/contrastes.csv"
+    },
+    "sensibilidad_control": {
+      "ruta_local": "data/exp_03_variables_y_familias/sensibilidad_control.csv",
+      "sha256": "90e1333d8cfeeb9beedbf36548c70ee7c49ba496b76525f5dd84d4267f6b1955",
+      "bytes": 549,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/sensibilidad_solo_evaluacion_sin_127_171.csv"
+    },
+    "manifiesto": {
+      "ruta_local": "data/exp_03_variables_y_familias/manifiesto.json",
+      "sha256": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d",
+      "bytes": 3593,
+      "uso": "receta_historica",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_previo.json"
+    },
+    "registro": {
+      "ruta_local": "data/exp_03_variables_y_familias/registro.json",
+      "sha256": "22cabdf22a77f6978e513df49086cf4e1c2d571af2a2c4b94714e52538d86115",
+      "bytes": 6461,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/ejecuciones/v1_20260930T020626_145041Z/registro_ejecucion.json"
+    },
+    "variables_base": {
+      "ruta_local": "data/exp_03_variables_y_familias/variables_base.csv",
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024,
+      "uso": "predictores_fuente",
+      "origen": "miembro registrado de insumos_revision.zip: controles/variables_v0_197.csv"
+    },
+    "externas": {
+      "ruta_local": "data/exp_03_variables_y_familias/externas.csv",
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295,
+      "uso": "particiones",
+      "origen": "miembro registrado de insumos_revision.zip: controles/particiones_externas.csv"
+    },
+    "internas": {
+      "ruta_local": "data/exp_03_variables_y_familias/internas.csv",
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731,
+      "uso": "particiones",
+      "origen": "miembro registrado de insumos_revision.zip: controles/particiones_internas.csv"
+    },
+    "oof_ronda1": {
+      "ruta_local": "data/exp_03_variables_y_familias/oof_ronda1.csv",
+      "sha256": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+      "bytes": 290192,
+      "uso": "resultados_guardados",
+      "origen": "miembro registrado de insumos_revision.zip: controles/oof_ronda1.csv"
+    },
+    "alpha_ronda1": {
+      "ruta_local": "data/exp_03_variables_y_familias/alpha_ronda1.csv",
+      "sha256": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+      "bytes": 26658,
+      "uso": "scores_guardados",
+      "origen": "miembro registrado de insumos_revision.zip: controles/alphas_ronda1.csv"
+    },
+    "referencias": {
+      "ruta_local": "data/exp_03_variables_y_familias/referencias.csv",
+      "sha256": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+      "bytes": 209628,
+      "uso": "resultados_guardados",
+      "origen": "miembro registrado de insumos_revision.zip: controles/oof_referencias.csv"
+    },
+    "capturas_planet": {
+      "ruta_local": "data/exp_03_variables_y_familias/capturas_planet.csv",
+      "sha256": "198c0d94cfb9f0f4fb4906d42c9669abb5a8da3fbcafd2644b74632b647aa3cd",
+      "bytes": 1000193,
+      "uso": "capturas_derivadas",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/data/exp_02_ponderacion_temporal/capturas_planet.csv"
+    },
+    "capturas_s2": {
+      "ruta_local": "data/exp_03_variables_y_familias/capturas_s2.csv",
+      "sha256": "9ed36969f168ecf58dcfa0603c9de2c12477ec46d122bee4820d9895c0b3fcb9",
+      "bytes": 546969,
+      "uso": "capturas_derivadas",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/agrocebada-uv/data/exp_02_ponderacion_temporal/capturas_s2.csv"
+    }
+  }
+}
