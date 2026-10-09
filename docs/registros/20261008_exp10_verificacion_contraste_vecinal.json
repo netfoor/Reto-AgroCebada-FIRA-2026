@@ -1,0 +1,19 @@
+{
+  "id": "EXP_10",
+  "cerrado_utc": "2026-10-08T23:40:14.655406+00:00",
+  "decision": "conservar_MIX_K1_corregido_alternativa_documentada_sin_evidencia_estadistica_suficiente",
+  "pruebas_sinteticas": 9,
+  "pruebas_errores": 0,
+  "dos_kernels_limpios": true,
+  "colab_real_probado": false,
+  "ajustes_del_lector": 0,
+  "predicciones_59_generadas": 0,
+  "registro_previo_sha256": "904c41cc6dcee9273ab2a22cc0befff45194d5b9016ebdd5998c193adc759a31",
+  "verificacion_independiente_sha256": "f91af6c7c77978803cb11307e1cf4f844fe4ece203fb52431d317b70c50c2563",
+  "notebook_sha256": "e370c4e2dc373b610fb69162a74ad7b88c8b9348f5c5e477132db7834d1abc6e",
+  "registros_lectura": {
+    "resultados_locales/exp_10_verificacion_contraste_vecinal/kernel_1/exp_10_verificacion_contraste_vecinal.verificacion.json": "ec33bee1f2643f6aff76bae76f3f438edb173140f03e584dc8ad03d3bcf94e52",
+    "resultados_locales/exp_10_verificacion_contraste_vecinal/kernel_2/exp_10_verificacion_contraste_vecinal.verificacion.json": "2afb454054b568e3f887604da939c4066d43e04a1435b5b49433d7beccd20d47"
+  },
+  "resultados_cientificos_identicos_entre_corridas": 13
+}

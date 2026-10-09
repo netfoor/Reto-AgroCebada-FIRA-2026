@@ -1,0 +1,44 @@
+{
+  "id": "EXP_11",
+  "inicio_utc": "2026-10-09T04:32:59.729426+00:00",
+  "fin_utc": "2026-10-09T04:32:59.989919+00:00",
+  "python": "3.13.13",
+  "insumos_sha256": {
+    "data/exp_11_combinacion_modelos/oof_componentes.csv": "aac0347da4600a4fcdaa256860dd32969a07bea1fead74e7194405e740a229fa",
+    "data/exp_11_combinacion_modelos/verificacion_insumos.json": "a46351c6b3485f6e601888dec23858a06d5f5104d33f68c0b3cdc92a677d42be",
+    "data/validacion_03/particiones_externas.csv": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+    "scripts/combinacion_11.py": "9dceb59add95b60613761dfdec1fc0403d4cf0b4c46992c8fcb9b248dddb8766",
+    "scripts/experimento_11.py": "10d5f58bef6fea98e76fed5ee63ad74a53c2ad135a83601d15ed5ef778d666be",
+    "notebooks/experimentos/exp_11_combinacion_modelos/protocolo.md": "bd1da87038973dbc9237897ff61c7f596302c7e67e3fe052e78ad9f1417f2df4",
+    "notebooks/experimentos/exp_11_combinacion_modelos/registro_previo.json": "3f5e17e69fca807adeda0e1e9c8187a2d5f94ae60ecb9242059c3126d17dbe39"
+  },
+  "salidas_sha256": {
+    "predicciones_mezclas.csv": "2a3821675ca56f12699e4c08596f78ee510ced46001186b17dfdc71c481b580e",
+    "metricas.csv": "b7718ebf4e4882899db0f2f1107d12092b581482ba740e74249b5aad1884f098",
+    "repeticiones.csv": "648c265ac4daba4f96e82b0aeeb7c6e71b596b2fc2b3fccc1b1cdd8c3cb68fb0",
+    "pares.csv": "203555fb3ccbe746b155846cb6dd8a9fe479ec63b763a60a4fe143f612b8d116",
+    "zonas.csv": "8b0b5b387adc5881f894d388527a8b271aef78bee7970dfb2a457a7cd06837ce",
+    "municipios.csv": "610b51ff0c59ce72831b988d4df40a8fabb4d5a6d210fa562eeeb9b59ae6a786",
+    "correlaciones.csv": "61c1e632e088b1972c9f58eb4929ae1b311e1a31f699e7021d3e8b9c5890c8f3",
+    "concentracion_parcelas.csv": "7d9afab19fff942f78f0d1e4173435650d114a3c9481dde38fa86bc7897e7394",
+    "sensibilidades.csv": "c06e03b2edcda5f04146b98bf4fafba8fd05b5845056592f0ab1ab526391a9c4",
+    "full138_municipios_no_vistos.csv": "ce91137973334dc7b9c586a921abf8d83d4aedb1cd58ea70be91c1ac0a347182",
+    "lectura.csv": "f0f4903fe174f6d3ff0772e1538764dbb9e2b7f74becd6919c479f2935e53e0c"
+  },
+  "presupuesto": {
+    "formulas": 2,
+    "entrenamientos_candidatos": 0,
+    "busqueda_pesos": 0,
+    "variables_nuevas": 0,
+    "seleccion_por_municipio": 0,
+    "predicciones_59": 0,
+    "predicciones_mezcla_calculadas": 5520
+  },
+  "clases": {
+    "E_JK": "C",
+    "E_MK": "A"
+  },
+  "aporte_especifico_J": true,
+  "confirmacion_independiente": false
+}

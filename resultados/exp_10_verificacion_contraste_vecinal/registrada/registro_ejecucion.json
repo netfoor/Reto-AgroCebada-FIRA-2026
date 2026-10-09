@@ -1,0 +1,61 @@
+{
+  "id": "EXP_10",
+  "inicio_utc": "2026-10-08T23:36:56.512170+00:00",
+  "fin_utc": "2026-10-08T23:38:23.569321+00:00",
+  "segundos": 87.1,
+  "python": "3.13.13",
+  "paquetes": {
+    "numpy": "2.4.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.9.1"
+  },
+  "insumos_sha256": {
+    "data/raw/DataSet.zip": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+    "data/validacion_03/particiones_externas.csv": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "data/validacion_03/particiones_internas.csv": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+    "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+    "data/exp_09_fuentes_externas/particiones_internas_nuevas.csv": "da5587c5b0d7b7a0054522591ba1cecfd74b0ff54430d6b67ab6270080b77d72",
+    "data/exp_10_verificacion_contraste_vecinal/metadatos.csv": "9882c9793559084a98ddebd3a08137baec766f83df1191a29a6485077e925424",
+    "data/exp_10_verificacion_contraste_vecinal/variables_197.csv": "445aca6ddd1602d3db9b4035673f22b274a82cfc7e90a605bc34e7ba67561d9c",
+    "data/exp_10_verificacion_contraste_vecinal/familia_exp09_publicada.csv": "8e43711b624a1a1a3ee8f06431406c6be5874844bbac46543bf0791b1e34b1b0",
+    "scripts/modelo_10.py": "32b6d127a10c19e2fba3dddd6cf5b179a4c55b076a54d6874ef514b8b3fc23ff",
+    "scripts/experimento_10.py": "665f694dc552b850f23e3ccb287a36d6d85788939b20edef9ae5d2d091991422",
+    "scripts/validacion_03.py": "ccd5d233ed44a0f176e092a5c4e5f1a88f82961fc3c35ccd203faa59b8034adf",
+    "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/protocolo.md": "72b46c1d81531fa2f2e8d90f56512c4098498f7df60cd8172839764293ce908d",
+    "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/registro_previo.json": "904c41cc6dcee9273ab2a22cc0befff45194d5b9016ebdd5998c193adc759a31"
+  },
+  "salidas_sha256": {
+    "predicciones_oof.csv": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+    "parametros_exteriores.csv": "739c753195c55eabc4424d8b49ed356f3554e396508fdc2135b4f15196f7bb49",
+    "residuos_internos.csv": "cd4c426c33e56112fd8e7a53ea33ac31cb67232cf5898d124d032be82bf48e77",
+    "metricas.csv": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+    "repeticiones.csv": "70e4ef6ab6a6c54de5ab8d5a4c110e3cc1f9accfa11576f693eba44623ce074d",
+    "municipios.csv": "fe957574c8bcb1b8ca2b1be5aa8849d762896c4c02b0eb94a57aac84dff4e812",
+    "zonas.csv": "0ce71c912c1e55590e4825d0e0cea550fb6924cca4c0d6829a4940feaf3cc3d9",
+    "concentracion_parcelas.csv": "a4f8ae4fffdf7a57ca859d714c44dee159276b8b6e5d9ecb4734be984b273873",
+    "sensibilidades.csv": "3f66c189967cc460297e1152d340fe85c77fd0858a873e60625e4ddbe3a10467",
+    "nulos_sorteos.csv": "f768f42efe782eee49249ba4492f2871107e98263a0cd2b98d65ff95bb944e07",
+    "reglas.csv": "e16f24b8fd0e510ab9a0400b7360ec804f467d6ac7095beeedb5aff64d70ad82",
+    "soporte_59.csv": "97d055e5dc7a304dc17474da373212ffd257b5b91b3c8059e5f672e19545a56c",
+    "nulos_resumen.json": "1f4a2b8e13b6c7199f09b1da87b1ef14faf92e80bbfd623cc1f746494349563b"
+  },
+  "presupuesto": {
+    "referencias_exteriores": 100,
+    "mix_internos": 400,
+    "ajustes_correccion": 200,
+    "control_fuga_referencias": 100,
+    "control_fuga_mix_internos": 400,
+    "control_fuga_correcciones": 200,
+    "nulo_ajustes_correccion": 180900,
+    "nulos_sorteos": {
+      "N0": 200,
+      "N1": 200,
+      "N2": 200
+    },
+    "lecturas_notebook": 0,
+    "predicciones_finales": 0
+  },
+  "control_fuga_identico": true,
+  "decision_regla": "conservar_MIX_K1_corregido_alternativa_documentada_sin_evidencia_estadistica_suficiente",
+  "confirmacion_independiente": false
+}

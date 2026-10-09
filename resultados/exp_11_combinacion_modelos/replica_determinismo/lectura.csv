@@ -1,0 +1,3 @@
+mezcla,componentes,clase,supera_mejor_componente_historicas,supera_mejor_componente_nuevas,reps_vs_J_historicas,reps_vs_K_historicas,reps_vs_J_nuevas,reps_vs_K_nuevas,sens2_vs_mejor_historicas,sens2_vs_mejor_nuevas,reps_vs_MUN_historicas,reps_vs_MUN_nuevas
+E_JK,J+K,C,True,True,10,10,9,10,-0.0034653934516442053,-0.0036498921495622949,,
+E_MK,MUN+K,A,False,False,,5,,5,0.0042373674691710272,0.0040626135672393038,10,10

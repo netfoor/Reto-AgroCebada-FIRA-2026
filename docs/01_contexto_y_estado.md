@@ -1,6 +1,6 @@
 # 01. El problema y la evidencia que buscamos
 
-Edición del 7 de octubre de 2026.
+Edición del 8 de octubre de 2026.
 
 ## Qué queremos resolver
 
@@ -20,7 +20,7 @@ La campaña objetivo es abril–octubre de 2025. La información de 2022–2024 
 
 Cada respuesta se apoya en una salida reproducible, no solo en una afirmación del texto.
 
-## Balance de las seis rondas — consulta rápida
+## Balance de las siete rondas — consulta rápida
 
 | Ronda de lectura | Pregunta estudiada | Conclusión registrada |
 |---|---|---|
@@ -30,6 +30,7 @@ Cada respuesta se apoya en una salida reproducible, no solo en una afirmación d
 | `exp_04_lluvia_octubre` | ¿Ayudan anomalías y agrupaciones? | J5_PCT queda con reservas; parte de la ventaja depende del escenario y los grupos. |
 | `exp_05_historico_octubre` | ¿Qué aporta separar lluvia histórica y actual? | Ninguna receta cumple la regla principal. |
 | `exp_06_pico_soportado` | ¿Ayuda redefinir la fecha del pico? | Mejora poco su control, pero no supera las referencias. |
+| `exp_07_heterogeneidad_parcela` | ¿Aporta dispersión espacial además de NDVI medio y municipio? | No reduce RMSE de forma estable frente a su control ni supera MIX; sin adopción. |
 
 **No hay una mejora adoptada.** Eso no significa que todas las hipótesis tengan efecto nulo ni que una familia completa de modelos sea inútil. Las auditorías, diagnósticos y réplicas son comprobaciones, no rondas predictivas adicionales.
 

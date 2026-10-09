@@ -1,0 +1,138 @@
+{
+  "id": "EXP_10",
+  "registrado_utc": "2026-10-08T23:36:47.836461+00:00",
+  "tipo": "registro_previo_interno_no_sello_de_terceros",
+  "autorizacion_literal": "Quiero que ejecutes EXP_10: verificación y decisión sobre la señal vecinal.",
+  "autor": "Claude (asistente), a pedido de Fortino",
+  "exposicion_previa_etiquetas": true,
+  "nota_exposicion": "K1 se eligió tras explorar las mismas 138 etiquetas (EXP_08) y fue evaluado en EXP_09; este registro no lo convierte en confirmación independiente.",
+  "confirmacion_independiente": false,
+  "scores_nuevos_antes_de_este_registro": 0,
+  "factibilidad_X_ejecutada_antes": true,
+  "candidatos": [
+    "K1_publicado (control de reproducción)",
+    "K1_corregido"
+  ],
+  "referencias": [
+    "MUN",
+    "MIX"
+  ],
+  "reglas": "protocolo.md §5",
+  "nulos": {
+    "N0": {
+      "semilla": 20261009,
+      "N": 200
+    },
+    "N1": {
+      "semilla": 20261010,
+      "N": 200
+    },
+    "N2": {
+      "semilla": 20261011,
+      "N": 200,
+      "metodo": "MSR singleton"
+    }
+  },
+  "archivos": {
+    "scripts/modelo_10.py": {
+      "sha256": "32b6d127a10c19e2fba3dddd6cf5b179a4c55b076a54d6874ef514b8b3fc23ff",
+      "bytes": 8668
+    },
+    "scripts/experimento_10.py": {
+      "sha256": "665f694dc552b850f23e3ccb287a36d6d85788939b20edef9ae5d2d091991422",
+      "bytes": 19089
+    },
+    "scripts/factibilidad_10.py": {
+      "sha256": "f7207095093b96e7f6c64d74498f5b225e662a1e34a48a6012de259d79f1b4a8",
+      "bytes": 9561
+    },
+    "scripts/validacion_03.py": {
+      "sha256": "ccd5d233ed44a0f176e092a5c4e5f1a88f82961fc3c35ccd203faa59b8034adf",
+      "bytes": 19756
+    },
+    "tests/test_modelo_10.py": {
+      "sha256": "0eec658e6d30db67fa19e5eb16c7b991e3a44b18f8f1e391879caee59f093f17",
+      "bytes": 6662
+    },
+    "docs/registros/20261008_exp10_pruebas.xml": {
+      "sha256": "feac89585ca1d15238eda87c52daa79be525841fdac59c1859dc8a8cf8268c3f",
+      "bytes": 1255
+    },
+    "pyproject.toml": {
+      "sha256": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+      "bytes": 853
+    },
+    "uv.lock": {
+      "sha256": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+      "bytes": 190867
+    },
+    "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/protocolo.md": {
+      "sha256": "72b46c1d81531fa2f2e8d90f56512c4098498f7df60cd8172839764293ce908d",
+      "bytes": 9093
+    },
+    "data/raw/DataSet.zip": {
+      "sha256": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5",
+      "bytes": 29687194
+    },
+    "data/validacion_03/particiones_externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/validacion_03/particiones_internas.csv": {
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731
+    },
+    "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv": {
+      "sha256": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+      "bytes": 175295
+    },
+    "data/exp_09_fuentes_externas/particiones_internas_nuevas.csv": {
+      "sha256": "da5587c5b0d7b7a0054522591ba1cecfd74b0ff54430d6b67ab6270080b77d72",
+      "bytes": 601731
+    },
+    "data/exp_09_fuentes_externas/s2_l2a_parcela_fecha.csv": {
+      "sha256": "33a21dcb8034f221269f46a8574e031dd2057b59a5af00c3f308acca7f1ab35a",
+      "bytes": 2081382
+    },
+    "data/exp_09_fuentes_externas/s1_rtc_parcela_fecha.csv": {
+      "sha256": "a548ab8728e1aebefb86d968b57b6b378f9bd58972b329cbe2f409caf9a13fa6",
+      "bytes": 781020
+    },
+    "data/exp_09_fuentes_externas/alphaearth_parcela_anio.csv": {
+      "sha256": "5dabb7eb874570167cd466b938cb2c9580202a17867146eb99cc14064ab53e3a",
+      "bytes": 604084
+    },
+    "data/referencias/variables_v0_197.csv": {
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024
+    },
+    "data/exp_10_verificacion_contraste_vecinal/capturas_receta.csv": {
+      "sha256": "be8adde5d27a93b492a9a39d5d1984bac0c75020aa19c9311d35c59021351a81",
+      "bytes": 936151
+    },
+    "data/exp_10_verificacion_contraste_vecinal/cobertura.csv": {
+      "sha256": "a5c50c1615a73ecc34c269d08ede18591aefaf8541301ed8a69f0dd7813f981c",
+      "bytes": 229
+    },
+    "data/exp_10_verificacion_contraste_vecinal/diagnosticos_X.json": {
+      "sha256": "63d16087189a8eaa6bccda3808ad805b122f1f225ff00a8e29675b4a013a6e86",
+      "bytes": 1212
+    },
+    "data/exp_10_verificacion_contraste_vecinal/familia_exp09_publicada.csv": {
+      "sha256": "8e43711b624a1a1a3ee8f06431406c6be5874844bbac46543bf0791b1e34b1b0",
+      "bytes": 14027
+    },
+    "data/exp_10_verificacion_contraste_vecinal/invariancia.csv": {
+      "sha256": "637d26e82631ff679a87a57249f18b8133845ca366291a705c366cb2ebd9888d",
+      "bytes": 199
+    },
+    "data/exp_10_verificacion_contraste_vecinal/metadatos.csv": {
+      "sha256": "9882c9793559084a98ddebd3a08137baec766f83df1191a29a6485077e925424",
+      "bytes": 13917
+    },
+    "data/exp_10_verificacion_contraste_vecinal/variables_197.csv": {
+      "sha256": "445aca6ddd1602d3db9b4035673f22b274a82cfc7e90a605bc34e7ba67561d9c",
+      "bytes": 31992
+    }
+  }
+}

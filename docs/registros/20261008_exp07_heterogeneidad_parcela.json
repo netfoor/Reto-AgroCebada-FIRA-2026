@@ -1,0 +1,31 @@
+{
+  "id": "EXP_07",
+  "cerrado_utc": "2026-10-08T22:14:49.390516+00:00",
+  "decision": "cerrado_sin_adopcion",
+  "pruebas": 778,
+  "ruff_pasa": true,
+  "pruebas_previas_registradas": 92,
+  "pruebas_actuales_notebook": 21,
+  "pruebas_errores": 0,
+  "dos_kernels_limpios": true,
+  "celdas": 32,
+  "celdas_codigo": 17,
+  "salidas_lectura": 31,
+  "PNG": 2,
+  "normalizacion_lecturas": "Solo fecha de lectura del banner y resumen JSON",
+  "registros_lectura": {
+    "resultados_locales/exp_07_heterogeneidad_parcela/kernel_1/exp_07_heterogeneidad_parcela.verificacion.json": "29ddb5a6d6b83437dc82c504c37eeee2e2384f6936d59a0d103b43552a2dc4b2",
+    "resultados_locales/exp_07_heterogeneidad_parcela/kernel_2/exp_07_heterogeneidad_parcela.verificacion.json": "597e58e53ef6751b4f7f601d5d8598d1663a6df2d67d3bee1595eb1af799f779"
+  },
+  "notebook_sha256": "1cdd9a9c87059efb96becb25d46ffad282cd248c041520b8aeb9ffeb46e1c5cb",
+  "ajustes_del_lector": 0,
+  "colab_real_probado": false,
+  "predicciones_59_generadas": 0,
+  "registro_previo_sha256": "13568c268a902b6b6f0072a375d949168df404d263bb11682e02613c5d6c655d",
+  "registro_previo_archivos_intactos": true,
+  "verificacion_independiente_sha256": "ccdb5d9dab47c67865b55ff71e248479540f485a3e3b341e5596216e2aacc311",
+  "resultados_cientificos_identicos_entre_corridas": 12,
+  "ajustes_Ridge_fisicos_dos_corridas": 4022,
+  "intentos_kernel_sandbox_sin_celdas_ejecutadas": 2,
+  "fallo_suite_inicial": "Copia temporal incompleta: faltaban los perfiles requirements; se copiaron sin modificar y la suite completa pasó"
+}

@@ -1,0 +1,24 @@
+{
+  "verificado_utc": "2026-10-09T04:37:55.044420+00:00",
+  "implementacion_independiente": "csv+math, sin pandas ni combinacion_11",
+  "max_dif_metricas": 5.551115123125783e-17,
+  "metricas_reproducidas": true,
+  "replica_archivos_identicos": [
+    "concentracion_parcelas.csv",
+    "correlaciones.csv",
+    "full138_municipios_no_vistos.csv",
+    "lectura.csv",
+    "metricas.csv",
+    "municipios.csv",
+    "pares.csv",
+    "predicciones_mezclas.csv",
+    "repeticiones.csv",
+    "sensibilidades.csv",
+    "zonas.csv"
+  ],
+  "replica_archivos_distintos": [],
+  "replica_determinista": true,
+  "registro_previo_anterior_a_corrida": true,
+  "archivos_registrados_cambiados": [],
+  "originales_cambiados": []
+}

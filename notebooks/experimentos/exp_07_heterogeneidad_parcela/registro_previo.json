@@ -1,0 +1,119 @@
+{
+  "id": "EXP_07",
+  "registrado_utc": "2026-10-08T17:05:38.396066+00:00",
+  "tipo": "registro_previo_interno_no_sello_de_terceros",
+  "autorizacion_literal": "Perfecto correlo y verifiquemos que sucede",
+  "interpretacion_comunicada_antes_de_ajustar": "Aprobación del plan incluido MAE<=MIX; criterio histórico MAE<=MUN también reportado",
+  "exposicion_previa_etiquetas": true,
+  "confirmacion_independiente": false,
+  "archivos": {
+    "scripts/experimento_07.py": {
+      "sha256": "c6cab34168c7ed169992b846f9afbf1d6136f7a087e3cb24e5074ab44dad5f77",
+      "bytes": 20183
+    },
+    "scripts/modelo_07.py": {
+      "sha256": "99902a560907e18f3fc6643239b00f5d0ae7515fa75ea86f05edeeb55b7511b9",
+      "bytes": 5939
+    },
+    "scripts/factibilidad_07.py": {
+      "sha256": "5729f27755f6346166904868e156ad3a0d668cdaa09ef9de23ca1a2825e024d3",
+      "bytes": 17840
+    },
+    "scripts/validacion_03.py": {
+      "sha256": "ccd5d233ed44a0f176e092a5c4e5f1a88f82961fc3c35ccd203faa59b8034adf",
+      "bytes": 19756
+    },
+    "tests/test_modelo_07.py": {
+      "sha256": "a1d3d4caabda8d0f214d8df43e821bd0fef45a9e498615941a1be8fe71d62bfe",
+      "bytes": 10587
+    },
+    "tests/test_factibilidad_07.py": {
+      "sha256": "9449e001495c099fe11f6853145e93bbe6cd0c2f85fc9548560bb81a7feb9bf5",
+      "bytes": 9196
+    },
+    "tests/test_experimento_07.py": {
+      "sha256": "9e6373c39d03b287d8ac24f921c409b7c8012f2d01b6281b718310d92f1d3069",
+      "bytes": 4559
+    },
+    "pyproject.toml": {
+      "sha256": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+      "bytes": 853
+    },
+    "uv.lock": {
+      "sha256": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+      "bytes": 190867
+    },
+    "notebooks/experimentos/exp_07_heterogeneidad_parcela/protocolo_definitivo.md": {
+      "sha256": "e6c431952f03eeafa364d93916e40490c0cae0ab85cb0af096d997f6d6797e82",
+      "bytes": 5512
+    },
+    "data/exp_07_heterogeneidad_parcela/calidad_parcela.csv": {
+      "sha256": "ca08d33fc034b4fd0a53d88b75501f56a39f6c6788a4ebcf859b842980edacc7",
+      "bytes": 42098
+    },
+    "data/exp_07_heterogeneidad_parcela/capturas_planet.csv": {
+      "sha256": "3253329e801cdbc41aa9bb7720eb08a4eda3f045265a74805134f5cfa76a200f",
+      "bytes": 1449029
+    },
+    "data/exp_07_heterogeneidad_parcela/cobertura_mensual.csv": {
+      "sha256": "a965f034282f3b0e2ab8eb41bbffaa295a8a3f3e051495d71ad09ee215b92097",
+      "bytes": 93678
+    },
+    "data/exp_07_heterogeneidad_parcela/comparacion_v0.csv": {
+      "sha256": "f99c572fa2a23d4d69b129f2353f35da1c5bbd14b05790d7e0c6ebfc0d9d7721",
+      "bytes": 25700
+    },
+    "data/exp_07_heterogeneidad_parcela/coordenadas.csv": {
+      "sha256": "a8a065ec984112928dbddf1aa9476f15271f24e108e1d985cd4e15e7facd2a08",
+      "bytes": 9032
+    },
+    "data/exp_07_heterogeneidad_parcela/correlaciones_X.csv": {
+      "sha256": "64a06a96570aa9ba5097d3ba848268e6d217a56097856dbb523d98fa6217cd43",
+      "bytes": 2914
+    },
+    "data/exp_07_heterogeneidad_parcela/diagnosticos_X.json": {
+      "sha256": "5efc8f9851486a94bda16509d10dfe2336bcf281582f66c305eb5261ca5f6d88",
+      "bytes": 1178
+    },
+    "data/exp_07_heterogeneidad_parcela/etiquetas.csv": {
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "bytes": 2942
+    },
+    "data/exp_07_heterogeneidad_parcela/externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/exp_07_heterogeneidad_parcela/internas.csv": {
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731
+    },
+    "data/exp_07_heterogeneidad_parcela/metadatos.csv": {
+      "sha256": "6842063626fdc7637365424815f6e97661b2e8021ca3979ba21ce2e655856868",
+      "bytes": 11239
+    },
+    "data/exp_07_heterogeneidad_parcela/procedencia_X.json": {
+      "sha256": "02a00c2fe48bf498aaa5bb580693f792785f69c81942587006ca9b4895c1a3f0",
+      "bytes": 2402
+    },
+    "data/exp_07_heterogeneidad_parcela/pruebas_previas.xml": {
+      "sha256": "e11077655684630789ca2e472ec1c65a3a07d46e0208a7b205cdafaa4639ba17",
+      "bytes": 10250
+    },
+    "data/exp_07_heterogeneidad_parcela/referencias_historicas.csv": {
+      "sha256": "e9768cec1165f3d7f1c8ab556201bc12c8073864c9ed5b0924c7bc00466dd6d1",
+      "bytes": 416403
+    },
+    "data/exp_07_heterogeneidad_parcela/soporte_59_solo_X.csv": {
+      "sha256": "4f405ae341e49cea26cc68834dc4e8c5e14cc3937a7a585e1a242ef731a1dd8a",
+      "bytes": 6139
+    },
+    "data/exp_07_heterogeneidad_parcela/variables_197.csv": {
+      "sha256": "8bd78697b11e3a04ef4b89c138cee8bf9ee1f202e79ce1bd4dd74446d1b1bf1c",
+      "bytes": 19307
+    },
+    "data/exp_07_heterogeneidad_parcela/variacion_entrenamientos.csv": {
+      "sha256": "129f676c04965c14ce671ee81ad19d226241fcce301288806e6975f998c7e860",
+      "bytes": 62385
+    }
+  }
+}

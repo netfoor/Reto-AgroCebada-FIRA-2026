@@ -1,0 +1,5 @@
+escenario,modelo,n_RMSE_mejor_MIX,n_MAE_no_peor_MIX,n_MAE_no_peor_MUN,competitivo_propuesto,cumple_criterio_historico,n_RMSE_C1_mejor_C0,aporte_H7
+SEEN135,C0,1,10,7,False,False,4,False
+SEEN135,C1,1,10,5,False,False,4,False
+FULL138,C0,0,9,7,False,False,4,False
+FULL138,C1,0,10,5,False,False,4,False

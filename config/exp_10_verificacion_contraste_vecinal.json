@@ -1,0 +1,206 @@
+{
+  "id": "EXP_10",
+  "modo": "lector_resultados_experimento_registrado_sin_ajustes",
+  "fecha_original": "2026-10-08",
+  "poblacion_principal": "SEEN135",
+  "poblacion_secundaria": "FULL138",
+  "ajustes_actuales_lector": 0,
+  "insumos": {
+    "capturas": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/capturas_receta.csv",
+      "bytes": 936151,
+      "sha256": "be8adde5d27a93b492a9a39d5d1984bac0c75020aa19c9311d35c59021351a81",
+      "uso": "capturas",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/capturas_receta.csv"
+    },
+    "metadatos": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/metadatos.csv",
+      "bytes": 13917,
+      "sha256": "9882c9793559084a98ddebd3a08137baec766f83df1191a29a6485077e925424",
+      "uso": "metadatos",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/metadatos.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/etiquetas_138.csv",
+      "bytes": 1765,
+      "sha256": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+      "uso": "etiquetas",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/etiquetas_138.csv"
+    },
+    "variables_control": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/variables_197.csv",
+      "bytes": 31992,
+      "sha256": "445aca6ddd1602d3db9b4035673f22b274a82cfc7e90a605bc34e7ba67561d9c",
+      "uso": "variables_control",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/variables_197.csv"
+    },
+    "invariancia_control": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/invariancia.csv",
+      "bytes": 199,
+      "sha256": "637d26e82631ff679a87a57249f18b8133845ca366291a705c366cb2ebd9888d",
+      "uso": "invariancia_control",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/invariancia.csv"
+    },
+    "cobertura_control": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/cobertura.csv",
+      "bytes": 229,
+      "sha256": "a5c50c1615a73ecc34c269d08ede18591aefaf8541301ed8a69f0dd7813f981c",
+      "uso": "cobertura_control",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/cobertura.csv"
+    },
+    "diagnosticos_X": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/diagnosticos_X.json",
+      "bytes": 1212,
+      "sha256": "63d16087189a8eaa6bccda3808ad805b122f1f225ff00a8e29675b4a013a6e86",
+      "uso": "diagnosticos_X",
+      "origen": "data/exp_10_verificacion_contraste_vecinal/diagnosticos_X.json"
+    },
+    "hist_externas": {
+      "ruta_local": "data/validacion_03/particiones_externas.csv",
+      "bytes": 175295,
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "uso": "hist_externas",
+      "origen": "data/validacion_03/particiones_externas.csv"
+    },
+    "hist_internas": {
+      "ruta_local": "data/validacion_03/particiones_internas.csv",
+      "bytes": 601731,
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "uso": "hist_internas",
+      "origen": "data/validacion_03/particiones_internas.csv"
+    },
+    "nuevas_externas": {
+      "ruta_local": "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv",
+      "bytes": 175295,
+      "sha256": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+      "uso": "nuevas_externas",
+      "origen": "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv"
+    },
+    "nuevas_internas": {
+      "ruta_local": "data/exp_09_fuentes_externas/particiones_internas_nuevas.csv",
+      "bytes": 601731,
+      "sha256": "da5587c5b0d7b7a0054522591ba1cecfd74b0ff54430d6b67ab6270080b77d72",
+      "uso": "nuevas_internas",
+      "origen": "data/exp_09_fuentes_externas/particiones_internas_nuevas.csv"
+    },
+    "oof": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/predicciones_oof.csv",
+      "bytes": 871021,
+      "sha256": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+      "uso": "oof",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/predicciones_oof.csv"
+    },
+    "parametros": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/parametros_exteriores.csv",
+      "bytes": 19671,
+      "sha256": "739c753195c55eabc4424d8b49ed356f3554e396508fdc2135b4f15196f7bb49",
+      "uso": "parametros",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/parametros_exteriores.csv"
+    },
+    "metricas_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/metricas.csv",
+      "bytes": 1560,
+      "sha256": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+      "uso": "metricas_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/metricas.csv"
+    },
+    "repeticiones_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/repeticiones.csv",
+      "bytes": 14640,
+      "sha256": "70e4ef6ab6a6c54de5ab8d5a4c110e3cc1f9accfa11576f693eba44623ce074d",
+      "uso": "repeticiones_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/repeticiones.csv"
+    },
+    "municipios_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/municipios.csv",
+      "bytes": 4566,
+      "sha256": "fe957574c8bcb1b8ca2b1be5aa8849d762896c4c02b0eb94a57aac84dff4e812",
+      "uso": "municipios_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/municipios.csv"
+    },
+    "zonas_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/zonas.csv",
+      "bytes": 1504,
+      "sha256": "0ce71c912c1e55590e4825d0e0cea550fb6924cca4c0d6829a4940feaf3cc3d9",
+      "uso": "zonas_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/zonas.csv"
+    },
+    "concentracion_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/concentracion_parcelas.csv",
+      "bytes": 43974,
+      "sha256": "a4f8ae4fffdf7a57ca859d714c44dee159276b8b6e5d9ecb4734be984b273873",
+      "uso": "concentracion_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/concentracion_parcelas.csv"
+    },
+    "sensibilidades_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/sensibilidades.csv",
+      "bytes": 1365,
+      "sha256": "3f66c189967cc460297e1152d340fe85c77fd0858a873e60625e4ddbe3a10467",
+      "uso": "sensibilidades_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/sensibilidades.csv"
+    },
+    "nulos_resumen": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_resumen.json",
+      "bytes": 1883,
+      "sha256": "1f4a2b8e13b6c7199f09b1da87b1ef14faf92e80bbfd623cc1f746494349563b",
+      "uso": "nulos_resumen",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_resumen.json"
+    },
+    "nulos_sorteos": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_sorteos.csv",
+      "bytes": 88065,
+      "sha256": "f768f42efe782eee49249ba4492f2871107e98263a0cd2b98d65ff95bb944e07",
+      "uso": "nulos_sorteos",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_sorteos.csv"
+    },
+    "reglas_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/reglas.csv",
+      "bytes": 399,
+      "sha256": "e16f24b8fd0e510ab9a0400b7360ec804f467d6ac7095beeedb5aff64d70ad82",
+      "uso": "reglas_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/reglas.csv"
+    },
+    "soporte_control": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/soporte_59.csv",
+      "bytes": 4113,
+      "sha256": "97d055e5dc7a304dc17474da373212ffd257b5b91b3c8059e5f672e19545a56c",
+      "uso": "soporte_control",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/soporte_59.csv"
+    },
+    "registro_ejecucion": {
+      "ruta_local": "resultados/exp_10_verificacion_contraste_vecinal/registrada/registro_ejecucion.json",
+      "bytes": 3730,
+      "sha256": "379fa6684397c5ef4ef23691dae15dffea32536a2cf93bc84e9556ce2797a9bd",
+      "uso": "registro_ejecucion",
+      "origen": "resultados/exp_10_verificacion_contraste_vecinal/registrada/registro_ejecucion.json"
+    },
+    "registro_previo": {
+      "ruta_local": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/registro_previo.json",
+      "bytes": 5209,
+      "sha256": "904c41cc6dcee9273ab2a22cc0befff45194d5b9016ebdd5998c193adc759a31",
+      "uso": "registro_previo",
+      "origen": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/registro_previo.json"
+    },
+    "verificacion_independiente": {
+      "ruta_local": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/verificacion_independiente.json",
+      "bytes": 2083,
+      "sha256": "f91af6c7c77978803cb11307e1cf4f844fe4ece203fb52431d317b70c50c2563",
+      "uso": "verificacion_independiente",
+      "origen": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/verificacion_independiente.json"
+    },
+    "modelo_fuente": {
+      "ruta_local": "scripts/modelo_10.py",
+      "bytes": 8668,
+      "sha256": "32b6d127a10c19e2fba3dddd6cf5b179a4c55b076a54d6874ef514b8b3fc23ff",
+      "uso": "modelo_fuente",
+      "origen": "scripts/modelo_10.py"
+    },
+    "experimento_fuente": {
+      "ruta_local": "scripts/experimento_10.py",
+      "bytes": 19089,
+      "sha256": "665f694dc552b850f23e3ccb287a36d6d85788939b20edef9ae5d2d091991422",
+      "uso": "experimento_fuente",
+      "origen": "scripts/experimento_10.py"
+    }
+  }
+}

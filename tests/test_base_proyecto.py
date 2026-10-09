@@ -40,7 +40,7 @@ def test_grupos_sin_stack_de_produccion_ni_nuevas_familias():
     assert not (nombres & no_autorizadas)
 
 
-def test_catalogo_conserva_identidad_y_migra_cinco_lectores_sin_ajustes():
+def test_catalogo_conserva_identidad_y_migra_seis_lectores_sin_ajustes():
     indice = json.loads((RAIZ / "config/indice_experimentos.json").read_text())
     experimentos = indice["experimentos"]
     assert len(experimentos) == 6
@@ -101,8 +101,17 @@ def test_catalogo_conserva_identidad_y_migra_cinco_lectores_sin_ajustes():
     )
     assert quinto["estado_predictivo"] == "cerrado_sin_adopcion"
     assert quinto["modo_futuro_por_defecto"] == "lector_sin_ajustes"
-    assert experimentos[5]["estado_migracion"] == "pendiente"
-    assert indice["experimentos_copiados"] == 5
+    sexto = experimentos[5]
+    assert sexto["estado_migracion"] == "lector_verificado_sin_reentrenar"
+    assert sexto["fecha_trabajo_segun_fuente_mexico"] == "2026-10-06"
+    assert sexto["fecha_catalogacion"] == "2026-10-07"
+    assert sexto["fecha_adaptacion"] == "2026-10-08"
+    assert sexto["ruta_cuaderno"] == (
+        "notebooks/experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb"
+    )
+    assert sexto["estado_predictivo"] == "cerrado_sin_adopcion"
+    assert sexto["modo_futuro_por_defecto"] == "lector_sin_ajustes"
+    assert indice["experimentos_copiados"] == 6
     assert indice["ajustes_al_catalogar"] == 0
     assert indice["fecha_corte"] == "2026-10-08"
 
@@ -125,6 +134,7 @@ def test_documentacion_y_verificacion_presentes():
         "notebooks/experimentos/exp_03_variables_y_familias/README.md",
         "notebooks/experimentos/exp_04_lluvia_octubre/README.md",
         "notebooks/experimentos/exp_05_historico_octubre/README.md",
+        "notebooks/experimentos/exp_06_pico_soportado/README.md",
         "scripts/verificar_entorno.py",
     )
     for nombre in archivos:

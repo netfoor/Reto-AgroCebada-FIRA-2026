@@ -1,0 +1,215 @@
+{
+  "id": "EXP_07",
+  "id_historico": "AGC-EXP-H7",
+  "modo": "lector_resultados_experimento_registrado_sin_ajustes",
+  "fecha_original": "2026-10-08",
+  "fecha_adaptacion": "2026-10-08",
+  "poblacion_principal": "SEEN135",
+  "poblacion_secundaria": "FULL138",
+  "ajustes_actuales_lector": 0,
+  "insumos": {
+    "capturas": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/capturas_planet.csv",
+      "bytes": 1449029,
+      "sha256": "3253329e801cdbc41aa9bb7720eb08a4eda3f045265a74805134f5cfa76a200f",
+      "uso": "capturas",
+      "origen": "data/exp_07_heterogeneidad_parcela/capturas_planet.csv"
+    },
+    "metadata": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/metadatos.csv",
+      "bytes": 11239,
+      "sha256": "6842063626fdc7637365424815f6e97661b2e8021ca3979ba21ce2e655856868",
+      "uso": "metadata",
+      "origen": "data/exp_07_heterogeneidad_parcela/metadatos.csv"
+    },
+    "variables_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/variables_197.csv",
+      "bytes": 19307,
+      "sha256": "8bd78697b11e3a04ef4b89c138cee8bf9ee1f202e79ce1bd4dd74446d1b1bf1c",
+      "uso": "variables_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/variables_197.csv"
+    },
+    "calidad_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/calidad_parcela.csv",
+      "bytes": 42098,
+      "sha256": "ca08d33fc034b4fd0a53d88b75501f56a39f6c6788a4ebcf859b842980edacc7",
+      "uso": "calidad_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/calidad_parcela.csv"
+    },
+    "mensual_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/cobertura_mensual.csv",
+      "bytes": 93678,
+      "sha256": "a965f034282f3b0e2ab8eb41bbffaa295a8a3f3e051495d71ad09ee215b92097",
+      "uso": "mensual_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/cobertura_mensual.csv"
+    },
+    "variacion_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/variacion_entrenamientos.csv",
+      "bytes": 62385,
+      "sha256": "129f676c04965c14ce671ee81ad19d226241fcce301288806e6975f998c7e860",
+      "uso": "variacion_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/variacion_entrenamientos.csv"
+    },
+    "correlaciones_X_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/correlaciones_X.csv",
+      "bytes": 2914,
+      "sha256": "64a06a96570aa9ba5097d3ba848268e6d217a56097856dbb523d98fa6217cd43",
+      "uso": "correlaciones_X_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/correlaciones_X.csv"
+    },
+    "soporte_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/soporte_59_solo_X.csv",
+      "bytes": 6139,
+      "sha256": "4f405ae341e49cea26cc68834dc4e8c5e14cc3937a7a585e1a242ef731a1dd8a",
+      "uso": "soporte_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/soporte_59_solo_X.csv"
+    },
+    "comparacion_v0_control": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/comparacion_v0.csv",
+      "bytes": 25700,
+      "sha256": "f99c572fa2a23d4d69b129f2353f35da1c5bbd14b05790d7e0c6ebfc0d9d7721",
+      "uso": "comparacion_v0_control",
+      "origen": "data/exp_07_heterogeneidad_parcela/comparacion_v0.csv"
+    },
+    "diagnosticos_X": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/diagnosticos_X.json",
+      "bytes": 1178,
+      "sha256": "5efc8f9851486a94bda16509d10dfe2336bcf281582f66c305eb5261ca5f6d88",
+      "uso": "diagnosticos_X",
+      "origen": "data/exp_07_heterogeneidad_parcela/diagnosticos_X.json"
+    },
+    "externas": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/externas.csv",
+      "bytes": 175295,
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "uso": "externas",
+      "origen": "data/exp_07_heterogeneidad_parcela/externas.csv"
+    },
+    "internas": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/internas.csv",
+      "bytes": 601731,
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "uso": "internas",
+      "origen": "data/exp_07_heterogeneidad_parcela/internas.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_07_heterogeneidad_parcela/etiquetas.csv",
+      "bytes": 2942,
+      "sha256": "42985c24e4669007667b7883ac34b18ba5a1e080c299724aaf6deebbab6e93ab",
+      "uso": "etiquetas",
+      "origen": "data/exp_07_heterogeneidad_parcela/etiquetas.csv"
+    },
+    "registro_previo": {
+      "ruta_local": "notebooks/experimentos/exp_07_heterogeneidad_parcela/registro_previo.json",
+      "bytes": 4908,
+      "sha256": "13568c268a902b6b6f0072a375d949168df404d263bb11682e02613c5d6c655d",
+      "uso": "registro_previo",
+      "origen": "notebooks/experimentos/exp_07_heterogeneidad_parcela/registro_previo.json"
+    },
+    "registro_ejecucion": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/registro_ejecucion.json",
+      "bytes": 1800,
+      "sha256": "4c1a08bcc0b37adbd81e0a11eb5cd30c2d290187377dd5541ef7dd6975f739fe",
+      "uso": "registro_ejecucion",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/registro_ejecucion.json"
+    },
+    "oof": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/predicciones_oof.csv",
+      "bytes": 353625,
+      "sha256": "cc7b0669d8e15be7424580861fdb2647bfeda8ce206a4879c42cd9282d422468",
+      "uso": "oof",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/predicciones_oof.csv"
+    },
+    "scores": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/scores_internos.csv",
+      "bytes": 33191,
+      "sha256": "cdef2647f6c1a180c20e676c24d0d9debb6c21e1f5ddfd3f9c111cc77d8ccefd",
+      "uso": "scores",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/scores_internos.csv"
+    },
+    "scores_pliegue": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/scores_por_pliegue.csv",
+      "bytes": 99799,
+      "sha256": "889d4895cf47264266066e927e025f019149742c920e9f1487be54f3afc7e0da",
+      "uso": "scores_pliegue",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/scores_por_pliegue.csv"
+    },
+    "seleccion": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/seleccion.csv",
+      "bytes": 4207,
+      "sha256": "5c4865ea997cb11197888935c42a06aaf99830a80f3266d0821478b11ea6a070",
+      "uso": "seleccion",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/seleccion.csv"
+    },
+    "parametros": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/parametros_exteriores.json",
+      "bytes": 172391,
+      "sha256": "e666986424d6f23fa9ee39d7212d6cf792dd3392753e4939906033b11fa35907",
+      "uso": "parametros",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/parametros_exteriores.json"
+    },
+    "metricas_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/metricas.csv",
+      "bytes": 686,
+      "sha256": "882ec43952bf89265480cee82d4f2dd719deadd3bf4bbdd894d7bf5371fdadd3",
+      "uso": "metricas_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/metricas.csv"
+    },
+    "repeticiones_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/repeticiones.csv",
+      "bytes": 6548,
+      "sha256": "5752a709f216020eee0835d24fb3708057f5b42dcb1956e8e3c96dcd77656fdf",
+      "uso": "repeticiones_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/repeticiones.csv"
+    },
+    "municipios_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/municipios.csv",
+      "bytes": 5153,
+      "sha256": "6f7b189dc7affac06ceeee06b8e101b010a730783afe84f424c71258622b5d4e",
+      "uso": "municipios_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/municipios.csv"
+    },
+    "zonas_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/zonas.csv",
+      "bytes": 1466,
+      "sha256": "b5f48e9baf692d8e164bf6c1682a5b0b8fb86f3759a7a0f390fdacb379bb6e01",
+      "uso": "zonas_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/zonas.csv"
+    },
+    "reglas_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/reglas.csv",
+      "bytes": 298,
+      "sha256": "8520be5e8ea6804b0d61b69419f39c19f457bc9a5d1963dedfdcc26fe1c9b0d5",
+      "uso": "reglas_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/reglas.csv"
+    },
+    "contrastes_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/deltas.csv",
+      "bytes": 45793,
+      "sha256": "943b56db5dc9cc8dcada49ed730e335a6671d840d8776ac0b33823d1732f952e",
+      "uso": "contrastes_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/deltas.csv"
+    },
+    "concentracion_control": {
+      "ruta_local": "resultados/exp_07_heterogeneidad_parcela/registrada/concentracion.csv",
+      "bytes": 3085,
+      "sha256": "1a6b7eef420738f444e25993b14a7e028663411f1204c0e0ffe8088fa1fadd3a",
+      "uso": "concentracion_control",
+      "origen": "resultados/exp_07_heterogeneidad_parcela/registrada/concentracion.csv"
+    },
+    "modelo_fuente": {
+      "ruta_local": "scripts/modelo_07.py",
+      "bytes": 5939,
+      "sha256": "99902a560907e18f3fc6643239b00f5d0ae7515fa75ea86f05edeeb55b7511b9",
+      "uso": "modelo_fuente",
+      "origen": "scripts/modelo_07.py"
+    },
+    "experimento_fuente": {
+      "ruta_local": "scripts/experimento_07.py",
+      "bytes": 20183,
+      "sha256": "c6cab34168c7ed169992b846f9afbf1d6136f7a087e3cb24e5074ab44dad5f77",
+      "uso": "experimento_fuente",
+      "origen": "scripts/experimento_07.py"
+    }
+  }
+}

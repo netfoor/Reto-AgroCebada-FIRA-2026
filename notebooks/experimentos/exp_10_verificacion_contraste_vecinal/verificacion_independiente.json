@@ -1,0 +1,43 @@
+{
+  "verificado_utc": "2026-10-08T23:40:14.655406+00:00",
+  "implementacion_independiente": true,
+  "max_dif_predicciones_oof": 2.6645352591003757e-15,
+  "predicciones_reproducidas": true,
+  "max_dif_metricas": 1.1102230246251565e-16,
+  "metricas_reproducidas": true,
+  "replica_archivos_identicos": [
+    "concentracion_parcelas.csv",
+    "metricas.csv",
+    "municipios.csv",
+    "nulos_resumen.json",
+    "nulos_sorteos.csv",
+    "parametros_exteriores.csv",
+    "predicciones_oof.csv",
+    "reglas.csv",
+    "repeticiones.csv",
+    "residuos_internos.csv",
+    "sensibilidades.csv",
+    "soporte_59.csv",
+    "zonas.csv"
+  ],
+  "replica_archivos_distintos": [],
+  "replica_determinista": true,
+  "N0_reproduce_p_EXP09": true,
+  "N0_p": 0.13,
+  "registrada_sha256": {
+    "concentracion_parcelas.csv": "a4f8ae4fffdf7a57ca859d714c44dee159276b8b6e5d9ecb4734be984b273873",
+    "metricas.csv": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+    "municipios.csv": "fe957574c8bcb1b8ca2b1be5aa8849d762896c4c02b0eb94a57aac84dff4e812",
+    "nulos_resumen.json": "1f4a2b8e13b6c7199f09b1da87b1ef14faf92e80bbfd623cc1f746494349563b",
+    "nulos_sorteos.csv": "f768f42efe782eee49249ba4492f2871107e98263a0cd2b98d65ff95bb944e07",
+    "parametros_exteriores.csv": "739c753195c55eabc4424d8b49ed356f3554e396508fdc2135b4f15196f7bb49",
+    "predicciones_oof.csv": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+    "registro_ejecucion.json": "379fa6684397c5ef4ef23691dae15dffea32536a2cf93bc84e9556ce2797a9bd",
+    "reglas.csv": "e16f24b8fd0e510ab9a0400b7360ec804f467d6ac7095beeedb5aff64d70ad82",
+    "repeticiones.csv": "70e4ef6ab6a6c54de5ab8d5a4c110e3cc1f9accfa11576f693eba44623ce074d",
+    "residuos_internos.csv": "cd4c426c33e56112fd8e7a53ea33ac31cb67232cf5898d124d032be82bf48e77",
+    "sensibilidades.csv": "3f66c189967cc460297e1152d340fe85c77fd0858a873e60625e4ddbe3a10467",
+    "soporte_59.csv": "97d055e5dc7a304dc17474da373212ffd257b5b91b3c8059e5f672e19545a56c",
+    "zonas.csv": "0ce71c912c1e55590e4825d0e0cea550fb6924cca4c0d6829a4940feaf3cc3d9"
+  }
+}

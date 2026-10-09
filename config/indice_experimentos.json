@@ -1,318 +1,366 @@
 {
-  "version_esquema": 1,
-  "fecha_corte": "2026-10-08",
-  "tipo": "catalogo_retrospectivo_no_preregistro",
-  "raiz_fuentes": "boveda_agrocebada_padre_del_proyecto",
-  "experimentos_copiados": 5,
-  "ajustes_al_catalogar": 0,
-  "nota": "Aliases de lectura no crean nuevas rondas. No se reescribe el catálogo del 2 de octubre. EXP_01–EXP_05 son lectores verificados localmente sin reentrenar. EXP_05 recalcula representaciones desde cuatro lluvias guardadas, sin GeoTIFF ni intersección, y conserva SEEN135 principal/FULL138 secundario del diseño V3. No reajusta modelos ni cambia el veredicto V2; muestra como no definidos 14 R² municipales degenerados sin cambiar CSV históricos. EXP_06 sigue pendiente de incorporación.",
-  "catalogo_anterior": {
-    "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/REGISTRO_HIPOTESIS.json",
-    "bytes": 21827,
-    "sha256": "0011662a1bc131677ddf3c056a65269d2af70d8a38f422342d3546a2e5e32543"
+ "version_esquema": 1,
+ "fecha_corte": "2026-10-08",
+ "tipo": "catalogo_retrospectivo_no_preregistro",
+ "raiz_fuentes": "boveda_agrocebada_padre_del_proyecto",
+ "experimentos_copiados": 6,
+ "ajustes_al_catalogar": 0,
+ "nota": "Aliases de lectura no crean nuevas rondas. No se reescribe el catálogo del 2 de octubre. EXP_01–EXP_06 son lectores verificados localmente sin reentrenar. EXP_06 reconstruye la fecha de pico soportado desde capturas y sustituye una variable de E2, sin añadir la bandera como predictor. Evalúa resultados guardados, conserva SEEN135 principal/FULL138 secundario y el cierre sin adopción de V4. No reajusta modelos ni crea una séptima ronda.",
+ "catalogo_anterior": {
+  "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/REGISTRO_HIPOTESIS.json",
+  "bytes": 21827,
+  "sha256": "0011662a1bc131677ddf3c056a65269d2af70d8a38f422342d3546a2e5e32543"
+ },
+ "contrato_particiones_historico": {
+  "id": "COD-CV-5x10-20260920",
+  "externas": {
+   "esquema": "5 pliegues por 10 repeticiones; particion por parcela",
+   "origen_workspace": "analysis/reunion_inicial/particiones_cv_5x10.csv",
+   "miembro_zip_v2": "controles/particiones_externas.csv",
+   "miembro_zip_v3": "exteriores.csv",
+   "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec"
   },
-  "contrato_particiones_historico": {
-    "id": "COD-CV-5x10-20260920",
-    "externas": {
-      "esquema": "5 pliegues por 10 repeticiones; particion por parcela",
-      "origen_workspace": "analysis/reunion_inicial/particiones_cv_5x10.csv",
-      "miembro_zip_v2": "controles/particiones_externas.csv",
-      "miembro_zip_v3": "exteriores.csv",
-      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec"
-    },
-    "internas": {
-      "esquema": "4 pliegues contenidos en cada entrenamiento exterior",
-      "origen_boveda": "integracion_v0/experimentos/ronda1/salidas/particiones_internas.csv",
-      "miembro_zip_v2": "controles/particiones_internas.csv",
-      "miembro_zip_v3": "interiores.csv",
-      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a"
-    },
-    "paquete_v2": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/insumos_experimento_v2.zip",
-    "paquete_v3": "fortino-pruebas/v3-historico-octubre-01oct-r1/insumos_v3.zip",
-    "hashes_verificados_al_compilar": true,
-    "selector_actual": {
-      "metrica": "RMSE interior total agrupado",
-      "filtra_municipio_visto": false,
-      "rejilla_ridge_v2_v3": [
-        "baseline",
-        0.01,
-        0.1,
-        1,
-        10,
-        100
-      ],
-      "tolerancia_empate": 1e-12,
-      "orden_empate": "baseline, despues alpha mayor",
-      "nota": "Las rejillas originales de rondas previas no se modifican."
-    }
+  "internas": {
+   "esquema": "4 pliegues contenidos en cada entrenamiento exterior",
+   "origen_boveda": "integracion_v0/experimentos/ronda1/salidas/particiones_internas.csv",
+   "miembro_zip_v2": "controles/particiones_internas.csv",
+   "miembro_zip_v3": "interiores.csv",
+   "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a"
   },
-  "escenarios_historicos": {
-    "FULL138": {
-      "parcelas_distintas": 138,
-      "predicciones_oof": 1380,
-      "mascara": "Todas las validaciones exteriores guardadas",
-      "uso": "Comparabilidad historica"
-    },
-    "SEEN135": {
-      "parcelas_distintas": 135,
-      "predicciones_oof": 1350,
-      "mascara": "Municipio de la parcela de validacion presente en el entrenamiento de ese pliegue; calculada solo con IDs, municipio y particiones; igual para todos los procedimientos",
-      "retira_etiquetas_del_entrenamiento": false,
-      "uso": "Principal desde AGC-EXP-V3; posterior y diagnostico en AGC-EXP-V2",
-      "equivale_a_las_59_ocultas": false,
-      "limitaciones": [
-        "Nanacamilpa visto con una sola etiqueta no tiene evaluacion OOF equivalente",
-        "Cambian proporciones territoriales",
-        "El entrenamiento final tendria 138 etiquetas frente a 110-111 en CV"
-      ]
-    }
+  "paquete_v2": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/insumos_experimento_v2.zip",
+  "paquete_v3": "fortino-pruebas/v3-historico-octubre-01oct-r1/insumos_v3.zip",
+  "hashes_verificados_al_compilar": true,
+  "selector_actual": {
+   "metrica": "RMSE interior total agrupado",
+   "filtra_municipio_visto": false,
+   "rejilla_ridge_v2_v3": [
+    "baseline",
+    0.01,
+    0.1,
+    1,
+    10,
+    100
+   ],
+   "tolerancia_empate": 1e-12,
+   "orden_empate": "baseline, despues alpha mayor",
+   "nota": "Las rejillas originales de rondas previas no se modifican."
+  }
+ },
+ "escenarios_historicos": {
+  "FULL138": {
+   "parcelas_distintas": 138,
+   "predicciones_oof": 1380,
+   "mascara": "Todas las validaciones exteriores guardadas",
+   "uso": "Comparabilidad historica"
   },
-  "referencias_historicas": {
-    "MUN": "Media municipal del entrenamiento; grupo no visto usa media global",
-    "MIX": "0.5*MUN + 0.5*IDW; k=20, potencia=2, distancia minima=1m, centroides UTM14N historicos; solo etiquetas de entrenamiento",
-    "E0": "Ridge con municipio one-hot penalizado; no es identico a MUN",
-    "J5_PCT": "Candidato historico V2 con cinco grupos y OLS; no modelo final ni reemplazo automatico de referencias"
+  "SEEN135": {
+   "parcelas_distintas": 135,
+   "predicciones_oof": 1350,
+   "mascara": "Municipio de la parcela de validacion presente en el entrenamiento de ese pliegue; calculada solo con IDs, municipio y particiones; igual para todos los procedimientos",
+   "retira_etiquetas_del_entrenamiento": false,
+   "uso": "Principal desde AGC-EXP-V3; posterior y diagnostico en AGC-EXP-V2",
+   "equivale_a_las_59_ocultas": false,
+   "limitaciones": [
+    "Nanacamilpa visto con una sola etiqueta no tiene evaluacion OOF equivalente",
+    "Cambian proporciones territoriales",
+    "El entrenamiento final tendria 138 etiquetas frente a 110-111 en CV"
+   ]
+  }
+ },
+ "referencias_historicas": {
+  "MUN": "Media municipal del entrenamiento; grupo no visto usa media global",
+  "MIX": "0.5*MUN + 0.5*IDW; k=20, potencia=2, distancia minima=1m, centroides UTM14N historicos; solo etiquetas de entrenamiento",
+  "E0": "Ridge con municipio one-hot penalizado; no es identico a MUN",
+  "J5_PCT": "Candidato historico V2 con cinco grupos y OLS; no modelo final ni reemplazo automatico de referencias"
+ },
+ "experimentos": [
+  {
+   "id_historico": "AGC-EXP-RONDA1",
+   "alias": "exp_01_bloques",
+   "carpeta_futura": "notebooks/experimentos/exp_01_bloques",
+   "fecha_trabajo_segun_fuente_mexico": "2026-09-21",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_sin_adopcion",
+   "resultado_conservado": "E3 reduce RMSE frente a E0 pero empeora MAE, depende de pocos casos y no supera MIX; no justifica adoptar bloques.",
+   "modalidad_cuaderno_fuente": "lector_retrospectivo",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "integracion_v0",
+    "referencias_demostracion_07"
+   ],
+   "fuentes": [
+    {
+     "ruta_relativa_boveda": "docs/09_ronda1_bloques.md",
+     "bytes": 8153,
+     "sha256": "a6e926067e46e639ac13c0bfc87de533d99544736ce1a46ab49e27e2f8567656"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/ronda1-retrospectiva/01_historia_reproducible.ipynb",
+     "bytes": 20088,
+     "sha256": "d3e2ac281337f1ab6f43616487786ae2d16eafc965f777b8f8380199d92cc147"
+    },
+    {
+     "ruta_relativa_boveda": "integracion_v0/experimentos/ronda1/manifiesto_previo.json",
+     "bytes": 7145,
+     "sha256": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401"
+    }
+   ]
   },
-  "experimentos": [
+  {
+   "id_historico": "AGC-EXP-T1",
+   "alias": "exp_02_ponderacion_temporal",
+   "carpeta_futura": "notebooks/experimentos/exp_02_ponderacion_temporal",
+   "fecha_trabajo_segun_fuente_mexico": "2026-09-29",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_sin_adopcion",
+   "resultado_conservado": "RMSE 0.5225 frente a E2 0.5192 y MIX 0.4938; no mejora global, MAE practicamente igual al E2.",
+   "modalidad_cuaderno_fuente": "lector_retrospectivo",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "AGC-EXP-RONDA1",
+    "AGC-DIAG-20260924"
+   ],
+   "fuentes": [
     {
-      "id_historico": "AGC-EXP-RONDA1",
-      "alias": "exp_01_bloques",
-      "carpeta_futura": "notebooks/experimentos/exp_01_bloques",
-      "fecha_trabajo_segun_fuente_mexico": "2026-09-21",
-      "fecha_catalogacion": "2026-10-07",
-      "fecha_adaptacion": "2026-10-08",
-      "ruta_cuaderno": "notebooks/experimentos/exp_01_bloques/exp_01_bloques.ipynb",
-      "estado_migracion": "lector_verificado_sin_reentrenar",
-      "estado_predictivo": "cerrado_sin_adopcion",
-      "resultado_conservado": "E3 reduce RMSE frente a E0 pero empeora MAE, depende de pocos casos y no supera MIX; no justifica adoptar bloques.",
-      "modalidad_cuaderno_fuente": "lector_retrospectivo",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "integracion_v0",
-        "referencias_demostracion_07"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "docs/09_ronda1_bloques.md",
-          "bytes": 8153,
-          "sha256": "a6e926067e46e639ac13c0bfc87de533d99544736ce1a46ab49e27e2f8567656"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/ronda1-retrospectiva/01_historia_reproducible.ipynb",
-          "bytes": 20088,
-          "sha256": "d3e2ac281337f1ab6f43616487786ae2d16eafc965f777b8f8380199d92cc147"
-        },
-        {
-          "ruta_relativa_boveda": "integracion_v0/experimentos/ronda1/manifiesto_previo.json",
-          "bytes": 7145,
-          "sha256": "0a56db932fe7174314a972936f67a633ecfdc77c3fd42a154715902c85a2e401"
-        }
-      ]
+     "ruta_relativa_boveda": "fortino-pruebas/t1-ponderacion-temporal-29sep/11_cierre_T1.md",
+     "bytes": 13324,
+     "sha256": "70ad8bc64aa8c1b9a1ab1b51527c98f81e16e4a9df2f220c630c33e0b36dc103"
     },
     {
-      "id_historico": "AGC-EXP-T1",
-      "alias": "exp_02_ponderacion_temporal",
-      "carpeta_futura": "notebooks/experimentos/exp_02_ponderacion_temporal",
-      "fecha_trabajo_segun_fuente_mexico": "2026-09-29",
-      "fecha_catalogacion": "2026-10-07",
-      "fecha_adaptacion": "2026-10-08",
-      "ruta_cuaderno": "notebooks/experimentos/exp_02_ponderacion_temporal/exp_02_ponderacion_temporal.ipynb",
-      "estado_migracion": "lector_verificado_sin_reentrenar",
-      "estado_predictivo": "cerrado_sin_adopcion",
-      "resultado_conservado": "RMSE 0.5225 frente a E2 0.5192 y MIX 0.4938; no mejora global, MAE practicamente igual al E2.",
-      "modalidad_cuaderno_fuente": "lector_retrospectivo",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "AGC-EXP-RONDA1",
-        "AGC-DIAG-20260924"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/t1-ponderacion-temporal-29sep/11_cierre_T1.md",
-          "bytes": 13324,
-          "sha256": "70ad8bc64aa8c1b9a1ab1b51527c98f81e16e4a9df2f220c630c33e0b36dc103"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/t1-retrospectiva/01_historia_reproducible.ipynb",
-          "bytes": 20383,
-          "sha256": "b1f2cb42cb2801bc7fb3dbcd1933de8c979d801fa2966207eed2d3e0501063b0"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/t1-ponderacion-temporal-29sep/manifiesto_previo.json",
-          "bytes": 58733,
-          "sha256": "7e79042796e98db065c67e060d4d98e22c35ce13878d00f67b64420f66fe490d"
-        }
-      ]
+     "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/t1-retrospectiva/01_historia_reproducible.ipynb",
+     "bytes": 20383,
+     "sha256": "b1f2cb42cb2801bc7fb3dbcd1933de8c979d801fa2966207eed2d3e0501063b0"
     },
     {
-      "id_historico": "AGC-EXP-V1",
-      "alias": "exp_03_variables_y_familias",
-      "carpeta_futura": "notebooks/experimentos/exp_03_variables_y_familias",
-      "fecha_trabajo_segun_fuente_mexico": "2026-09-29",
-      "fecha_catalogacion": "2026-10-07",
-      "fecha_adaptacion": "2026-10-08",
-      "ruta_cuaderno": "notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb",
-      "estado_migracion": "lector_verificado_sin_reentrenar",
-      "estado_predictivo": "cerrado_sin_adopcion",
-      "resultado_conservado": "Ninguna variante supera referencias; el bloque temporal empeora Ridge y no rescata HGB bajo las rejillas usadas.",
-      "modalidad_cuaderno_fuente": "ejecutable_con_ajustes_no_presentar_como_lector",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "AGC-EXP-RONDA1",
-        "AGC-EXP-T1"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/README.md",
-          "bytes": 6019,
-          "sha256": "4eeaea55f5ed4dc402eefd7dabd64b47d3b29a131b3baffa2191107e39d8de04"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/01_experimento_equipo.ipynb",
-          "bytes": 372840,
-          "sha256": "9e5de71b4bf0cbe943bc4a5d492e82eafcea426c7e94322bdb2f43e85b879386"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_previo.json",
-          "bytes": 3593,
-          "sha256": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d"
-        }
-      ]
-    },
-    {
-      "id_historico": "AGC-EXP-V2",
-      "alias": "exp_04_lluvia_octubre",
-      "carpeta_futura": "notebooks/experimentos/exp_04_lluvia_octubre",
-      "fecha_trabajo_segun_fuente_mexico": "2026-10-01",
-      "fecha_catalogacion": "2026-10-07",
-      "fecha_adaptacion": "2026-10-08",
-      "ruta_cuaderno": "notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb",
-      "estado_migracion": "lector_verificado_sin_reentrenar",
-      "estado_predictivo": "cerrado_candidato_con_reservas",
-      "resultado_conservado": "J5_PCT cumple regla FULL138; no la cumple en diagnostico SEEN135. El cambio de agrupacion incluye mecanismos de medias, pendiente y fallback.",
-      "modalidad_cuaderno_fuente": "revisar_y_separar_ajustes_antes_de_migrar",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "AGC-EXP-V1",
-        "hipotesis_Jared_lluvia_octubre"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/cierre_revision_codex_01oct/FE_DE_ERRATAS_Y_CIERRE_V2.md",
-          "bytes": 12207,
-          "sha256": "980241b2153d745730de41775d8d5e06dbab131f75bd82401b0b74cd7810cea4"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/02_experimento_equipo.ipynb",
-          "bytes": 461252,
-          "sha256": "1a15f81c1290d80d50217fc6cba53bb8041c6cca19def9f3bce56c28ce66002c"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/registro_previo_v2.json",
-          "bytes": 2840,
-          "sha256": "4f532e06eb3e3786a84749950c8472fef43b02403e2d17bef910098b3255ca0a"
-        }
-      ]
-    },
-    {
-      "id_historico": "AGC-EXP-V3",
-      "alias": "exp_05_historico_octubre",
-      "carpeta_futura": "notebooks/experimentos/exp_05_historico_octubre",
-      "fecha_trabajo_segun_fuente_mexico": "2026-10-01",
-      "fecha_catalogacion": "2026-10-07",
-      "fecha_trabajo_segun_fuente_utc": "2026-10-02",
-      "fecha_adaptacion": "2026-10-08",
-      "ruta_cuaderno": "notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb",
-      "estado_migracion": "lector_verificado_sin_reentrenar",
-      "estado_predictivo": "cerrado_sin_adopcion",
-      "resultado_conservado": "Ninguna receta cumple regla principal. H y HP no mejoran sobre las referencias y quedan detras de PCT; eso no prueba inutilidad general del historico.",
-      "modalidad_cuaderno_fuente": "ejecutable_con_ajustes_no_presentar_como_lector",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "AGC-EXP-V2"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/RESUMEN_EXPERIMENTO_V3.md",
-          "bytes": 9281,
-          "sha256": "ada0c27a2211abc732b1bfc318564dae7e9312f327786e43639e318a09108a34"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/01_experimento_equipo.ipynb",
-          "bytes": 54279,
-          "sha256": "448635f85b790c2ab13c8077176604d7f519d4798d009818b4990808832fe8b4"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/registro_previo_v3.json",
-          "bytes": 1370,
-          "sha256": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411"
-        }
-      ]
-    },
-    {
-      "id_historico": "AGC-EXP-V4",
-      "alias": "exp_06_pico_soportado",
-      "carpeta_futura": "notebooks/experimentos/exp_06_pico_soportado",
-      "fecha_trabajo_segun_fuente_mexico": "2026-10-06",
-      "fecha_catalogacion": "2026-10-07",
-      "estado_migracion": "pendiente",
-      "estado_predictivo": "cerrado_sin_adopcion",
-      "resultado_conservado": "Fecha soportada mejora poco RMSE de E2 y no MAE; no supera MUN/MIX. Cerrada sin adopción ni predicciones de entrega.",
-      "modalidad_cuaderno_fuente": "lector_por_defecto_reentrenamiento_opcional",
-      "modo_futuro_por_defecto": "lector_sin_ajustes",
-      "antecedentes": [
-        "AGC-EXP-RONDA1:E2",
-        "factibilidad_fenologica_20261002"
-      ],
-      "fuentes": [
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/RESUMEN_EXPERIMENTO_V4.md",
-          "bytes": 8907,
-          "sha256": "41c3a98d6adc8d0fcdaf45e606b45643f63e05227037aa6dd85b98292822c9d3"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/01_experimento_equipo.ipynb",
-          "bytes": 54185,
-          "sha256": "cc28e4b0adf832aefe428d9cb994fe20d98a2063bff98263aef42a939e2ab396"
-        },
-        {
-          "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/registro_previo.json",
-          "bytes": 2596,
-          "sha256": "8d50d2f95050ae482dfd2f4d0d336aed6695e74d366d93bf6dba06c0da6bb815"
-        }
-      ]
+     "ruta_relativa_boveda": "fortino-pruebas/t1-ponderacion-temporal-29sep/manifiesto_previo.json",
+     "bytes": 58733,
+     "sha256": "7e79042796e98db065c67e060d4d98e22c35ce13878d00f67b64420f66fe490d"
     }
-  ],
-  "antecedentes_no_rondas": [
+   ]
+  },
+  {
+   "id_historico": "AGC-EXP-V1",
+   "alias": "exp_03_variables_y_familias",
+   "carpeta_futura": "notebooks/experimentos/exp_03_variables_y_familias",
+   "fecha_trabajo_segun_fuente_mexico": "2026-09-29",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_sin_adopcion",
+   "resultado_conservado": "Ninguna variante supera referencias; el bloque temporal empeora Ridge y no rescata HGB bajo las rejillas usadas.",
+   "modalidad_cuaderno_fuente": "ejecutable_con_ajustes_no_presentar_como_lector",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "AGC-EXP-RONDA1",
+    "AGC-EXP-T1"
+   ],
+   "fuentes": [
     {
-      "ruta_relativa_boveda": "codex/03_auditoria_dataset_codex.md",
-      "bytes": 70616,
-      "sha256": "4dce26915d5d5da16c657a9bad48763b5c41f9d856e5f14e6a734a8183d3070b"
+     "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/README.md",
+     "bytes": 6019,
+     "sha256": "4eeaea55f5ed4dc402eefd7dabd64b47d3b29a131b3baffa2191107e39d8de04"
     },
     {
-      "ruta_relativa_boveda": "docs/08_integracion_v0.md",
-      "bytes": 12911,
-      "sha256": "a293533cdbbf04607be88489198076c9161e0e9ffb06864e180fe1b4f6124f28"
+     "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/01_experimento_equipo.ipynb",
+     "bytes": 372840,
+     "sha256": "9e5de71b4bf0cbe943bc4a5d492e82eafcea426c7e94322bdb2f43e85b879386"
     },
     {
-      "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/CONTRATO_Y_METODOLOGIA.md",
-      "bytes": 13676,
-      "sha256": "4c81b71da5b4128c71e6afa413f0b7a07bb20c808a3fa6481740ff278a05bfdb"
-    },
-    {
-      "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/07-antecedente-retrospectivo/01_historia_reproducible.ipynb",
-      "bytes": 10831,
-      "sha256": "7e37f97f33c936a0c96db0352dc1e2ad1c8c80940bff718f82fb786e53d9ffda"
-    },
-    {
-      "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/diagnostico-retrospectivo/01_historia_reproducible.ipynb",
-      "bytes": 10633,
-      "sha256": "a45b673e4c43ba790dcd4eed38a4d5d255af6d12cc834c39a5470b9fa9f4749e"
-    },
-    {
-      "ruta_relativa_boveda": "fortino-pruebas/v4-fenologia-factibilidad-02oct/README.md",
-      "bytes": 3254,
-      "sha256": "8fad0da1b5824c45182357e60e9b7f34c5e546e644827539f73a7d963ca7384c"
+     "ruta_relativa_boveda": "fortino-pruebas/v1-ingenieria-temporal-equipo-29sep/manifiesto_previo.json",
+     "bytes": 3593,
+     "sha256": "e4224c4b46ef5b21529595c9501d7f0811de4ddff5a18710cc568c17062aa90d"
     }
-  ]
+   ]
+  },
+  {
+   "id_historico": "AGC-EXP-V2",
+   "alias": "exp_04_lluvia_octubre",
+   "carpeta_futura": "notebooks/experimentos/exp_04_lluvia_octubre",
+   "fecha_trabajo_segun_fuente_mexico": "2026-10-01",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_candidato_con_reservas",
+   "resultado_conservado": "J5_PCT cumple regla FULL138; no la cumple en diagnostico SEEN135. El cambio de agrupacion incluye mecanismos de medias, pendiente y fallback.",
+   "modalidad_cuaderno_fuente": "revisar_y_separar_ajustes_antes_de_migrar",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "AGC-EXP-V1",
+    "hipotesis_Jared_lluvia_octubre"
+   ],
+   "fuentes": [
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/cierre_revision_codex_01oct/FE_DE_ERRATAS_Y_CIERRE_V2.md",
+     "bytes": 12207,
+     "sha256": "980241b2153d745730de41775d8d5e06dbab131f75bd82401b0b74cd7810cea4"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/02_experimento_equipo.ipynb",
+     "bytes": 461252,
+     "sha256": "1a15f81c1290d80d50217fc6cba53bb8041c6cca19def9f3bce56c28ce66002c"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v2-lluvia-octubre-validacion-comun-30sep/registro_previo_v2.json",
+     "bytes": 2840,
+     "sha256": "4f532e06eb3e3786a84749950c8472fef43b02403e2d17bef910098b3255ca0a"
+    }
+   ]
+  },
+  {
+   "id_historico": "AGC-EXP-V3",
+   "alias": "exp_05_historico_octubre",
+   "carpeta_futura": "notebooks/experimentos/exp_05_historico_octubre",
+   "fecha_trabajo_segun_fuente_mexico": "2026-10-01",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_trabajo_segun_fuente_utc": "2026-10-02",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_sin_adopcion",
+   "resultado_conservado": "Ninguna receta cumple regla principal. H y HP no mejoran sobre las referencias y quedan detras de PCT; eso no prueba inutilidad general del historico.",
+   "modalidad_cuaderno_fuente": "ejecutable_con_ajustes_no_presentar_como_lector",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "AGC-EXP-V2"
+   ],
+   "fuentes": [
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/RESUMEN_EXPERIMENTO_V3.md",
+     "bytes": 9281,
+     "sha256": "ada0c27a2211abc732b1bfc318564dae7e9312f327786e43639e318a09108a34"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/01_experimento_equipo.ipynb",
+     "bytes": 54279,
+     "sha256": "448635f85b790c2ab13c8077176604d7f519d4798d009818b4990808832fe8b4"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v3-historico-octubre-01oct-r1/registro_previo_v3.json",
+     "bytes": 1370,
+     "sha256": "5439a5d1e63796f5a9bb163bdd9df9971c190976e994464f1bb6ce1d7b72f411"
+    }
+   ]
+  },
+  {
+   "id_historico": "AGC-EXP-V4",
+   "alias": "exp_06_pico_soportado",
+   "carpeta_futura": "notebooks/experimentos/exp_06_pico_soportado",
+   "fecha_trabajo_segun_fuente_mexico": "2026-10-06",
+   "fecha_catalogacion": "2026-10-07",
+   "fecha_adaptacion": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb",
+   "estado_migracion": "lector_verificado_sin_reentrenar",
+   "estado_predictivo": "cerrado_sin_adopcion",
+   "resultado_conservado": "Fecha soportada mejora poco RMSE de E2 y no MAE; no supera MUN/MIX. Cerrada sin adopción ni predicciones de entrega.",
+   "modalidad_cuaderno_fuente": "lector_por_defecto_reentrenamiento_opcional",
+   "modo_futuro_por_defecto": "lector_sin_ajustes",
+   "antecedentes": [
+    "AGC-EXP-RONDA1:E2",
+    "factibilidad_fenologica_20261002"
+   ],
+   "fuentes": [
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/RESUMEN_EXPERIMENTO_V4.md",
+     "bytes": 8907,
+     "sha256": "41c3a98d6adc8d0fcdaf45e606b45643f63e05227037aa6dd85b98292822c9d3"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/01_experimento_equipo.ipynb",
+     "bytes": 54185,
+     "sha256": "cc28e4b0adf832aefe428d9cb994fe20d98a2063bff98263aef42a939e2ab396"
+    },
+    {
+     "ruta_relativa_boveda": "fortino-pruebas/v4-pico-soportado-e2-06oct/registro_previo.json",
+     "bytes": 2596,
+     "sha256": "8d50d2f95050ae482dfd2f4d0d336aed6695e74d366d93bf6dba06c0da6bb815"
+    }
+   ]
+  }
+ ],
+ "antecedentes_no_rondas": [
+  {
+   "ruta_relativa_boveda": "codex/03_auditoria_dataset_codex.md",
+   "bytes": 70616,
+   "sha256": "4dce26915d5d5da16c657a9bad48763b5c41f9d856e5f14e6a734a8183d3070b"
+  },
+  {
+   "ruta_relativa_boveda": "docs/08_integracion_v0.md",
+   "bytes": 12911,
+   "sha256": "a293533cdbbf04607be88489198076c9161e0e9ffb06864e180fe1b4f6124f28"
+  },
+  {
+   "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/CONTRATO_Y_METODOLOGIA.md",
+   "bytes": 13676,
+   "sha256": "4c81b71da5b4128c71e6afa413f0b7a07bb20c808a3fa6481740ff278a05bfdb"
+  },
+  {
+   "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/07-antecedente-retrospectivo/01_historia_reproducible.ipynb",
+   "bytes": 10831,
+   "sha256": "7e37f97f33c936a0c96db0352dc1e2ad1c8c80940bff718f82fb786e53d9ffda"
+  },
+  {
+   "ruta_relativa_boveda": "fortino-pruebas/linea-tiempo-02oct/diagnostico-retrospectivo/01_historia_reproducible.ipynb",
+   "bytes": 10633,
+   "sha256": "a45b673e4c43ba790dcd4eed38a4d5d255af6d12cc834c39a5470b9fa9f4749e"
+  },
+  {
+   "ruta_relativa_boveda": "fortino-pruebas/v4-fenologia-factibilidad-02oct/README.md",
+   "bytes": 3254,
+   "sha256": "8fad0da1b5824c45182357e60e9b7f34c5e546e644827539f73a7d963ca7384c"
+  }
+ ],
+ "rondas_posteriores_registradas": [
+  {
+   "alias": "exp_07_heterogeneidad_parcela",
+   "fecha_trabajo_mexico": "2026-10-08",
+   "ruta_cuaderno": "notebooks/experimentos/exp_07_heterogeneidad_parcela/exp_07_heterogeneidad_parcela.ipynb",
+   "estado_predictivo": "cerrado_sin_adopcion"
+  },
+  {
+   "alias": "exp_08_contraste_vecinal",
+   "fecha_trabajo_mexico": "2026-10-08",
+   "autoria": "Claude (asistente), a pedido de Fortino",
+   "modalidad": "exploratorio_sin_protocolo_ratificado",
+   "ruta_cuaderno": "notebooks/experimentos/exp_08_contraste_vecinal/exp_08_contraste_vecinal.ipynb",
+   "estado_predictivo": "exploratorio_fe_de_erratas_en_EXP_10"
+  },
+  {
+   "alias": "exp_09_fuentes_externas",
+   "fecha_trabajo_mexico": "2026-10-08",
+   "autoria": "Claude (asistente), a pedido de Fortino",
+   "registro_previo": "notebooks/experimentos/exp_09_fuentes_externas/REGISTRO_PREVIO.md",
+   "ruta_cuaderno": "notebooks/experimentos/exp_09_fuentes_externas/exp_09_fuentes_externas.ipynb",
+   "estado_predictivo": "cerrado_regla_recomienda_MIX"
+  },
+  {
+   "alias": "exp_10_verificacion_contraste_vecinal",
+   "fecha_trabajo_mexico": "2026-10-08",
+   "autoria": "Claude (asistente), a pedido de Fortino",
+   "registro_previo": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/registro_previo.json",
+   "ruta_cuaderno": "notebooks/experimentos/exp_10_verificacion_contraste_vecinal/exp_10_verificacion_contraste_vecinal.ipynb",
+   "estado_predictivo": "conservar_MIX_K1_corregido_alternativa_documentada",
+   "particiones": {
+    "historicas_sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+    "nuevas_externas_sha256": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754"
+   }
+  },
+  {
+   "alias": "exp_11_combinacion_modelos",
+   "fecha_trabajo_mexico": "2026-10-08",
+   "autoria": "Claude (asistente), a pedido de Fortino",
+   "modalidad": "exploratoria_con_registro_previo_sin_entrenamientos",
+   "registro_previo": "notebooks/experimentos/exp_11_combinacion_modelos/registro_previo.json",
+   "ruta_cuaderno": "notebooks/experimentos/exp_11_combinacion_modelos/exp_11_combinacion_modelos.ipynb",
+   "estado_predictivo": "E_JK_clase_C_candidato_para_revision"
+  }
+ ],
+ "nota_rondas_posteriores": "Rondas ejecutadas el 8 de octubre fuera del catálogo retrospectivo de seis lectores; no alteran experimentos_copiados."
 }

@@ -30,3 +30,5 @@ config/insumos.local.json
 # Keep uv.lock, exported requirements, docs, tests and approved notebooks versionable.
 
 gestion/
+# Comparación temporal con el modelo de Jared (no documentada)
+tmp_comparacion_jared/

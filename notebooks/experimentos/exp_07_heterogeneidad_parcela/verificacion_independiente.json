@@ -1,0 +1,513 @@
+{
+  "id": "EXP_07",
+  "verificado_utc": "2026-10-08T17:15:39.056506+00:00",
+  "tipo": "revision_independiente_posterior_a_resultados_sin_ajustar",
+  "autor_agente": "/root/critica_priorizacion_ml",
+  "agente_distinto_del_constructor": true,
+  "revision_humana": false,
+  "sello_temporal_externo": false,
+  "registros_previos_y_salidas_intactos": true,
+  "registro_previo_sha256": "13568c268a902b6b6f0072a375d949168df404d263bb11682e02613c5d6c655d",
+  "registro_previo_utc": "2026-10-08T17:05:38.396066+00:00",
+  "inicio_corrida_utc": "2026-10-08T17:05:44.568406+00:00",
+  "fin_corrida_utc": "2026-10-08T17:06:05.237649+00:00",
+  "script_verificador_sha256": "4efe14b51097d187e0797156771b672b6979bd14a36822870109fd474e609cc3",
+  "ajustes_modelos_esta_revision": 0,
+  "coeficientes_reestimados": 0,
+  "variantes_nuevas": 0,
+  "predicciones_59_generadas": 0,
+  "oof_verificadas": 5520,
+  "scores_por_pliegue_verificados": 2400,
+  "scores_agrupados_verificados": 600,
+  "selecciones_verificadas": 100,
+  "modelos_exteriores_reconstruidos_desde_parametros": 100,
+  "max_error_predicciones_reconstruidas": 0.0,
+  "medianas_medias_X_y_escalas_train_only_verificadas": true,
+  "mascara_SEEN_derivada_solo_de_metadatos": true,
+  "baselines_exactamente_MUN": 89,
+  "controles_referencias_historicas": {
+    "MUN": 0.0,
+    "MIX": 5.053735208093713e-13
+  },
+  "selecciones": {
+    "C0": {
+      "baseline": 46,
+      "100.0": 3,
+      "10.0": 1
+    },
+    "C1": {
+      "baseline": 43,
+      "100.0": 7
+    }
+  },
+  "presupuesto_por_corrida": {
+    "evaluaciones_internas": 2400,
+    "evaluaciones_baseline": 400,
+    "opciones_ridge_internas": 2000,
+    "ajustes_ridge_internos": 2000,
+    "reconstrucciones_exteriores": 100,
+    "ajustes_ridge_exteriores": 11,
+    "evaluaciones_referencia": 100
+  },
+  "salidas_identicas_byte_a_byte": 12,
+  "ajustes_Ridge_fisicos_dos_corridas": 4022,
+  "factibilidad_X": {
+    "ajustes_modelos": 0,
+    "apta": true,
+    "capturas": 26255,
+    "capturas_pareadas": 18248,
+    "control_v0_197_conciliado": true,
+    "diferencia_max_L_pareada_v0": 5.551115123125783e-17,
+    "diferencia_max_S_pareada_v0": 9.71445146547012e-17,
+    "entrenamientos_exteriores": 50,
+    "entrenamientos_interiores": 200,
+    "fase": "factibilidad_solo_X",
+    "id": "EXP_07",
+    "infinidades": 0,
+    "limitaciones": [
+      "Sin máscara ni conteo de píxeles por captura",
+      "Std del proveedor sin ddof documentado",
+      "Rango univariado no demuestra soporte multivariado",
+      "Correlaciones entre X no son selección mediante rendimiento"
+    ],
+    "mascaras_promedio_std_identicas": true,
+    "meses_esperados": 7,
+    "parcelas": 197,
+    "parcelas_siete_meses_pareados": 197,
+    "parcelas_sin_descriptores": 0,
+    "puertas": {
+      "S_con_variacion_intramunicipal_en_todos_train": true,
+      "capturas_para_todos_ids": true,
+      "sin_columnas_vacias_en_train": true
+    },
+    "regla_soporte": "promedio y std finitos en la misma captura, sin filtro adicional de nube",
+    "std_negativas": 0,
+    "umbral_escala": 1e-12,
+    "usa_rendimientos": false,
+    "ventana": [
+      "2025-04-01",
+      "2025-10-31"
+    ]
+  },
+  "metricas_recalculadas": [
+    {
+      "escenario": "SEEN135",
+      "modelo": "C0",
+      "RMSE": 0.494064050212266,
+      "MAE": 0.32199607826167054,
+      "R2": 0.6565578389501484
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "C1",
+      "RMSE": 0.4941048972391776,
+      "MAE": 0.321769020799178,
+      "R2": 0.65650104804986
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MIX",
+      "RMSE": 0.4871965149200059,
+      "MAE": 0.3342146913294449,
+      "R2": 0.6660392362523002
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MUN",
+      "RMSE": 0.49340403132471566,
+      "MAE": 0.3212735323061039,
+      "R2": 0.6574748330260802
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C0",
+      "RMSE": 0.5123795652500658,
+      "MAE": 0.33610097306948733,
+      "R2": 0.6349781128241181
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C1",
+      "RMSE": 0.5124180960664003,
+      "MAE": 0.335878851638788,
+      "R2": 0.6349232116489986
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MIX",
+      "RMSE": 0.49384524493208254,
+      "MAE": 0.3417107152435823,
+      "R2": 0.6609083799141278
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MUN",
+      "RMSE": 0.5117570123866723,
+      "MAE": 0.3353941346346938,
+      "R2": 0.6358645937936154
+    }
+  ],
+  "reglas_recalculadas": [
+    {
+      "escenario": "SEEN135",
+      "modelo": "C0",
+      "RMSE_mejor_MIX": 1,
+      "MAE_no_peor_MIX": 10,
+      "MAE_no_peor_MUN": 7,
+      "RMSE_C1_mejor_C0": 4,
+      "competitivo": false,
+      "aporte_H7": false
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "C1",
+      "RMSE_mejor_MIX": 1,
+      "MAE_no_peor_MIX": 10,
+      "MAE_no_peor_MUN": 5,
+      "RMSE_C1_mejor_C0": 4,
+      "competitivo": false,
+      "aporte_H7": false
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C0",
+      "RMSE_mejor_MIX": 0,
+      "MAE_no_peor_MIX": 9,
+      "MAE_no_peor_MUN": 7,
+      "RMSE_C1_mejor_C0": 4,
+      "competitivo": false,
+      "aporte_H7": false
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C1",
+      "RMSE_mejor_MIX": 0,
+      "MAE_no_peor_MIX": 10,
+      "MAE_no_peor_MUN": 5,
+      "RMSE_C1_mejor_C0": 4,
+      "competitivo": false,
+      "aporte_H7": false
+    }
+  ],
+  "zonas_recalculadas": [
+    {
+      "escenario": "SEEN135",
+      "modelo": "C0",
+      "zona": "Chignahuapan",
+      "RMSE": 0.5909636369723011,
+      "MAE": 0.38190413124560485,
+      "R2": -0.03721663004080833
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "C0",
+      "zona": "Resto",
+      "RMSE": 0.35701680928716084,
+      "MAE": 0.2555355819826185,
+      "R2": 0.7559847164019038
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "C1",
+      "zona": "Chignahuapan",
+      "RMSE": 0.591399804977912,
+      "MAE": 0.38225935680789025,
+      "R2": -0.03874825611916788
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "C1",
+      "zona": "Resto",
+      "RMSE": 0.35633415446702926,
+      "MAE": 0.2546625542895128,
+      "R2": 0.7569169915632558
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MIX",
+      "zona": "Chignahuapan",
+      "RMSE": 0.573627529384205,
+      "MAE": 0.3891039349726999,
+      "R2": 0.022744945926967408
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MIX",
+      "zona": "Resto",
+      "RMSE": 0.3682987375481013,
+      "MAE": 0.2733219366627088,
+      "R2": 0.7403190086511454
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MUN",
+      "zona": "Chignahuapan",
+      "RMSE": 0.590198178707491,
+      "MAE": 0.38101881558032485,
+      "R2": -0.03453141624948386
+    },
+    {
+      "escenario": "SEEN135",
+      "modelo": "MUN",
+      "zona": "Resto",
+      "RMSE": 0.35649578027362255,
+      "MAE": 0.2549936086737651,
+      "R2": 0.7566964266971719
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C0",
+      "zona": "Chignahuapan",
+      "RMSE": 0.5909636369723011,
+      "MAE": 0.38190413124560485,
+      "R2": -0.03721663004080833
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C0",
+      "zona": "Resto",
+      "RMSE": 0.41309948876457736,
+      "MAE": 0.2875632979873329,
+      "R2": 0.6779709588580528
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C1",
+      "zona": "Chignahuapan",
+      "RMSE": 0.591399804977912,
+      "MAE": 0.38225935680789025,
+      "R2": -0.03874825611916788
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "C1",
+      "zona": "Resto",
+      "RMSE": 0.4125360831264801,
+      "MAE": 0.28672936108645575,
+      "R2": 0.678848758316442
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MIX",
+      "zona": "Chignahuapan",
+      "RMSE": 0.573627529384205,
+      "MAE": 0.3891039349726999,
+      "R2": 0.022744945926967408
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MIX",
+      "zona": "Resto",
+      "RMSE": 0.3919607211666774,
+      "MAE": 0.29148804956048757,
+      "R2": 0.7100849105807422
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MUN",
+      "zona": "Chignahuapan",
+      "RMSE": 0.590198178707491,
+      "MAE": 0.38101881558032485,
+      "R2": -0.03453141624948386
+    },
+    {
+      "escenario": "FULL138",
+      "modelo": "MUN",
+      "zona": "Resto",
+      "RMSE": 0.41266944745289663,
+      "MAE": 0.2870455921400699,
+      "R2": 0.6786410817333748
+    }
+  ],
+  "concentracion_recalculada": [
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 0,
+      "ganancia_SSE_neta": -0.05449108084613852,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.4941048972391776,
+      "RMSE_control": 0.494064050212266
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 2,
+      "ganancia_SSE_neta": -0.05449108084613852,
+      "fraccion_ganancias_positivas": 0.26217002193144306,
+      "RMSE_candidato": 0.44952453980127033,
+      "RMSE_control": 0.4491413388370035
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 5,
+      "ganancia_SSE_neta": -0.05449108084613852,
+      "fraccion_ganancias_positivas": 0.43223696807709266,
+      "RMSE_candidato": 0.44067896326072753,
+      "RMSE_control": 0.4400503136533757
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 0,
+      "ganancia_SSE_neta": -9.15192718947732,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.4941048972391776,
+      "RMSE_control": 0.4871965149200059
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 2,
+      "ganancia_SSE_neta": -9.15192718947732,
+      "fraccion_ganancias_positivas": 0.1850475775260567,
+      "RMSE_candidato": 0.4711997387201978,
+      "RMSE_control": 0.45890844706012934
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 5,
+      "ganancia_SSE_neta": -9.15192718947732,
+      "fraccion_ganancias_positivas": 0.35298147842172634,
+      "RMSE_candidato": 0.4661041435712767,
+      "RMSE_control": 0.44869981287825217
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 0,
+      "ganancia_SSE_neta": -9.097436108631172,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.494064050212266,
+      "RMSE_control": 0.4871965149200059
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 2,
+      "ganancia_SSE_neta": -9.097436108631172,
+      "fraccion_ganancias_positivas": 0.18366443010248198,
+      "RMSE_candidato": 0.47124143323232676,
+      "RMSE_control": 0.45890844706012934
+    },
+    {
+      "escenario": "SEEN135",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 5,
+      "ganancia_SSE_neta": -9.097436108631172,
+      "fraccion_ganancias_positivas": 0.34813304007577084,
+      "RMSE_candidato": 0.46616604500902303,
+      "RMSE_control": 0.44869981287825217
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 0,
+      "ganancia_SSE_neta": -0.054491080846138296,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.5124180960664003,
+      "RMSE_control": 0.5123795652500658
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 2,
+      "ganancia_SSE_neta": -0.054491080846138296,
+      "fraccion_ganancias_positivas": 0.26217002193144306,
+      "RMSE_candidato": 0.47085453382823406,
+      "RMSE_control": 0.4704967787182823
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "C0",
+      "top_k": 5,
+      "ganancia_SSE_neta": -0.054491080846138296,
+      "fraccion_ganancias_positivas": 0.43223696807709266,
+      "RMSE_candidato": 0.46308753586337936,
+      "RMSE_control": 0.4625028481614658
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 0,
+      "ganancia_SSE_neta": -25.791067343314836,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.5124180960664003,
+      "RMSE_control": 0.49384524493208254
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 2,
+      "ganancia_SSE_neta": -25.791067343314836,
+      "fraccion_ganancias_positivas": 0.1850475775260567,
+      "RMSE_candidato": 0.4911421877392658,
+      "RMSE_control": 0.4666968365850936
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C1",
+      "control": "MIX",
+      "top_k": 5,
+      "ganancia_SSE_neta": -25.791067343314836,
+      "fraccion_ganancias_positivas": 0.35298147842172634,
+      "RMSE_candidato": 0.486811205165764,
+      "RMSE_control": 0.45706903190085363
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 0,
+      "ganancia_SSE_neta": -25.736576262468688,
+      "fraccion_ganancias_positivas": 0.0,
+      "RMSE_candidato": 0.5123795652500658,
+      "RMSE_control": 0.49384524493208254
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 2,
+      "ganancia_SSE_neta": -25.736576262468688,
+      "fraccion_ganancias_positivas": 0.18366443010248198,
+      "RMSE_candidato": 0.4911813070638898,
+      "RMSE_control": 0.4666968365850936
+    },
+    {
+      "escenario": "FULL138",
+      "candidato": "C0",
+      "control": "MIX",
+      "top_k": 5,
+      "ganancia_SSE_neta": -25.736576262468688,
+      "fraccion_ganancias_positivas": 0.34813304007577084,
+      "RMSE_candidato": 0.4868691370751098,
+      "RMSE_control": 0.45706903190085363
+    }
+  ],
+  "conclusion": "Cierre sin adopción: C1 no cumple aporte H7; C0/C1 no cumplen competitividad ni criterio histórico.",
+  "limites": [
+    "Verificar aritmética y parámetros no es repetir el entrenamiento ni confirmar generalización independiente.",
+    "Ambos candidatos cumplen MAE<=MIX, pero fallan RMSE<MIX; el cambio de política no altera el cierre.",
+    "La SSE neta C1-C0 es negativa; la fracción positiva top2/top5 no describe una mejora neta.",
+    "No se descarta la heterogeneidad espacial en general ni relaciones no lineales.",
+    "CV y política son desarrollo adaptativo sobre las mismas etiquetas; repeticiones no independientes.",
+    "No acredita ejecución real en Colab ni producción de las 59 predicciones finales."
+  ]
+}

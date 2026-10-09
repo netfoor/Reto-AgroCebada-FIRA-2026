@@ -1,0 +1,22 @@
+{
+  "id": "EXP_11",
+  "cerrado_utc": "2026-10-09T04:33:00.157380+00:00",
+  "lectura": {
+    "E_JK": "C",
+    "E_MK": "A"
+  },
+  "aporte_especifico_J": true,
+  "adopcion_automatica": false,
+  "pruebas": 15,
+  "dos_kernels_limpios": true,
+  "colab_real_probado": false,
+  "entrenamientos": 0,
+  "predicciones_59": 0,
+  "registro_previo_sha256": "3f5e17e69fca807adeda0e1e9c8187a2d5f94ae60ecb9242059c3126d17dbe39",
+  "notebook_sha256": "00744f45457bd8dbeabb4ef12df27bb44d3109e0069b52b053a2d99abf75d0bd",
+  "verificacion_independiente_sha256": "eaf4c14378f8fc633809c9b2bbd1cc673dd252e5a8198cdef11e57692bd0d7b3",
+  "registros_lectura": {
+    "resultados_locales/exp_11_combinacion_modelos/kernel_1/exp_11_combinacion_modelos.verificacion.json": "21caf89a329aaf05d2c7bd3239992724c08bf2d2e12a8bf22940db8015d16925",
+    "resultados_locales/exp_11_combinacion_modelos/kernel_2/exp_11_combinacion_modelos.verificacion.json": "a77fc5580b268afeccd8614d789b8d501b6ae91c946cd4cec3f7458b8520b94f"
+  }
+}

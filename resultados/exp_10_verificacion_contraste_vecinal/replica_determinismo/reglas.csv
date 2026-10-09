@@ -1,0 +1,3 @@
+candidato,R1_historicas,R2_historicas_reps,R3_historicas,R4_historicas,R1_nuevas,R2_nuevas_reps,R3_nuevas,R4_nuevas,R1,R2,R3,R4,requisitos_predictivos,p_N0_publicado,p_N1,p_N2,S_evaluable,S
+K1_publicado,True,10,True,True,True,10,True,True,True,True,True,True,True,0.13,,,,
+K1_corregido,True,10,True,True,True,10,True,True,True,True,True,True,True,,0.18407960199004975,0.12935323383084577,True,False

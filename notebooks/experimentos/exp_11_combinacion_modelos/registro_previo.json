@@ -1,0 +1,262 @@
+{
+  "id": "EXP_11",
+  "registrado_utc": "2026-10-09T04:32:20.720934+00:00",
+  "tipo": "registro_previo_interno_no_sello_de_terceros",
+  "autor": "Claude (asistente), a pedido de Fortino",
+  "autorizacion_literal": "Implementa y ejecuta una nueva ronda exploratoria de combinación de modelos",
+  "hipotesis_posterior_a_resultados": true,
+  "nota": "La hipótesis nació tras examinar EXP_10 y la comparación temporal con Jared sobre las mismas 138 etiquetas. Este registro limita decisiones adaptativas; no hace independiente la evaluación. Las particiones 'nuevas' reutilizan las mismas etiquetas.",
+  "metricas_mezclas_calculadas_antes": false,
+  "formulas": {
+    "E_JK": "0.5*J + 0.5*K",
+    "E_MK": "0.5*MUN + 0.5*K"
+  },
+  "criterio_lectura": "protocolo.md §6",
+  "presupuesto": {
+    "formulas": 2,
+    "entrenamientos_candidatos": 0,
+    "busqueda_pesos": 0,
+    "variables_nuevas": 0,
+    "seleccion_por_municipio": 0,
+    "predicciones_59": 0,
+    "ajustes_solo_verificacion_J_en_preparacion": 200
+  },
+  "archivos": {
+    "scripts/combinacion_11.py": {
+      "sha256": "9dceb59add95b60613761dfdec1fc0403d4cf0b4c46992c8fcb9b248dddb8766",
+      "bytes": 4399
+    },
+    "scripts/experimento_11.py": {
+      "sha256": "10d5f58bef6fea98e76fed5ee63ad74a53c2ad135a83601d15ed5ef778d666be",
+      "bytes": 9010
+    },
+    "scripts/preparar_exp_11.py": {
+      "sha256": "192da134dc1841c85bead683c86f7954fbc056991d1dc4f70b1e61ea8c1482b3",
+      "bytes": 9980
+    },
+    "tests/test_combinacion_11.py": {
+      "sha256": "7f259f8b99cd2ed9faf93ba7335dfc43e6d26a21bfd3bd379e6f87726f8fb72c",
+      "bytes": 5157
+    },
+    "docs/registros/20261008_exp11_pruebas_previas.xml": {
+      "sha256": "72c69f62714702e45e98545288b34cb0bb0b65060798b68114219587d3399214",
+      "bytes": 1889
+    },
+    "notebooks/experimentos/exp_11_combinacion_modelos/protocolo.md": {
+      "sha256": "bd1da87038973dbc9237897ff61c7f596302c7e67e3fe052e78ad9f1417f2df4",
+      "bytes": 6402
+    },
+    "pyproject.toml": {
+      "sha256": "d57171797a74129e7d1dcb7a13c81963353a38f811e45aa5fd67052e88a5614d",
+      "bytes": 853
+    },
+    "uv.lock": {
+      "sha256": "54f4313977f06158b7bfbc872a803298f572ec52c607353e0737e01f2f5403d8",
+      "bytes": 190867
+    },
+    "data/validacion_03/particiones_externas.csv": {
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295
+    },
+    "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv": {
+      "sha256": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+      "bytes": 175295
+    },
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/predicciones_oof.csv": {
+      "sha256": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+      "bytes": 871021
+    },
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/metricas.csv": {
+      "sha256": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+      "bytes": 1560
+    },
+    "data/exp_11_combinacion_modelos/j_variables_elegidas.csv": {
+      "sha256": "39784ef2f9307b45f0026a48ee3c8270074bbe12151de75bbc8da56c96880fbd",
+      "bytes": 3137
+    },
+    "data/exp_11_combinacion_modelos/oof_componentes.csv": {
+      "sha256": "aac0347da4600a4fcdaa256860dd32969a07bea1fead74e7194405e740a229fa",
+      "bytes": 809968
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/base_197_ubicacion.csv": {
+      "sha256": "0603e7227576a969f1f9e20dd33bfa32dfee5b3f3fdbb45684471a394cd21728",
+      "bytes": 15744
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/comparar.py": {
+      "sha256": "a6408e8fbd9fcd251b4c501616e3584c3b00295c5da051a227f6a549047773ad",
+      "bytes": 3466
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/elegidas.csv": {
+      "sha256": "57a8fb659ae2fda66f14787d0c3c6e6388962578d179a80c837f193a5f036294",
+      "bytes": 3602
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/metricas.py": {
+      "sha256": "20da4e591ce80cfa4481754150f55b4731a68a5cd5d3dbf128f41782f4bfacf9",
+      "bytes": 2834
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/oof_comparacion.csv": {
+      "sha256": "5713cee6fa41a23ad48042ae4fa80686d8b3b748b7b5b6cdd5c9bf3aa169e594",
+      "bytes": 1324017
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_diccionario.csv": {
+      "sha256": "edb9bdfb84d740f761f2fa9aa1d3a2ca68b657a4c7e2473e85929e43292769c4",
+      "bytes": 5373
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_features.csv": {
+      "sha256": "3066d28c573b7f1a770fb5d4f348001c4e99d159a8184e8638c2c58f34589f33",
+      "bytes": 67180
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_hipotesis.csv": {
+      "sha256": "13c2a7386acd7d26b644e00f1e1636d4de516c5b5c17c56a4d35448be23df1a6",
+      "bytes": 3715
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_notas.md": {
+      "sha256": "c64658bb53d49bca49705f72e2f61062d6074478945237cc78fbbe30ab248d1d",
+      "bytes": 4968
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_r2_grupo.csv": {
+      "sha256": "bf7d6b65dcdd2a001dad81c77c4b37c05c7df2cbef87a51e64a82ccc3b79e87d",
+      "bytes": 766
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_diccionario.csv": {
+      "sha256": "e2620fad7c1f64e2d01139dca1509aa93ffa3933c4c5e78930a8ba743db05b5c",
+      "bytes": 3238
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_features.csv": {
+      "sha256": "b4e043387c51ea38bc148455ba797282da6d8f0af4fadcf9ebd4692a8c5d6b08",
+      "bytes": 100283
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_hipotesis.csv": {
+      "sha256": "5e18ae9f64e4454194196e4c64eddf14dbf650403464cc6e658dd3a414597215",
+      "bytes": 5050
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_notas.md": {
+      "sha256": "4d266a2664cb0e248c4835c223f0bfbe166b2583bcbfc5ab7deab5f5ad9c0d6d",
+      "bytes": 5072
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_calidad_mes.csv": {
+      "sha256": "adcc759f6543beb38fb0af5c6dabd84220b56f65b33bbf666a257280f3b650dc",
+      "bytes": 754
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_diccionario.csv": {
+      "sha256": "ec02a77cd617dbd57d2cc0c928565faa2617eb7855ac3ff4a7a3f0c468c44e87",
+      "bytes": 12893
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_features.csv": {
+      "sha256": "a6d83f601315b313eb76bece4e2fca4b07d51379a9d2b3de3988573756a71653",
+      "bytes": 61814
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_hipotesis.csv": {
+      "sha256": "2cf350cb1f07aeac83674a084a2feb517c58574290da371e48fcf85d9d9bbdc0",
+      "bytes": 5091
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_notas.md": {
+      "sha256": "10437c20562412686b177d3fb7674f1198583e7390cbae33386e07dae9a833a7",
+      "bytes": 4797
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_sensibilidad_umbral10.csv": {
+      "sha256": "9178c42aa72a6add33b15d54b17ca5546fe35ce038491370429ee8590729acd6",
+      "bytes": 10178
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_diccionario.csv": {
+      "sha256": "70b8a173aa8804b47630682379b7155b74768280458474d38640a946455672ae",
+      "bytes": 27576
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_features.csv": {
+      "sha256": "45ae4c3d2ffbf42dce2c2b1e4dbef3ef4c5cc7c18a86154e5fe205e1ab190feb",
+      "bytes": 108960
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_hipotesis.csv": {
+      "sha256": "73fad2b5da06e92bd37dc72fc4199ee85661faf55b082df65c961d3e091708e5",
+      "bytes": 5909
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_notas.md": {
+      "sha256": "6567179cef9b8fddd3023e9de836147a583293ddc8d0319a1f231d571146a909",
+      "bytes": 5650
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_diccionario.csv": {
+      "sha256": "6996930701747815c6f1614bce7bdf5ea816ba3f9608e90b063d3bd669ef4e21",
+      "bytes": 11460
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_features.csv": {
+      "sha256": "8abd15ebe4e8fcd6600ad8cf82a7a36f92a82351b83ef38789f8bc7fceb20019",
+      "bytes": 104954
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_hipotesis.csv": {
+      "sha256": "f804aedfc86cd1255bb054ec1968a7e855cc57fe5f4e7538cfa0f2070954db6f",
+      "bytes": 9865
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_n_obs_resumen.csv": {
+      "sha256": "d5900bd0be232efa6e5ae1f6fb68e0cf8609fa7953a96693fec05b4f627cf14f",
+      "bytes": 276
+    },
+    "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_notas.md": {
+      "sha256": "2e0d6e92e41f55ff500db653837e0cb8ad110f812f194c4fb9db607cb1bd58ba",
+      "bytes": 4321
+    },
+    "data/exp_11_combinacion_modelos/verificacion_insumos.json": {
+      "sha256": "a46351c6b3485f6e601888dec23858a06d5f5104d33f68c0b3cdc92a677d42be",
+      "bytes": 16255
+    }
+  },
+  "originales_a_preservar": {
+    "tmp_comparacion_jared/base_138.csv": "0d89bf25f52928c533bb6e7f7192f7ef3cd7328f1ffb8fadff6befc49230c9d6",
+    "tmp_comparacion_jared/base_197_ubicacion.csv": "0603e7227576a969f1f9e20dd33bfa32dfee5b3f3fdbb45684471a394cd21728",
+    "tmp_comparacion_jared/comparar.py": "a6408e8fbd9fcd251b4c501616e3584c3b00295c5da051a227f6a549047773ad",
+    "tmp_comparacion_jared/elegidas.csv": "57a8fb659ae2fda66f14787d0c3c6e6388962578d179a80c837f193a5f036294",
+    "tmp_comparacion_jared/metricas.py": "20da4e591ce80cfa4481754150f55b4731a68a5cd5d3dbf128f41782f4bfacf9",
+    "tmp_comparacion_jared/oof_comparacion.csv": "5713cee6fa41a23ad48042ae4fa80686d8b3b748b7b5b6cdd5c9bf3aa169e594",
+    "tmp_comparacion_jared/variables_jared/clima_anomalias_diccionario.csv": "edb9bdfb84d740f761f2fa9aa1d3a2ca68b657a4c7e2473e85929e43292769c4",
+    "tmp_comparacion_jared/variables_jared/clima_anomalias_features.csv": "3066d28c573b7f1a770fb5d4f348001c4e99d159a8184e8638c2c58f34589f33",
+    "tmp_comparacion_jared/variables_jared/clima_anomalias_hipotesis.csv": "13c2a7386acd7d26b644e00f1e1636d4de516c5b5c17c56a4d35448be23df1a6",
+    "tmp_comparacion_jared/variables_jared/clima_anomalias_notas.md": "c64658bb53d49bca49705f72e2f61062d6074478945237cc78fbbe30ab248d1d",
+    "tmp_comparacion_jared/variables_jared/clima_anomalias_r2_grupo.csv": "bf7d6b65dcdd2a001dad81c77c4b37c05c7df2cbef87a51e64a82ccc3b79e87d",
+    "tmp_comparacion_jared/variables_jared/clima_ventanas_diccionario.csv": "e2620fad7c1f64e2d01139dca1509aa93ffa3933c4c5e78930a8ba743db05b5c",
+    "tmp_comparacion_jared/variables_jared/clima_ventanas_features.csv": "b4e043387c51ea38bc148455ba797282da6d8f0af4fadcf9ebd4692a8c5d6b08",
+    "tmp_comparacion_jared/variables_jared/clima_ventanas_hipotesis.csv": "5e18ae9f64e4454194196e4c64eddf14dbf650403464cc6e658dd3a414597215",
+    "tmp_comparacion_jared/variables_jared/clima_ventanas_notas.md": "4d266a2664cb0e248c4835c223f0bfbe166b2583bcbfc5ab7deab5f5ad9c0d6d",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_calidad_mes.csv": "adcc759f6543beb38fb0af5c6dabd84220b56f65b33bbf666a257280f3b650dc",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_diccionario.csv": "ec02a77cd617dbd57d2cc0c928565faa2617eb7855ac3ff4a7a3f0c468c44e87",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_features.csv": "a6d83f601315b313eb76bece4e2fca4b07d51379a9d2b3de3988573756a71653",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_hipotesis.csv": "2cf350cb1f07aeac83674a084a2feb517c58574290da371e48fcf85d9d9bbdc0",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_notas.md": "10437c20562412686b177d3fb7674f1198583e7390cbae33386e07dae9a833a7",
+    "tmp_comparacion_jared/variables_jared/sat_compuestos_sensibilidad_umbral10.csv": "9178c42aa72a6add33b15d54b17ca5546fe35ce038491370429ee8590729acd6",
+    "tmp_comparacion_jared/variables_jared/sat_indices17_diccionario.csv": "70b8a173aa8804b47630682379b7155b74768280458474d38640a946455672ae",
+    "tmp_comparacion_jared/variables_jared/sat_indices17_features.csv": "45ae4c3d2ffbf42dce2c2b1e4dbef3ef4c5cc7c18a86154e5fe205e1ab190feb",
+    "tmp_comparacion_jared/variables_jared/sat_indices17_hipotesis.csv": "73fad2b5da06e92bd37dc72fc4199ee85661faf55b082df65c961d3e091708e5",
+    "tmp_comparacion_jared/variables_jared/sat_indices17_notas.md": "6567179cef9b8fddd3023e9de836147a583293ddc8d0319a1f231d571146a909",
+    "tmp_comparacion_jared/variables_jared/sat_sensor_diccionario.csv": "6996930701747815c6f1614bce7bdf5ea816ba3f9608e90b063d3bd669ef4e21",
+    "tmp_comparacion_jared/variables_jared/sat_sensor_features.csv": "8abd15ebe4e8fcd6600ad8cf82a7a36f92a82351b83ef38789f8bc7fceb20019",
+    "tmp_comparacion_jared/variables_jared/sat_sensor_hipotesis.csv": "f804aedfc86cd1255bb054ec1968a7e855cc57fe5f4e7538cfa0f2070954db6f",
+    "tmp_comparacion_jared/variables_jared/sat_sensor_n_obs_resumen.csv": "d5900bd0be232efa6e5ae1f6fb68e0cf8609fa7953a96693fec05b4f627cf14f",
+    "tmp_comparacion_jared/variables_jared/sat_sensor_notas.md": "2e0d6e92e41f55ff500db653837e0cb8ad110f812f194c4fb9db607cb1bd58ba",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/concentracion_parcelas.csv": "a4f8ae4fffdf7a57ca859d714c44dee159276b8b6e5d9ecb4734be984b273873",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/metricas.csv": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/municipios.csv": "fe957574c8bcb1b8ca2b1be5aa8849d762896c4c02b0eb94a57aac84dff4e812",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_resumen.json": "1f4a2b8e13b6c7199f09b1da87b1ef14faf92e80bbfd623cc1f746494349563b",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/nulos_sorteos.csv": "f768f42efe782eee49249ba4492f2871107e98263a0cd2b98d65ff95bb944e07",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/parametros_exteriores.csv": "739c753195c55eabc4424d8b49ed356f3554e396508fdc2135b4f15196f7bb49",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/predicciones_oof.csv": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/registro_ejecucion.json": "379fa6684397c5ef4ef23691dae15dffea32536a2cf93bc84e9556ce2797a9bd",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/reglas.csv": "e16f24b8fd0e510ab9a0400b7360ec804f467d6ac7095beeedb5aff64d70ad82",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/repeticiones.csv": "70e4ef6ab6a6c54de5ab8d5a4c110e3cc1f9accfa11576f693eba44623ce074d",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/residuos_internos.csv": "cd4c426c33e56112fd8e7a53ea33ac31cb67232cf5898d124d032be82bf48e77",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/sensibilidades.csv": "3f66c189967cc460297e1152d340fe85c77fd0858a873e60625e4ddbe3a10467",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/soporte_59.csv": "97d055e5dc7a304dc17474da373212ffd257b5b91b3c8059e5f672e19545a56c",
+    "resultados/exp_10_verificacion_contraste_vecinal/registrada/zonas.csv": "0ce71c912c1e55590e4825d0e0cea550fb6924cca4c0d6829a4940feaf3cc3d9",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/concentracion_parcelas.csv": "a4f8ae4fffdf7a57ca859d714c44dee159276b8b6e5d9ecb4734be984b273873",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/metricas.csv": "9a8bab81b3bb9ebed287dbe017535569cf53befc083d6cb0f485db31fd82ea29",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/municipios.csv": "fe957574c8bcb1b8ca2b1be5aa8849d762896c4c02b0eb94a57aac84dff4e812",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/nulos_resumen.json": "1f4a2b8e13b6c7199f09b1da87b1ef14faf92e80bbfd623cc1f746494349563b",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/nulos_sorteos.csv": "f768f42efe782eee49249ba4492f2871107e98263a0cd2b98d65ff95bb944e07",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/parametros_exteriores.csv": "739c753195c55eabc4424d8b49ed356f3554e396508fdc2135b4f15196f7bb49",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/predicciones_oof.csv": "8121e867690daa6c75a38a7992e45a299e281157ea5c5725faa9c1eae45399a8",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/registro_ejecucion.json": "4fd9850ec85f8997d535ca09013294879891259d71e2622c8d14a1fd2f011ab3",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/reglas.csv": "e16f24b8fd0e510ab9a0400b7360ec804f467d6ac7095beeedb5aff64d70ad82",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/repeticiones.csv": "70e4ef6ab6a6c54de5ab8d5a4c110e3cc1f9accfa11576f693eba44623ce074d",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/residuos_internos.csv": "cd4c426c33e56112fd8e7a53ea33ac31cb67232cf5898d124d032be82bf48e77",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/sensibilidades.csv": "3f66c189967cc460297e1152d340fe85c77fd0858a873e60625e4ddbe3a10467",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/soporte_59.csv": "97d055e5dc7a304dc17474da373212ffd257b5b91b3c8059e5f672e19545a56c",
+    "resultados/exp_10_verificacion_contraste_vecinal/replica_determinismo/zonas.csv": "0ce71c912c1e55590e4825d0e0cea550fb6924cca4c0d6829a4940feaf3cc3d9"
+  }
+}

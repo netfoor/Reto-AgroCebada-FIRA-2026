@@ -1,0 +1,37 @@
+{
+  "id": "EXP_07",
+  "inicio_utc": "2026-10-08T17:07:15.198935+00:00",
+  "fin_utc": "2026-10-08T17:07:37.698676+00:00",
+  "registro_sha256": "13568c268a902b6b6f0072a375d949168df404d263bb11682e02613c5d6c655d",
+  "python": "3.13.13",
+  "presupuesto": {
+    "evaluaciones_internas": 2400,
+    "evaluaciones_baseline": 400,
+    "opciones_ridge_internas": 2000,
+    "ajustes_ridge_internos": 2000,
+    "reconstrucciones_exteriores": 100,
+    "ajustes_ridge_exteriores": 11,
+    "evaluaciones_referencia": 100
+  },
+  "controles_referencias": {
+    "MUN": 0.0,
+    "MIX": 5.053735208093713e-13
+  },
+  "oof": 5520,
+  "predicciones_59_generadas": 0,
+  "colab_real_probado": false,
+  "salidas_sha256": {
+    "concentracion.csv": "1a6b7eef420738f444e25993b14a7e028663411f1204c0e0ffe8088fa1fadd3a",
+    "deltas.csv": "943b56db5dc9cc8dcada49ed730e335a6671d840d8776ac0b33823d1732f952e",
+    "metricas.csv": "882ec43952bf89265480cee82d4f2dd719deadd3bf4bbdd894d7bf5371fdadd3",
+    "municipios.csv": "6f7b189dc7affac06ceeee06b8e101b010a730783afe84f424c71258622b5d4e",
+    "parametros_exteriores.json": "e666986424d6f23fa9ee39d7212d6cf792dd3392753e4939906033b11fa35907",
+    "predicciones_oof.csv": "cc7b0669d8e15be7424580861fdb2647bfeda8ce206a4879c42cd9282d422468",
+    "reglas.csv": "8520be5e8ea6804b0d61b69419f39c19f457bc9a5d1963dedfdcc26fe1c9b0d5",
+    "repeticiones.csv": "5752a709f216020eee0835d24fb3708057f5b42dcb1956e8e3c96dcd77656fdf",
+    "scores_internos.csv": "cdef2647f6c1a180c20e676c24d0d9debb6c21e1f5ddfd3f9c111cc77d8ccefd",
+    "scores_por_pliegue.csv": "889d4895cf47264266066e927e025f019149742c920e9f1487be54f3afc7e0da",
+    "seleccion.csv": "5c4865ea997cb11197888935c42a06aaf99830a80f3266d0821478b11ea6a070",
+    "zonas.csv": "b5f48e9baf692d8e164bf6c1682a5b0b8fb86f3759a7a0f390fdacb379bb6e01"
+  }
+}

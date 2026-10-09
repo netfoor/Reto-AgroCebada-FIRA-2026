@@ -8,8 +8,14 @@
 6. [EXP_03: variables temporales y familias](experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb): cuatro descriptores de curva y comparación controlada Ridge/HGB.
 7. [EXP_04: lluvia de octubre](experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb): áreas y píxeles, anomalías, cinco candidatos y reservas sobre agrupación y validación.
 8. [EXP_05: histórico y lluvia actual](experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb): separar H, P, H+P y porcentaje bajo el mismo procedimiento municipal.
+9. [EXP_06: pico soportado](experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb): NDVI diario, suavizado y guardas para sustituir una fecha de E2.
+10. [EXP_07: heterogeneidad espacial](experimentos/exp_07_heterogeneidad_parcela/exp_07_heterogeneidad_parcela.ipynb): soporte pareado de NDVI medio/dispersión y contraste C0/C1 registrado.
+11. [EXP_08: contraste vecinal](experimentos/exp_08_contraste_vecinal/exp_08_contraste_vecinal.ipynb): dónde está el error, barrido con nulo por permutación, estructura espacial y corrección de MIX con el contraste vecinal (exploratorio; ver fe de erratas en su README).
+12. [EXP_09: fuentes externas](experimentos/exp_09_fuentes_externas/exp_09_fuentes_externas.ipynb): Sentinel-2 propio (borde rojo), Sentinel-1, AlphaEarth e historia como contrastes vecinales, con registro previo y nulo de familia.
+13. [EXP_10: verificación del contraste vecinal](experimentos/exp_10_verificacion_contraste_vecinal/exp_10_verificacion_contraste_vecinal.ipynb): corte temporal corregido, invariancia, dos juegos de particiones, nulo espacial y decisión. Lector sin ajustes.
+14. [EXP_11: combinación fija](experimentos/exp_11_combinacion_modelos/exp_11_combinacion_modelos.ipynb): ½·Jared + ½·(MIX+K1) frente a sus componentes, con el control ½·MUN + ½·K. Cero entrenamientos.
 
-Cada cuaderno incorpora sus lectores y controles; puede ejecutarse en una sesión nueva de Colab sin ejecutar el anterior. El segundo reconstruye la tabla integrada y contrasta su resultado, sin entrenar ni seleccionar predictores.
+Cada cuaderno incorpora sus lectores y controles y está diseñado para ejecutarse en una sesión nueva de Colab sin ejecutar el anterior. La autonomía comprobada localmente no sustituye una ejecución real en Colab. El segundo reconstruye la tabla integrada y contrasta su resultado, sin entrenar ni seleccionar predictores.
 
 El tercero recalcula **150 ajustes de referencias sencillas**, no una búsqueda de modelos: medias aprendidas solo del entrenamiento y una mezcla espacial fija. Sus cuatro CSV de particiones y comprobación están incrustados con hashes. La validación interna se comprueba y explica; no se eligen hiperparámetros ni se predicen las 59 parcelas oficiales.
 
@@ -23,7 +29,9 @@ EXP_04 muestra la ponderación por área de píxeles de octubre, calcula las llu
 
 EXP_05 recalcula H, P y A_pct desde cuatro lluvias guardadas por parcela, no desde GeoTIFF. Mantiene el procedimiento municipal regularizado y distingue histórico solo, lluvia actual, representación aditiva y razón porcentual. **Cero ajustes**: verifica selección y métricas desde resultados guardados. SEEN135 es principal desde el diseño de esta ronda, no una máscara elegida por sus resultados ni un cambio del veredicto de V2.
 
-El recorrido de estudio es **auditoría → fuentes y variables → referencias y validación → seis rondas**. El contexto y la metodología presentan el objetivo antes de empezar con las comprobaciones.
+EXP_06 reconstruye la fecha de pico soportado desde capturas Planet y sustituye solo la fecha cruda de E2. Suaviza por días de calendario, no por número de filas; las guardas dejan ausencias sin eliminar parcelas. La bandera no entra como predictor. **Cero ajustes**: el lector evalúa OOF guardadas y verifica selecciones desde scores guardados. V4 conserva SEEN135 principal y se cerró sin adopción.
+
+El recorrido de estudio es **auditoría → fuentes y variables → referencias y validación → siete rondas**. Las seis primeras son trabajos históricos reorganizados; EXP_07 es la nueva comparación ejecutada el 8 de octubre. El contexto y la metodología presentan el objetivo antes de empezar con las comprobaciones.
 
 ## 01. Entender los datos
 
@@ -108,5 +116,31 @@ V3 se diseñó y ejecutó el **1 de octubre en México**, con fecha UTC del **2 
 Para compartirlo basta el `.ipynb`; no requiere ZIP, Drive, módulos locales ni ejecutar otro notebook. `artefactos_locales/exp_05_historico_octubre_equipo.zip` reúne la distribución; `scripts/ejecutar_exp_05.py` conserva una ejecución nueva en `resultados_locales/exp_05_historico_octubre/`. Python 3.12.14 histórico y Python 3.13 lector se identifican por separado. No se producen las 59 predicciones finales ni se declara una ejecución en Colab real.
 
 R² municipal requiere variación del objetivo: el cuaderno muestra como NaN 14 entradas espurias de Tepeapulco por redondeo, sin reescribir CSV ni modificar RMSE, MAE o decisiones.
+
+## EXP_06. Verificar una fecha antes de usarla
+
+[Fecha de pico NDVI con soporte](experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb) sigue **capturas → promedio diario → mediana por ventana de calendario → guardas → sustitución de una variable → errores comparables → decisión**. Pregunta si la fecha de una curva suavizada y suficientemente observada mejora E2 frente al máximo crudo. No cambia simultáneamente de familia ni añade un bloque de nuevas variables.
+
+La ventana conserva abril–octubre de 2025. La mediana utiliza observaciones dentro de **±7 días**, con al menos tres días finitos; no inventa observaciones por interpolación ni aplica un filtro nuevo de nubes. Las guardas controlan cantidad de días, huecos, ventana observada, amplitud, meseta ambigua, censura y soporte a ambos lados. Son decisiones operativas de esta receta, no una certificación agronómica de la fecha.
+
+Se reconstruyen **158 fechas soportadas y 39 ausencias** entre las 197 parcelas. La sustitución mantiene las otras cinco entradas numéricas de E2, municipio y el orden de columnas. La bandera de soporte no es un predictor. La mediana de imputación y la escala del procedimiento original se aprendieron dentro de cada entrenamiento: un control didáctico no se presenta como un reajuste del modelo.
+
+El lector incorpora **24 insumos**, incluido un recorte de **26,255 capturas** derivado el 8 de octubre con procedencia y hash propios. Primero calcula las variables, luego las contrasta con descriptores y curvas históricos. No presenta ese recorte como insumo registrado antes de V4. La factibilidad se realizó el **2 de octubre**; registro y corrida V4, el **6**; adaptación de lectura, el **8**.
+
+Se puntúan **6,900 OOF guardadas** de E2, V4, GLOBAL, MUN y MIX. Se verifican **100 selecciones desde 500 scores internos guardados** y el control E2 anterior, sin recalcular los scores. SEEN135 conserva 1,350 OOF por procedimiento y FULL138, 1,380. La máscara principal usa metadatos y particiones, no errores; no retira etiquetas del entrenamiento ni equivale a las 59 ocultas.
+
+En SEEN135, V4 reduce RMSE frente a E2 de **0.5065 a 0.5015 t/ha**, pero no mejora MAE ni supera MIX, **0.4872**. La regla conservadora no se cumple. La mejora frente a E2 se concentra: al retirar únicamente de la evaluación las cinco parcelas más favorecidas, se invierte ese orden. Esto no autoriza excluirlas del entrenamiento. Chignahuapan sigue detrás de MIX y una fecha soportada no resuelve por sí sola la predicción dentro de región.
+
+V4 histórico utilizó Python **3.12.14** y 2,100 ajustes por corrida; se hicieron dos corridas para verificar determinismo, 4,200 ajustes físicos y un solo candidato. El lector Python 3.13 hace **cero ajustes**, no produce predicciones nuevas y no acredita paridad del entrenamiento. Recalcula solo la fecha de pico utilizada: no incorpora anchura de curva ni otro descriptor fenológico.
+
+Para compartirlo basta el `.ipynb`; no requiere ZIP, Drive, módulos locales ni otro cuaderno. `scripts/ejecutar_exp_06.py` guarda una ejecución nueva en `resultados_locales/exp_06_pico_soportado/`; `artefactos_locales/exp_06_pico_soportado_equipo.zip` reúne la distribución local. **Lector verificado localmente sin reentrenar; Colab real no probado.** Con esta sexta lectura se cubren las seis rondas históricas, sin crear una ronda adicional.
+
+## EXP_07. Una dimensión distinta: dispersión espacial
+
+[Heterogeneidad de NDVI](experimentos/exp_07_heterogeneidad_parcela/exp_07_heterogeneidad_parcela.ipynb) distingue dispersión entre píxeles de variación temporal de una curva. Primero calcula NDVI medio y std media sobre las mismas capturas; muestra una parcela y generaliza a 197. La factibilidad sin rendimiento comprobó soporte común, siete meses y variación intramunicipal en los entrenamientos.
+
+C0 usa municipio más corrección Ridge con nivel medio; C1 añade únicamente dispersión. La corrida se registró antes de ajustar; hubo 2,400 evaluaciones interiores por ejecución, 2,000 ajustes Ridge internos y 11 exteriores efectivos. Una réplica produjo las 12 salidas científicas idénticas. El lector puntúa las 5,520 OOF y verifica 100 selecciones con scores guardados: **no repite esos entrenamientos**.
+
+En SEEN135, C1 no mejora RMSE: 0.494105 frente a C0 0.494064; MIX sigue en 0.487197. MAE cambia mínimamente y el apoyo incremental es solo 4/10 repeticiones. Se cerró **sin adopción**, sin nuevas variantes ni predicciones finales. La verificación local no equivale a Colab real.
 
 El [formato común](../docs/04_notebooks_y_colab.md) define estas convenciones. El [glosario](../docs/06_glosario.md) permite consultar términos sin interrumpir el recorrido.

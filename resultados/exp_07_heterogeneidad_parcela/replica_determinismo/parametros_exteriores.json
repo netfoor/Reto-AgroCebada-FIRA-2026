@@ -1,0 +1,7582 @@
+[
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02813700442485209
+      ],
+      "media_global_y": 4.031363636363635,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4195602586470711
+        ],
+        "Chignahuapan": [
+          0.40920812870157414
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4294582597569338
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0416666666666665,
+        "Chignahuapan": 4.531607142857143,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.272727272727273,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4183798419484389
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028137004424852088,
+        0.014561260667219097
+      ],
+      "media_global_y": 4.031363636363635,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646,
+          0.06018366680287124
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4195602586470711,
+          0.04963525472164327
+        ],
+        "Chignahuapan": [
+          0.40920812870157414,
+          0.05545645799723501
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4294582597569338,
+          0.05144479550724106
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0416666666666665,
+        "Chignahuapan": 4.531607142857143,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.272727272727273,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4183798419484389,
+        0.05166585246702491
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028349999721214318
+      ],
+      "media_global_y": 3.9667272727272724,
+      "media_x": {
+        "Almoloya": [
+          0.4770877810884225
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4164013298405978
+        ],
+        "Chignahuapan": [
+          0.41222491450360726
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4250122586087065
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4925,
+        "Apan": 3.0,
+        "Calpulalpan": 3.022727272727273,
+        "Chignahuapan": 4.444137931034483,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.053846153846154,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41980653317152106
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028349999721214325,
+        0.013207420870416323
+      ],
+      "media_global_y": 3.9667272727272724,
+      "media_x": {
+        "Almoloya": [
+          0.4770877810884225,
+          0.06056882445729388
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4164013298405978,
+          0.05078174626854593
+        ],
+        "Chignahuapan": [
+          0.41222491450360726,
+          0.053941350636039095
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059,
+          0.04149019607843137
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4250122586087065,
+          0.04703349314873611
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4925,
+        "Apan": 3.0,
+        "Calpulalpan": 3.022727272727273,
+        "Chignahuapan": 4.444137931034483,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.053846153846154,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41980653317152106,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028129428982338972
+      ],
+      "media_global_y": 3.956818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4806526996382488
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4213910200171699
+        ],
+        "Chignahuapan": [
+          0.4094517792973444
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4188330033855788
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5275,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9285714285714284,
+        "Chignahuapan": 4.490338983050847,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857
+      },
+      "medianas": [
+        0.4182207654145996
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028129428982338965,
+        0.01399295977163696
+      ],
+      "media_global_y": 3.956818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4806526996382488,
+          0.05744504036467555
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4213910200171699,
+          0.04832788060208835
+        ],
+        "Chignahuapan": [
+          0.4094517792973444,
+          0.05572599585940855
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393,
+          0.0535751367666478
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4188330033855788,
+          0.0508783537553056
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5275,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9285714285714284,
+        "Chignahuapan": 4.490338983050847,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857
+      },
+      "medianas": [
+        0.4182207654145996,
+        0.05147155898876404
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.026295985864837574
+      ],
+      "escala": [
+        0.027309805824081785
+      ],
+      "media_global_y": 3.907387387387387,
+      "media_x": {
+        "Almoloya": [
+          0.4851208970815303
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42056551019414745
+        ],
+        "Chignahuapan": [
+          0.4055961535429148
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.4255199001621175
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.56875,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.432037037037037,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 2.9916666666666667,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4195922330097087
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027309805824081785,
+        0.01502672067033636
+      ],
+      "media_global_y": 3.907387387387387,
+      "media_x": {
+        "Almoloya": [
+          0.4851208970815303,
+          0.05874249887771994
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42056551019414745,
+          0.05059154640112943
+        ],
+        "Chignahuapan": [
+          0.4055961535429148,
+          0.055944937915506865
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.4255199001621175,
+          0.04925715856090093
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.56875,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.432037037037037,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 2.9916666666666667,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4195922330097087,
+        0.051164556962025314
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027236944031182087
+      ],
+      "media_global_y": 3.915315315315315,
+      "media_x": {
+        "Almoloya": [
+          0.4800795805162232
+        ],
+        "Calpulalpan": [
+          0.4207577160697348
+        ],
+        "Chignahuapan": [
+          0.41379174157039156
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42105063291139244
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42086368494282
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.484285714285714,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.487192982456141,
+        "Cuautepec de Hinojosa": 4.595000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42002083333333334
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027236944031182087,
+        0.014042049277444192
+      ],
+      "media_global_y": 3.915315315315315,
+      "media_x": {
+        "Almoloya": [
+          0.4800795805162232,
+          0.05042127291521988
+        ],
+        "Calpulalpan": [
+          0.4207577160697348,
+          0.05172543511736738
+        ],
+        "Chignahuapan": [
+          0.41379174157039156,
+          0.055977942080130655
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42105063291139244,
+          0.07219620253164558
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42086368494282,
+          0.05117569261796996
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.484285714285714,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.487192982456141,
+        "Cuautepec de Hinojosa": 4.595000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42002083333333334,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 0
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        0.011472410065483142
+      ],
+      "escala": [
+        0.026491009523789612
+      ],
+      "media_global_y": 3.945818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41904800541603476
+        ],
+        "Chignahuapan": [
+          0.4108270944382328
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4186345444317106
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.458181818181818,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 2.983333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4190434283328114
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.026491009523789622,
+        0.01319382442886617
+      ],
+      "media_global_y": 3.945818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41904800541603476,
+          0.0516975544034585
+        ],
+        "Chignahuapan": [
+          0.4108270944382328,
+          0.05545794841020671
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495,
+          0.06783734857765074
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4186345444317106,
+          0.04669852150190166
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.458181818181818,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 2.983333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4190434283328114,
+        0.052014123700514545
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02720606439940497
+      ],
+      "media_global_y": 3.9332727272727266,
+      "media_x": {
+        "Almoloya": [
+          0.48016938146217747
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42115378079970534
+        ],
+        "Chignahuapan": [
+          0.4082326976312162
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4233900790419556
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4294232536979657
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.525714285714286,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0185185185185186,
+        "Chignahuapan": 4.470350877192982,
+        "Cuautepec de Hinojosa": 4.506666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.141666666666667,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42048130169003956
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.0009503152108046546,
+        0.027553781238587954
+      ],
+      "escala": [
+        0.02720606439940497,
+        0.014808479545540919
+      ],
+      "media_global_y": 3.9332727272727266,
+      "media_x": {
+        "Almoloya": [
+          0.48016938146217747,
+          0.06187614671414815
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42115378079970534,
+          0.051027188702902335
+        ],
+        "Chignahuapan": [
+          0.4082326976312162,
+          0.05506245790577951
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4233900790419556,
+          0.06536162558294471
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059,
+          0.04149019607843137
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4294232536979657,
+          0.05086871374065944
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.525714285714286,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0185185185185186,
+        "Chignahuapan": 4.470350877192982,
+        "Cuautepec de Hinojosa": 4.506666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.141666666666667,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42048130169003956,
+        0.05166585246702491
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028533201523216718
+      ],
+      "media_global_y": 3.9554545454545456,
+      "media_x": {
+        "Almoloya": [
+          0.48122828968052617
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41830032714403176
+        ],
+        "Chignahuapan": [
+          0.4139891154617186
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41071891570494223
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4223108771542819
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.472857142857142,
+        "Apan": 3.0,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.489827586206897,
+        "Cuautepec de Hinojosa": 4.693333333333333,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.108333333333333
+      },
+      "medianas": [
+        0.41980653317152106
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028533201523216718,
+        0.014496247535130026
+      ],
+      "media_global_y": 3.9554545454545456,
+      "media_x": {
+        "Almoloya": [
+          0.48122828968052617,
+          0.05607482288430303
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41830032714403176,
+          0.05128906854331948
+        ],
+        "Chignahuapan": [
+          0.4139891154617186,
+          0.05538790249181297
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41071891570494223,
+          0.047600453222344
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4223108771542819,
+          0.05111241990858572
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.472857142857142,
+        "Apan": 3.0,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.489827586206897,
+        "Cuautepec de Hinojosa": 4.693333333333333,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.108333333333333
+      },
+      "medianas": [
+        0.41980653317152106,
+        0.05166585246702491
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02918084920755442
+      ],
+      "media_global_y": 4.0094594594594595,
+      "media_x": {
+        "Almoloya": [
+          0.4783000085810662
+        ],
+        "Calpulalpan": [
+          0.4153562521246035
+        ],
+        "Chignahuapan": [
+          0.40787894700617466
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Singuilucan": [
+          0.4249230904811131
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.51,
+        "Calpulalpan": 2.9761904761904763,
+        "Chignahuapan": 4.507333333333333,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0733333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4170869565217391
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.029180849207554416,
+        0.014954421503605457
+      ],
+      "media_global_y": 4.0094594594594595,
+      "media_x": {
+        "Almoloya": [
+          0.4783000085810662,
+          0.05492219110164338
+        ],
+        "Calpulalpan": [
+          0.4153562521246035,
+          0.04998109038588941
+        ],
+        "Chignahuapan": [
+          0.40787894700617466,
+          0.05592979838516296
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Singuilucan": [
+          0.4249230904811131,
+          0.049140797031727086
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.51,
+        "Calpulalpan": 2.9761904761904763,
+        "Chignahuapan": 4.507333333333333,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0733333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4170869565217391,
+        0.0514375
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02768394287428642
+      ],
+      "media_global_y": 3.9325225225225218,
+      "media_x": {
+        "Almoloya": [
+          0.48402528814654544
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42438377491917506
+        ],
+        "Chignahuapan": [
+          0.4096632835488541
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42253247670448096
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5633333333333335,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9583333333333335,
+        "Chignahuapan": 4.457407407407407,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4213703703703704
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02768394287428642,
+        0.013314536803958554
+      ],
+      "media_global_y": 3.9325225225225218,
+      "media_x": {
+        "Almoloya": [
+          0.48402528814654544,
+          0.05793083233575106
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42438377491917506,
+          0.0473148179920324
+        ],
+        "Chignahuapan": [
+          0.4096632835488541,
+          0.055124621770733705
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42253247670448096,
+          0.05199253047540169
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5633333333333335,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9583333333333335,
+        "Chignahuapan": 4.457407407407407,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4213703703703704,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 1
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027252859809414394
+      ],
+      "media_global_y": 3.921272727272727,
+      "media_x": {
+        "Almoloya": [
+          0.47881530061613997
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4185237890432076
+        ],
+        "Chignahuapan": [
+          0.4098387655625797
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495
+        ],
+        "Emiliano Zapata": [
+          0.3975052631578947
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42036629113181717
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.51875,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.4683636363636365,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0733333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027252859809414394,
+        0.013729344279973625
+      ],
+      "media_global_y": 3.921272727272727,
+      "media_x": {
+        "Almoloya": [
+          0.47881530061613997,
+          0.05858040388508372
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4185237890432076,
+          0.04914446733400673
+        ],
+        "Chignahuapan": [
+          0.4098387655625797,
+          0.054540342046966575
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495,
+          0.06783734857765074
+        ],
+        "Emiliano Zapata": [
+          0.3975052631578947,
+          0.041042105263157894
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42036629113181717,
+          0.05076212792492011
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.51875,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.4683636363636365,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0733333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027816687823350873
+      ],
+      "media_global_y": 3.9726363636363637,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Calpulalpan": [
+          0.4251253344660495
+        ],
+        "Chignahuapan": [
+          0.4100356307215957
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4262265565844505
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.475344827586206,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0727272727272723
+      },
+      "medianas": [
+        0.42069560185185184
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027816687823350873,
+        0.014264044863527107
+      ],
+      "media_global_y": 3.9726363636363637,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Calpulalpan": [
+          0.4251253344660495,
+          0.0510257956156347
+        ],
+        "Chignahuapan": [
+          0.4100356307215957,
+          0.05725108219948302
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775,
+          0.059281456806573395
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777,
+          0.04459045886395796
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4262265565844505,
+          0.050251518713570725
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.475344827586206,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0727272727272723
+      },
+      "medianas": [
+        0.42069560185185184,
+        0.05294069451980467
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02858552880133694
+      ],
+      "media_global_y": 3.9959090909090906,
+      "media_x": {
+        "Almoloya": [
+          0.49059796481723456
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41804791935324526
+        ],
+        "Chignahuapan": [
+          0.4085360336085532
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42298409491940053
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526,
+        "Apan": 3.0,
+        "Calpulalpan": 2.977272727272727,
+        "Chignahuapan": 4.508,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.125,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41787627877237854
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02858552880133694,
+        0.014413052500094607
+      ],
+      "media_global_y": 3.9959090909090906,
+      "media_x": {
+        "Almoloya": [
+          0.49059796481723456,
+          0.04911592601256455
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41804791935324526,
+          0.05241689963080513
+        ],
+        "Chignahuapan": [
+          0.4085360336085532,
+          0.05576916959015643
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42298409491940053,
+          0.05285716045129981
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526,
+        "Apan": 3.0,
+        "Calpulalpan": 2.977272727272727,
+        "Chignahuapan": 4.508,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.125,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41787627877237854,
+        0.051969223253541766
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.026788431480429822
+      ],
+      "media_global_y": 3.931171171171171,
+      "media_x": {
+        "Almoloya": [
+          0.47798329079204804
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41593440945038807
+        ],
+        "Chignahuapan": [
+          0.4091466812139028
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4233096330045203
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.4262855115072236
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.502222222222222,
+        "Apan": 3.0,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.465454545454546,
+        "Cuautepec de Hinojosa": 4.5633333333333335,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.042857142857143,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.026788431480429822,
+        0.014329491429968097
+      ],
+      "media_global_y": 3.931171171171171,
+      "media_x": {
+        "Almoloya": [
+          0.47798329079204804,
+          0.058706791330460056
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41593440945038807,
+          0.04916892173930135
+        ],
+        "Chignahuapan": [
+          0.4091466812139028,
+          0.05437194634467532
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4233096330045203,
+          0.05368062199871532
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.4262855115072236,
+          0.05118900561360271
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.502222222222222,
+        "Apan": 3.0,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.465454545454546,
+        "Cuautepec de Hinojosa": 4.5633333333333335,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.042857142857143,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914,
+        0.050119565217391304
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028651608877838634
+      ],
+      "media_global_y": 3.9560360360360356,
+      "media_x": {
+        "Almoloya": [
+          0.4810936881551966
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4210973965299665
+        ],
+        "Chignahuapan": [
+          0.4130758681571094
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4227833223535249
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54125,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.466964285714286,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4213703703703704
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028651608877838634,
+        0.014015763193317068
+      ],
+      "media_global_y": 3.9560360360360356,
+      "media_x": {
+        "Almoloya": [
+          0.4810936881551966,
+          0.06111320410059857
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4210973965299665,
+          0.04986067283275313
+        ],
+        "Chignahuapan": [
+          0.4130758681571094,
+          0.0549441836058151
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4227833223535249,
+          0.04433667372839791
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54125,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.466964285714286,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4213703703703704,
+        0.04975961538461538
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 2
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.026871347227481666
+      ],
+      "media_global_y": 3.9093636363636355,
+      "media_x": {
+        "Almoloya": [
+          0.4797873599928278
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4223819082798863
+        ],
+        "Chignahuapan": [
+          0.4125332129379994
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4236954458402455
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.533333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.416981132075471,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42138731284475966
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.026871347227481666,
+        0.01407208008399519
+      ],
+      "media_global_y": 3.9093636363636355,
+      "media_x": {
+        "Almoloya": [
+          0.4797873599928278,
+          0.05826842632071347
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4223819082798863,
+          0.050180557365552075
+        ],
+        "Chignahuapan": [
+          0.4125332129379994,
+          0.05416629848937281
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495,
+          0.06783734857765074
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4236954458402455,
+          0.05151144858189048
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.533333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.416981132075471,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.057142857142857,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42138731284475966,
+        0.05130102848101266
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02984289099413671
+      ],
+      "media_global_y": 3.93590909090909,
+      "media_x": {
+        "Almoloya": [
+          0.47494371332769686
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4192478963456777
+        ],
+        "Chignahuapan": [
+          0.4111064557944052
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.42603705213678633
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5,
+        "Apan": 3.0,
+        "Calpulalpan": 2.98,
+        "Chignahuapan": 4.481186440677966,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.053846153846154,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4179631013016412
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.029842890994136697,
+        0.014014889120789053
+      ],
+      "media_global_y": 3.93590909090909,
+      "media_x": {
+        "Almoloya": [
+          0.47494371332769686,
+          0.059934843748338316
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4192478963456777,
+          0.050331631135492765
+        ],
+        "Chignahuapan": [
+          0.4111064557944052,
+          0.05477216190345883
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775,
+          0.059281456806573395
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.42603705213678633,
+          0.050333607715403746
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5,
+        "Apan": 3.0,
+        "Calpulalpan": 2.98,
+        "Chignahuapan": 4.481186440677966,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.053846153846154,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4179631013016412,
+        0.05147155898876404
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027704441071295827
+      ],
+      "media_global_y": 3.95990909090909,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41918677383780795
+        ],
+        "Chignahuapan": [
+          0.40896340787556557
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42368505980362664
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.485357142857143,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0833333333333335
+      },
+      "medianas": [
+        0.4190434283328114
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.004617830443643124,
+        0.019142288007578803
+      ],
+      "escala": [
+        0.027704441071295827,
+        0.015040218663228385
+      ],
+      "media_global_y": 3.95990909090909,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41918677383780795,
+          0.050283970945749386
+        ],
+        "Chignahuapan": [
+          0.40896340787556557,
+          0.056296687862389116
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828,
+          0.060510466499036485
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777,
+          0.04459045886395796
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42368505980362664,
+          0.050924563098276
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.485357142857143,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0833333333333335
+      },
+      "medianas": [
+        0.4190434283328114,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028590474373790024
+      ],
+      "media_global_y": 3.9841441441441443,
+      "media_x": {
+        "Almoloya": [
+          0.48786906611009284
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4204453485963809
+        ],
+        "Chignahuapan": [
+          0.41011589800861475
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4234694496592897
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5285714285714285,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9545454545454546,
+        "Chignahuapan": 4.478852459016393,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0749999999999997,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028590474373790024,
+        0.013755616433255409
+      ],
+      "media_global_y": 3.9841441441441443,
+      "media_x": {
+        "Almoloya": [
+          0.48786906611009284,
+          0.053435268757517765
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4204453485963809,
+          0.050627265808857465
+        ],
+        "Chignahuapan": [
+          0.41011589800861475,
+          0.05625225879688322
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656,
+          0.05602945384080864
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4234694496592897,
+          0.05093423310409928
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5285714285714285,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9545454545454546,
+        "Chignahuapan": 4.478852459016393,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0749999999999997,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353,
+        0.05274736842105263
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": 10.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.053701969064985026
+      ],
+      "escala": [
+        0.02625370844584158
+      ],
+      "media_global_y": 3.9869369369369365,
+      "media_x": {
+        "Almoloya": [
+          0.48069145356007925
+        ],
+        "Calpulalpan": [
+          0.4178325131540611
+        ],
+        "Chignahuapan": [
+          0.40785663619507934
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4211631249758303
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.514444444444445,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.521454545454546,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1384615384615384,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182650602409639
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.02956255467956858,
+        0.02712173017125714
+      ],
+      "escala": [
+        0.026253708445841576,
+        0.014143747987407636
+      ],
+      "media_global_y": 3.9869369369369365,
+      "media_x": {
+        "Almoloya": [
+          0.48069145356007925,
+          0.05926140877685382
+        ],
+        "Calpulalpan": [
+          0.4178325131540611,
+          0.05003695136399729
+        ],
+        "Chignahuapan": [
+          0.40785663619507934,
+          0.05540708013274281
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003,
+          0.04126615067079463
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4211631249758303,
+          0.04610522912266704
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.514444444444445,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.521454545454546,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1384615384615384,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182650602409639,
+        0.0514375
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 3
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02880450916287123
+      ],
+      "media_global_y": 4.003,
+      "media_x": {
+        "Almoloya": [
+          0.4797873599928278
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41844213257826074
+        ],
+        "Chignahuapan": [
+          0.40886908559313245
+        ],
+        "Cuautepec de Hinojosa": [
+          0.43053287055941203
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4158016118163836
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.533333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.5288135593220336,
+        "Cuautepec de Hinojosa": 4.54,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.08,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4183798419484389
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028804509162871222,
+        0.014453963233369038
+      ],
+      "media_global_y": 4.003,
+      "media_x": {
+        "Almoloya": [
+          0.4797873599928278,
+          0.05826842632071347
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41844213257826074,
+          0.05114565406586272
+        ],
+        "Chignahuapan": [
+          0.40886908559313245,
+          0.05632556245671344
+        ],
+        "Cuautepec de Hinojosa": [
+          0.43053287055941203,
+          0.06363672247175718
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4158016118163836,
+          0.0561328176527469
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.533333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.5288135593220336,
+        "Cuautepec de Hinojosa": 4.54,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.08,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4183798419484389,
+        0.053269630642954854
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028403176977527634
+      ],
+      "media_global_y": 3.964090909090909,
+      "media_x": {
+        "Almoloya": [
+          0.4807846565759824
+        ],
+        "Calpulalpan": [
+          0.41989546377068154
+        ],
+        "Chignahuapan": [
+          0.4104178847412031
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.3975052631578947
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42654456248366585
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.564285714285714,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.488771929824561,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0928571428571425,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4189286466253363
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028403176977527637,
+        0.014659347751571444
+      ],
+      "media_global_y": 3.964090909090909,
+      "media_x": {
+        "Almoloya": [
+          0.4807846565759824,
+          0.06006921292559514
+        ],
+        "Calpulalpan": [
+          0.41989546377068154,
+          0.04953888085245293
+        ],
+        "Chignahuapan": [
+          0.4104178847412031,
+          0.05600403703555426
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.3975052631578947,
+          0.041042105263157894
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42654456248366585,
+          0.05160805043482145
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.564285714285714,
+        "Calpulalpan": 2.9791666666666665,
+        "Chignahuapan": 4.488771929824561,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0928571428571425,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4189286466253363,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.025148951328926934
+      ],
+      "media_global_y": 3.9353636363636357,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4219789884399057
+        ],
+        "Chignahuapan": [
+          0.4084171557386983
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42744313005933304
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.4238888888888885,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1916666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42124970131421746
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.025148951328926934,
+        0.014894173121566275
+      ],
+      "media_global_y": 3.9353636363636357,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189,
+          0.057404755238245384
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4219789884399057,
+          0.050588483914783856
+        ],
+        "Chignahuapan": [
+          0.4084171557386983,
+          0.054329223327966976
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777,
+          0.04459045886395796
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42744313005933304,
+          0.0484752703088124
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.4238888888888885,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1916666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42124970131421746,
+        0.05015256611385029
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028333934647025206
+      ],
+      "media_global_y": 3.9691891891891884,
+      "media_x": {
+        "Almoloya": [
+          0.4781766706899797
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4182408200762062
+        ],
+        "Chignahuapan": [
+          0.40869690122831337
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.4229686002338818
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.431666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9523809523809526,
+        "Chignahuapan": 4.475409836065574,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0357142857142856
+      },
+      "medianas": [
+        0.41743157894736843
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.013650631237531694,
+        0.027119528151033277
+      ],
+      "escala": [
+        0.028333934647025206,
+        0.014195391544583387
+      ],
+      "media_global_y": 3.9691891891891884,
+      "media_x": {
+        "Almoloya": [
+          0.4781766706899797,
+          0.05090944924904308
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4182408200762062,
+          0.050020415368433824
+        ],
+        "Chignahuapan": [
+          0.40869690122831337,
+          0.05595304712526066
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.4229686002338818,
+          0.04908376099757639
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.431666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9523809523809526,
+        "Chignahuapan": 4.475409836065574,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0357142857142856
+      },
+      "medianas": [
+        0.41743157894736843,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028282388899924814
+      ],
+      "media_global_y": 3.905495495495495,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4200700781717662
+        ],
+        "Chignahuapan": [
+          0.41450082873226785
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42361962149006777
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0576923076923075,
+        "Chignahuapan": 4.464339622641509,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0214285714285714,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42140425531914893
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028282388899924803,
+        0.012620783635046661
+      ],
+      "media_global_y": 3.905495495495495,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646,
+          0.06018366680287124
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4200700781717662,
+          0.05009974735027186
+        ],
+        "Chignahuapan": [
+          0.41450082873226785,
+          0.05417756332304808
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4107993617423775,
+          0.059281456806573395
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42361962149006777,
+          0.046032423798793055
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0576923076923075,
+        "Chignahuapan": 4.464339622641509,
+        "Cuautepec de Hinojosa": 4.636666666666667,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0214285714285714,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42140425531914893,
+        0.051164556962025314
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 4
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02684274150728227
+      ],
+      "media_global_y": 3.937818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4783082524741081
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41969376727475743
+        ],
+        "Chignahuapan": [
+          0.4102685345692707
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.43020315285933614
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.478571428571429,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.4628070175438594,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4190434283328114
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02684274150728227,
+        0.01429283415674238
+      ],
+      "media_global_y": 3.937818181818181,
+      "media_x": {
+        "Almoloya": [
+          0.4783082524741081,
+          0.054178830325586645
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41969376727475743,
+          0.050569048216670465
+        ],
+        "Chignahuapan": [
+          0.4102685345692707,
+          0.05646795726152697
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656,
+          0.05602945384080864
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003,
+          0.04126615067079463
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.43020315285933614,
+          0.04750089673415395
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.478571428571429,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.4628070175438594,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4190434283328114,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028208761467786475
+      ],
+      "media_global_y": 3.9859999999999998,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42623438099358696
+        ],
+        "Chignahuapan": [
+          0.41334257114123224
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4211572120643851
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42125983795082955
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9473684210526314,
+        "Chignahuapan": 4.4491525423728815,
+        "Cuautepec de Hinojosa": 4.566666666666666,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.123076923076923,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4226138211382114
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.009686045125431515,
+        0.02718033070511759
+      ],
+      "escala": [
+        0.028208761467786475,
+        0.014524753559526683
+      ],
+      "media_global_y": 3.9859999999999998,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42623438099358696,
+          0.04906894489913244
+        ],
+        "Chignahuapan": [
+          0.41334257114123224,
+          0.05514835078931741
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4211572120643851,
+          0.07513080168776372
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42125983795082955,
+          0.05301589951142896
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9473684210526314,
+        "Chignahuapan": 4.4491525423728815,
+        "Cuautepec de Hinojosa": 4.566666666666666,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.123076923076923,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4226138211382114,
+        0.05166585246702491
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027755581486357504
+      ],
+      "media_global_y": 3.9761818181818183,
+      "media_x": {
+        "Almoloya": [
+          0.47832365005772076
+        ],
+        "Calpulalpan": [
+          0.4163452547093083
+        ],
+        "Chignahuapan": [
+          0.40812235238399325
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42151117720200176
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.529107142857143,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0714285714285716,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41833554712207466
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027755581486357504,
+        0.014730029939474646
+      ],
+      "media_global_y": 3.9761818181818183,
+      "media_x": {
+        "Almoloya": [
+          0.47832365005772076,
+          0.059615452746767564
+        ],
+        "Calpulalpan": [
+          0.4163452547093083,
+          0.050827416334623336
+        ],
+        "Chignahuapan": [
+          0.40812235238399325,
+          0.05595157234116754
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393,
+          0.0535751367666478
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42151117720200176,
+          0.05067410093934011
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.5,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.529107142857143,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0714285714285716,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41833554712207466,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02899281631599356
+      ],
+      "media_global_y": 3.965045045045045,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41882144468134647
+        ],
+        "Chignahuapan": [
+          0.40945950616021176
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42303246384703513
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9565217391304346,
+        "Chignahuapan": 4.485517241379311,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 2.983333333333333
+      },
+      "medianas": [
+        0.41757608695652176
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028992816315993555,
+        0.012794588960387316
+      ],
+      "media_global_y": 3.965045045045045,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458,
+          0.054000532162876626
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41882144468134647,
+          0.05175889062042819
+        ],
+        "Chignahuapan": [
+          0.40945950616021176,
+          0.05374547512341413
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42303246384703513,
+          0.04687240528338038
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9565217391304346,
+        "Chignahuapan": 4.485517241379311,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 2.983333333333333
+      },
+      "medianas": [
+        0.41757608695652176,
+        0.05041666666666667
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027400126194964704
+      ],
+      "media_global_y": 3.9120720720720716,
+      "media_x": {
+        "Almoloya": [
+          0.4847432132796105
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4192256289425015
+        ],
+        "Chignahuapan": [
+          0.4091602875795069
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777
+        ],
+        "Singuilucan": [
+          0.4236824792557237
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.601666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0185185185185186,
+        "Chignahuapan": 4.460925925925926,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.1199999999999997,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027400126194964704,
+        0.014264266560017065
+      ],
+      "media_global_y": 3.9120720720720716,
+      "media_x": {
+        "Almoloya": [
+          0.4847432132796105,
+          0.06488489870054746
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4192256289425015,
+          0.049117642908108286
+        ],
+        "Chignahuapan": [
+          0.4091602875795069,
+          0.05575576329083676
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777,
+          0.04459045886395796
+        ],
+        "Singuilucan": [
+          0.4236824792557237,
+          0.05073658506189654
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.601666666666667,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0185185185185186,
+        "Chignahuapan": 4.460925925925926,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.1199999999999997,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 5
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.029302901661835596
+      ],
+      "media_global_y": 3.9401818181818187,
+      "media_x": {
+        "Almoloya": [
+          0.4793674022971702
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42089006866287415
+        ],
+        "Chignahuapan": [
+          0.4110400398160966
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42714533558241913
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.482222222222223,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9615384615384617,
+        "Chignahuapan": 4.553333333333334,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0384615384615383
+      },
+      "medianas": [
+        0.42138731284475966
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.0293029016618356,
+        0.015109589117502866
+      ],
+      "media_global_y": 3.9401818181818187,
+      "media_x": {
+        "Almoloya": [
+          0.4793674022971702,
+          0.055206077185464
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42089006866287415,
+          0.05096883909726347
+        ],
+        "Chignahuapan": [
+          0.4110400398160966,
+          0.05692474758891287
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828,
+          0.060510466499036485
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42714533558241913,
+          0.048327708860107295
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.482222222222223,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9615384615384617,
+        "Chignahuapan": 4.553333333333334,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0384615384615383
+      },
+      "medianas": [
+        0.42138731284475966,
+        0.052331628135759964
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027689453303502906
+      ],
+      "media_global_y": 3.9299999999999997,
+      "media_x": {
+        "Almoloya": [
+          0.47264236719578895
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4186940162087631
+        ],
+        "Chignahuapan": [
+          0.4129579379672829
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4294509419724015
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4799999999999995,
+        "Apan": 3.0,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.415438596491228,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1636363636363636,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4205749327956989
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02768945330350291,
+        0.013707068929048792
+      ],
+      "media_global_y": 3.9299999999999997,
+      "media_x": {
+        "Almoloya": [
+          0.47264236719578895,
+          0.06267177023859115
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4186940162087631,
+          0.047614856545843826
+        ],
+        "Chignahuapan": [
+          0.4129579379672829,
+          0.0556945286567245
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4294509419724015,
+          0.05294590683475464
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4799999999999995,
+        "Apan": 3.0,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.415438596491228,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1636363636363636,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4205749327956989,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.026349673704385315
+      ],
+      "media_global_y": 3.969545454545454,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Calpulalpan": [
+          0.4227913146449074
+        ],
+        "Chignahuapan": [
+          0.40782926636888817
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4222766785749523
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.444285714285714,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0666666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41993249701314217
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02634967370438532,
+        0.014020892369021506
+      ],
+      "media_global_y": 3.969545454545454,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Calpulalpan": [
+          0.4227913146449074,
+          0.04983179601789211
+        ],
+        "Chignahuapan": [
+          0.40782926636888817,
+          0.05474152541214945
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973,
+          0.06479020652898068
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003,
+          0.04126615067079463
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4222766785749523,
+          0.05161395197960128
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Calpulalpan": 3.0625,
+        "Chignahuapan": 4.444285714285714,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0666666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41993249701314217,
+        0.05147155898876404
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028883547234061068
+      ],
+      "media_global_y": 4.01162162162162,
+      "media_x": {
+        "Almoloya": [
+          0.4821906269307068
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41783562370595334
+        ],
+        "Chignahuapan": [
+          0.41092253556160535
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4133817793712993
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.41576871884746186
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54375,
+        "Apan": 3.0,
+        "Calpulalpan": 2.977272727272727,
+        "Chignahuapan": 4.535593220338983,
+        "Cuautepec de Hinojosa": 4.6475,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0666666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182650602409639
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028883547234061075,
+        0.013818880978636882
+      ],
+      "media_global_y": 4.01162162162162,
+      "media_x": {
+        "Almoloya": [
+          0.4821906269307068,
+          0.05798692859039449
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41783562370595334,
+          0.05240907194456645
+        ],
+        "Chignahuapan": [
+          0.41092253556160535,
+          0.05480370866921497
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4133817793712993,
+          0.055950339916758005
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.41576871884746186,
+          0.04732045174862553
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54375,
+        "Apan": 3.0,
+        "Calpulalpan": 2.977272727272727,
+        "Chignahuapan": 4.535593220338983,
+        "Cuautepec de Hinojosa": 4.6475,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0666666666666664,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182650602409639,
+        0.05150561797752808
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.0267220832758632
+      ],
+      "media_global_y": 3.9252252252252244,
+      "media_x": {
+        "Almoloya": [
+          0.489489358870054
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4184603832163458
+        ],
+        "Chignahuapan": [
+          0.4078110975667864
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4210767660269498
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777
+        ],
+        "Singuilucan": [
+          0.4236123852778508
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.58,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9782608695652173,
+        "Chignahuapan": 4.4399999999999995,
+        "Cuautepec de Hinojosa": 4.623333333333334,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.08125,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41743157894736843
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02672208327586321,
+        0.014289504729035635
+      ],
+      "media_global_y": 3.9252252252252244,
+      "media_x": {
+        "Almoloya": [
+          0.489489358870054,
+          0.056386981585506105
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4184603832163458,
+          0.050853877059501416
+        ],
+        "Chignahuapan": [
+          0.4078110975667864,
+          0.05493610945942599
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4210767660269498,
+          0.06344979810353432
+        ],
+        "Emiliano Zapata": [
+          0.4340095512431777,
+          0.04459045886395796
+        ],
+        "Singuilucan": [
+          0.4236123852778508,
+          0.04995579239796703
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.58,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9782608695652173,
+        "Chignahuapan": 4.4399999999999995,
+        "Cuautepec de Hinojosa": 4.623333333333334,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.08125,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41743157894736843,
+        0.051164556962025314
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 6
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027038859684972216
+      ],
+      "media_global_y": 3.9767272727272722,
+      "media_x": {
+        "Almoloya": [
+          0.47842031351064296
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4181103627419632
+        ],
+        "Chignahuapan": [
+          0.40743957424107163
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.4304852392855701
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0384615384615383,
+        "Chignahuapan": 4.513703703703704,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.1333333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4189286466253363
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027038859684972213,
+        0.014383533773836235
+      ],
+      "media_global_y": 3.9767272727272722,
+      "media_x": {
+        "Almoloya": [
+          0.47842031351064296,
+          0.05778674789785218
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4181103627419632,
+          0.05076085240027455
+        ],
+        "Chignahuapan": [
+          0.40743957424107163,
+          0.05468547607419075
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41802336399389656,
+          0.05602945384080864
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.4304852392855701,
+          0.050969611423308046
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0384615384615383,
+        "Chignahuapan": 4.513703703703704,
+        "Cuautepec de Hinojosa": 4.62,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.1333333333333333,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4189286466253363,
+        0.05163179347826087
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.029043437748146172
+      ],
+      "media_global_y": 3.9154545454545455,
+      "media_x": {
+        "Almoloya": [
+          0.48576110202852174
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41806518175242807
+        ],
+        "Chignahuapan": [
+          0.41202003257995473
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4260443161199539
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.535,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.468928571428571,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0307692307692307,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42124970131421746
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.015601389914785373,
+        0.02398624714631776
+      ],
+      "escala": [
+        0.02904343774814617,
+        0.014256251675142132
+      ],
+      "media_global_y": 3.9154545454545455,
+      "media_x": {
+        "Almoloya": [
+          0.48576110202852174,
+          0.059020212716971505
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41806518175242807,
+          0.05000457387518547
+        ],
+        "Chignahuapan": [
+          0.41202003257995473,
+          0.05483934738795139
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495,
+          0.06783734857765074
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4260443161199539,
+          0.048955141668262994
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.535,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.468928571428571,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0307692307692307,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42124970131421746,
+        0.05015256611385029
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027905469498051512
+      ],
+      "media_global_y": 3.978636363636364,
+      "media_x": {
+        "Almoloya": [
+          0.4821906269307068
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42480553102421936
+        ],
+        "Chignahuapan": [
+          0.4112856218730789
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.424436304427043
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54375,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9523809523809526,
+        "Chignahuapan": 4.4906779661016945,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1142857142857143,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41980653317152106
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027905469498051512,
+        0.014704738398893125
+      ],
+      "media_global_y": 3.978636363636364,
+      "media_x": {
+        "Almoloya": [
+          0.4821906269307068,
+          0.05798692859039449
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42480553102421936,
+          0.05162706676572672
+        ],
+        "Chignahuapan": [
+          0.4112856218730789,
+          0.056914569351633144
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41712085350772393,
+          0.0535751367666478
+        ],
+        "Emiliano Zapata": [
+          0.4177474769397721,
+          0.04436641345632122
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.424436304427043,
+          0.04962704443875521
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.54375,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9523809523809526,
+        "Chignahuapan": 4.4906779661016945,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.1142857142857143,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.41980653317152106,
+        0.05187098740349451
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.02066521049188335
+      ],
+      "escala": [
+        0.026845586575974908
+      ],
+      "media_global_y": 3.925675675675675,
+      "media_x": {
+        "Almoloya": [
+          0.4770877810884225
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4195142754035898
+        ],
+        "Chignahuapan": [
+          0.41062787558647645
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4185462362914113
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4925,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9565217391304346,
+        "Chignahuapan": 4.429821428571429,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02684558657597491,
+        0.015032669196815219
+      ],
+      "media_global_y": 3.925675675675675,
+      "media_x": {
+        "Almoloya": [
+          0.4770877810884225,
+          0.06056882445729388
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4195142754035898,
+          0.049405196897712396
+        ],
+        "Chignahuapan": [
+          0.41062787558647645,
+          0.05512407803056376
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4185462362914113,
+          0.05185023462578876
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4925,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9565217391304346,
+        "Chignahuapan": 4.429821428571429,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353,
+        0.0514375
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.0283783536398619
+      ],
+      "media_global_y": 3.98036036036036,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458
+        ],
+        "Calpulalpan": [
+          0.41928851266182365
+        ],
+        "Chignahuapan": [
+          0.4090644954410296
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4186320285857716
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.483728813559322,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.025
+      },
+      "medianas": [
+        0.4182650602409639
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028378353639861895,
+        0.012505046677407011
+      ],
+      "media_global_y": 3.98036036036036,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458,
+          0.054000532162876626
+        ],
+        "Calpulalpan": [
+          0.41928851266182365,
+          0.049751145989557176
+        ],
+        "Chignahuapan": [
+          0.4090644954410296,
+          0.05533620276704824
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973,
+          0.06479020652898068
+        ],
+        "Emiliano Zapata": [
+          0.4300294117647059,
+          0.04149019607843137
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4186320285857716,
+          0.048357238535412315
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Calpulalpan": 3.04,
+        "Chignahuapan": 4.483728813559322,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.025
+      },
+      "medianas": [
+        0.4182650602409639,
+        0.05274736842105263
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 7
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028112467523111393
+      ],
+      "media_global_y": 4.0329999999999995,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41729944845045897
+        ],
+        "Chignahuapan": [
+          0.40744680583025783
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4233129189189562
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 3.025,
+        "Chignahuapan": 4.473793103448276,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.2083333333333335,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4178040247678019
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028112467523111397,
+        0.014245135849415815
+      ],
+      "media_global_y": 4.0329999999999995,
+      "media_x": {
+        "Almoloya": [
+          0.4811370450461766,
+          0.05771632053074738
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41729944845045897,
+          0.04865150101825119
+        ],
+        "Chignahuapan": [
+          0.40744680583025783,
+          0.05526017138377649
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003,
+          0.04126615067079463
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4233129189189562,
+          0.0514253893274555
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.521,
+        "Apan": 3.0,
+        "Calpulalpan": 3.025,
+        "Chignahuapan": 4.473793103448276,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.2083333333333335,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4178040247678019,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.02920754220217674
+      ],
+      "media_global_y": 3.9159090909090906,
+      "media_x": {
+        "Almoloya": [
+          0.48350064849228586
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4208879766986755
+        ],
+        "Chignahuapan": [
+          0.4098010712326641
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4133817793712993
+        ],
+        "Emiliano Zapata": [
+          0.4379896907216495
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4219706054021033
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.475714285714285,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9827586206896552,
+        "Chignahuapan": 4.55433962264151,
+        "Cuautepec de Hinojosa": 4.6475,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0384615384615383,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.029207542202176737,
+        0.01357593897077733
+      ],
+      "media_global_y": 3.9159090909090906,
+      "media_x": {
+        "Almoloya": [
+          0.48350064849228586,
+          0.05288372496370845
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4208879766986755,
+          0.05016773454655526
+        ],
+        "Chignahuapan": [
+          0.4098010712326641,
+          0.055865350746619025
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4133817793712993,
+          0.055950339916758005
+        ],
+        "Emiliano Zapata": [
+          0.4379896907216495,
+          0.04769072164948454
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4219706054021033,
+          0.04631385033469623
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.475714285714285,
+        "Apan": 3.0,
+        "Calpulalpan": 2.9827586206896552,
+        "Chignahuapan": 4.55433962264151,
+        "Cuautepec de Hinojosa": 4.6475,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0384615384615383,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027113415717670585
+      ],
+      "media_global_y": 3.9577272727272725,
+      "media_x": {
+        "Almoloya": [
+          0.47453274853280664
+        ],
+        "Calpulalpan": [
+          0.42143989526469605
+        ],
+        "Chignahuapan": [
+          0.41064506780403515
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42747870382973147
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42484603735618487
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4975,
+        "Calpulalpan": 2.96,
+        "Chignahuapan": 4.475084745762711,
+        "Cuautepec de Hinojosa": 4.53,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0300000000000002,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42138731284475966
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": 100.0,
+      "alpha_numerico_solicitado": true,
+      "beta": [
+        -0.007021066610995929,
+        0.04011874550870109
+      ],
+      "escala": [
+        0.02711341571767058,
+        0.014308495413783512
+      ],
+      "media_global_y": 3.9577272727272725,
+      "media_x": {
+        "Almoloya": [
+          0.47453274853280664,
+          0.05890983096841705
+        ],
+        "Calpulalpan": [
+          0.42143989526469605,
+          0.049204071239570005
+        ],
+        "Chignahuapan": [
+          0.41064506780403515,
+          0.055119190813401275
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42747870382973147,
+          0.06942448164783811
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42484603735618487,
+          0.05235664231285323
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.4975,
+        "Calpulalpan": 2.96,
+        "Chignahuapan": 4.475084745762711,
+        "Cuautepec de Hinojosa": 4.53,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0300000000000002,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.42138731284475966,
+        0.05030111683848798
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 1,
+      "ridge_ajustado": true,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.026095641416215037
+      ],
+      "media_global_y": 3.9233333333333333,
+      "media_x": {
+        "Almoloya": [
+          0.48375593295081226
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4183528890998236
+        ],
+        "Chignahuapan": [
+          0.4113293986135262
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Singuilucan": [
+          0.4268086225850754
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.593333333333334,
+        "Apan": 3.0,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.435535714285714,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0785714285714287,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.026095641416215037,
+        0.014828834311582391
+      ],
+      "media_global_y": 3.9233333333333333,
+      "media_x": {
+        "Almoloya": [
+          0.48375593295081226,
+          0.06223034938081958
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4183528890998236,
+          0.05031788267215934
+        ],
+        "Chignahuapan": [
+          0.4113293986135262,
+          0.05544101317383047
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Singuilucan": [
+          0.4268086225850754,
+          0.050449388761099535
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.593333333333334,
+        "Apan": 3.0,
+        "Calpulalpan": 3.02,
+        "Chignahuapan": 4.435535714285714,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0785714285714287,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.418494623655914,
+        0.051164556962025314
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028772565032443027
+      ],
+      "media_global_y": 3.9472072072072066,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4203760178597501
+        ],
+        "Chignahuapan": [
+          0.4113241370963572
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4169881412391739
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4214692447183151
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0238095238095237,
+        "Chignahuapan": 4.453103448275861,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0533333333333332
+      },
+      "medianas": [
+        0.4195922330097087
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028772565032443027,
+        0.01398138943752634
+      ],
+      "media_global_y": 3.9472072072072066,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189,
+          0.057404755238245384
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4203760178597501,
+          0.05324856760690433
+        ],
+        "Chignahuapan": [
+          0.4113241370963572,
+          0.055363457946384906
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4169881412391739,
+          0.0593869420386409
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4214692447183151,
+          0.049875208093696485
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0238095238095237,
+        "Chignahuapan": 4.453103448275861,
+        "Cuautepec de Hinojosa": 4.6000000000000005,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0533333333333332
+      },
+      "medianas": [
+        0.4195922330097087,
+        0.05274736842105263
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 8
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027236303876300785
+      ],
+      "media_global_y": 3.8719999999999994,
+      "media_x": {
+        "Almoloya": [
+          0.47171456881019735
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.41685247479244103
+        ],
+        "Chignahuapan": [
+          0.41315536822254356
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495
+        ],
+        "Emiliano Zapata": [
+          0.4379896907216495
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4231203573527732
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.468333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.379827586206897,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0500000000000003
+      },
+      "medianas": [
+        0.41833554712207466
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027236303876300782,
+        0.014004385506674951
+      ],
+      "media_global_y": 3.8719999999999994,
+      "media_x": {
+        "Almoloya": [
+          0.47171456881019735,
+          0.057202387617588286
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.41685247479244103,
+          0.050624624024956245
+        ],
+        "Chignahuapan": [
+          0.41315536822254356,
+          0.05591133247341743
+        ],
+        "Cuautepec de Hinojosa": [
+          0.42115016711280495,
+          0.06783734857765074
+        ],
+        "Emiliano Zapata": [
+          0.4379896907216495,
+          0.04769072164948454
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4231203573527732,
+          0.04587542312529159
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.468333333333333,
+        "Apan": 3.0,
+        "Calpulalpan": 3.0,
+        "Chignahuapan": 4.379827586206897,
+        "Cuautepec de Hinojosa": 4.595,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0500000000000003
+      },
+      "medianas": [
+        0.41833554712207466,
+        0.05163179347826087
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 0,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.026541690893628525
+      ],
+      "media_global_y": 3.9389090909090902,
+      "media_x": {
+        "Almoloya": [
+          0.48163519190270127
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4232360548837361
+        ],
+        "Chignahuapan": [
+          0.4071636551400148
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003
+        ],
+        "Singuilucan": [
+          0.4176512674000453
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.551428571428572,
+        "Apan": 3.0,
+        "Calpulalpan": 2.96,
+        "Chignahuapan": 4.488727272727273,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0785714285714287,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.02654169089362853,
+        0.01498839720408982
+      ],
+      "media_global_y": 3.9389090909090902,
+      "media_x": {
+        "Almoloya": [
+          0.48163519190270127,
+          0.06016255824120375
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4232360548837361,
+          0.05095547280368418
+        ],
+        "Chignahuapan": [
+          0.4071636551400148,
+          0.0556715635279464
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4186927652691913,
+          0.06102356307264691
+        ],
+        "Emiliano Zapata": [
+          0.4137673374613003,
+          0.04126615067079463
+        ],
+        "Singuilucan": [
+          0.4176512674000453,
+          0.0518286250030452
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.551428571428572,
+        "Apan": 3.0,
+        "Calpulalpan": 2.96,
+        "Chignahuapan": 4.488727272727273,
+        "Cuautepec de Hinojosa": 4.598000000000001,
+        "Emiliano Zapata": 3.5,
+        "Singuilucan": 3.0785714285714287,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4182207654145996,
+        0.0513350874697767
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 1,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.027709164036618883
+      ],
+      "media_global_y": 3.9732727272727266,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.4190878684508084
+        ],
+        "Chignahuapan": [
+          0.41117302691525387
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4315994618316177
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.037037037037037,
+        "Chignahuapan": 4.511851851851851,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.21,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4220354609929078
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.027709164036618886,
+        0.013093100647393652
+      ],
+      "media_global_y": 3.9732727272727266,
+      "media_x": {
+        "Almoloya": [
+          0.4834339004363458,
+          0.054000532162876626
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.4190878684508084,
+          0.04891291884523816
+        ],
+        "Chignahuapan": [
+          0.41117302691525387,
+          0.05517996602799458
+        ],
+        "Cuautepec de Hinojosa": [
+          0.4228248173459828,
+          0.060510466499036485
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4315994618316177,
+          0.05498628555316844
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.518888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 3.037037037037037,
+        "Chignahuapan": 4.511851851851851,
+        "Cuautepec de Hinojosa": 4.55,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.21,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4220354609929078,
+        0.052014123700514545
+      ],
+      "n_entrenamiento": 110,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 2,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028631755917248328
+      ],
+      "media_global_y": 3.981801801801801,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646
+        ],
+        "Calpulalpan": [
+          0.41900383203636254
+        ],
+        "Chignahuapan": [
+          0.41015127247492444
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.42044622381565067
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Calpulalpan": 3.0217391304347827,
+        "Chignahuapan": 4.508421052631579,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028631755917248328,
+        0.014635257243891735
+      ],
+      "media_global_y": 3.981801801801801,
+      "media_x": {
+        "Almoloya": [
+          0.48244819064087646,
+          0.06018366680287124
+        ],
+        "Calpulalpan": [
+          0.41900383203636254,
+          0.050461478476252736
+        ],
+        "Chignahuapan": [
+          0.41015127247492444,
+          0.05590380982294629
+        ],
+        "Cuautepec de Hinojosa": [
+          0.418083698521973,
+          0.06479020652898068
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.42044622381565067,
+          0.048923699769541855
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.526666666666667,
+        "Calpulalpan": 3.0217391304347827,
+        "Chignahuapan": 4.508421052631579,
+        "Cuautepec de Hinojosa": 4.577500000000001,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4181764705882353,
+        0.05182608695652174
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 3,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada"
+    ],
+    "modelo": "C0",
+    "modelo_ajustado": {
+      "activa": [
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0
+      ],
+      "escala": [
+        0.028854177889058488
+      ],
+      "media_global_y": 4.01009009009009,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189
+        ],
+        "Apan": [
+          0.39516822429906545
+        ],
+        "Calpulalpan": [
+          0.42098912252629594
+        ],
+        "Chignahuapan": [
+          0.40886164022946114
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41071891570494223
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886
+        ],
+        "Singuilucan": [
+          0.4275841833325656
+        ],
+        "Tepeapulco": [
+          0.4365368421052631
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 2.975,
+        "Chignahuapan": 4.5005,
+        "Cuautepec de Hinojosa": 4.693333333333333,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4195922330097087
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 9
+  },
+  {
+    "columnas": [
+      "H7_PL_ndvi_media_pareada",
+      "H7_PL_ndvi_std_media_pareada"
+    ],
+    "modelo": "C1",
+    "modelo_ajustado": {
+      "activa": [
+        true,
+        true
+      ],
+      "alpha": null,
+      "alpha_numerico_solicitado": false,
+      "beta": [
+        0.0,
+        0.0
+      ],
+      "escala": [
+        0.028854177889058488,
+        0.013995835127985705
+      ],
+      "media_global_y": 4.01009009009009,
+      "media_x": {
+        "Almoloya": [
+          0.4834232473302189,
+          0.057404755238245384
+        ],
+        "Apan": [
+          0.39516822429906545,
+          0.0676822429906542
+        ],
+        "Calpulalpan": [
+          0.42098912252629594,
+          0.05066989276310484
+        ],
+        "Chignahuapan": [
+          0.40886164022946114,
+          0.05437890805884069
+        ],
+        "Cuautepec de Hinojosa": [
+          0.41071891570494223,
+          0.047600453222344
+        ],
+        "Emiliano Zapata": [
+          0.42184145521475,
+          0.043407674330357936
+        ],
+        "Nanacamilpa de Mariano Arista": [
+          0.4647731958762886,
+          0.08689690721649485
+        ],
+        "Singuilucan": [
+          0.4275841833325656,
+          0.04949562208749589
+        ],
+        "Tepeapulco": [
+          0.4365368421052631,
+          0.041189473684210526
+        ]
+      },
+      "media_y": {
+        "Almoloya": 4.528888888888889,
+        "Apan": 3.0,
+        "Calpulalpan": 2.975,
+        "Chignahuapan": 4.5005,
+        "Cuautepec de Hinojosa": 4.693333333333333,
+        "Emiliano Zapata": 3.5,
+        "Nanacamilpa de Mariano Arista": 2.5,
+        "Singuilucan": 3.0999999999999996,
+        "Tepeapulco": 4.45
+      },
+      "medianas": [
+        0.4195922330097087,
+        0.051164556962025314
+      ],
+      "n_entrenamiento": 111,
+      "n_llamadas_ridge": 0,
+      "ridge_ajustado": false,
+      "umbral_escala": [
+        1e-12,
+        1e-12
+      ]
+    },
+    "pliegue": 4,
+    "repeticion": 9
+  }
+]

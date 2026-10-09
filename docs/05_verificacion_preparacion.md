@@ -1,6 +1,6 @@
 # 05. Qué está verificado y qué falta
 
-Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas y lectores históricos. Las cinco primeras rondas tienen lectores verificados localmente. No se repiten sus entrenamientos ni se evalúa un candidato nuevo.
+Edición del 8 de octubre de 2026. Esta comprobación cubre entorno, auditoría descriptiva, acceso a insumos, reconstrucción de variables, reproducción de referencias predictivas y lectores históricos. Las seis rondas tienen lectores verificados localmente, sin reentrenar. No se repiten sus entrenamientos ni se evalúa un candidato nuevo.
 
 ## Entorno preparado
 
@@ -81,8 +81,7 @@ El 8 de octubre Fortino confirmó: «Muy bien ya revise el 02 y corre en colab, 
 
 ## Pendiente antes de una entrega completa
 
-- Incorporar EXP_06 con el formato común. Separar paridad de resultados guardados y paridad de entrenamiento en este entorno.
-- Ejecutar el cuaderno 03 y EXP_01–EXP_05 en una sesión real de Colab. Las revisiones anunciadas por Fortino de EXP_03 y EXP_04 aún no son confirmaciones de ejecución. La autonomía local no se confunde con esa comprobación; los cuadernos 01 y 02 sí tienen confirmación de Fortino.
+- Ejecutar el cuaderno 03 y EXP_01–EXP_06 en una sesión real de Colab. Las revisiones anunciadas por Fortino, incluida EXP_05, aún no son confirmaciones de ejecución. La autonomía local no se confunde con esa comprobación; los cuadernos 01 y 02 sí tienen confirmación de Fortino.
 - Verificar las 59 predicciones de entrega y la herramienta que las consulta.
 
 El cuaderno 03 reajusta las tres referencias sencillas en los 50 entrenamientos exteriores: 150 ajustes, sin selección de hiperparámetros ni candidatos nuevos. No genera predicciones finales de las 59 parcelas. Codex no ha subido datos a la nube ni cambiado permisos; el ZIP de Drive lo compartió Fortino. `main.py` continúa como plantilla; no es una aplicación de predicción.
@@ -162,3 +161,23 @@ Se conserva el fallo inicial y la revisión r1: se leía la columna vacía `alph
 **Corrección de presentación explícita:** 14 R² municipales de Tepeapulco en el CSV histórico tienen magnitudes espurias de 10²⁷–10²⁹ porque 4.45 repetido deja SST≈7.9·10⁻³⁰ por redondeo. El lector muestra NaN si SST≤1e−12; no modifica el CSV ni las OOF. RMSE, MAE, métricas globales y regla se conservan. Las pruebas ejercitan el caso constante, además de lluvias negativas, ausencia de años, identificadores, empates y corrupción de insumos.
 
 `docs/registros/20261008_exp05_historico_octubre.json` identifica evidencia, hashes y copias recuperables de los seis documentos de coordinación actualizados. Se conservan 82 fuentes históricas inventariadas, entorno uv y cuadernos anteriores. Un primer fallo de prueba fue solo una expectativa literal de prosa, corregida sin cambiar el cálculo. **No se ha probado este lector en Colab real** ni repetido sus ajustes históricos.
+
+## EXP_06: pico soportado — verificación y alcance
+
+Se incorpora `notebooks/experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb`, generado por `scripts/construir_exp_06.py` desde `config/exp_06_pico_soportado.json`. El ejecutor `scripts/ejecutar_exp_06.py` conserva salidas nuevas en `resultados_locales/exp_06_pico_soportado/`; la distribución local es `artefactos_locales/exp_06_pico_soportado_equipo.zip`. **Verificación local cerrada:** suite completa de 665 pruebas, incluidas 85 específicas de EXP_06; Ruff pasa sobre `scripts tests`. Dos kernels nuevos con solo el notebook reproducen **36 salidas y dos PNG idénticos**, normalizando únicamente la fecha. Son **36 celdas, 20 de código: dos técnicas plegadas y 18 visibles**. Figuras revisadas visualmente. La revisión independiente no encontró defectos científicos materiales.
+
+El lector incorpora **24 insumos** con tamaño y SHA-256. Un recorte preparado el **08/10** selecciona cinco columnas y **26,255 filas Planet** de abril–octubre de 2025; conserva ausencias, nube y duplicados sin usar etiquetas. El archivo Planet fuente se verificó byte a byte con el miembro original de `DataSet.zip`. El recorte tiene hash y fecha propios: no se atribuye al registro previo del experimento.
+
+La reconstrucción calculada visiblemente incluye promedio diario de valores finitos, mediana centrada **±7 días de calendario**, amplitud y guardas de soporte del pico. Los controles de curvas y descriptores se consultan después. No se añade una anchura de curva ni se afirma reconstruir todos los descriptores de la factibilidad. El resultado reconstruido y contrastado es **158 fechas soportadas y 39 ausencias** sobre 197 parcelas, **108/30** entre las 138 etiquetas y **50/9** entre las 59 ocultas.
+
+V4 cambia **una de las seis variables E2**: la fecha de máximo crudo de NDVI Planet se sustituye por la soportada. Las otras cinco permanecen idénticas; municipio se codifica one-hot y se penaliza con Ridge, no es una media municipal sin penalización. La bandera de soporte no entra al estimador. Las ausencias permanecen y la imputación por mediana y escala se aprendieron dentro de cada entrenamiento histórico; no se ajusta un nuevo pipeline aquí.
+
+Se evalúan **6,900 OOF guardadas de E2/V4/GLOBAL/MUN/MIX** y se verifican **100 decisiones desde 500 scores interiores guardados**, además de contrastar el control E2 con sus resultados anteriores. La selección histórica usa RMSE interior agrupado, sin filtrar municipio visto, cinco alphas y desempate hacia alpha mayor. No se recalculan scores ni se repiten modelos. **Cero ajustes actuales y cero predicciones finales de las 59 parcelas.**
+
+Factibilidad: **02/10/2026**. Registro previo V4: **06/10, 17:27:39 UTC**; corrida: **17:27:57–17:28:41 UTC**. Adaptación: **08/10**. El original usó Python **3.12.14** y 2,100 ajustes por corrida —1,050 E2 y 1,050 V4—. Dos corridas deterministas sumaron 4,200 ajustes físicos, no nuevos candidatos. Las 46 pruebas sintéticas previas se identifican como históricas y no sustituyen la verificación actual del lector Python 3.13.
+
+SEEN135 principal y FULL138 secundario conservan las mismas máscaras. Se mantiene el cierre sin adopción: V4 RMSE **0.501458** frente a E2 **0.506498**, pero por encima de MIX **0.487197**; MAE V4 **0.347624** frente a MUN **0.321274**. V4 mejora el RMSE de E2 en 9/10 repeticiones, no el de MIX. Los análisis de concentración y sensibilidad son diagnósticos de evaluación, no una búsqueda de nuevas recetas ni eliminación de parcelas del entrenamiento.
+
+El cambio conjunto de suavizado, guardas y ausencias no identifica qué componente explica la diferencia. Una fecha soportada no equivale a una fecha agronómica validada. La ganancia es pequeña y concentrada, no resuelve Chignahuapan y no confirma causalidad, generalización a otra campaña ni equivalencia con las 59 ocultas. La adaptación preserva fuentes, fechas, entorno y cuadernos anteriores; **Colab real no probado**.
+
+Un contraste inicial demasiado estricto de referencias se detuvo por diferencias de lectura/serialización históricas ≤9e−16; se usa tolerancia absoluta 1e−12 sin cambiar datos ni resultados. Se eliminó una llamada `fillna` que emitía una advertencia con rutas temporales distintas: las dos ejecuciones finales coinciden sin ampliar la normalización. El lector explicita su guarda R² SST≤1e−12 frente a SST>0 del motor original; no afecta ninguna población real. Registro: `docs/registros/20261008_exp06_pico_soportado.json`, con respaldos recuperables de los seis archivos de coordinación modificados. No se editó ningún insumo ni experimento histórico.

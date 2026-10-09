@@ -1,0 +1,197 @@
+{
+  "id": "EXP_06",
+  "id_historico": "AGC-EXP-V4",
+  "modo": "lector_retrospectivo_sin_ajustes",
+  "fecha_original": "2026-10-06",
+  "fecha_factibilidad": "2026-10-02",
+  "fecha_adaptacion": "2026-10-08",
+  "poblacion_principal": "SEEN135",
+  "poblacion_secundaria": "FULL138",
+  "ajustes_actuales": 0,
+  "recorte_capturas": {
+    "fecha_recorte": "2026-10-08",
+    "filas_fuente": 47804,
+    "filas_recorte": 26255,
+    "fuente_original_sha256": "91697f8f8d4ad5e59f766acbce2ef76f3c405eb02b41c1de92d62a07e8321888",
+    "miembro_original": "DATASET_RETO_AGRO_2026/Conjunto_datos_PRO_AgroCebada.csv",
+    "recorte_sha256": "6baf65c7e92164bc0d4b5aa778eb6f73fecd5988ee46c10ccb2a3e7ad83d077a",
+    "columnas": [
+      "ID_POLIGONO",
+      "fecha_captura",
+      "sensor",
+      "ndvi_promedio",
+      "porcentaje_nubosidad"
+    ],
+    "regla": "Seleccionar cinco columnas y ventana inclusiva desde Planet original, verificado byte a byte con DataSet.zip; serializar float17g. No filtrar nube ni duplicados ni usar etiquetas."
+  },
+  "insumos": {
+    "variables_fuente": {
+      "ruta_local": "data/exp_06_pico_soportado/variables_fuente.csv",
+      "sha256": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+      "bytes": 977024,
+      "uso": "variables_e2_guardadas",
+      "origen": "insumos_experimento_v4.zip::variables.csv"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_06_pico_soportado/etiquetas.csv",
+      "sha256": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+      "bytes": 1765,
+      "uso": "etiquetas_oficiales",
+      "origen": "insumos_experimento_v4.zip::etiquetas.csv"
+    },
+    "descriptores_control": {
+      "ruta_local": "data/exp_06_pico_soportado/descriptores_control.csv",
+      "sha256": "2dad354161615a043651c178781c48543e660febac99191f200b9ec80f9c528d",
+      "bytes": 32359,
+      "uso": "control_posterior",
+      "origen": "insumos_experimento_v4.zip::descriptores.csv"
+    },
+    "externas": {
+      "ruta_local": "data/exp_06_pico_soportado/externas.csv",
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "bytes": 175295,
+      "uso": "particiones",
+      "origen": "insumos_experimento_v4.zip::outer.csv"
+    },
+    "internas": {
+      "ruta_local": "data/exp_06_pico_soportado/internas.csv",
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "bytes": 601731,
+      "uso": "particiones",
+      "origen": "insumos_experimento_v4.zip::inner.csv"
+    },
+    "e2_oof": {
+      "ruta_local": "data/exp_06_pico_soportado/e2_oof.csv",
+      "sha256": "88678e5de818b8cdb78405b68ef09df91c1d5fd484156c3969fc51d96632219e",
+      "bytes": 290192,
+      "uso": "resultados_guardados",
+      "origen": "insumos_experimento_v4.zip::e2_oof.csv"
+    },
+    "e2_alpha": {
+      "ruta_local": "data/exp_06_pico_soportado/e2_alpha.csv",
+      "sha256": "57d0a398be55b557fc6c5afb9f3cdeea2acbd6fe51108956e57f9b7c9cfe7651",
+      "bytes": 26658,
+      "uso": "scores_guardados",
+      "origen": "insumos_experimento_v4.zip::e2_alpha.csv"
+    },
+    "referencias": {
+      "ruta_local": "data/exp_06_pico_soportado/referencias.csv",
+      "sha256": "5d2f954ecbe9bab64768c9550414264389ab0439714def4c9358639bcf4b3d71",
+      "bytes": 209628,
+      "uso": "resultados_guardados",
+      "origen": "insumos_experimento_v4.zip::referencias.csv"
+    },
+    "receta": {
+      "ruta_local": "data/exp_06_pico_soportado/receta.json",
+      "sha256": "b8660b128116e461a2145dee8efa967c09abcdd20b4bf1adb53b3dc640573540",
+      "bytes": 4399,
+      "uso": "receta_historica",
+      "origen": "insumos_experimento_v4.zip::receta_fenologia.json"
+    },
+    "manifiesto": {
+      "ruta_local": "data/exp_06_pico_soportado/manifiesto.json",
+      "sha256": "a8238fece4b0c5792223ee9b83af00f4f2bab228356d8508e5be66fd86a26329",
+      "bytes": 2723,
+      "uso": "registro_historico",
+      "origen": "insumos_experimento_v4.zip::manifiesto_insumos.json"
+    },
+    "protocolo": {
+      "ruta_local": "data/exp_06_pico_soportado/protocolo.md",
+      "sha256": "ead0e406298d2b8714b67f95f28bbc89affd687747a3c27bcec94ddba35bbcbc",
+      "bytes": 5887,
+      "uso": "protocolo_historico",
+      "origen": "insumos_experimento_v4.zip::protocolo.md"
+    },
+    "oof": {
+      "ruta_local": "data/exp_06_pico_soportado/oof.csv",
+      "sha256": "2f29e55c97cb97a5e4bf4423bd3271f9b24a68a087388cd46f5ca92feb446128",
+      "bytes": 498521,
+      "uso": "resultados_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/predicciones_oof.csv"
+    },
+    "alphas": {
+      "ruta_local": "data/exp_06_pico_soportado/alphas.csv",
+      "sha256": "4f29c511880f7c3d70505698f6f271ecb747056f4c05b9e67688ccf4a6a58839",
+      "bytes": 12300,
+      "uso": "scores_guardados",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/alphas.csv"
+    },
+    "metricas_control": {
+      "ruta_local": "data/exp_06_pico_soportado/metricas_control.csv",
+      "sha256": "7f777ff22513c98048921e08b5dae598a0c485261905c1375a95e022f155d079",
+      "bytes": 860,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/metricas.csv"
+    },
+    "repeticiones_control": {
+      "ruta_local": "data/exp_06_pico_soportado/repeticiones_control.csv",
+      "sha256": "35561999f852f352580991ce0e6147f4350ea8d0a4bf05b6384c6fc4feeae443",
+      "bytes": 8298,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/metricas_repeticion.csv"
+    },
+    "region_control": {
+      "ruta_local": "data/exp_06_pico_soportado/region_control.csv",
+      "sha256": "1c6358c3cd8f6047365bd70c80c1afd756c61d456080aeb5efdce6163e754c0c",
+      "bytes": 1843,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/metricas_region.csv"
+    },
+    "concentracion_control": {
+      "ruta_local": "data/exp_06_pico_soportado/concentracion_control.csv",
+      "sha256": "afa812701b519925bd38274d0a21558375c4e83727eb5bb7c7bed45137d36eb6",
+      "bytes": 892,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/concentracion.csv"
+    },
+    "sensibilidad_control": {
+      "ruta_local": "data/exp_06_pico_soportado/sensibilidad_control.csv",
+      "sha256": "f80bd216bed0078a6db18959de7a6d81d9dc42eb9e4055fdcd30c49887159643",
+      "bytes": 2782,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/sensibilidad.csv"
+    },
+    "soporte_control": {
+      "ruta_local": "data/exp_06_pico_soportado/soporte_control.csv",
+      "sha256": "85587f284267e7b851a93ed0f5d9494e2a7ade66efe95405ec0aee49f3ab22de",
+      "bytes": 2967,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/soporte_59_solo_X.csv"
+    },
+    "registro_previo": {
+      "ruta_local": "data/exp_06_pico_soportado/registro_previo.json",
+      "sha256": "8d50d2f95050ae482dfd2f4d0d336aed6695e74d366d93bf6dba06c0da6bb815",
+      "bytes": 2596,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/registro_previo.json"
+    },
+    "registro_ejecucion": {
+      "ruta_local": "data/exp_06_pico_soportado/registro_ejecucion.json",
+      "sha256": "e36c08c61ac7a4a292a14159663772ef2f3d83aee4bbe5067af515c0b4a79158",
+      "bytes": 2277,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-pico-soportado-e2-06oct/resultados/resumen.json"
+    },
+    "curvas_control": {
+      "ruta_local": "data/exp_06_pico_soportado/curvas_control.csv",
+      "sha256": "580cfe301d73c3f0d43e8774165fd1a393d2ce646428fd18ee35856dbea0d940",
+      "bytes": 2092450,
+      "uso": "control_posterior",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-fenologia-factibilidad-02oct/salidas_primera_corrida/curvas.csv"
+    },
+    "registro_factibilidad": {
+      "ruta_local": "data/exp_06_pico_soportado/registro_factibilidad.json",
+      "sha256": "4e1b5178770ce8e8748143335d01919ed79f01a9e8f1e83687053abdc8122679",
+      "bytes": 1053,
+      "uso": "registro_historico",
+      "origen": "/home/netfoor/Documents/ObsidianVault/agrocebada/fortino-pruebas/v4-fenologia-factibilidad-02oct/salidas_primera_corrida/registro_ejecucion.json"
+    },
+    "capturas": {
+      "ruta_local": "data/exp_06_pico_soportado/capturas.csv",
+      "sha256": "6baf65c7e92164bc0d4b5aa778eb6f73fecd5988ee46c10ccb2a3e7ad83d077a",
+      "bytes": 1123071,
+      "uso": "capturas_derivadas",
+      "origen": "recorte 8/oct de cinco columnas originales Planet y abril–octubre 2025; sin etiquetas"
+    }
+  }
+}

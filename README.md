@@ -18,6 +18,24 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 10. [Tercera ronda: variables temporales y familias de modelos](notebooks/experimentos/exp_03_variables_y_familias/exp_03_variables_y_familias.ipynb).
 11. [Cuarta ronda: lluvia de octubre y agrupación territorial](notebooks/experimentos/exp_04_lluvia_octubre/exp_04_lluvia_octubre.ipynb).
 12. [Quinta ronda: histórico y lluvia actual de octubre](notebooks/experimentos/exp_05_historico_octubre/exp_05_historico_octubre.ipynb).
+13. [Sexta ronda: fecha de pico NDVI con soporte](notebooks/experimentos/exp_06_pico_soportado/exp_06_pico_soportado.ipynb).
+14. [Séptima ronda: heterogeneidad espacial de NDVI](notebooks/experimentos/exp_07_heterogeneidad_parcela/exp_07_heterogeneidad_parcela.ipynb).
+15. [Octava ronda: contraste vecinal del verdor](notebooks/experimentos/exp_08_contraste_vecinal/exp_08_contraste_vecinal.ipynb) (exploratoria).
+16. [Novena ronda: fuentes externas y contrastes vecinales](notebooks/experimentos/exp_09_fuentes_externas/exp_09_fuentes_externas.ipynb).
+17. [Décima ronda: verificación y decisión sobre la señal vecinal](notebooks/experimentos/exp_10_verificacion_contraste_vecinal/exp_10_verificacion_contraste_vecinal.ipynb).
+18. [Undécima ronda: combinación fija de modelos](notebooks/experimentos/exp_11_combinacion_modelos/exp_11_combinacion_modelos.ipynb) (exploratoria).
+
+La [síntesis y priorización](docs/07_sintesis_y_priorizacion.md) conserva el razonamiento anterior a EXP_07. La [bitácora comparativa](gestion/bitacora_experimentos.md) reúne hipótesis, controles, presupuestos y cierres. EXP_07 se ejecutó el **8 de octubre** tras factibilidad y registro; se cerró [sin adopción](notebooks/experimentos/exp_07_heterogeneidad_parcela/RESULTADOS_Y_CIERRE.md). Su plan original permanece como antecedente, junto al protocolo fijado y los resultados. No se generaron las 59 predicciones finales.
+
+El cuaderno EXP_07 reconstruye variables pareadas y explica el motor, una ecuación de predicción y la evaluación guardada. **Leerlo no reentrena**. Las dos corridas reales sumaron 4,022 ajustes Ridge; no se confunden con sus réplicas de lectura. En SEEN135, añadir dispersión deja RMSE 0.494105 frente a 0.494064 del control y 0.487197 de MIX. El resultado no descarta toda variabilidad espacial ni otros procedimientos.
+
+**EXP_08–EXP_10 (8 de octubre; Claude, a pedido de Fortino).**
+
+- **EXP_08** mostró que ninguna de las ~600 variables ya construidas distingue parcelas dentro del municipio mejor que el azar. Propuso corregir MIX con el **contraste vecinal**: la integral NDVI Planet de la parcela menos la mediana de sus vecinas a <1 km. Es exploratoria.
+- **EXP_09** registró cinco contrastes con fuentes externas (borde rojo, radar, AlphaEarth, historia). Ninguno superó a K1, la variable de NDVI Planet, y su regla recomendó MIX.
+- **EXP_10** corrigió una discrepancia: el corte al 31 de octubre se aplicaba después de suavizar. Con el corte bien hecho, K1 sigue mejorando a MIX (SEEN135 0.48198 frente a 0.48720 en particiones históricas; 0.48096 frente a 0.48567 en nuevas; 20/20 repeticiones, MAE no peor). La mejora está concentrada y el p de familia es 0.18/0.13 > 0.10.
+
+**Recomendación provisional: conservar MIX como referencia oficial; K1 corregido queda como alternativa documentada para decisión del equipo.** **EXP_11** (exploratoria, sin entrenamientos) encontró que promediar 50/50 el modelo de Jared con MIX + K1 corregido mejora a ambos componentes (SEEN135 0.4757/0.4744). El control con la media municipal no lo logra. Queda como candidato para revisión; no hay adopción automática ([cierre](notebooks/experimentos/exp_11_combinacion_modelos/RESULTADOS_Y_CIERRE.md)). Véase el [cierre de EXP_10](notebooks/experimentos/exp_10_verificacion_contraste_vecinal/RESULTADOS_Y_CIERRE.md). No se generaron las 59 predicciones.
 
 Si aparece un término nuevo, consultar el [glosario breve](docs/06_glosario.md). No hace falta leerlo completo antes de empezar.
 
@@ -58,6 +76,14 @@ La comparación mantiene municipio, Ridge, ventana, extracción, particiones y r
 Es el lector autónomo de **V3 del 1 de octubre en México —2 de octubre UTC—**, adaptado el **8 de octubre**. Incorpora 21 insumos; recalcula las variables, evalúa **9,660 OOF guardadas de siete procedimientos** y verifica **200 selecciones desde 1,200 scores guardados**. No recalcula los scores, reentrena ni produce nuevas predicciones. La comparación es exploratoria: el registro de esta ronda no elimina el uso anterior de las mismas etiquetas.
 
 Cuando un municipio solo tiene un rendimiento observado repetido, R² no está definido. El lector muestra NaN en 14 entradas numéricamente espurias de Tepeapulco, preservando el CSV histórico; RMSE, MAE y decisiones no cambian.
+
+**EXP_06** pregunta si una fecha de máximo menos sensible a una captura aislada mejora E2. Calcula primero NDVI diario de Planet; después una mediana móvil centrada de **±7 días de calendario**, con al menos tres días finitos. Las guardas de cobertura, amplitud y soporte bilateral determinan si la fecha se conserva o queda ausente. **Solo sustituye la fecha de pico crudo de E2**: mantiene las otras cinco variables numéricas y municipio. La bandera de soporte es un diagnóstico, no un predictor adicional.
+
+La receta produce fechas soportadas en **158 de 197 parcelas**; deja 39 ausentes, incluidas 30 etiquetadas. No elimina esas parcelas: el procedimiento histórico imputó la mediana aprendida exclusivamente en cada entrenamiento. La fecha suavizada no es una fecha de floración verificada y una curva más interpretable no garantiza mejores predicciones.
+
+V4, ejecutado el **6 de octubre**, conserva SEEN135 principal y FULL138 secundario. En SEEN135 baja RMSE de E2 **0.5065 → 0.5015 t/ha**, pero MAE empeora ligeramente y no alcanza MIX, **0.4872**. Frente a E2 mejora RMSE en 9/10 repeticiones; frente a MIX, en ninguna. Se cerró **sin adopción**. El beneficio se concentra en pocos casos y no resuelve la variación dentro de Chignahuapan.
+
+La adaptación del **8 de octubre** incorpora 24 insumos, incluido un recorte identificado de **26,255 capturas Planet**. Reconstruye la fecha, evalúa **6,900 OOF guardadas de cinco procedimientos** y verifica **100 selecciones desde 500 scores guardados**, sin recalcular los scores ni reentrenar. La factibilidad del 2 de octubre y el registro de V4 conservan sus fechas. El lector está **verificado localmente, sin reentrenar**; no se declara una ejecución de Colab ni se generan las 59 predicciones de entrega.
 
 ## Ejecutar en local
 
@@ -136,6 +162,14 @@ uv run --locked --all-groups python scripts/ejecutar_exp_05.py
 ```
 
 La salida se conserva en `resultados_locales/exp_05_historico_octubre/`. `scripts/construir_exp_05.py` utiliza `config/exp_05_historico_octubre.json`; el notebook contiene sus insumos y no necesita ZIP, Drive, rásteres ni otro cuaderno. La distribución local es `artefactos_locales/exp_05_historico_octubre_equipo.zip`. V3 utilizó Python **3.12.14**; el lector Python 3.13 hace **cero ajustes** y no repite las 4,800 evaluaciones interiores ni 200 reajustes exteriores históricos. Coincidir en variables y métricas guardadas no demuestra paridad de entrenamiento entre entornos.
+
+Para reconstruir la fecha soportada y evaluar los resultados guardados de V4:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_exp_06.py
+```
+
+La salida se conserva en `resultados_locales/exp_06_pico_soportado/`. `scripts/construir_exp_06.py` utiliza `config/exp_06_pico_soportado.json`; el notebook incorpora sus insumos sin ZIP, Drive ni otro cuaderno. La distribución local es `artefactos_locales/exp_06_pico_soportado_equipo.zip`. V4 usó Python **3.12.14**; este lector Python 3.13 hace **cero ajustes**, no repite los 2,100 ajustes por corrida histórica ni demuestra paridad del entrenamiento entre entornos. Dos corridas históricas sumaron 4,200 ajustes físicos para comprobar determinismo, no dos candidatos nuevos.
 
 | Grupo         | Para qué sirve                           |
 | ------------- | ----------------------------------------- |

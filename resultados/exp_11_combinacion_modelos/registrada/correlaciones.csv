@@ -1,0 +1,9 @@
+conjunto,tipo,par,pearson
+historicas,errores,J vs K,0.94160910794635067
+historicas,errores,MUN vs K,0.95638821924271966
+historicas,cambios_vs_MIX,J−MIX vs K−MIX,0.029391176715121502
+historicas,cambios_vs_MIX,MUN−MIX vs K−MIX,-0.040931648224313284
+nuevas,errores,J vs K,0.94129469850795433
+nuevas,errores,MUN vs K,0.95493200629872244
+nuevas,cambios_vs_MIX,J−MIX vs K−MIX,0.044047027677652326
+nuevas,cambios_vs_MIX,MUN−MIX vs K−MIX,-0.026998576908183816
