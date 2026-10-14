@@ -4,6 +4,27 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 
 **La lectura principal está dentro de esta carpeta.** No requiere conocer documentos previos ni los nombres usados durante la exploración. Los aportes de Andrea y Jared se reconocen en las comprobaciones correspondientes; sus documentos originales son contexto adicional, no un requisito de lectura.
 
+## Resultado final
+
+**Modelo de entrega: E_JK = ½·J + ½·K.**
+- **K:** la referencia MIX (½ media municipal + ½ promedio de las 20 parcelas conocidas más cercanas) corregida con el contraste de verdor: la integral NDVI Planet de abril al 31 de octubre de 2025, menos la mediana de las vecinas a menos de 1 km.
+- **J:** la media del grupo regional más la anomalía de lluvia de octubre de 2025 frente a 2022–2024.
+- **Referencia declarada:** MIX.
+
+| Evaluación (RMSE, t/ha) | MUN | MIX | J | K | **E_JK** |
+|---|---|---|---|---|---|
+| Validación cruzada, particiones históricas (138) | 0.4934 | 0.4872 | 0.4835 | 0.4820 | **0.4757** |
+| Validación cruzada, particiones nuevas (138) | 0.4922 | 0.4857 | 0.4821 | 0.4810 | **0.4744** |
+| Validación independiente, desarrollo, ronda 1 (103) | 0.5002 | 0.4906 | 0.4752 | 0.4898 | **0.4750** |
+| Validación independiente, desarrollo, ronda 2 (103) | 0.5069 | 0.5043 | 0.4839 | 0.5042 | **0.4871** |
+| Caja cerrada (35 parcelas apartadas antes del análisis) | 0.4784 | 0.4855 | 0.5047 | 0.4717 | **0.4822** |
+
+- **RMSE esperado:** ≈0.47–0.49 t/ha. Por el azar de qué parcelas quedaron ocultas, en las 59 concretas puede caer entre ≈0.35 y ≈0.63.
+- **Predicciones e intervalos:** [`resultados/04_seleccion_modelo_final/`](resultados/04_seleccion_modelo_final/).
+- **Justificación completa:** [cuarto cuaderno](notebooks/04_seleccion_modelo_final.ipynb).
+- **Cómo se decidió:** la decisión y su regla se fijaron antes de conocer la última prueba. El detalle está en la [bitácora](docs/bitacora_experimentos.md).
+- **Qué sí y qué no se usó:** el municipio explica ~69 % de la variación. De más de 600 variables construidas y de las fuentes externas probadas, solo dos mostraron aportar algo sobre el territorio.
+
 ## Recorrido para el equipo
 
 1. [El problema y las preguntas del recorrido](docs/01_contexto_y_estado.md).
@@ -26,7 +47,7 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 18. [Undécima ronda: combinación fija de modelos](notebooks/experimentos/exp_11_combinacion_modelos/exp_11_combinacion_modelos.ipynb) (exploratoria).
 19. [Cuarto cuaderno: selección del modelo final y las 59 predicciones](notebooks/04_seleccion_modelo_final.ipynb).
 
-La [síntesis y priorización](gestion/07_sintesis_y_priorizacion.md) conserva el razonamiento anterior a EXP_07. La [bitácora comparativa](docs/bitacora_experimentos.md) reúne hipótesis, controles, presupuestos y cierres. EXP_07 se ejecutó el **8 de octubre** tras factibilidad y registro; se cerró [sin adopción](notebooks/experimentos/exp_07_heterogeneidad_parcela/RESULTADOS_Y_CIERRE.md). Su plan original permanece como antecedente, junto al protocolo fijado y los resultados. No se generaron las 59 predicciones finales.
+La [bitácora comparativa](docs/bitacora_experimentos.md) reúne hipótesis, controles, presupuestos y cierres. EXP_07 se ejecutó el **8 de octubre** tras factibilidad y registro; se cerró [sin adopción](notebooks/experimentos/exp_07_heterogeneidad_parcela/RESULTADOS_Y_CIERRE.md). Su plan original permanece como antecedente, junto al protocolo fijado y los resultados. Las 59 predicciones se generan solo en el cuarto cuaderno.
 
 El cuaderno EXP_07 reconstruye variables pareadas y explica el motor, una ecuación de predicción y la evaluación guardada. **Leerlo no reentrena**. Las dos corridas reales sumaron 4,022 ajustes Ridge; no se confunden con sus réplicas de lectura. En SEEN135, añadir dispersión deja RMSE 0.494105 frente a 0.494064 del control y 0.487197 de MIX. El resultado no descarta toda variabilidad espacial ni otros procedimientos.
 
@@ -36,7 +57,7 @@ El cuaderno EXP_07 reconstruye variables pareadas y explica el motor, una ecuaci
 - **EXP_09** registró cinco contrastes con fuentes externas (borde rojo, radar, AlphaEarth, historia). Ninguno superó a K1, la variable de NDVI Planet, y su regla recomendó MIX.
 - **EXP_10** corrigió una discrepancia: el corte al 31 de octubre se aplicaba después de suavizar. Con el corte bien hecho, K1 sigue mejorando a MIX (SEEN135 0.48198 frente a 0.48720 en particiones históricas; 0.48096 frente a 0.48567 en nuevas; 20/20 repeticiones, MAE no peor). La mejora está concentrada y el p de familia es 0.18/0.13 > 0.10.
 
-**Recomendación provisional: conservar MIX como referencia oficial; K1 corregido queda como alternativa documentada para decisión del equipo.** **EXP_11** (exploratoria, sin entrenamientos) encontró que promediar 50/50 el modelo de Jared con MIX + K1 corregido mejora a ambos componentes (SEEN135 0.4757/0.4744). El control con la media municipal no lo logra. Queda como candidato para revisión; no hay adopción automática ([cierre](notebooks/experimentos/exp_11_combinacion_modelos/RESULTADOS_Y_CIERRE.md)). Véase el [cierre de EXP_10](notebooks/experimentos/exp_10_verificacion_contraste_vecinal/RESULTADOS_Y_CIERRE.md).
+**Al cierre de EXP_10 (recomendación provisional, después superada por el modelo final):** conservar MIX como referencia oficial; K1 corregido queda como alternativa documentada. **EXP_11** (exploratoria, sin entrenamientos) encontró que promediar 50/50 el modelo de Jared con MIX + K1 corregido mejora a ambos componentes (SEEN135 0.4757/0.4744). El control con la media municipal no lo logra. Queda como candidato para revisión; no hay adopción automática ([cierre](notebooks/experimentos/exp_11_combinacion_modelos/RESULTADOS_Y_CIERRE.md)). Véase el [cierre de EXP_10](notebooks/experimentos/exp_10_verificacion_contraste_vecinal/RESULTADOS_Y_CIERRE.md).
 
 **Modelo final (11 de octubre de 2026).** El [cuarto cuaderno](notebooks/04_seleccion_modelo_final.ipynb) aplica la decisión que Fortino registró a las 22:05 h: **se entrega E_JK = ½·J + ½·K, con MIX como referencia**. Las dos pruebas con caja cerrada de Opus ([ronda 1](validacion_independiente/README.md) y [ronda 2](validacion_independiente/ronda2/README.md)) no la reabrieron. E_JK superó a MIX en las cinco evaluaciones, aunque por poco; su RMSE esperado es ≈0.47–0.49 t/ha, y en las 59 concretas puede caer entre ≈0.35 y ≈0.63. Las 59 predicciones y sus intervalos están en [`resultados/04_seleccion_modelo_final/`](resultados/04_seleccion_modelo_final/). Se probó en dos kernels locales limpios; **no se ha probado en Colab real**.
 
@@ -184,4 +205,12 @@ La salida se conserva en `resultados_locales/exp_06_pico_soportado/`. `scripts/c
 
 ## Información técnica opcional
 
-La [verificación técnica](gestion/05_verificacion_preparacion.md) y el [registro operativo](gestion/estado_y_decisiones.md) documentan comprobaciones, alcance de la edición y tareas de mantenimiento. No forman parte del recorrido de estudio ni sustituyen la evidencia de los cuadernos.
+Para reconstruir el cuarto cuaderno (selección final y 59 predicciones) en un kernel nuevo:
+
+```bash
+uv run --locked --all-groups python scripts/ejecutar_notebook_04.py
+```
+
+La salida se guarda en `resultados_locales/04_seleccion_modelo_final/`. Las predicciones deben coincidir byte a byte con las de `resultados/04_seleccion_modelo_final/`.
+
+La [bitácora](docs/bitacora_experimentos.md) y los registros de `docs/registros/` documentan comprobaciones, presupuestos y fechas. La evidencia de la caja cerrada está en [`validacion_independiente/`](validacion_independiente/README.md).

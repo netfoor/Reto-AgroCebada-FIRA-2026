@@ -121,4 +121,4 @@ Después de esta ronda: decidir si conservar un candidato, MUN o MIX; congelar r
 
 Será autónomo en Colab, con insumos identificados por hash y código técnico explicado antes de mostrarse. No necesita ejecutar otro cuaderno ni comprender código incrustado sin contexto. Aquí todavía no se generan ese notebook, una corrida ni sus resultados.
 
-El fundamento y el mapa de datos están en la [síntesis](../../../gestion/07_sintesis_y_priorizacion.md); el historial de comparaciones está en la [bitácora](../../../docs/bitacora_experimentos.md).
+El historial de comparaciones está en la [bitácora](../../../docs/bitacora_experimentos.md).
