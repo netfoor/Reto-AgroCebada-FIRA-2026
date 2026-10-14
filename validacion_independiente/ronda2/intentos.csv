@@ -1,0 +1,9 @@
+familia,evento,fecha_utc,rmse_cv_seen,mae_cv_seen,reps_vs_E_JK,reps_vs_MIX,nota
+H1_E_JK,planeada,2026-10-12T04:14:06.502539+00:00,,,,,registro previo ronda 2
+H1_MIX,planeada,2026-10-12T04:14:06.502539+00:00,,,,,registro previo ronda 2
+H2_E_JK,planeada,2026-10-12T04:14:06.502539+00:00,,,,,registro previo ronda 2
+H2_MIX,planeada,2026-10-12T04:14:06.502539+00:00,,,,,registro previo ronda 2
+H1_E_JK,ejecutada,2026-10-12T04:17:25.983137+00:00,0.488735,0.327469,2,10,"CV 10x5 semilla 20261021, 103 de desarrollo, SEEN"
+H1_MIX,ejecutada,2026-10-12T04:17:25.983137+00:00,0.506896,0.348066,0,0,"CV 10x5 semilla 20261021, 103 de desarrollo, SEEN"
+H2_E_JK,ejecutada,2026-10-12T04:17:25.983137+00:00,0.489684,0.326401,2,10,"CV 10x5 semilla 20261021, 103 de desarrollo, SEEN"
+H2_MIX,ejecutada,2026-10-12T04:17:25.983137+00:00,0.505853,0.345061,0,2,"CV 10x5 semilla 20261021, 103 de desarrollo, SEEN"

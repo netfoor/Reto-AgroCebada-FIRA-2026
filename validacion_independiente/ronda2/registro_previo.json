@@ -1,0 +1,105 @@
+{
+  "id": "PRUEBA_FINAL_OPUS_RONDA2",
+  "registrado_utc": "2026-10-12T04:14:06.502539+00:00",
+  "registrado_cdmx": "2026-10-11T22:14:06.502539-06:00",
+  "autor": "Claude (Opus 5.5), a pedido de Fortino",
+  "rendimientos_leidos_en_esta_ronda_antes_del_registro": false,
+  "exposicion_previa": "Se conocen las 138 etiquetas (EXP_08–11) y los resultados de la ronda 1, incluida la caja (K primero, J último). Las hipótesis se eligieron por mecanismo agronómico y disponibilidad de datos (Fase A), sin correlaciones con el rendimiento; H1 y H2 no se habían calculado nunca.",
+  "hipotesis": {
+    "H1": {
+      "variable": "tpi_1km_m",
+      "mecanismo": "Bolsas de aire frío: el aire frío nocturno drena hacia las depresiones relativas; en Valles Altos las heladas tempranas (sep–oct) durante el llenado de grano reducen el rendimiento de la cebada de temporal. Parcelas más bajas que su entorno → más heladas → menor rendimiento.",
+      "signo_esperado": "+ (TPI mayor → rendimiento mayor)",
+      "receta": "Copernicus DEM GLO-30 (tile N19 W099). Elevación de la parcela = media de píxeles con centro dentro del polígono (si ninguno, píxel del centroide). TPI = elevación de la parcela − media de los píxeles con centro a ≤1000 m del centroide (distancias en UTM 14N). Radio fijado por escala de valle, no ajustado."
+    },
+    "H2": {
+      "variable": "soc_0_30_dgkg",
+      "mecanismo": "Fertilidad y humedad: más carbono orgánico implica más nitrógeno mineralizable y mayor retención de agua, lo que aumenta el rendimiento de la cebada de temporal.",
+      "signo_esperado": "+",
+      "receta": "SoilGrids 2.0 soc (dg/kg), media de 0-5, 5-15 y 15-30 cm ponderada por espesor (5, 10, 15 cm). Valor por parcela = media de píxeles de 250 m (proyección Homolosine) con centro dentro del polígono; si ninguno, píxel del centroide."
+    },
+    "por_que_no_una_tercera": "La pendiente ya entró sin señal en el barrido de EXP_08 (120 m); manejo, siembra y riego no son públicos a escala de parcela (Fase A). Dos hipótesis reducen la multiplicidad."
+  },
+  "chequeo_solo_X": "Por variable: R² explicado por municipio, grupo y celda CHIRPS; desviación dentro de municipio; correlación con la elevación de 120 m. Regla: si R²(celda) ≥ 0.90 o no varía dentro del municipio, la hipótesis NO se evalúa.",
+  "correccion": "Para base ∈ {E_JK, MIX}: residuos de la base en el entrenamiento por los 4 pliegues internos (cada predicción interna de E_JK reajusta J y K; K usa sus propios 4 pliegues internos con semilla base+k). z = (v − mediana)/desviación del entrenamiento; β = Σz·e/(Σz² + 10); sin dato → 0 (receta de K). Sin búsqueda de hiperparámetros.",
+  "familias_nuevas": "H1_E_JK, H1_MIX, H2_E_JK, H2_MIX (solo las hipótesis que pasen el chequeo)",
+  "cv": {
+    "parcelas": "las 103 de desarrollo de la ronda 1",
+    "esquema": "10×5, semilla 20261021+rep; internas 4 con semilla 20261021+1000+10·rep+pliegue",
+    "nota": "También se reevalúan F1–F7 de la ronda 1 con estas particiones para incluirlas en el nulo."
+  },
+  "particiones": {
+    "externas_sha256": "1885dca392003a45b2db5e32bd4653048741b43526c902245ddc7970dc9a68e1"
+  },
+  "nulo": "Reality Check de White (2000) frente a E_JK con F1–F7 + familias nuevas; pérdida por parcela SEEN; bootstrap por celdas CHIRPS, B=5000. Informativo frente a MIX.",
+  "seleccion": "Final = familia nueva con menor RMSE SEEN en la CV de la ronda 2; variante declarada = misma hipótesis sobre la otra base.",
+  "criterio": "El mismo de la ronda 1 (C1 caja RMSE < E_JK y < MIX; C2 CV ≥8/10 frente a ambos; C3 caja MAE ≤ MIX; C4 no se invierte sin las 2 más favorables; C5 nulo p ≤ 0.10). FAVORABLE / PARCIAL / NO FAVORABLE, sin cambiar umbrales.",
+  "caja": {
+    "ids_sha256": "d1e90ab1af71408a3ebe0c51a7921296ba56be472a61a1fa3809bcbb8f4b7acc",
+    "uso": "SEGUNDO uso de la caja de la ronda 1: menos limpia, porque ya se conocen sus resultados para los congelados.",
+    "entrenamiento": "las 103 de desarrollo; pliegues internos de K iguales a la ronda 1 (semilla 20261014); para los residuos internos de E_JK se usa la semilla 20261024+k."
+  },
+  "prohibiciones": "Nada posterior al 31 oct 2025 (DEM y suelo son estáticos); nada derivado de etiquetas de validación; ni la grafía de Cultivo ni la precisión de las etiquetas.",
+  "datos_sha256": {
+    "copernicus_dem_glo30_N19_W099.tif": {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N19_00_W099_00_DEM/Copernicus_DSM_COG_10_N19_00_W099_00_DEM.tif",
+      "bytes": 37316606,
+      "sha256": "23f4f93100235902f40c5356c330f3e6b60403575d4989de7f1386875d87efd5",
+      "licencia": "Copernicus DEM licence (gratuita, con atribución)"
+    },
+    "soilgrids_soc_0-5cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_0-5cm_mean.vrt",
+      "bytes": 92839,
+      "sha256": "40a4e2af249dcdb1a39684d21b4fd226339db2a87754156f794914ee3ac4df64",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 1037
+    },
+    "soilgrids_soc_5-15cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_5-15cm_mean.vrt",
+      "bytes": 87429,
+      "sha256": "091be8a6997bc74337fcc804980fbd83a047e56226581667e54a15beb73b80cd",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 653
+    },
+    "soilgrids_soc_15-30cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_15-30cm_mean.vrt",
+      "bytes": 72288,
+      "sha256": "72a9730843112e58e4ddeed63fa298ab29b574a773bf51331695704f173d54ce",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 340
+    }
+  },
+  "codigo_sha256": {
+    "lib_r2.py": "c80c2278b619ccdc0f7f3f3e79605e2b6e8aa6b08e95f7ec7f0000a338229859",
+    "00_descargar.py": "d0a6f37b3b2afb57802c47ef95aee21aa4bdba05419dfabb700028f7a55a471c",
+    "00b_registrar.py": "aeee84ae29c3c9fa08980ab3e8ef386f88bd0fd4a8c617a8f28f2782f35ee445",
+    "01_variables_x.py": "cba114ac9c0c39e464162c178c1aca0499b3b8844efcfbd4396836feb4bdc4e9",
+    "02_cv.py": "f72f7d49fd4450f0a7989bdd650a660c75cd35829b8b5ea0566165856a4b94b0",
+    "03_nulo_congelar.py": "596b6a69e06ac6e856e5ad9d82688bbced623f2e3ee584ef7e6e336b6b257c1d",
+    "04_caja.py": "bbc08c7c3d62fc63144fa0ca16d54fa879900ce1247cf06b0d7ff827c107dd6c"
+  }
+}

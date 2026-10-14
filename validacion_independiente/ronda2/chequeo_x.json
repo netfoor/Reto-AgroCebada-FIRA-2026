@@ -1,0 +1,31 @@
+{
+  "H1": {
+    "variable": "tpi_1km_m",
+    "n_validos": 197,
+    "faltantes": 0,
+    "media": -4.36053722678609,
+    "sd": 16.069800075454673,
+    "sd_dentro_municipio": 12.667272041652875,
+    "R2_municipio": 0.3754669839061022,
+    "R2_grupo": 0.28514060291163834,
+    "R2_celda_CHIRPS": 0.468492047864298,
+    "pearson_con_elevacion_120m": 0.31616310636456346,
+    "parcelas_sin_pixel_centro_dentro": 65,
+    "pasa_regla_no_etiqueta": true
+  },
+  "H2": {
+    "variable": "soc_0_30_dgkg",
+    "n_validos": 197,
+    "faltantes": 0,
+    "media": 193.79615059221655,
+    "sd": 31.569811557977246,
+    "sd_dentro_municipio": 21.79853432916334,
+    "R2_municipio": 0.5207956371117071,
+    "R2_grupo": 0.49068697232797664,
+    "R2_celda_CHIRPS": 0.5997083273694268,
+    "pearson_con_elevacion_120m": 0.5169327543002447,
+    "parcelas_sin_pixel_centro_dentro": 65,
+    "pasa_regla_no_etiqueta": true
+  },
+  "correlacion_H1_H2": 0.09374973636804025
+}

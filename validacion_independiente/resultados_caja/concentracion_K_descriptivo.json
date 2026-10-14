@@ -1,0 +1,35 @@
+{
+  "K_vs_MIX": {
+    "mas_favorecidas": [
+      "AGC_049",
+      "AGC_077",
+      "AGC_053"
+    ],
+    "dRMSE_completo": -0.013836147723495562,
+    "dRMSE_sin_2": -0.005746369477653501,
+    "parcelas_K_mejor": 19,
+    "parcelas_K_peor": 11
+  },
+  "K_vs_E_JK": {
+    "mas_favorecidas": [
+      "AGC_127",
+      "AGC_160",
+      "AGC_081"
+    ],
+    "dRMSE_completo": -0.01046658551214541,
+    "dRMSE_sin_2": 0.0004169048775422568,
+    "parcelas_K_mejor": 17,
+    "parcelas_K_peor": 18
+  },
+  "K_vs_MUN": {
+    "mas_favorecidas": [
+      "AGC_049",
+      "AGC_055",
+      "AGC_127"
+    ],
+    "dRMSE_completo": -0.0066717385069022805,
+    "dRMSE_sin_2": 0.019572910691852186,
+    "parcelas_K_mejor": 14,
+    "parcelas_K_peor": 21
+  }
+}

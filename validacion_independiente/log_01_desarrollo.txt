@@ -1,0 +1,67 @@
+rep 0 pliegue 0 listo (1s)
+rep 0 pliegue 1 listo (2s)
+rep 0 pliegue 2 listo (3s)
+rep 0 pliegue 3 listo (4s)
+rep 0 pliegue 4 listo (5s)
+rep 1 pliegue 0 listo (6s)
+rep 1 pliegue 1 listo (8s)
+rep 1 pliegue 2 listo (8s)
+rep 1 pliegue 3 listo (9s)
+rep 1 pliegue 4 listo (11s)
+rep 2 pliegue 0 listo (11s)
+rep 2 pliegue 1 listo (13s)
+rep 2 pliegue 2 listo (14s)
+rep 2 pliegue 3 listo (16s)
+rep 2 pliegue 4 listo (17s)
+rep 3 pliegue 0 listo (21s)
+rep 3 pliegue 1 listo (23s)
+rep 3 pliegue 2 listo (25s)
+rep 3 pliegue 3 listo (27s)
+rep 3 pliegue 4 listo (30s)
+rep 4 pliegue 0 listo (33s)
+rep 4 pliegue 1 listo (34s)
+rep 4 pliegue 2 listo (36s)
+rep 4 pliegue 3 listo (39s)
+rep 4 pliegue 4 listo (41s)
+rep 5 pliegue 0 listo (44s)
+rep 5 pliegue 1 listo (46s)
+rep 5 pliegue 2 listo (50s)
+rep 5 pliegue 3 listo (53s)
+rep 5 pliegue 4 listo (54s)
+rep 6 pliegue 0 listo (58s)
+rep 6 pliegue 1 listo (60s)
+rep 6 pliegue 2 listo (62s)
+rep 6 pliegue 3 listo (66s)
+rep 6 pliegue 4 listo (68s)
+rep 7 pliegue 0 listo (70s)
+rep 7 pliegue 1 listo (74s)
+rep 7 pliegue 2 listo (79s)
+rep 7 pliegue 3 listo (81s)
+rep 7 pliegue 4 listo (83s)
+rep 8 pliegue 0 listo (88s)
+rep 8 pliegue 1 listo (91s)
+rep 8 pliegue 2 listo (94s)
+rep 8 pliegue 3 listo (96s)
+rep 8 pliegue 4 listo (97s)
+rep 9 pliegue 0 listo (100s)
+rep 9 pliegue 1 listo (104s)
+rep 9 pliegue 2 listo (107s)
+rep 9 pliegue 3 listo (109s)
+rep 9 pliegue 4 listo (114s)
+          n     RMSE      MAE       R2  reps_mejor_que_E_JK  reps_mejor_que_MIX
+modelo                                                                         
+MUN     998  0.50018  0.32701  0.64179                    0                   1
+MIX     998  0.49058  0.33746  0.65541                    0                   0
+J       998  0.47522  0.31944  0.67665                    3                  10
+K       998  0.48982  0.33728  0.65648                    0                   5
+E_JK    998  0.47503  0.31746  0.67690                    0                  10
+F1      998  0.50044  0.33620  0.64142                    0                   1
+F2      998  0.50180  0.33753  0.63947                    0                   1
+F3      998  0.50688  0.34662  0.63213                    0                   1
+F4      998  0.48068  0.31919  0.66918                    0                  10
+F5      998  0.50401  0.34292  0.63629                    0                   1
+modelo           MUN     MIX       J       K    E_JK      F1      F2      F3      F4      F5
+zona                                                                                        
+Chignahuapan  0.5944  0.5674  0.5656  0.5696  0.5609  0.5872  0.5923  0.5972  0.5695  0.5962
+resto         0.3651  0.3856  0.3454  0.3797  0.3535  0.3789  0.3738  0.3795  0.3541  0.3730
+EXIT 0

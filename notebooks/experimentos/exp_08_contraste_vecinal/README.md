@@ -57,6 +57,6 @@ Tarda ~4 minutos. Lee `data/raw/DataSet.zip`, las particiones de `data/validacio
 
 ## Pendiente de integrar (no se tocó para no interferir con EXP_07 en curso)
 
-- Fila de EXP_08 en `gestion/bitacora_experimentos.md`.
+- Fila de EXP_08 en `docs/bitacora_experimentos.md`.
 - Enlace en `README.md` y `notebooks/README.md`.
-- Actualizar `docs/07_sintesis_y_priorizacion.md` con el barrido del bloque B: explica por qué las rondas anteriores no encontraron señal.
+- Actualizar `gestion/07_sintesis_y_priorizacion.md` con el barrido del bloque B: explica por qué las rondas anteriores no encontraron señal.

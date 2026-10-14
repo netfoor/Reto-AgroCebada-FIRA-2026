@@ -30,5 +30,11 @@ config/insumos.local.json
 # Keep uv.lock, exported requirements, docs, tests and approved notebooks versionable.
 
 gestion/
-# Comparación temporal con el modelo de Jared (no documentada)
+# Comparación temporal con el modelo de Jared (no documentada; su procedencia vive en data/exp_11_combinacion_modelos/)
 tmp_comparacion_jared/
+docs/comprension_fortino_8oct.md
+NOTAS_TRASPASO.md
+respaldos_locales/
+# Rásteres públicos descargados por validacion_independiente/ronda2/00_descargar.py (se reconstruyen con el script)
+
+gestion/

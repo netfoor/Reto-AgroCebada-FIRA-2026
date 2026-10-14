@@ -1,0 +1,180 @@
+{
+  "id": "PRUEBA_FINAL_OPUS_11OCT",
+  "registrado_utc": "2026-10-11T20:09:29.099788+00:00",
+  "registrado_cdmx": "2026-10-11T14:09:29.099788-06:00",
+  "autor": "Claude (Opus 5.5), a pedido de Fortino",
+  "solicitud": "Prueba final independiente — Reto AgroCebada 2026 (mensaje de Fortino del 11 oct 2026)",
+  "rendimientos_leidos_antes_de_este_registro_en_esta_ronda": false,
+  "exposicion_previa_declarada": "El mismo asistente analizó las 138 etiquetas (incluidas las de esta caja) en EXP_08–EXP_11 el 8 oct: eligió K1, vio la correlación de log(área) (−0.21 dentro de municipio), el variograma con dependencia <500 m, el éxito de E_JK y la anomalía de lluvia de J como casi etiqueta de celda. Todas las familias propias están informadas por esa exploración, así que la caja NO es ciega para sus ideas: solo protege contra la selección adaptativa dentro de esta ronda. Igual que para los candidatos congelados.",
+  "caja_cerrada": {
+    "ids": [
+      "AGC_002",
+      "AGC_008",
+      "AGC_012",
+      "AGC_020",
+      "AGC_023",
+      "AGC_026",
+      "AGC_049",
+      "AGC_053",
+      "AGC_055",
+      "AGC_058",
+      "AGC_068",
+      "AGC_070",
+      "AGC_073",
+      "AGC_077",
+      "AGC_079",
+      "AGC_081",
+      "AGC_098",
+      "AGC_101",
+      "AGC_104",
+      "AGC_108",
+      "AGC_117",
+      "AGC_119",
+      "AGC_124",
+      "AGC_127",
+      "AGC_131",
+      "AGC_132",
+      "AGC_134",
+      "AGC_137",
+      "AGC_146",
+      "AGC_148",
+      "AGC_150",
+      "AGC_160",
+      "AGC_163",
+      "AGC_165",
+      "AGC_169"
+    ],
+    "n": 35,
+    "sha256_lista": "d1e90ab1af71408a3ebe0c51a7921296ba56be472a61a1fa3809bcbb8f4b7acc",
+    "semilla": 20261011,
+    "regla": "estratificada por municipio con X: k = floor(0.25·n + 0.5) si n ≥ 3; municipios con n < 3 (Apan, Tepeapulco, Nanacamilpa) quedan en desarrollo; numpy default_rng, municipios alfabéticos, IDs ordenados",
+    "conteo_por_municipio": {
+      "Chignahuapan": 18,
+      "Calpulalpan": 8,
+      "Singuilucan": 4,
+      "Almoloya": 3,
+      "Emiliano Zapata": 1,
+      "Cuautepec de Hinojosa": 1
+    },
+    "justificacion_tamano": "25 % (35 parcelas): deja 103 para desarrollar (pliegues de entrenamiento de ~82, cerca del régimen de 110 de las rondas previas) y conserva todos los municipios de las 59 ocultas en desarrollo, incluido Nanacamilpa. Con 35 parcelas la caja detecta fallas grandes, pero no diferencias de ~1 % de RMSE: es una comprobación de cordura y la comparación más limpia de los candidatos, no una prueba de potencia alta."
+  },
+  "desarrollo": {
+    "n": 103,
+    "conteo_por_municipio": {
+      "Chignahuapan": 53,
+      "Calpulalpan": 22,
+      "Singuilucan": 12,
+      "Almoloya": 7,
+      "Cuautepec de Hinojosa": 4,
+      "Emiliano Zapata": 2,
+      "Tepeapulco": 1,
+      "Nanacamilpa de Mariano Arista": 1,
+      "Apan": 1
+    }
+  },
+  "semillas": {
+    "caja": 20261011,
+    "cv_desarrollo": 20261012,
+    "bootstrap": 20261013,
+    "internas_K_en_caja": 20261014
+  },
+  "particiones_desarrollo": {
+    "esquema": "10 repeticiones × 5 pliegues (KFold barajado, semilla 20261012 + repetición); 4 pliegues internos por entrenamiento exterior (semilla 20261012 + 1000 + 10·rep + pliegue). Distinta de 20261009 y 20260920.",
+    "externas": {
+      "ruta": "particiones_externas_desarrollo.csv",
+      "sha256": "8b8452b797532f786cd97866d9208a9c64da6190308c2712688cd9f1c661e26a"
+    },
+    "internas": {
+      "ruta": "particiones_internas_desarrollo.csv",
+      "sha256": "a5f1fd7b8345e5b19a7ce2c51df239ab176bbf8e050f9adee50ab1cf4cc1a0d5"
+    }
+  },
+  "candidatos_congelados": {
+    "MUN": "media municipal del entrenamiento; municipio no visto → media global (validacion_03.predecir_referencias)",
+    "MIX": "0.5·MUN + 0.5·IDW (k=20, potencia 2, piso 1 m) (validacion_03.predecir_referencias)",
+    "K": "MIX + β·z(K1 corregido), α=10, residuos de MIX por 4 pliegues internos (modelo_10.predecir_fold)",
+    "J": "Jared procedimiento completo: elige entre 148 variables la de mayor |correlación| dentro de grupo con las etiquetas del entrenamiento; OLS con 5 niveles de grupo + pendiente común (preparar_exp_11.jared_completo)",
+    "E_JK": "0.5·J + 0.5·K",
+    "codigo_sha256": {
+      "validacion_03.py": "ccd5d233ed44a0f176e092a5c4e5f1a88f82961fc3c35ccd203faa59b8034adf",
+      "modelo_10.py": "32b6d127a10c19e2fba3dddd6cf5b179a4c55b076a54d6874ef514b8b3fc23ff",
+      "preparar_exp_11.py": "192da134dc1841c85bead683c86f7954fbc056991d1dc4f70b1e61ea8c1482b3"
+    }
+  },
+  "familias_propias": {
+    "F1": {
+      "receta": "Modelo mixto jerárquico (REML): niveles fijos por grupo (5) + interceptos aleatorios de municipio y de celda CHIRPS de centroide; predicción BLUP.",
+      "motivo": "Agrupamiento parcial entre escalas territoriales anidadas (Battese, Harter y Fuller, 1988; áreas pequeñas). Formaliza lo que E_JK hace a mano con pesos 50/50.",
+      "preinformada": "Sí: la idea de varias escalas viene de ver E_JK y J (celda) con las 138."
+    },
+    "F2": {
+      "receta": "F1 + K1 corregido como efecto fijo (estandarizado con mediana y desviación del entrenamiento; sin dato → 0).",
+      "motivo": "Única señal satelital que pasó filtros.",
+      "preinformada": "Sí: K1 se eligió en EXP_08 con las 138."
+    },
+    "F3": {
+      "receta": "F2 + componente espacial gaussiano exponencial (σ²_s y rango estimados por REML, rango en [50, 20000] m).",
+      "motivo": "Dependencia espacial corta del residuo.",
+      "preinformada": "Sí: variograma de EXP_08 con las 138."
+    },
+    "F4": {
+      "receta": "⅓·(J + K + F2), pesos iguales fijos.",
+      "motivo": "Rompecabezas de la combinación de pronósticos: pesos iguales suelen ganar a pesos estimados (Claeskens et al., 2016).",
+      "preinformada": "Sí: inspirada en el resultado de E_JK."
+    },
+    "F5": {
+      "receta": "F2 + log(área) como efecto fijo (estandarizado con el entrenamiento).",
+      "motivo": "Relación inversa tamaño–rendimiento en rendimientos reportados por productores (Desiere y Jolliffe, 2018; Gourlay, Kilic y Lobell, 2019); la etiqueta es reportada.",
+      "preinformada": "Sí: correlación −0.21 vista con las 138."
+    },
+    "sin_ajuste_de_hiperparametros": "Ninguna familia busca hiperparámetros: las varianzas se estiman por REML dentro de cada entrenamiento."
+  },
+  "presupuesto": {
+    "max_familias": 10,
+    "declaradas": 5,
+    "regla": "cualquier intento adicional, fallido o corregido se anota en intentos.csv y entra al nulo"
+  },
+  "seleccion_final": "La familia propia con menor RMSE agrupado SEEN en la CV de desarrollo. Variante declarada: si la final es F5 (usa área), la variante es F2; en otro caso no hay variante.",
+  "criterio_decision_interpretacion": {
+    "C1": "Caja (35, todas SEEN): RMSE(final) < RMSE(E_JK) y < RMSE(MIX).",
+    "C2": "CV de desarrollo (103, particiones nuevas, SEEN): RMSE(final) < E_JK en ≥8/10 repeticiones Y < MIX en ≥8/10.",
+    "C3": "Caja: MAE(final) ≤ MAE(MIX).",
+    "C4": "Caja: tras retirar de la evaluación las 2 parcelas con mayor ventaja del final (orden por Δ error cuadrático, por separado frente a E_JK y frente a MIX), el final sigue con menor RMSE frente a ambos.",
+    "C5": "Reality Check de White (2000) sobre la CV de desarrollo con TODAS las familias de intentos.csv, benchmark E_JK: p ≤ 0.10.",
+    "FAVORABLE": "C1–C5 se cumplen.",
+    "PARCIAL": "No favorable, pero el RMSE del final en la caja es menor que el de MIX (si además supera a E_JK y falla otra condición, se reporta qué falló).",
+    "NO_FAVORABLE": "En otro caso."
+  },
+  "nulo": {
+    "metodo": "Reality Check de White (2000)",
+    "perdida": "por parcela, media del error cuadrático en sus filas SEEN de la CV de desarrollo",
+    "estadistico": "T = max_k √n · media(L_bench − L_k)",
+    "remuestreo": "bootstrap por conglomerados (celdas CHIRPS), recentrado",
+    "B": 5000,
+    "semilla": 20261013,
+    "benchmark_decisivo": "E_JK",
+    "benchmark_informativo": "MIX",
+    "limite": "aproximación: las pérdidas de CV comparten entrenamientos y vecindad; el bootstrap por celdas atenúa, no elimina, esa dependencia"
+  },
+  "prohibiciones": {
+    "grafia_cultivo": "no se usa (la columna cultivo_grafia_original de v0 se excluye)",
+    "precision_decimal_etiquetas": "no se usa",
+    "datos_posteriores_31oct": "ninguno: K1 corregido se corta antes de suavizar; las 148 variables de Jared son abr–oct 2025 e historia 2022–2024",
+    "reglas_por_municipio": "ninguna",
+    "caja": "sus etiquetas solo se leen en 03_evaluar_caja.py, una vez"
+  },
+  "codigo_sha256": {
+    "lib_opus.py": "729b01654608cf25a2d54f0e44db7196a647955ab185c09cca3f44fbb2842a55",
+    "00_registrar.py": "d71e6f85d3244bf0842dbfcec0a34d489e8cae7473f1002929d106058b939518",
+    "01_desarrollo.py": "ccb8910bec140d0b572e919d7ccb809a7dc562d263e56ceec1d682e268671933",
+    "02_nulo_y_congelar.py": "408dbe2825c601e5ce7f253ce2a094f1806579a13230794352de0cde07ef0add",
+    "03_evaluar_caja.py": "f93c8cd207971a7d8ae4cafa662bce562cf35a21a9cb571f0b2e9a31c4e8f830"
+  },
+  "x_sha256": {
+    "data/exp_10_verificacion_contraste_vecinal/metadatos.csv": "9882c9793559084a98ddebd3a08137baec766f83df1191a29a6485077e925424",
+    "data/exp_10_verificacion_contraste_vecinal/variables_197.csv": "445aca6ddd1602d3db9b4035673f22b274a82cfc7e90a605bc34e7ba67561d9c",
+    "data/exp_04_lluvia_octubre/grupos.csv": "42c9fbae11f1c0f9335c194358bbd3bf02713b370356d14c1384e62d8994bd3d",
+    "data/referencias/variables_v0_197.csv": "62e39ba23fb33f8834e92943f9714fea38aa731da079e0431d707aab13151595",
+    "data/raw/DataSet.zip": "d74dbaba1764e026da8ce38f7f3476f80523f479a6c141827887e09326061bb5"
+  }
+}

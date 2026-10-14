@@ -1,0 +1,17 @@
+familia,evento,fecha_utc,rmse_dev_seen,mae_dev_seen,reps_vs_E_JK,reps_vs_MIX,nota
+F1,planeada,2026-10-11T20:09:29.099745+00:00,,,,,declarada en el registro previo
+F2,planeada,2026-10-11T20:09:29.099745+00:00,,,,,declarada en el registro previo
+F3,planeada,2026-10-11T20:09:29.099745+00:00,,,,,declarada en el registro previo
+F4,planeada,2026-10-11T20:09:29.099745+00:00,,,,,declarada en el registro previo
+F5,planeada,2026-10-11T20:09:29.099745+00:00,,,,,declarada en el registro previo
+F1,ejecutada,2026-10-11T20:11:33.098357+00:00,0.500441,0.336202,0,1,"CV desarrollo 10x5, SEEN"
+F2,ejecutada,2026-10-11T20:11:33.098357+00:00,0.501799,0.337527,0,1,"CV desarrollo 10x5, SEEN"
+F3,ejecutada,2026-10-11T20:11:33.098357+00:00,0.506884,0.346625,0,1,"CV desarrollo 10x5, SEEN"
+F4,ejecutada,2026-10-11T20:11:33.098357+00:00,0.480679,0.319187,0,10,"CV desarrollo 10x5, SEEN"
+F5,ejecutada,2026-10-11T20:11:33.098357+00:00,0.504007,0.342917,0,1,"CV desarrollo 10x5, SEEN"
+F6,planeada,2026-10-11T20:12:47.147489+00:00,,,,,"AÑADIDA tras ver la CV de desarrollo (J fuerte; IDW útil en MIX; modelos mixtos F1-F5 al nivel de MUN). Receta fija: regresión-kriging (Hengl et al., 2007) = J(validación) + 0.5·IDW(k=20, p=2, piso 1 m) de los residuos de J obtenidos por los 4 pliegues internos del entrenamiento. Peso 0.5 por analogía con MIX; no se probará otro peso."
+F7,planeada,2026-10-11T20:12:47.147489+00:00,,,,,"AÑADIDA junto con F6, antes de calcularla: 0.5·F6 + 0.5·K (análoga a E_JK con J sustituido por F6). Después de F6 y F7 no se añadirán más familias."
+F6,ejecutada,2026-10-11T20:13:17.183514+00:00,0.482488,0.333882,4,9,"CV desarrollo 10x5, SEEN"
+F7,ejecutada,2026-10-11T20:13:17.183514+00:00,0.478469,0.324596,3,10,"CV desarrollo 10x5, SEEN"
+-,nota_codigo,2026-10-11T20:13:46.619864+00:00,,,,,"Código ampliado para F6/F7 sin cambiar recetas registradas: lib_opus 7e3855ef0f5fccb7, 02 d4dae1f9bc9aa8d9, 03 f4bff1dee1259a7a, 01b 3792777e192f6796. No se añadirán más familias."
+-,nota_codigo,2026-10-11T20:14:09.849212+00:00,,,,,Fe de erratas en congelado.json: etiqueta de receta_final corregida a F7 = 0.5·F6 + 0.5·K (antes de abrir la caja).

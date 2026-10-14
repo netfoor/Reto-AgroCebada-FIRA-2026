@@ -1,0 +1,10 @@
+{
+  "inicio_fin_utc": "2026-10-11T20:11:33.098357+00:00",
+  "segundos": 114.0,
+  "parcelas_desarrollo": 103,
+  "filas_oof": 10300,
+  "filas_seen_por_modelo": 998,
+  "lib_sha256": "729b01654608cf25a2d54f0e44db7196a647955ab185c09cca3f44fbb2842a55",
+  "script_sha256": "ccb8910bec140d0b572e919d7ccb809a7dc562d263e56ceec1d682e268671933",
+  "caja_leida": false
+}

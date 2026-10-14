@@ -1,0 +1,47 @@
+            n     RMSE      MAE       R2
+MUN      35.0  0.47837  0.34600  0.69102
+MIX      35.0  0.48554  0.37337  0.68169
+J        35.0  0.50466  0.39540  0.65613
+K        35.0  0.47170  0.36563  0.69958
+E_JK     35.0  0.48217  0.36665  0.68610
+H1_E_JK  35.0  0.48277  0.36754  0.68531
+H1_MIX   35.0  0.48469  0.37259  0.68280
+         Chignahuapan   resto
+MUN            0.5771  0.3442
+MIX            0.5640  0.3854
+J              0.5980  0.3818
+K              0.5421  0.3833
+E_JK           0.5648  0.3754
+H1_E_JK        0.5656  0.3757
+H1_MIX         0.5628  0.3851
+{
+  "congelados_identicos_a_ronda1_dif_max": 0.0,
+  "sensibilidad_sin_2": {
+    "E_JK": {
+      "retiradas": [
+        "AGC_055",
+        "AGC_081"
+      ],
+      "RMSE_final": 0.45700828432676943,
+      "RMSE_ref": 0.4557976140251521,
+      "sigue_mejor": false
+    },
+    "MIX": {
+      "retiradas": [
+        "AGC_049",
+        "AGC_124"
+      ],
+      "RMSE_final": 0.4668516171102994,
+      "RMSE_ref": 0.46318809348014073,
+      "sigue_mejor": false
+    }
+  },
+  "condiciones": {
+    "C1": false,
+    "C2": false,
+    "C3": true,
+    "C4": false,
+    "C5": false
+  },
+  "decision": "PARCIAL"
+}

@@ -1,0 +1,201 @@
+{
+  "congelado_utc": "2026-10-11T20:13:48.286458+00:00",
+  "procedimiento_final": "F7",
+  "receta_final": "0.5·F6 + 0.5·K, con F6 = J + 0.5·IDW(k=20, p=2) de los residuos de J obtenidos por pliegues internos",
+  "variante_declarada": null,
+  "regla_de_seleccion": "familia propia con menor RMSE agrupado SEEN en la CV de desarrollo",
+  "metricas_desarrollo": {
+    "F1": {
+      "n": 998,
+      "RMSE": 0.5004407422453052,
+      "MAE": 0.33620190744616235,
+      "R2": 0.6414191523509163,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 1
+    },
+    "F2": {
+      "n": 998,
+      "RMSE": 0.5017994241207868,
+      "MAE": 0.3375266108267021,
+      "R2": 0.6394694363483191,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 1
+    },
+    "F3": {
+      "n": 998,
+      "RMSE": 0.5068841493174417,
+      "MAE": 0.3466248128645883,
+      "R2": 0.6321259176464562,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 1
+    },
+    "F4": {
+      "n": 998,
+      "RMSE": 0.48067939467845683,
+      "MAE": 0.31918731013218116,
+      "R2": 0.6691792197706901,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 10
+    },
+    "F5": {
+      "n": 998,
+      "RMSE": 0.5040074795926214,
+      "MAE": 0.34291708031464074,
+      "R2": 0.6362895883364748,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 1
+    },
+    "F6": {
+      "n": 998,
+      "RMSE": 0.4824882566783618,
+      "MAE": 0.33388193161807567,
+      "R2": 0.6666846876883957,
+      "reps_mejor_que_E_JK": 4,
+      "reps_mejor_que_MIX": 9
+    },
+    "F7": {
+      "n": 998,
+      "RMSE": 0.4784685007686207,
+      "MAE": 0.3245963386247855,
+      "R2": 0.6722154538598697,
+      "reps_mejor_que_E_JK": 3,
+      "reps_mejor_que_MIX": 10
+    },
+    "E_JK": {
+      "n": 998,
+      "RMSE": 0.4750338937358569,
+      "MAE": 0.31745602772398074,
+      "R2": 0.67690445796837,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 10
+    },
+    "MIX": {
+      "n": 998,
+      "RMSE": 0.49057842911676297,
+      "MAE": 0.33745840087712753,
+      "R2": 0.655413176328385,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 0
+    },
+    "J": {
+      "n": 998,
+      "RMSE": 0.4752217759336188,
+      "MAE": 0.3194373376855659,
+      "R2": 0.6766488302924376,
+      "reps_mejor_que_E_JK": 3,
+      "reps_mejor_que_MIX": 10
+    },
+    "K": {
+      "n": 998,
+      "RMSE": 0.4898187373590495,
+      "MAE": 0.33728021914424344,
+      "R2": 0.6564795790194169,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 5
+    },
+    "MUN": {
+      "n": 998,
+      "RMSE": 0.5001787550026273,
+      "MAE": 0.3270140698909165,
+      "R2": 0.6417944975587451,
+      "reps_mejor_que_E_JK": 0,
+      "reps_mejor_que_MIX": 1
+    }
+  },
+  "reality_check": {
+    "E_JK": {
+      "benchmark": "E_JK",
+      "modelos": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7"
+      ],
+      "n_parcelas": 100,
+      "conglomerados": 21,
+      "T_por_modelo": {
+        "F1": -0.24796210401268215,
+        "F2": -0.2618036197908136,
+        "F3": -0.3130511946857098,
+        "F4": -0.05313333411402098,
+        "F5": -0.28514293703628335,
+        "F6": -0.07227270607578333,
+        "F7": -0.032672725050976355
+      },
+      "T_max": -0.032672725050976355,
+      "delta_mse_por_modelo": {
+        "F1": -0.024796210401268216,
+        "F2": -0.02618036197908136,
+        "F3": -0.03130511946857098,
+        "F4": -0.005313333411402098,
+        "F5": -0.028514293703628332,
+        "F6": -0.007227270607578333,
+        "F7": -0.0032672725050976355
+      },
+      "p_valor": 1.0,
+      "B": 5000,
+      "semilla": 20261013
+    },
+    "MIX": {
+      "benchmark": "MIX",
+      "modelos": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6",
+        "F7"
+      ],
+      "n_parcelas": 100,
+      "conglomerados": 21,
+      "T_por_modelo": {
+        "F1": -0.09850772324283863,
+        "F2": -0.11234923902097008,
+        "F3": -0.16359681391586622,
+        "F4": 0.09632104665582257,
+        "F5": -0.13568855626643972,
+        "F6": 0.07718167469406019,
+        "F7": 0.11678165571886714
+      },
+      "T_max": 0.11678165571886714,
+      "delta_mse_por_modelo": {
+        "F1": -0.009850772324283863,
+        "F2": -0.011234923902097007,
+        "F3": -0.01635968139158662,
+        "F4": 0.009632104665582257,
+        "F5": -0.01356885562664397,
+        "F6": 0.007718167469406019,
+        "F7": 0.011678165571886714
+      },
+      "p_valor": 0.4133173365326935,
+      "B": 5000,
+      "semilla": 20261014
+    }
+  },
+  "condicion_2_desarrollo": {
+    "reps_final_mejor_que_E_JK": 3,
+    "reps_final_mejor_que_MIX": 10,
+    "cumple": false
+  },
+  "condicion_5_nulo": {
+    "p_reality_check_vs_E_JK": 1.0,
+    "cumple": false
+  },
+  "hashes": {
+    "registro_previo": "d091aebe8fcce3c35613f1ee94076128cd25734ad98462ee3c98acf338a8e218",
+    "lib_opus": "7e3855ef0f5fccb7ceaa819439b484f1aadb545fcaab3502af56621caeda2796",
+    "oof_desarrollo": "60ddc69003162463bbf046f1df8518c852256fc6de7d110277ce65dc6e5bd4da",
+    "oof_desarrollo_adicional": "4cf10a07b6ad053168cf66f653b6efb3eb6c8df90a76880a7835c43f40f2892d",
+    "intentos": "8801c5eac3b377ee6403b7ebd073986ca7c2fbe0c1d8a55c6641ae540c829c5a",
+    "evaluar_caja": "f4bff1dee1259a7adfbf7e5049831ad055279451d792ff4831b3a95e95c2120c"
+  },
+  "caja_abierta": false,
+  "fe_de_erratas": {
+    "fecha_utc": "2026-10-11T20:14:09.849212+00:00",
+    "texto": "receta_final decía '⅓·(J + K + F2)' por un reemplazo de texto que no se aplicó en 02_nulo_y_congelar.py (valor de respaldo). El procedimiento congelado siempre fue F7, como indica procedimiento_final y como lo calcula 03_evaluar_caja.py (hash registrado). Corregido antes de abrir la caja; no cambia ninguna receta ni hash del código."
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "fecha_utc": "2026-10-12T04:10:22.102936+00:00",
+  "archivos": {
+    "copernicus_dem_glo30_N19_W099.tif": {
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N19_00_W099_00_DEM/Copernicus_DSM_COG_10_N19_00_W099_00_DEM.tif",
+      "bytes": 37316606,
+      "sha256": "23f4f93100235902f40c5356c330f3e6b60403575d4989de7f1386875d87efd5",
+      "licencia": "Copernicus DEM licence (gratuita, con atribución)"
+    },
+    "soilgrids_soc_0-5cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_0-5cm_mean.vrt",
+      "bytes": 92839,
+      "sha256": "40a4e2af249dcdb1a39684d21b4fd226339db2a87754156f794914ee3ac4df64",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 1037
+    },
+    "soilgrids_soc_5-15cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_5-15cm_mean.vrt",
+      "bytes": 87429,
+      "sha256": "091be8a6997bc74337fcc804980fbd83a047e56226581667e54a15beb73b80cd",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 653
+    },
+    "soilgrids_soc_15-30cm_mean.tif": {
+      "url": "https://files.isric.org/soilgrids/latest/data/soc/soc_15-30cm_mean.vrt",
+      "bytes": 72288,
+      "sha256": "72a9730843112e58e4ddeed63fa298ab29b574a773bf51331695704f173d54ce",
+      "licencia": "CC-BY 4.0, ISRIC SoilGrids 2.0",
+      "unidades": "dg/kg (soc×10 = g/kg)",
+      "nodata": -32768.0,
+      "crs": "PROJCS[\"Interrupted_Goode_Homolosine\",GEOGCS[\"GCS_WGS_1984_e",
+      "forma": [
+        272,
+        254
+      ],
+      "min": -32768,
+      "max": 340
+    }
+  }
+}

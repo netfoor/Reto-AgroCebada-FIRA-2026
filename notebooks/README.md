@@ -14,6 +14,7 @@
 12. [EXP_09: fuentes externas](experimentos/exp_09_fuentes_externas/exp_09_fuentes_externas.ipynb): Sentinel-2 propio (borde rojo), Sentinel-1, AlphaEarth e historia como contrastes vecinales, con registro previo y nulo de familia.
 13. [EXP_10: verificación del contraste vecinal](experimentos/exp_10_verificacion_contraste_vecinal/exp_10_verificacion_contraste_vecinal.ipynb): corte temporal corregido, invariancia, dos juegos de particiones, nulo espacial y decisión. Lector sin ajustes.
 14. [EXP_11: combinación fija](experimentos/exp_11_combinacion_modelos/exp_11_combinacion_modelos.ipynb): ½·Jared + ½·(MIX+K1) frente a sus componentes, con el control ½·MUN + ½·K. Cero entrenamientos.
+15. [04: selección del modelo final y 59 predicciones](04_seleccion_modelo_final.ipynb): reúne todas las evaluaciones, explica por qué el error queda en 0.4x, resume las pruebas con caja cerrada, aplica la decisión registrada (E_JK, referencia MIX) y genera las 59 predicciones con intervalos. Antes de predecir, reproduce las 2,760 OOF de EXP_11 y la caja cerrada. Se construye con `scripts/construir_notebook_04.py` y se ejecuta con `scripts/ejecutar_notebook_04.py`. Probado en dos kernels locales limpios, no en Colab real.
 
 Cada cuaderno incorpora sus lectores y controles y está diseñado para ejecutarse en una sesión nueva de Colab sin ejecutar el anterior. La autonomía comprobada localmente no sustituye una ejecución real en Colab. El segundo reconstruye la tabla integrada y contrasta su resultado, sin entrenar ni seleccionar predictores.
 

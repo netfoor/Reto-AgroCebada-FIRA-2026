@@ -1,0 +1,60 @@
+ID_POLIGONO,Municipio,grupo,celda,etiquetadas_en_municipio,etiquetadas_en_celda,tiene_K1,log_area_dentro_rango,dist_etiquetada_mas_cercana_m
+AGC_003,Singuilucan,Singuilucan,R28_C31,16,6,True,True,382.677
+AGC_011,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,835.702
+AGC_016,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,170.557
+AGC_025,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,398.122
+AGC_027,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,523.825
+AGC_028,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,203.517
+AGC_029,Calpulalpan,Tlaxcala,R37_C27,30,2,True,True,782.019
+AGC_030,Singuilucan,Singuilucan,R28_C30,16,7,True,True,504.625
+AGC_031,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,181.34
+AGC_036,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,295.393
+AGC_039,Calpulalpan,Tlaxcala,R36_C27,30,8,True,True,482.715
+AGC_042,Singuilucan,Singuilucan,R28_C31,16,6,True,True,315.51
+AGC_043,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,350.357
+AGC_050,Calpulalpan,Tlaxcala,R36_C27,30,8,True,True,599.169
+AGC_052,Cuautepec de Hinojosa,Otros_Hidalgo,R29_C33,5,3,True,True,245.067
+AGC_061,Calpulalpan,Tlaxcala,R37_C26,30,2,False,True,983.215
+AGC_063,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,619.709
+AGC_065,Almoloya,Almoloya,R32_C32,10,1,False,True,1914.98
+AGC_071,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,197.124
+AGC_075,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,386.107
+AGC_076,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,308.772
+AGC_082,Almoloya,Almoloya,R31_C33,10,5,True,True,494.585
+AGC_085,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,226.588
+AGC_086,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,575.078
+AGC_087,Calpulalpan,Tlaxcala,R37_C28,30,1,False,True,225.114
+AGC_088,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,135.537
+AGC_091,Chignahuapan,Chignahuapan,R30_C34,71,34,True,False,93.5421
+AGC_093,Calpulalpan,Tlaxcala,R36_C28,30,15,True,True,369.673
+AGC_094,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,187.307
+AGC_095,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,214.062
+AGC_107,Almoloya,Almoloya,R31_C33,10,5,True,True,200.119
+AGC_113,Singuilucan,Singuilucan,R28_C31,16,6,True,True,224.959
+AGC_116,Chignahuapan,Chignahuapan,R31_C33,71,5,True,True,200.927
+AGC_118,Singuilucan,Singuilucan,R29_C30,16,1,False,True,1073.62
+AGC_120,Nanacamilpa de Mariano Arista,Tlaxcala,R37_C28,1,1,False,True,1258.66
+AGC_126,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,301.647
+AGC_128,Almoloya,Almoloya,R31_C33,10,5,True,True,248.432
+AGC_129,Singuilucan,Singuilucan,R28_C31,16,6,True,True,515.763
+AGC_130,Cuautepec de Hinojosa,Otros_Hidalgo,R29_C33,5,3,True,True,446.238
+AGC_136,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,183.727
+AGC_142,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,66.7555
+AGC_143,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,318.479
+AGC_147,Calpulalpan,Tlaxcala,R36_C26,30,0,False,True,1169.52
+AGC_149,Cuautepec de Hinojosa,Otros_Hidalgo,R29_C33,5,3,True,True,252.67
+AGC_153,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,515.829
+AGC_154,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,281.953
+AGC_156,Singuilucan,Singuilucan,R28_C30,16,7,True,True,766.702
+AGC_158,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,341.771
+AGC_173,Calpulalpan,Tlaxcala,R36_C27,30,8,False,True,1698.68
+AGC_174,Cuautepec de Hinojosa,Otros_Hidalgo,R30_C32,5,0,False,True,1642.77
+AGC_175,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,263.72
+AGC_177,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,364.951
+AGC_182,Chignahuapan,Chignahuapan,R31_C34,71,1,True,True,400.122
+AGC_183,Calpulalpan,Tlaxcala,R36_C28,30,15,False,True,1086.05
+AGC_186,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,551.257
+AGC_188,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,335.173
+AGC_190,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,288.901
+AGC_191,Chignahuapan,Chignahuapan,R30_C33,71,34,True,True,211.325
+AGC_192,Chignahuapan,Chignahuapan,R30_C34,71,34,True,True,763.079

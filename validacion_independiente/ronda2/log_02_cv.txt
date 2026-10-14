@@ -1,0 +1,87 @@
+rep 0 pliegue 0 (5s)
+rep 0 pliegue 1 (10s)
+rep 0 pliegue 2 (13s)
+rep 0 pliegue 3 (17s)
+rep 0 pliegue 4 (20s)
+rep 1 pliegue 0 (24s)
+rep 1 pliegue 1 (29s)
+rep 1 pliegue 2 (32s)
+rep 1 pliegue 3 (35s)
+rep 1 pliegue 4 (40s)
+rep 2 pliegue 0 (42s)
+rep 2 pliegue 1 (45s)
+rep 2 pliegue 2 (50s)
+rep 2 pliegue 3 (53s)
+rep 2 pliegue 4 (57s)
+rep 3 pliegue 0 (62s)
+rep 3 pliegue 1 (66s)
+rep 3 pliegue 2 (71s)
+rep 3 pliegue 3 (75s)
+rep 3 pliegue 4 (78s)
+rep 4 pliegue 0 (81s)
+rep 4 pliegue 1 (83s)
+rep 4 pliegue 2 (86s)
+rep 4 pliegue 3 (88s)
+rep 4 pliegue 4 (91s)
+rep 5 pliegue 0 (95s)
+rep 5 pliegue 1 (98s)
+rep 5 pliegue 2 (104s)
+rep 5 pliegue 3 (107s)
+rep 5 pliegue 4 (112s)
+rep 6 pliegue 0 (115s)
+rep 6 pliegue 1 (118s)
+rep 6 pliegue 2 (122s)
+rep 6 pliegue 3 (125s)
+rep 6 pliegue 4 (128s)
+rep 7 pliegue 0 (131s)
+rep 7 pliegue 1 (134s)
+rep 7 pliegue 2 (136s)
+rep 7 pliegue 3 (138s)
+rep 7 pliegue 4 (141s)
+rep 8 pliegue 0 (144s)
+rep 8 pliegue 1 (146s)
+rep 8 pliegue 2 (153s)
+rep 8 pliegue 3 (159s)
+rep 8 pliegue 4 (161s)
+rep 9 pliegue 0 (164s)
+rep 9 pliegue 1 (167s)
+rep 9 pliegue 2 (171s)
+rep 9 pliegue 3 (176s)
+rep 9 pliegue 4 (178s)
+           n     RMSE      MAE       R2  reps_mejor_que_E_JK  reps_mejor_que_MIX
+modelo                                                                          
+J        992  0.48387  0.32438  0.66622                    6                  10
+E_JK     992  0.48708  0.32523  0.66178                    0                  10
+H1_E_JK  992  0.48874  0.32747  0.65947                    2                  10
+H2_E_JK  992  0.48968  0.32640  0.65815                    2                  10
+F4       992  0.49156  0.32661  0.65553                    1                  10
+F7       992  0.49378  0.33447  0.65240                    3                   9
+F6       992  0.49453  0.34064  0.65135                    4                   9
+K        992  0.50417  0.34553  0.63763                    0                   5
+MIX      992  0.50431  0.34518  0.63742                    0                   0
+H2_MIX   992  0.50585  0.34506  0.63520                    0                   2
+H1_MIX   992  0.50690  0.34807  0.63370                    0                   0
+MUN      992  0.50690  0.33470  0.63369                    1                   3
+F1       992  0.50863  0.34248  0.63118                    0                   3
+F2       992  0.50892  0.34147  0.63077                    0                   4
+F5       992  0.51284  0.34868  0.62506                    0                   3
+F3       992  0.51823  0.35168  0.61713                    0                   1
+zona     Chignahuapan   resto
+modelo                       
+E_JK           0.5741  0.3623
+F1             0.5940  0.3883
+F2             0.5976  0.3826
+F3             0.6097  0.3876
+F4             0.5804  0.3638
+F5             0.6037  0.3830
+F6             0.5719  0.3871
+F7             0.5748  0.3801
+H1_E_JK        0.5767  0.3625
+H1_MIX         0.5850  0.3988
+H2_E_JK        0.5777  0.3633
+H2_MIX         0.5841  0.3976
+J              0.5753  0.3508
+K              0.5850  0.3914
+MIX            0.5819  0.3971
+MUN            0.5985  0.3753
+EXIT 0

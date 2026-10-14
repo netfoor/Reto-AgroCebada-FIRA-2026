@@ -40,4 +40,4 @@
 
 ## Pendiente de integrar
 
-Fila en `gestion/bitacora_experimentos.md`, enlaces en los README y atribución de AlphaEarth en el reporte final ("The AlphaEarth Foundations Satellite Embedding dataset is produced by Google and Google DeepMind", CC-BY 4.0).
+Fila en `docs/bitacora_experimentos.md`, enlaces en los README y atribución de AlphaEarth en el reporte final ("The AlphaEarth Foundations Satellite Embedding dataset is produced by Google and Google DeepMind", CC-BY 4.0).

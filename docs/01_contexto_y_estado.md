@@ -22,15 +22,15 @@ Cada respuesta se apoya en una salida reproducible, no solo en una afirmación d
 
 ## Balance de las siete rondas — consulta rápida
 
-| Ronda de lectura | Pregunta estudiada | Conclusión registrada |
-|---|---|---|
-| `exp_01_bloques` | ¿Aportan clima, satélite o historia? | Historia mejora poco RMSE, pero empeora MAE; no se adopta. |
-| `exp_02_ponderacion_temporal` | ¿Ayuda ponderar las medias por tiempo? | No supera su control ni las referencias. |
-| `exp_03_variables_y_familias` | ¿Ayudan descriptores temporales o Ridge/HGB? | Sin mejora adoptada en el contraste acotado. |
-| `exp_04_lluvia_octubre` | ¿Ayudan anomalías y agrupaciones? | J5_PCT queda con reservas; parte de la ventaja depende del escenario y los grupos. |
-| `exp_05_historico_octubre` | ¿Qué aporta separar lluvia histórica y actual? | Ninguna receta cumple la regla principal. |
-| `exp_06_pico_soportado` | ¿Ayuda redefinir la fecha del pico? | Mejora poco su control, pero no supera las referencias. |
-| `exp_07_heterogeneidad_parcela` | ¿Aporta dispersión espacial además de NDVI medio y municipio? | No reduce RMSE de forma estable frente a su control ni supera MIX; sin adopción. |
+| Ronda de lectura                  | Pregunta estudiada                                               | Conclusión registrada                                                             |
+| --------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `exp_01_bloques`                | ¿Aportan clima, satélite o historia?                           | Historia mejora poco RMSE, pero empeora MAE; no se adopta.                         |
+| `exp_02_ponderacion_temporal`   | ¿Ayuda ponderar las medias por tiempo?                          | No supera su control ni las referencias.                                           |
+| `exp_03_variables_y_familias`   | ¿Ayudan descriptores temporales o Ridge/HGB?                    | Sin mejora adoptada en el contraste acotado.                                       |
+| `exp_04_lluvia_octubre`         | ¿Ayudan anomalías y agrupaciones?                              | J5_PCT queda con reservas; parte de la ventaja depende del escenario y los grupos. |
+| `exp_05_historico_octubre`      | ¿Qué aporta separar lluvia histórica y actual?                | Ninguna receta cumple la regla principal.                                          |
+| `exp_06_pico_soportado`         | ¿Ayuda redefinir la fecha del pico?                             | Mejora poco su control, pero no supera las referencias.                            |
+| `exp_07_heterogeneidad_parcela` | ¿Aporta dispersión espacial además de NDVI medio y municipio? | No reduce RMSE de forma estable frente a su control ni supera MIX; sin adopción.  |
 
 **No hay una mejora adoptada.** Eso no significa que todas las hipótesis tengan efecto nulo ni que una familia completa de modelos sea inútil. Las auditorías, diagnósticos y réplicas son comprobaciones, no rondas predictivas adicionales.
 

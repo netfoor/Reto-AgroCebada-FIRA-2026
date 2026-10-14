@@ -1,0 +1,237 @@
+{
+  "id": "NB04",
+  "modo": "seleccion_final_y_59_predicciones",
+  "fecha": "2026-10-11",
+  "modelo_entrega": "E_JK",
+  "referencia": "MIX",
+  "insumos": {
+    "metadatos": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/metadatos.csv",
+      "bytes": 13917,
+      "sha256": "9882c9793559084a98ddebd3a08137baec766f83df1191a29a6485077e925424",
+      "uso": "metadatos"
+    },
+    "k1": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/variables_197.csv",
+      "bytes": 31992,
+      "sha256": "445aca6ddd1602d3db9b4035673f22b274a82cfc7e90a605bc34e7ba67561d9c",
+      "uso": "k1"
+    },
+    "etiquetas": {
+      "ruta_local": "data/exp_10_verificacion_contraste_vecinal/etiquetas_138.csv",
+      "bytes": 1765,
+      "sha256": "dd43b5b0468f56eaf5c58b1a055e8b7d8039a3037902564d6e65dce1a3941cc1",
+      "uso": "etiquetas"
+    },
+    "grupos_celda": {
+      "ruta_local": "data/exp_04_lluvia_octubre/grupos.csv",
+      "bytes": 12182,
+      "sha256": "42c9fbae11f1c0f9335c194358bbd3bf02713b370356d14c1384e62d8994bd3d",
+      "uso": "grupos_celda"
+    },
+    "base_jared": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/base_197_ubicacion.csv",
+      "bytes": 15744,
+      "sha256": "0603e7227576a969f1f9e20dd33bfa32dfee5b3f3fdbb45684471a394cd21728",
+      "uso": "base_jared"
+    },
+    "jared_clima_ventanas_features": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_features.csv",
+      "bytes": 100283,
+      "sha256": "b4e043387c51ea38bc148455ba797282da6d8f0af4fadcf9ebd4692a8c5d6b08",
+      "uso": "jared_clima_ventanas_features"
+    },
+    "jared_clima_anomalias_features": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_features.csv",
+      "bytes": 67180,
+      "sha256": "3066d28c573b7f1a770fb5d4f348001c4e99d159a8184e8638c2c58f34589f33",
+      "uso": "jared_clima_anomalias_features"
+    },
+    "jared_sat_compuestos_features": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_features.csv",
+      "bytes": 61814,
+      "sha256": "a6d83f601315b313eb76bece4e2fca4b07d51379a9d2b3de3988573756a71653",
+      "uso": "jared_sat_compuestos_features"
+    },
+    "jared_sat_sensor_features": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_features.csv",
+      "bytes": 104954,
+      "sha256": "8abd15ebe4e8fcd6600ad8cf82a7a36f92a82351b83ef38789f8bc7fceb20019",
+      "uso": "jared_sat_sensor_features"
+    },
+    "jared_sat_indices17_features": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_features.csv",
+      "bytes": 108960,
+      "sha256": "45ae4c3d2ffbf42dce2c2b1e4dbef3ef4c5cc7c18a86154e5fe205e1ab190feb",
+      "uso": "jared_sat_indices17_features"
+    },
+    "jared_clima_ventanas_hipotesis": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_ventanas_hipotesis.csv",
+      "bytes": 5050,
+      "sha256": "5e18ae9f64e4454194196e4c64eddf14dbf650403464cc6e658dd3a414597215",
+      "uso": "jared_clima_ventanas_hipotesis"
+    },
+    "jared_clima_anomalias_hipotesis": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/clima_anomalias_hipotesis.csv",
+      "bytes": 3715,
+      "sha256": "13c2a7386acd7d26b644e00f1e1636d4de516c5b5c17c56a4d35448be23df1a6",
+      "uso": "jared_clima_anomalias_hipotesis"
+    },
+    "jared_sat_compuestos_hipotesis": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_compuestos_hipotesis.csv",
+      "bytes": 5091,
+      "sha256": "2cf350cb1f07aeac83674a084a2feb517c58574290da371e48fcf85d9d9bbdc0",
+      "uso": "jared_sat_compuestos_hipotesis"
+    },
+    "jared_sat_sensor_hipotesis": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_sensor_hipotesis.csv",
+      "bytes": 9865,
+      "sha256": "f804aedfc86cd1255bb054ec1968a7e855cc57fe5f4e7538cfa0f2070954db6f",
+      "uso": "jared_sat_sensor_hipotesis"
+    },
+    "jared_sat_indices17_hipotesis": {
+      "ruta_local": "data/exp_11_combinacion_modelos/procedencia_jared/variables_jared/sat_indices17_hipotesis.csv",
+      "bytes": 5909,
+      "sha256": "73fad2b5da06e92bd37dc72fc4199ee85661faf55b082df65c961d3e091708e5",
+      "uso": "jared_sat_indices17_hipotesis"
+    },
+    "hist_externas": {
+      "ruta_local": "data/validacion_03/particiones_externas.csv",
+      "bytes": 175295,
+      "sha256": "02d07dfcdb8064a4daf08b5bebc575f807ccab09ca33f27ec7dfa1a069c300ec",
+      "uso": "hist_externas"
+    },
+    "hist_internas": {
+      "ruta_local": "data/validacion_03/particiones_internas.csv",
+      "bytes": 601731,
+      "sha256": "a35412fda33fcea7b379f6d95418eaaa7ebafc5b5330873613b83184cb16ab6a",
+      "uso": "hist_internas"
+    },
+    "nuevas_externas": {
+      "ruta_local": "data/exp_09_fuentes_externas/particiones_externas_nuevas.csv",
+      "bytes": 175295,
+      "sha256": "2cbc0e04fc72c047bb4115cf2af463be5eb8e1c91c2b0b860b91232b93a9d754",
+      "uso": "nuevas_externas"
+    },
+    "nuevas_internas": {
+      "ruta_local": "data/exp_09_fuentes_externas/particiones_internas_nuevas.csv",
+      "bytes": 601731,
+      "sha256": "da5587c5b0d7b7a0054522591ba1cecfd74b0ff54430d6b67ab6270080b77d72",
+      "uso": "nuevas_internas"
+    },
+    "oof_componentes": {
+      "ruta_local": "data/exp_11_combinacion_modelos/oof_componentes.csv",
+      "bytes": 809968,
+      "sha256": "aac0347da4600a4fcdaa256860dd32969a07bea1fead74e7194405e740a229fa",
+      "uso": "oof_componentes"
+    },
+    "j_elegidas": {
+      "ruta_local": "data/exp_11_combinacion_modelos/j_variables_elegidas.csv",
+      "bytes": 3137,
+      "sha256": "39784ef2f9307b45f0026a48ee3c8270074bbe12151de75bbc8da56c96880fbd",
+      "uso": "j_elegidas"
+    },
+    "metricas_exp11": {
+      "ruta_local": "resultados/exp_11_combinacion_modelos/registrada/metricas.csv",
+      "bytes": 1718,
+      "sha256": "b7718ebf4e4882899db0f2f1107d12092b581482ba740e74249b5aad1884f098",
+      "uso": "metricas_exp11"
+    },
+    "oof_global_hist": {
+      "ruta_local": "data/validacion_03/oof_referencias_historico.csv",
+      "bytes": 416403,
+      "sha256": "e9768cec1165f3d7f1c8ab556201bc12c8073864c9ed5b0924c7bc00466dd6d1",
+      "uso": "oof_global_hist"
+    },
+    "r1_registro": {
+      "ruta_local": "validacion_independiente/registro_previo.json",
+      "bytes": 9690,
+      "sha256": "d091aebe8fcce3c35613f1ee94076128cd25734ad98462ee3c98acf338a8e218",
+      "uso": "r1_registro"
+    },
+    "r1_oof": {
+      "ruta_local": "validacion_independiente/resultados_desarrollo/oof_desarrollo.csv",
+      "bytes": 664947,
+      "sha256": "60ddc69003162463bbf046f1df8518c852256fc6de7d110277ce65dc6e5bd4da",
+      "uso": "r1_oof"
+    },
+    "r1_metricas": {
+      "ruta_local": "validacion_independiente/resultados_desarrollo/metricas_desarrollo_todas.csv",
+      "bytes": 663,
+      "sha256": "e85f1deae288bc73d85ebd5667d30fa003413be43afa887c94fdf14dfd8a7539",
+      "uso": "r1_metricas"
+    },
+    "r1_congelado": {
+      "ruta_local": "validacion_independiente/congelado.json",
+      "bytes": 5807,
+      "sha256": "8fa68d501c55c0fef4e57819cac51da42bd9e6b8b59ae8c999af574a4ab7542b",
+      "uso": "r1_congelado"
+    },
+    "r1_caja_pred": {
+      "ruta_local": "validacion_independiente/resultados_caja/predicciones_caja.csv",
+      "bytes": 5422,
+      "sha256": "c5a8f934350db14e1c4919bb041453a6765f9cd1519ee8cdc54b8dec920f8620",
+      "uso": "r1_caja_pred"
+    },
+    "r1_caja_res": {
+      "ruta_local": "validacion_independiente/resultados_caja/resultado_caja.json",
+      "bytes": 4648,
+      "sha256": "5ec616c2f72ecea5e38d7334c9eed4627c52fe58e822b20cb8ff359edd2106e7",
+      "uso": "r1_caja_res"
+    },
+    "r2_registro": {
+      "ruta_local": "validacion_independiente/ronda2/registro_previo.json",
+      "bytes": 6996,
+      "sha256": "553be686a9987b6060fdfe331253109480cd1a9747df1c8c60792ad2d973de5f",
+      "uso": "r2_registro"
+    },
+    "r2_chequeo": {
+      "ruta_local": "validacion_independiente/ronda2/chequeo_x.json",
+      "bytes": 947,
+      "sha256": "bef7b70dcfabee32c1082babb2dd5c27957eec88af58f251d3ba1f91bf4fab3a",
+      "uso": "r2_chequeo"
+    },
+    "r2_descargas": {
+      "ruta_local": "validacion_independiente/ronda2/datos/registro_descargas.json",
+      "bytes": 2038,
+      "sha256": "f206202489000c27b8b41812460d6b26f6106b0292a41b885a3046794dc3fbd3",
+      "uso": "r2_descargas"
+    },
+    "r2_oof": {
+      "ruta_local": "validacion_independiente/ronda2/resultados_cv/oof.csv",
+      "bytes": 1082886,
+      "sha256": "d3953af0b3afa9b4db1d783bf99de50e1e4523100016d8bbe8a7c8cd900f8c2c",
+      "uso": "r2_oof"
+    },
+    "r2_metricas": {
+      "ruta_local": "validacion_independiente/ronda2/resultados_cv/metricas.csv",
+      "bytes": 881,
+      "sha256": "87eccd7492ee29ea1a5f94a94dd413e9a0ce8f0655b29a00e4c5a565b5a6a1b3",
+      "uso": "r2_metricas"
+    },
+    "r2_congelado": {
+      "ruta_local": "validacion_independiente/ronda2/congelado.json",
+      "bytes": 5370,
+      "sha256": "91b94dd852a127c662bb98fbcbf81c485c17121e4a9cdb22de80e78f37e371b6",
+      "uso": "r2_congelado"
+    },
+    "r2_caja_pred": {
+      "ruta_local": "validacion_independiente/ronda2/resultados_caja/predicciones_caja.csv",
+      "bytes": 5812,
+      "sha256": "8500636f76eef6e2cda685d994a4c76668910f97b2218aba9d0c2a3a30a6dc0a",
+      "uso": "r2_caja_pred"
+    },
+    "r2_caja_res": {
+      "ruta_local": "validacion_independiente/ronda2/resultados_caja/resultado.json",
+      "bytes": 2437,
+      "sha256": "8a7fda6c1c41663c52f299c00b538e53f85d4395339afd946a1a852028c33c1c",
+      "uso": "r2_caja_res"
+    },
+    "decision_fortino": {
+      "ruta_local": "docs/comprension_fortino_8oct.md (extracto: 'Decisión del modelo final' hasta 'Pendientes de cierre'; archivo completo sha256 6c3b7657648791a7619c0c4d9d91a86e9018d40b9f611a4ff25759dc049bfd78)",
+      "bytes": 3426,
+      "sha256": "213ae57200e08ae7b80b4af382e5d35c7936382f5ae3818fd487aba65efe599f",
+      "uso": "decision_fortino"
+    }
+  }
+}
