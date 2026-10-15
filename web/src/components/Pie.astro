@@ -1,0 +1,22 @@
+---
+---
+<footer class="pie-datos" id="datos">
+  <div class="envoltura">
+    <h2>Datos y código</h2>
+    <span class="acento" aria-hidden="true"></span>
+    <div class="pie-grid">
+      <div>
+        <p>Todo lo que muestra esta página sale de los archivos de la tabla. Cada uno lleva su huella SHA-256 en el manifiesto; la última columna dice si este navegador la comprobó.</p>
+        <p id="pie-gen"></p>
+        <p>Para reproducir las estimaciones en tu equipo, desde el repositorio:</p>
+        <pre class="cmd">{"uv sync --locked --all-groups\nuv run --locked --all-groups python scripts/ejecutar_notebook_04.py"}</pre>
+        <p id="pie-nube" class="nota"></p>
+      </div>
+      <table class="manif" id="manif">
+        <thead><tr><th>Archivo</th><th>SHA-256</th><th>Navegador</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="creditos">Reto AgroCebada FIRA 2026. Estimaciones para la campaña de abril a octubre de 2025.</p>
+  </div>
+</footer>

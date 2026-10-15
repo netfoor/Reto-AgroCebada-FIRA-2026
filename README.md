@@ -25,6 +25,19 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 - **Cómo se decidió:** la decisión y su regla se fijaron antes de conocer la última prueba. El detalle está en la [bitácora](docs/bitacora_experimentos.md).
 - **Qué sí y qué no se usó:** el municipio explica ~69 % de la variación. De más de 600 variables construidas y de las fuentes externas probadas, solo dos mostraron aportar algo sobre el territorio.
 
+## Herramienta en línea
+
+**https://d6wslbico5u76.cloudfront.net**
+
+Consulta las 59 estimaciones con su rango, ejecuta el modelo paso a paso en el navegador o reentrénalo en AWS Lambda con las 138 parcelas conocidas, y descarga los resultados en CSV, Excel o PDF. La página lee los datos publicados en Amazon S3 y comprueba la huella SHA-256 de cada archivo antes de usarlo; el reentrenamiento en la nube produce un CSV idéntico al de la entrega.
+
+| Carpeta | Contenido |
+|---|---|
+| [`web/`](web/README.md) | El sitio (Astro, d3 y anime.js). |
+| [`api/`](api/README.md) | La función de reentrenamiento (AWS Lambda, Python 3.13). |
+| [`infra/`](infra/README.md) | El despliegue con Terraform: S3, CloudFront y Lambda. |
+| [`scripts/exportar_web.py`](scripts/exportar_web.py) | Exporta los datos que lee el sitio y los archivos de descarga. |
+
 ## Recorrido para el equipo
 
 1. [El problema y las preguntas del recorrido](docs/01_contexto_y_estado.md).

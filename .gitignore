@@ -38,3 +38,12 @@ respaldos_locales/
 # Rásteres públicos descargados por validacion_independiente/ronda2/00_descargar.py (se reconstruyen con el script)
 
 gestion/
+# Infraestructura (Terraform): estado y caché locales. Sí se versiona infra/.terraform.lock.hcl
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/*.tfplan
+infra/crash.log
+# Front (Astro): dependencias y caché; web/dist ya queda fuera por la regla dist/
+web/node_modules/
+web/.astro/

@@ -1,0 +1,38 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion ejecutar sobre-azul" id="ejecutar">
+  <div class="envoltura">
+    <CabSeccion titulo="Ejecutar el modelo" base="Las bases piden que la aplicación permita ejecutar el modelo predictivo y consultar los resultados.">
+      <p>Dos maneras: paso a paso en este navegador, para ver de dónde sale el número de una parcela, o reentrenando el modelo completo en AWS con las 138 parcelas conocidas. Las dos terminan comparando con el archivo de entrega.</p>
+    </CabSeccion>
+    <div class="ej-grid">
+      <div>
+        <div class="ej-bloque">
+          <h3>Paso a paso, en este navegador</h3>
+          <p>Calcula la referencia territorial, el verdor relativo, la lluvia de octubre y el promedio final de una parcela.</p>
+          <div class="ej-ctrl">
+            <label class="oculto-a11y" for="ej-parcela">Parcela</label>
+            <select id="ej-parcela"></select>
+            <button class="btn" id="ej-correr">Ejecutar</button>
+            <button class="btn sec" id="ej-todas">Recalcular las 59</button>
+          </div>
+        </div>
+        <div class="ej-bloque">
+          <h3>Reentrenar en AWS</h3>
+          <p>Una función de AWS Lambda vuelve a ajustar el modelo con las 138 parcelas y estima las 59. No guarda resultados: cada llamada reentrena.</p>
+          <div class="ej-ctrl">
+            <button class="btn" id="ej-nube" disabled>Reentrenar en AWS</button>
+            <a class="btn sec" id="ej-nube-csv" href="/api/reentrenar?formato=csv" hidden>Descargar el CSV reentrenado</a>
+          </div>
+          <p class="estado-nube" id="estado-nube"><i></i><span>Buscando la función en AWS…</span></p>
+        </div>
+        <div class="consola" id="consola" aria-live="polite"><p class="vacia">Elige una parcela y pulsa Ejecutar, o reentrena en AWS.</p></div>
+      </div>
+      <div class="ej-figura">
+        <svg id="ej-svg" viewBox="0 0 420 420" role="img" aria-label="Vecinas que usa el modelo"></svg>
+        <p class="nota" id="ej-nota" style="margin-top:10px"></p>
+      </div>
+    </div>
+  </div>
+</section>

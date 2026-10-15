@@ -1,0 +1,16 @@
+[project]
+name = "agrocebada-api"
+version = "0.1.0"
+description = "Lambda que reentrena el modelo final del Reto AgroCebada 2026 y estima las 59 parcelas"
+requires-python = ">=3.13,<3.14"
+# mismas versiones que el repositorio (uv.lock de la raíz): el reentrenamiento debe dar los mismos bytes
+dependencies = [
+    "numpy==2.4.4",
+    "pandas==2.2.3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.uv]
+package = false

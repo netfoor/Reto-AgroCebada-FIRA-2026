@@ -1,0 +1,120 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+
+const FASES = ["Entender el problema", "Entender los datos", "Preparar los datos", "Modelar", "Evaluar", "Desplegar"];
+const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
+---
+<section class="seccion" id="metodo">
+  <div class="envoltura">
+    <CabSeccion titulo="Cómo se hizo">
+      <p>Seguimos las seis etapas de CRISP-DM. Baja para recorrerlas: la figura cambia en cada paso y la esquina inferior indica la etapa. Si regresas, todo se deshace en orden.</p>
+    </CabSeccion>
+    <div class="metodo-grid">
+      <div class="pasos" id="pasos">
+        <article class="paso" data-esc="oculto" data-fase="0">
+          <div class="paso-texto">
+            <p class="fase">{fase(0)}</p>
+            <h3>Estimar 59 parcelas que nadie nos dejó ver</h3>
+            <p>FIRA entregó el rendimiento de 138 parcelas y guardó el de 59 para calificar. Las ocultas están mezcladas con las demás: la parcela conocida más cercana está, en mediana, a <span class="dato" id="txt-dist">350 m</span>.</p>
+            <p>Por eso validamos así: ocultar parcelas al azar, estimarlas con las demás y medir el error, muchas veces.</p>
+          </div>
+          <figure class="figura" data-esc="oculto"><svg role="img" aria-label="Mapa de las 197 parcelas: conocidas y ocultas"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso largo" data-esc="capas" data-fase="1">
+          <div class="paso-texto">
+            <p class="fase">{fase(1)}</p>
+            <h3>Cuatro tipos de información sobre la misma parcela</h3>
+            <p>Elevación cada 120 m, lluvia mensual en celdas de unos 5 km por lado, el polígono de cada parcela y su verdor, visto en <span class="dato" id="txt-planet">cientos de imágenes de satélite</span>.</p>
+            <p>Las escalas no se parecen: una celda de lluvia cubre unas <span class="dato" id="txt-celda">2,900 ha</span> y esta parcela mide <span class="dato" id="txt-ha">1.75 ha</span>. Mientras bajas, las capas se juntan y cada una deja un número en la fila de la parcela. Si subes, se separan otra vez.</p>
+          </div>
+          <figure class="figura" data-esc="capas"><svg role="img" aria-label="Cuatro capas de datos que se juntan sobre una parcela"></svg><figcaption></figcaption></figure>
+          <div class="relleno-scroll" aria-hidden="true"></div>
+        </article>
+        <article class="paso" data-esc="territorio" data-fase="1">
+          <div class="paso-texto">
+            <p class="fase">{fase(1)}</p>
+            <h3>El territorio explica casi todo lo que se puede explicar</h3>
+            <p>Con solo saber el municipio, el error baja de <span class="dato" id="txt-global">0.85</span> a <span class="dato" id="txt-mun">0.49 t/ha</span>: el municipio explica cerca del <span class="dato" id="txt-var">69 %</span> de la variación.</p>
+            <p>De las <span class="dato">619 variables</span> que construimos, ninguna muestra por sí sola una señal dentro del municipio que se distinga del azar.</p>
+          </div>
+          <figure class="figura" data-esc="territorio"><svg role="img" aria-label="Rendimiento conocido por parcela y media de los municipios"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="vecinas" data-fase="2">
+          <div class="paso-texto">
+            <p class="fase">{fase(2)}</p>
+            <h3>Primera variable: el territorio</h3>
+            <p>La referencia MIX promedia la media del municipio con el rendimiento de las 20 parcelas conocidas más cercanas; pesa más la que está más cerca.</p>
+            <p id="txt-vecinas"></p>
+          </div>
+          <figure class="figura" data-esc="vecinas"><svg role="img" aria-label="Las 20 vecinas conocidas de la parcela de ejemplo y su peso"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="verdor" data-fase="2">
+          <div class="paso-texto">
+            <p class="fase">{fase(2)}</p>
+            <h3>Segunda variable: el verdor comparado con las vecinas</h3>
+            <p>Con las imágenes de Planet de 2025 armamos la curva de verdor hasta el 31 de octubre y medimos el área entre la curva y su nivel de abril–mayo, durante la temporada. A esa área le restamos la mediana de las parcelas a menos de 1 km.</p>
+            <p id="txt-verdor"></p>
+          </div>
+          <figure class="figura" data-esc="verdor"><svg role="img" aria-label="Curva de verdor de la parcela de ejemplo y de sus vecinas"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="lluvia" data-fase="2">
+          <div class="paso-texto">
+            <p class="fase">{fase(2)}</p>
+            <h3>Tercera variable: la lluvia de octubre</h3>
+            <p>Ponderamos cada celda de lluvia por la parte de la parcela que cubre y comparamos octubre de 2025 con el promedio de 2022 a 2024.</p>
+            <p id="txt-lluvia"></p>
+          </div>
+          <figure class="figura" data-esc="lluvia"><svg role="img" aria-label="Celdas de lluvia de octubre alrededor de la parcela y lluvia por año"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="modelo" data-fase="3">
+          <div class="paso-texto">
+            <p class="fase">{fase(3)}</p>
+            <h3>Dos modelos sencillos, promediados</h3>
+            <p>K corrige la referencia territorial con el verdor relativo. J usa el grupo regional y la lluvia de octubre. Sus errores no coinciden del todo: su promedio, E_JK, nunca puede quedar peor que el promedio de los dos, y en validación cruzada fue mejor que cada uno.</p>
+          </div>
+          <figure class="figura" data-esc="modelo"><svg role="img" aria-label="Cómo se combinan MIX, K, J y E_JK para la parcela de ejemplo"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="experimentos" data-fase="4">
+          <div class="paso-texto">
+            <p class="fase">{fase(4)}</p>
+            <h3>Once intentos contra una referencia difícil</h3>
+            <p>Cada punto es el mejor resultado de un experimento comparado con MIX. A la izquierda de la línea, mejor que la referencia. Agregar muchas variables casi siempre empeoró.</p>
+          </div>
+          <figure class="figura" data-esc="experimentos"><svg role="img" aria-label="Diferencia de error de once experimentos frente a MIX"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="evaluaciones" data-fase="4">
+          <div class="paso-texto">
+            <p class="fase">{fase(4)}</p>
+            <h3>Cinco evaluaciones, incluida una caja cerrada</h3>
+            <p>Una validación independiente apartó 35 parcelas por sorteo antes de leer rendimientos y las abrió una sola vez. E_JK quedó por delante de MIX en las cinco evaluaciones, pero por poco: en la caja, por <span class="dato" id="txt-caja">0.003 t/ha</span>.</p>
+            <p>Como E_JK se eligió después de ver resultados, esperamos un error real de 0.47 a 0.49 t/ha. En las 59 concretas puede quedar entre <span class="dato" id="txt-banda">0.35 y 0.63</span>, según cuáles se ocultaron.</p>
+          </div>
+          <figure class="figura" data-esc="evaluaciones"><svg role="img" aria-label="Error de cada modelo en cinco evaluaciones"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="techo" data-fase="4">
+          <div class="paso-texto">
+            <p class="fase">{fase(4)}</p>
+            <h3>Lo que falta no es un algoritmo</h3>
+            <p>Dos parcelas a menos de 250 m todavía difieren, típicamente, <span class="dato" id="txt-cerca">0.42 t/ha</span>. Y con más parcelas del mismo tipo el error bajaría menos de 0.01 t/ha.</p>
+            <p>Lo que movería el techo es información que cambie dentro del municipio: rendimiento medido en campo, manejo, suelo por parcela y varias campañas. Ninguna es pública en la zona.</p>
+          </div>
+          <figure class="figura" data-esc="techo"><svg role="img" aria-label="Parte del rendimiento que explica el municipio y curva de aprendizaje"></svg><figcaption></figcaption></figure>
+        </article>
+        <article class="paso" data-esc="despliegue" data-fase="5">
+          <div class="paso-texto">
+            <p class="fase">{fase(5)}</p>
+            <h3>Datos publicados y modelo en la nube</h3>
+            <p>Esta página vive en Amazon S3 y la sirve CloudFront, junto con los datos. Antes de usar cada archivo, el navegador comprueba su huella SHA-256 contra el manifiesto.</p>
+            <p>«Reentrenar en AWS» llama a una función de AWS Lambda que ajusta el modelo con las 138 parcelas y devuelve las 59 estimaciones con la huella del CSV. Todo se crea con Terraform, sin pasos manuales en la consola.</p>
+          </div>
+          <figure class="figura" data-esc="despliegue"><svg role="img" aria-label="Arquitectura del sitio y del modelo en AWS"></svg><figcaption></figcaption></figure>
+        </article>
+      </div>
+      <div class="escenario" id="escenario" aria-hidden="false"><div class="escenario-marco" id="escenario-marco"></div></div>
+    </div>
+  </div>
+  <div class="etapa" id="etapa" aria-live="polite">
+    <div class="etapa-seg" id="etapa-seg">{FASES.map(() => <i></i>)}</div>
+    <div class="etapa-txt"><b id="etapa-nom">{FASES[0]}</b><small>Etapa <span id="etapa-n">1</span> de 6 de CRISP-DM</small></div>
+  </div>
+</section>

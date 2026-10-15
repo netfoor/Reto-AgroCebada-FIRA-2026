@@ -1,0 +1,35 @@
+---
+import Base from "../layouts/Base.astro";
+import Encabezado from "../components/Encabezado.astro";
+import Portada from "../components/Portada.astro";
+import Tablero from "../components/Tablero.astro";
+import Estimaciones from "../components/Estimaciones.astro";
+import Ejecutar from "../components/Ejecutar.astro";
+import Metodo from "../components/Metodo.astro";
+import Uso from "../components/Uso.astro";
+import Preguntas from "../components/Preguntas.astro";
+import Pie from "../components/Pie.astro";
+---
+<Base
+  titulo="Reto AgroCebada 2026: rendimiento de cebada por parcela"
+  descripcion="Estimaciones de rendimiento de cebada para 59 parcelas de Hidalgo, Puebla y Tlaxcala, con el modelo que las produce, ejecutable en el navegador y en AWS."
+>
+  <Encabezado />
+  <main>
+    <Portada />
+    <Tablero />
+    <Estimaciones />
+    <Ejecutar />
+    <Metodo />
+    <Uso />
+    <Preguntas />
+  </main>
+  <Pie />
+  <div class="tip" id="tip" role="tooltip"></div>
+  <div class="aviso-datos" id="aviso-datos" role="alert" hidden></div>
+  <div id="hoja"></div>
+  <script>
+    import { iniciar } from "../scripts/main.js";
+    iniciar();
+  </script>
+</Base>

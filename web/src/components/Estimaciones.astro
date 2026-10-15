@@ -1,0 +1,56 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion banda" id="estimaciones">
+  <div class="envoltura">
+    <CabSeccion titulo="Las 59 estimaciones" base="Las bases piden una herramienta para consultar y visualizar los resultados de manera interactiva (criterio de aplicación, 30 %).">
+      <p>Elige una parcela para ver su ficha. La barra con surcos es el rango donde esperamos el valor real 8 de cada 10 veces; la línea gris, la referencia MIX.</p>
+    </CabSeccion>
+    <div class="estim">
+      <div>
+        <div class="tabla-herr">
+          <label class="oculto-a11y" for="buscar">Buscar parcela o municipio</label>
+          <input id="buscar" type="search" placeholder="Buscar parcela o municipio" autocomplete="off" />
+          <span class="nota" id="conteo"></span>
+        </div>
+        <div class="tabla-marco">
+          <table class="t59" id="t59">
+            <thead><tr>
+              <th><button data-o="id" data-orden="asc">Parcela</button></th>
+              <th class="col-mun"><button data-o="mun">Municipio</button></th>
+              <th style="text-align:right"><button data-o="pred">t/ha</button></th>
+              <th><button data-o="ancho">Rango 80 %</button></th>
+              <th class="col-dif" style="text-align:right"><button data-o="dif">Frente a MIX</button></th>
+              <th class="col-notas">Notas</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <aside class="ficha" id="ficha" aria-live="polite"></aside>
+    </div>
+
+    <div class="descargas" id="descargas">
+      <h3>Descargar las estimaciones</h3>
+      <p class="nota" style="margin-top:6px">Mira el contenido antes de descargarlo. Los archivos se sirven desde Amazon S3; el CSV es el mismo de la entrega y su huella SHA-256 se comprueba en este navegador.</p>
+      <div class="desc-grid">
+        <div class="desc" data-d="csv">
+          <h4>Tabla CSV</h4>
+          <p>Formato de entrega: identificador de parcela y rendimiento estimado en t/ha.</p>
+          <div class="acc"><button class="btn sec" data-ver="csv">Vista previa</button><a class="btn" href="/descargas/predicciones_59.csv" download>Descargar CSV</a></div>
+        </div>
+        <div class="desc" data-d="xlsx">
+          <h4>Libro de Excel</h4>
+          <p>Cuatro hojas: estimaciones, rangos, componentes del modelo y metadatos.</p>
+          <div class="acc"><button class="btn sec" data-ver="xlsx">Vista previa</button><a class="btn" href="/descargas/agrocebada_estimaciones.xlsx" download>Descargar Excel</a></div>
+        </div>
+        <div class="desc" data-d="pdf">
+          <h4>Reporte PDF</h4>
+          <p>Una hoja con el mapa, las 59 estimaciones y sus rangos, lista para imprimir.</p>
+          <div class="acc"><button class="btn sec" data-ver="pdf">Vista previa</button><button class="btn" data-pdf>Guardar como PDF</button></div>
+        </div>
+      </div>
+      <div class="previa" id="previa"><p class="nota">Elige «Vista previa» en cualquiera de los tres formatos.</p></div>
+    </div>
+  </div>
+</section>

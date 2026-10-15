@@ -1,0 +1,32 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion" id="tablero">
+  <div class="envoltura">
+    <CabSeccion titulo="El reto en una pantalla">
+      <p>Rellenas: rendimiento conocido. Con surcos: las 59 que estima el modelo. Acerca el mapa con el botón +, con Ctrl y la rueda o con dos dedos para ver la forma de cada parcela.</p>
+    </CabSeccion>
+    <div class="tablero">
+      <div class="mapa-marco">
+        <div class="mapa-herr alterna" role="group" aria-label="Filtrar parcelas">
+          <button data-f="todas" aria-pressed="true">Todas</button>
+          <button data-f="rep" aria-pressed="false">Conocidas</button>
+          <button data-f="est" aria-pressed="false">Estimadas</button>
+        </div>
+        <div class="mapa-zoom">
+          <button data-z="1" aria-label="Acercar">+</button>
+          <button data-z="-1" aria-label="Alejar">−</button>
+          <button data-z="0" aria-label="Ver todo el mapa"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></button>
+        </div>
+        <svg class="mapa-svg" id="mapa" role="img" aria-label="Mapa de las 197 parcelas coloreadas por rendimiento"></svg>
+        <div class="mapa-ley" id="mapa-ley"></div>
+      </div>
+      <div>
+        <div class="cifras" id="cifras"></div>
+        <h3 class="tira-tit">Rendimiento por municipio (t/ha)</h3>
+        <div id="tira"></div>
+        <p class="nota" id="tira-nota" style="margin-top:8px"></p>
+      </div>
+    </div>
+  </div>
+</section>
