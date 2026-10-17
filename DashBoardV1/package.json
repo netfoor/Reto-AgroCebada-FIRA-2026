@@ -1,0 +1,23 @@
+{
+  "name": "agrocebada-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio del Reto AgroCebada FIRA 2026: consulta de las 59 estimaciones y ejecución del modelo",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "animejs": "4.5.0",
+    "astro": "7.3.5",
+    "d3": "7.9.0",
+    "leaflet": "^1.9.4",
+    "tailwindcss": "4.3.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
