@@ -1,0 +1,106 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+import "leaflet/dist/leaflet.css";
+import "../styles/mapa-satelite.css";
+---
+<section class="seccion" id="tablero">
+  <div class="envoltura">
+    <CabSeccion titulo="El reto en una pantalla">
+      <p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Con surcos: las 59 que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.</p>
+    </CabSeccion>
+    <div class="tablero tablero-sat">
+      <div class="mapa-col">
+      <div class="mapa-marco sat">
+        <div class="mapa-herr alterna" role="group" aria-label="Filtrar parcelas">
+          <button data-f="todas" aria-pressed="true">Todas</button>
+          <button data-f="rep" aria-pressed="false">Conocidas</button>
+          <button data-f="est" aria-pressed="false">Estimadas</button>
+        </div>
+        <div class="mapa-vista alterna" role="group" aria-label="Vista del satélite">
+          <button data-v="azul" aria-pressed="true">Satélite azul</button>
+          <button data-v="natural" aria-pressed="false">Natural</button>
+        </div>
+        <div class="mapa-zoom">
+          <button data-z="1" aria-label="Acercar">+</button>
+          <button data-z="-1" aria-label="Alejar">−</button>
+          <button data-z="0" aria-label="Ver todo el mapa"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></button>
+        </div>
+        <div class="mapa-sat" id="mapa-sat" role="img" aria-label="Mapa satelital de las 197 parcelas coloreadas por rendimiento"></div>
+        <div class="mapa-ley" id="mapa-ley"></div>
+        <aside class="ficha-sat" id="ficha-sat" hidden aria-live="polite"></aside>
+        <div class="mapa-pista" id="mapa-pista">Haz clic en cualquier parcela para ver su ficha</div>
+      </div>
+      <nav class="rec-barra" aria-label="Pasos del recorrido">
+        <button type="button" class="rec-flecha" data-d="-1" aria-label="Paso anterior">‹</button>
+        <div class="rec-botones" id="rec-botones">
+          <button type="button" data-i="0" title="Territorio"><b>1</b><span>Territorio</span></button>
+          <button type="button" data-i="1" title="El municipio pesa más"><b>2</b><span>Municipio</span></button>
+          <button type="button" data-i="2" title="La lluvia de octubre"><b>3</b><span>Lluvia</span></button>
+          <button type="button" data-i="3" title="El verdor frente a las vecinas"><b>4</b><span>Vecinas</span></button>
+          <button type="button" data-i="4" title="Dónde se equivoca"><b>5</b><span>Error</span></button>
+          <button type="button" data-i="5" title="Las 59 estimaciones"><b>6</b><span>Las 59</span></button>
+          <button type="button" data-i="6" title="Explora por tu cuenta"><b>7</b><span>Explora</span></button>
+        </div>
+        <button type="button" class="rec-flecha" data-d="1" aria-label="Paso siguiente">›</button>
+      </nav>
+      </div>
+      <div class="tablero-der">
+        <div class="cifras" id="cifras"></div>
+        <h3 class="tira-tit">Rendimiento por municipio (t/ha)</h3>
+        <div id="tira"></div>
+        <p class="nota" id="tira-nota" style="margin-top:8px"></p>
+
+        <details class="glosario">
+          <summary>¿Qué significan los nombres del modelo?</summary>
+          <dl>
+            <dt>t/ha</dt><dd>Toneladas de cebada por hectárea.</dd>
+            <dt>MUN</dt><dd>Media del municipio: el promedio de las parcelas conocidas del mismo municipio.</dd>
+            <dt>MIX</dt><dd>Referencia territorial: mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.</dd>
+            <dt>K</dt><dd>La referencia corregida por el verdor de la parcela frente a sus vecinas a menos de 1 km.</dd>
+            <dt>J</dt><dd>La media del grupo regional ajustada por la lluvia de octubre de 2025 frente a 2022–2024.</dd>
+            <dt>E_JK</dt><dd>Estimación final: el promedio de K y J. Es la que se entrega.</dd>
+            <dt>RMSE</dt><dd>Error típico: cuánto se aleja la estimación del valor real, en t/ha.</dd>
+            <dt>Rango 80 %</dt><dd>Intervalo donde esperamos el valor real 8 de cada 10 veces.</dd>
+          </dl>
+        </details>
+
+        <h3 class="rec-tit">Recorre el mapa</h3>
+        <article class="rec-paso" data-accion="todo">
+          <p class="fase">Paso 1 de 7</p>
+          <h4>Las 197 sobre el satélite</h4>
+          <p>Lejos, cada parcela es un punto; al acercarte aparece su forma real. Las rellenas tienen rendimiento conocido y las de surcos son las 59 que estima el modelo.</p>
+        </article>
+        <article class="rec-paso" data-accion="grupo">
+          <p class="fase">Paso 2 de 7</p>
+          <h4>El municipio pesa más que todo lo demás</h4>
+          <p>Saber el municipio explica <span class="dato" data-txt="varianza">69 %</span> de la variación. Por eso el modelo parte de la media de cada grupo regional; en el mapa, cada color es un grupo.</p>
+        </article>
+        <article class="rec-paso" data-accion="lluvia">
+          <p class="fase">Paso 3 de 7</p>
+          <h4>La lluvia de octubre ajusta la estimación</h4>
+          <p>Cuánto llovió en octubre de 2025 frente al promedio de 2022–2024. Cada punto porcentual suma <span class="dato" data-txt="pendiente">0.0168</span> t/ha: con 10 % más de lluvia, unas 0.17 t/ha más.</p>
+        </article>
+        <article class="rec-paso" data-accion="vecinas">
+          <p class="fase">Paso 4 de 7</p>
+          <h4>El verdor frente a las vecinas</h4>
+          <p id="txt-vit">El anillo marca 1 km alrededor de la parcela. La estimación se corrige según qué tan verde estuvo frente a sus vecinas.</p>
+        </article>
+        <article class="rec-paso" data-accion="error">
+          <p class="fase">Paso 5 de 7</p>
+          <h4>Dónde se equivoca</h4>
+          <p>Cada conocida pintada según cuánto falló el modelo cuando la ocultamos. Los errores grandes se juntan en Chignahuapan, el municipio con más parcelas.</p>
+        </article>
+        <article class="rec-paso" data-accion="estimadas">
+          <p class="fase">Paso 6 de 7</p>
+          <h4>Las 59 estimaciones</h4>
+          <p>Con surcos y coloreadas por su estimación. Con borde rojo, las que no tienen vecinas suficientes a menos de 1 km para comparar su verdor; ahí se usa solo la referencia territorial.</p>
+        </article>
+        <article class="rec-paso" data-accion="libre">
+          <p class="fase">Paso 7 de 7</p>
+          <h4>Ahora tú</h4>
+          <p>Filtra, cambia la vista del satélite, acerca con Ctrl y la rueda del mouse y elige cualquier parcela. La tabla de estimaciones y el cálculo paso a paso se mueven con el mapa.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

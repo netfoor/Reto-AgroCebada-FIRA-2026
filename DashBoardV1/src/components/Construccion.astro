@@ -1,0 +1,77 @@
+---
+import fs from "node:fs";
+import CabSeccion from "./CabSeccion.astro";
+
+const leer = (ruta: string) => fs.readFileSync(ruta, "utf8");
+const ARCHIVOS = [
+  { ruta: "src/components/Tablero.astro", que: "Estructura del tablero: mapa, herramientas, cifras y las siete tarjetas del recorrido." },
+  { ruta: "src/scripts/mapaSatelite.js", que: "El mapa satelital completo: conversión UTM, polígonos y símbolos, surcos, modos de color, marco de selección, anillo de 1 km y ficha flotante." },
+  { ruta: "src/scripts/recorrido.js", que: "Recorrido del tablero: cada paso se activa con scroll o con clic en la barra bajo el mapa." },
+  { ruta: "src/scripts/satelite.js", que: "Conversión UTM ↔ grados y teselas de Esri teñidas debajo de cualquier figura de d3." },
+  { ruta: "src/scripts/escenas.js", que: "Figuras de «Cómo se hizo»: las ocultas, el territorio, las vecinas, la lluvia y la capa del polígono ahora llevan satélite." },
+  { ruta: "src/scripts/ejecutar.js", que: "«Ejecutar el modelo»: cálculo paso a paso, las 59 de una vez, reentrenar en AWS y la figura de vecinas con satélite." },
+  { ruta: "src/scripts/metodo.js", que: "Avance de «Cómo se hizo» con scroll, con las flechas o con las barras de etapa." },
+  { ruta: "src/scripts/tablero.js", que: "Arranque del tablero y las cifras y la tira por municipio del sitio original." },
+  { ruta: "src/styles/mapa-satelite.css", que: "Estilos del mapa, la vista azul, el marco de selección, la ficha, el recorrido, «Ejecutar» y esta sección." },
+  { ruta: "src/scripts/comun.js", que: "Del sitio original: colores, surcos, selección compartida y la fórmula del modelo final." },
+].map((a) => { const codigo = leer(a.ruta); return { ...a, codigo, lineas: codigo.split("\n").length }; });
+const PIEZAS = [
+  ["Estructura y secciones", "Astro 7", "Cada sección es un componente .astro; el sitio se construye como páginas estáticas."],
+  ["Mapa satelital", "Leaflet 1.9.4 + Esri World Imagery", "Sustituye al mapa en SVG del tablero. La vista azul es un filtro CSS sobre las teselas; la natural lo quita."],
+  ["Coordenadas", "Función propia utm2ll", "Los polígonos vienen en UTM 14N (metros). Se pasan a grados con la fórmula inversa de Transverse Mercator; el error frente a las coordenadas del JSON es menor a 0.000001°."],
+  ["Surcos sobre el satélite", "d3 7 (patrones SVG)", "Los mismos patrones de comun.js se insertan dentro del SVG que dibuja Leaflet, así las estimadas se ven igual que en el resto del sitio."],
+  ["Selección compartida", "seleccionar y alSeleccionar", "Elegir una parcela en el mapa, la tabla, la tira o la ficha avisa a todas las demás partes."],
+  ["Selección en el mapa", "Leaflet", "Al elegir, el mapa vuela a la parcela, un marco se cierra sobre ella, se dibuja el círculo de 1 km con líneas a sus vecinas y aparece la ficha flotante."],
+  ["Recorrido", "IntersectionObserver + botones", "Cada tarjeta cambia el modo de color del mapa y su encuadre cuando cruza el centro de la pantalla; la barra de pasos bajo el mapa y las flechas llevan al mismo lugar con un clic."],
+  ["Figuras con satélite", "d3 7 + satelite.js", "Las figuras que son mapas en «Cómo se hizo» y el minimapa de la ficha dibujan las teselas de Esri como imágenes SVG debajo de la proyección UTM, con el mismo tinte azul del tablero."],
+  ["Etapas con clic", "metodo.js", "Las seis barras de etapa y las flechas bajo la figura saltan al paso correspondiente; el scroll sigue funcionando igual."],
+  ["Ejecutar el modelo", "d3 7 + anime.js", "Flujo en tres pasos: se elige la parcela, el cálculo aparece como lista numerada con el resultado de cada paso y termina comprobando contra el archivo de entrega; se actualiza solo con la selección del mapa o la tabla."],
+  ["Gráficas, tabla y fichas", "d3 7", "Las del sitio original; el minimapa de la ficha y la boleta de «Para qué sirve» ahora llevan satélite."],
+  ["Datos", "Python con uv", "scripts/exportar_web.py escribe public/datos/*.json y su manifiesto con SHA-256; el navegador comprueba cada huella antes de usar los datos."],
+];
+const COMANDOS = `# datos del sitio (desde la raíz del repositorio)
+uv run --group geo python scripts/exportar_web.py
+
+# sitio (Node 22.12 o posterior)
+cd web
+npm ci
+npm i leaflet@1.9.4      # única dependencia nueva
+npm run dev              # http://localhost:4321
+npm run build            # deja el sitio en web/dist`;
+---
+<section class="seccion banda" id="construccion">
+  <div class="envoltura">
+    <CabSeccion titulo="Cómo está hecho este sitio">
+      <p>Las herramientas con las que se armó cada parte de la página, qué hace cada una y el código que usa. Todo el sitio es estático: no necesita servidor salvo para reentrenar en AWS.</p>
+    </CabSeccion>
+    <div class="cons-grid">
+      <div class="cons-tabla-marco"><table class="cons-tabla">
+        <thead><tr><th>Pieza</th><th>Biblioteca</th><th>Cómo se aplicó</th></tr></thead>
+        <tbody>{PIEZAS.map((p) => <tr><td><b>{p[0]}</b></td><td class="mono">{p[1]}</td><td>{p[2]}</td></tr>)}</tbody>
+      </table></div>
+      <div class="cons-der">
+        <h3 class="cons-h">Construir y probar</h3>
+        <pre class="cmd">{COMANDOS}</pre>
+      </div>
+    </div>
+    <h3 class="cons-h" style="margin-top:40px">Código aplicado</h3>
+    <div class="cons-codigo">
+      {ARCHIVOS.map((a) => (
+        <details>
+          <summary><span class="mono">{a.ruta}</span><span class="cons-que">{a.que}</span><span class="cons-lin">{a.lineas} líneas</span></summary>
+          <div class="cons-bloque">
+            <button class="btn sec cons-copiar" type="button">Copiar</button>
+            <pre><code>{a.codigo}</code></pre>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll(".cons-copiar").forEach((b) => b.addEventListener("click", async () => {
+      const t = b.parentElement?.querySelector("code")?.textContent ?? "";
+      try { await navigator.clipboard.writeText(t); b.textContent = "Copiado"; } catch { b.textContent = "Selecciona y copia"; }
+      setTimeout(() => (b.textContent = "Copiar"), 1600);
+    }));
+  </script>
+</section>
