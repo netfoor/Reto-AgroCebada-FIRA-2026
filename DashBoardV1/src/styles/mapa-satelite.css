@@ -1,0 +1,183 @@
+/* ── Mapa satelital del tablero (Leaflet) ─────────────────────────────── */
+.tablero-sat { align-items: start; }
+.mapa-col { position: sticky; top: calc(var(--enc) + 16px); }
+@media (max-width: 1080px) { .mapa-col { position: relative; top: 0; } }
+.mapa-marco.sat { background: #0b1c30; overflow: hidden; }
+.mapa-sat { width: 100%; height: min(calc(100vh - var(--enc) - 110px), 660px); min-height: 420px; background: #0b1c30; }
+
+/* barra de pasos: avanzar con clic además del scroll */
+.rec-barra { display: flex; align-items: stretch; gap: 6px; margin-top: 10px; }
+.rec-botones { display: flex; flex: 1; min-width: 0; overflow-x: auto; border: 1px solid #c9d0c4; scrollbar-width: none; container-type: inline-size; }
+.rec-botones::-webkit-scrollbar { display: none; }
+.rec-botones button { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; background: #fff; padding: 8px 10px; font-size: 13.5px; font-weight: 600; color: var(--color-tinta-2); cursor: pointer; white-space: nowrap; }
+.rec-botones button + button { border-left: 1px solid #c9d0c4; }
+.rec-botones button b { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: var(--color-banda); font-size: 11.5px; color: var(--color-gris); }
+.rec-botones button:hover { background: var(--color-banda); }
+.rec-botones button.hecho b { background: var(--color-verde); color: #fff; }
+.rec-botones button[aria-current="true"] { background: var(--color-marino); color: #fff; }
+.rec-botones button[aria-current="true"] b { background: var(--color-paja); color: var(--color-marino); }
+.rec-flecha { width: 38px; border: 1px solid #c9d0c4; background: #fff; color: var(--color-marino); font-size: 20px; cursor: pointer; }
+.rec-flecha:hover:not([disabled]) { background: var(--color-marino); color: #fff; }
+.rec-flecha[disabled] { opacity: .35; cursor: default; }
+
+/* pista inicial sobre el mapa */
+.mapa-pista { position: absolute; z-index: 500; left: 12px; bottom: 12px; background: rgba(2, 36, 72, .88); color: #fff;
+  font-size: 13.5px; padding: 7px 14px; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+.mapa-pista.oculta { opacity: 0; }
+@media (max-width: 760px) { .mapa-pista { font-size: 12.5px; bottom: 10px; } }
+@media (max-width: 760px) { .mapa-sat { height: 520px; } }
+.mapa-sat.vista-azul .leaflet-tile-pane { filter: grayscale(1) sepia(.35) hue-rotate(178deg) saturate(1.5) brightness(.72) contrast(1.08); }
+.mapa-sat .leaflet-tile-pane { transition: filter .5s; }
+.mapa-marco.sat .mapa-herr, .mapa-marco.sat .mapa-vista, .mapa-marco.sat .mapa-zoom, .mapa-marco.sat .mapa-ley, .ficha-sat { z-index: 500; }
+.mapa-vista { position: absolute; left: 12px; top: 54px; }
+.mapa-vista button { font-size: 13px; padding: 5px 11px; }
+.mapa-marco.sat .leaflet-control-attribution { font-size: 10px; background: rgba(255, 255, 255, .7); }
+.mapa-marco.sat .leaflet-container { font-family: var(--font-sans); }
+.parcela-sat { transition: fill-opacity .35s, stroke-opacity .35s; }
+
+/* leyenda (reusa .mapa-ley del sitio) */
+.mapa-ley .lt { font-weight: 650; margin-bottom: 4px; }
+.mapa-ley .estado i, .mapa-ley .li i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: .7px solid var(--color-tinta); }
+.mapa-ley .estado i.sur { background: repeating-linear-gradient(45deg, #946A1C 0 3px, #fff 3px 6px); }
+.mapa-ley .li { display: flex; align-items: center; gap: 6px; }
+.mapa-ley .grad { width: 170px; height: 10px; margin: 6px 0 3px; }
+.mapa-ley .eti2 { display: flex; justify-content: space-between; width: 170px; font-size: 11.5px; color: var(--color-gris); }
+
+/* rótulos de municipio */
+.rot-mun span { display: inline-block; transform: translate(-50%, -100%); white-space: nowrap; font: 650 12.5px var(--font-sans); color: #fff; text-shadow: 0 0 3px #022448, 0 0 6px #022448; }
+
+/* retícula: las esquinas se cierran sobre la parcela elegida */
+.reticula { position: absolute; z-index: 450; pointer-events: none; display: none; }
+.reticula i { position: absolute; width: 18px; height: 18px; border: 2px solid #fff; }
+.reticula i:nth-child(1) { left: 0; top: 0; border-right: 0; border-bottom: 0; }
+.reticula i:nth-child(2) { right: 0; top: 0; border-left: 0; border-bottom: 0; }
+.reticula i:nth-child(3) { left: 0; bottom: 0; border-right: 0; border-top: 0; }
+.reticula i:nth-child(4) { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+.reticula span { position: absolute; left: 0; top: -22px; font: 600 12px var(--font-sans); color: #fff; background: var(--color-sel); padding: 1px 6px; }
+.reticula.on { display: block; animation: cierra .55s ease-out; }
+@keyframes cierra { from { transform: scale(1.8); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ficha flotante */
+.ficha-sat { position: absolute; left: 12px; bottom: 12px; width: min(268px, calc(100% - 24px)); max-height: calc(100% - 110px); overflow: auto;
+  background: rgba(255, 255, 255, .97); box-shadow: 0 10px 28px rgba(2, 36, 72, .25); padding: 14px 16px; font-size: 13.5px; line-height: 1.45; }
+@media (max-width: 760px) {
+  /* en teléfono la ficha es una hoja inferior: el mapa queda libre */
+  .ficha-sat { position: fixed; left: 0; right: 0; bottom: 0; width: auto; max-height: 52vh; z-index: 60; padding: 14px max(16px, env(safe-area-inset-left, 0px)) calc(14px + env(safe-area-inset-bottom, 0px));
+    background: #fff; border-top: 3px solid var(--color-marino); box-shadow: 0 -10px 30px rgba(2, 36, 72, .25); }
+  .ficha-sat.mini { min-width: 0; }
+}
+.ficha-sat .f-btns { position: absolute; right: 6px; top: 6px; display: flex; gap: 2px; }
+.ficha-sat .f-btns button { width: 26px; height: 26px; border: 0; background: none; font-size: 19px; line-height: 1; color: var(--color-gris); cursor: pointer; }
+.ficha-sat .f-btns button:hover { background: var(--color-banda); color: var(--color-marino); }
+.ficha-sat.mini .f-cuerpo { display: none; }
+.ficha-sat.mini { width: auto; min-width: 190px; }
+.ficha-sat .f-id { font-weight: 800; font-size: 18px; color: var(--color-marino); }
+.ficha-sat .f-sub { color: var(--color-gris); }
+.ficha-sat .f-val { margin: 6px 0 2px; } .ficha-sat .f-val b { font-size: 30px; font-weight: 800; color: var(--color-marino); }
+.ficha-sat .f-val span { color: var(--color-gris); }
+.ficha-sat .f-rango { width: 100%; height: 14px; display: block; }
+.ficha-sat .f-nota { font-size: 12.5px; color: var(--color-gris); margin: 2px 0 8px; }
+.ficha-sat .f-comp div { display: grid; grid-template-columns: 74px 1fr 40px; gap: 6px; align-items: center; font-size: 12.5px; }
+.ficha-sat .f-comp em { height: 7px; background: var(--color-banda); } .ficha-sat .f-comp em i { display: block; height: 100%; }
+.ficha-sat .f-comp b { text-align: right; font-weight: 600; }
+.ficha-sat .f-sec { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--color-linea); }
+.ficha-sat .f-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.ficha-sat .f-chips button { border: 1px solid #c9d0c4; background: #fff; font-size: 12px; padding: 2px 6px; cursor: pointer; }
+.ficha-sat .f-chips button.e { border-style: dashed; border-color: #C27A12; }
+.ficha-sat .f-chips button:hover { background: var(--color-marino); color: #fff; }
+.ficha-sat .f-aviso { margin-top: 8px; color: #B2412C; font-size: 12.5px; }
+.ficha-sat .f-mas { display: inline-block; margin-top: 10px; font-weight: 600; color: var(--color-sel); }
+
+/* recorrido */
+.rec-tit { margin: 48px 0 6px; font-size: 15px; font-weight: 700; }
+.rec-paso { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; padding-left: 18px; border-left: 2px solid var(--color-linea); opacity: .4; transition: opacity .4s, border-color .4s; }
+.rec-paso:last-child { min-height: 40vh; }
+.rec-paso.activo { opacity: 1; border-left-color: var(--color-verde); }
+.rec-paso .fase { font-size: 14px; font-weight: 600; color: var(--color-verde-hondo); margin: 0; }
+.rec-paso h4 { font-size: 24px; line-height: 1.25; margin: 6px 0 10px; color: var(--color-tinta); }
+.rec-paso p { margin: 0; color: var(--color-tinta-2); }
+.rec-paso .dato { font-weight: 700; color: var(--color-marino); }
+@media (max-width: 1080px) { .rec-paso { min-height: auto; padding: 18px 0 18px 16px; opacity: 1; } }
+
+/* ── Cómo se construyó ────────────────────────────────────────────────── */
+.cons-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+@media (max-width: 1080px) { .cons-grid { grid-template-columns: minmax(0, 1fr); } }
+.cons-tabla { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.5; background: #fff; }
+.cons-tabla th { text-align: left; font-size: 13px; color: var(--color-gris); font-weight: 600; padding: 10px 12px; border-bottom: 2px solid var(--color-linea); }
+.cons-tabla td { padding: 10px 12px; border-bottom: 1px solid var(--color-linea); vertical-align: top; }
+.cons-tabla td.mono { color: var(--color-marino); }
+.cons-h { font-size: 17px; font-weight: 700; margin: 0 0 10px; }
+.cons-codigo details { background: #fff; border: 1px solid var(--color-linea); margin-bottom: 8px; }
+.cons-codigo summary { display: flex; gap: 14px; align-items: baseline; padding: 12px 16px; cursor: pointer; list-style: none; }
+.cons-codigo summary::-webkit-details-marker { display: none; }
+.cons-codigo summary::before { content: "+"; font-weight: 700; color: var(--color-verde-hondo); width: 12px; }
+.cons-codigo details[open] summary::before { content: "−"; }
+.cons-codigo summary .mono { color: var(--color-marino); font-weight: 600; white-space: nowrap; }
+.cons-que { color: var(--color-tinta-2); font-size: 14.5px; flex: 1; }
+.cons-lin { color: var(--color-gris); font-size: 13px; white-space: nowrap; }
+@media (max-width: 760px) { .cons-codigo summary { flex-wrap: wrap; } .cons-lin { display: none; } }
+.cons-bloque { position: relative; border-top: 1px solid var(--color-linea); }
+.cons-bloque pre { margin: 0; max-height: 520px; overflow: auto; padding: 16px 18px; background: #0b1c30; color: #dce7f3; font: 12.5px/1.55 var(--font-mono); tab-size: 2; }
+.cons-copiar { position: absolute; right: 18px; top: 10px; padding: 4px 12px; font-size: 13px; background: #fff !important; }
+
+@container (max-width: 640px) {
+  .rec-botones button { padding: 8px 6px; }
+  .rec-botones button:not([aria-current="true"]) span { display: none; }
+}
+.cons-tabla-marco { min-width: 0; overflow-x: auto; }
+.cons-der { min-width: 0; }
+.cons-der pre.cmd { overflow-x: auto; }
+@media (max-width: 760px) { .cons-tabla { font-size: 13.5px; } .cons-tabla th, .cons-tabla td { padding: 8px; } }
+
+/* ── Ejecutar: flujo en tres pasos, cálculo como recibo y figura con satélite ── */
+.ejecutar .ej-flujo { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 34px; margin: -18px 0 28px; padding: 0; }
+.ejecutar .ej-flujo li { display: flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 600; color: #d5e0ec; position: relative; }
+.ejecutar .ej-flujo li + li::before { content: ""; position: absolute; left: -26px; top: 50%; width: 18px; height: 1px; background: rgba(255, 255, 255, .35); }
+.ejecutar .ej-flujo b, .ejecutar .ej-h b { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--color-paja); color: var(--color-marino); font-size: 13.5px; }
+.ejecutar .ej-barra { background: #fff; color: var(--color-tinta); padding: 18px 20px; margin-bottom: 36px; border-top: 3px solid var(--color-paja); }
+.ejecutar .ej-elige { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.ejecutar .ej-elige label { font-weight: 700; color: var(--color-marino); }
+.ejecutar .ej-elige select { flex: 1 1 260px; min-height: 44px; max-width: 100%; padding: 8px 10px; background: #fff; color: var(--color-tinta); border: 1px solid #c9d0c4; border-radius: 2px; font-size: 15px; }
+.ejecutar .ej-barra .btn { background: var(--color-marino); border-color: var(--color-marino); color: #fff; }
+.ejecutar .ej-barra .btn:hover { background: #0a3563; }
+.ejecutar .ej-barra .btn.sec { background: #fff; color: var(--color-marino); }
+.ejecutar .ej-barra .btn.sec:hover { background: var(--color-banda); }
+.ejecutar .ej-ayuda { margin: 8px 0 0; font-size: 13.5px; color: var(--color-gris); }
+.ejecutar .ej-grid { gap: 40px; }
+.ejecutar .ej-col { min-width: 0; }
+.ejecutar .ej-h { display: flex; align-items: center; gap: 10px; font-size: 18px; margin: 0 0 12px; color: #fff; }
+.ejecutar .ej-figura { border: 1px solid var(--color-marino-linea); background: #0b1c30; }
+
+/* el cálculo como una lista numerada de pasos con su resultado a la derecha */
+.ejecutar .consola { min-height: 0; padding: 6px 18px; background: rgba(1, 16, 33, .5); }
+.ejecutar .consola .vacia { padding: 14px 0; }
+.ejecutar .consola ol { counter-reset: paso; }
+.ejecutar .consola li { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 12px 0; }
+.ejecutar .consola li::before { counter-increment: paso; content: counter(paso); display: grid; place-items: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, .35); font-size: 12px; font-weight: 700; color: #c9d6e6; }
+.ejecutar .consola li .r { font-size: 16px; text-align: right; }
+.ejecutar .consola li.fin { background: rgba(227, 199, 114, .1); margin: 4px -18px; padding: 14px 18px; border-bottom: 0; }
+.ejecutar .consola li.fin::before { background: var(--color-paja); border-color: var(--color-paja); color: var(--color-marino); }
+.ejecutar .consola li.fin .r { font-size: 22px; }
+.ejecutar .consola li.ok::before { counter-increment: none; content: "✓"; background: var(--color-verde); border-color: var(--color-verde); color: var(--color-marino); font-size: 13px; }
+.ejecutar .consola li.ok > span:first-child { padding-left: 0; }
+.ejecutar .consola li.ok > span:first-child::before { content: none; }
+.ejecutar .consola li.ok { color: #dfe8d2; }
+
+/* reentrenar en AWS: tarjeta aparte al final */
+.ejecutar .ej-nube { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; margin-top: 44px; padding: 22px 24px; border: 1px solid var(--color-marino-linea); background: rgba(1, 16, 33, .35); }
+.ejecutar .ej-nube h3 { font-size: 18px; margin: 0 0 4px; }
+.ejecutar .ej-nube p { font-size: 15px; color: #c3d1e0; margin: 0; }
+.ejecutar .ej-nube .estado-nube { margin-top: 10px; }
+@media (max-width: 760px) { .ejecutar .ej-nube { grid-template-columns: minmax(0, 1fr); } .ejecutar .ej-flujo { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: -10px; } .ejecutar .ej-flujo li + li::before { content: none; } }
+
+/* boleta de «Para qué sirve»: la parcela sobre el satélite, como en el resto del sitio */
+.boleta .mini-uso { margin: 0 0 10px; }
+.boleta .mini-uso svg { display: block; width: 100%; height: auto; }
+
+/* glosario del tablero */
+.glosario { margin-top: 22px; border: 1px solid var(--color-linea); background: var(--color-banda); }
+.glosario summary { cursor: pointer; padding: 10px 14px; font-weight: 700; font-size: 15px; color: var(--color-marino); }
+.glosario dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; margin: 0; padding: 4px 14px 14px; font-size: 14.5px; line-height: 1.45; }
+.glosario dt { font-weight: 700; color: var(--color-marino); }
+.glosario dd { margin: 0; color: var(--color-tinta-2); }
