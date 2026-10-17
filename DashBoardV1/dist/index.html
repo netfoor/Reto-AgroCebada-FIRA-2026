@@ -1,0 +1,1742 @@
+<!DOCTYPE html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Reto AgroCebada 2026: rendimiento de cebada por parcela</title><meta name="description" content="Estimaciones de rendimiento de cebada para 59 parcelas de Hidalgo, Puebla y Tlaxcala, con el modelo que las produce, ejecutable en el navegador y en AWS."><meta name="theme-color" content="#022448"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/index.CdoaQY4V.css"></head><body><header class="encabezado"><div class="envoltura enc-fila"><a class="logos" href="#portada" aria-label="Inicio de la página"><img class="utp" src="/logos/utp.webp" alt="Universidad Tecnológica de Puebla" width="120" height="120"><img class="tec" src="/logos/tec.webp" alt="Tecnológico de Monterrey" width="362" height="96"><img class="fira" src="/logos/fira.webp" alt="FIRA, Fideicomisos Instituidos en Relación con la Agricultura" width="352" height="96"></a><nav class="ubicacion" aria-label="Secciones"><button class="ubic-boton" id="ubic-boton" aria-expanded="false" aria-controls="ubic-lista"><span class="pos" id="ubic-pos">1 de 9</span><span id="ubic-nombre">Inicio</span><svg width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg></button><ol class="ubic-lista" id="ubic-lista" hidden><li><a href="#portada" data-sec="portada"><i></i>Inicio</a></li><li><a href="#tablero" data-sec="tablero"><i></i>Tablero</a></li><li><a href="#estimaciones" data-sec="estimaciones"><i></i>Estimaciones</a></li><li><a href="#ejecutar" data-sec="ejecutar"><i></i>Ejecutar</a></li><li><a href="#metodo" data-sec="metodo"><i></i>Cómo se hizo</a></li><li><a href="#uso" data-sec="uso"><i></i>Para qué sirve</a></li><li><a href="#preguntas" data-sec="preguntas"><i></i>Preguntas guía</a></li><li><a href="#construccion" data-sec="construccion"><i></i>Cómo está hecho</a></li><li><a href="#datos" data-sec="datos"><i></i>Datos y código</a></li><li class="ubic-pie" id="ubic-pie">Comprobando los datos…</li></ol></nav></div><div class="riel" aria-hidden="true"><div class="riel-avance"></div><i class="riel-marca" data-sec="tablero"></i><i class="riel-marca" data-sec="estimaciones"></i><i class="riel-marca" data-sec="ejecutar"></i><i class="riel-marca" data-sec="metodo"></i><i class="riel-marca" data-sec="uso"></i><i class="riel-marca" data-sec="preguntas"></i><i class="riel-marca" data-sec="construccion"></i><i class="riel-marca" data-sec="datos"></i><div class="riel-punta"></div></div></header><main><section class="portada sobre-azul" id="portada"><svg class="relieve" id="relieve" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg><div class="envoltura portada-grid"><div><h1><span>197 parcelas</span><span>de cebada.</span><span>59 por estimar.</span></h1><span class="acento" aria-hidden="true"></span><p class="entrada">De 138 parcelas del altiplano conocemos el rendimiento al final de la cosecha. Esta herramienta estima las otras 59, ejecuta el modelo frente a ti y explica de dónde sale cada número.</p><div class="acciones"><a class="btn" href="#estimaciones">Consultar las 59 estimaciones</a><a class="btn sec" href="#ejecutar">Ejecutar el modelo</a></div><p class="pie">Reto AgroCebada FIRA 2026. Hidalgo, Puebla y Tlaxcala, campaña de abril a octubre de 2025. Las líneas del fondo son el relieve real de la zona.</p></div><div class="lamina" aria-label="Lámina de las 197 parcelas con su forma real"><div class="lamina-cab"><span>Cada figura es una parcela con su forma real, agrupada por municipio.</span><span class="cuenta"><b class="num" id="contador">0</b>de 59 estimadas</span></div><div class="lamina-grupos" id="lamina"></div><div class="lamina-ley"><span><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><rect x="6" y="6" width="88" height="88" fill="#E3C772"></rect></svg>Rendimiento conocido</span><span><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><rect x="6" y="6" width="88" height="88" fill="url(#surco-paja)" stroke="#E3C772" stroke-width="8"></rect></svg>Estimado por el modelo (con surcos)</span></div></div></div><picture><source media="(max-width: 1080px)" srcset="/img/cebada-420.webp"><img class="cebada" src="/img/cebada-700.webp" alt="" width="700" height="664" fetchpriority="low"></picture><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="surco-paja" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)"><rect width="12" height="12" fill="#022448"></rect><rect width="6.5" height="12" fill="#E3C772"></rect></pattern></defs></svg></section><section class="seccion" id="tablero"><div class="envoltura"><header class="cab"><h2>El reto en una pantalla</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Con surcos: las 59 que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.</p></div></header><div class="tablero tablero-sat"><div class="mapa-col"><div class="mapa-marco sat"><div class="mapa-herr alterna" role="group" aria-label="Filtrar parcelas"><button data-f="todas" aria-pressed="true">Todas</button><button data-f="rep" aria-pressed="false">Conocidas</button><button data-f="est" aria-pressed="false">Estimadas</button></div><div class="mapa-vista alterna" role="group" aria-label="Vista del satélite"><button data-v="azul" aria-pressed="true">Satélite azul</button><button data-v="natural" aria-pressed="false">Natural</button></div><div class="mapa-zoom"><button data-z="1" aria-label="Acercar">+</button><button data-z="-1" aria-label="Alejar">−</button><button data-z="0" aria-label="Ver todo el mapa"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg></button></div><div class="mapa-sat" id="mapa-sat" role="img" aria-label="Mapa satelital de las 197 parcelas coloreadas por rendimiento"></div><div class="mapa-ley" id="mapa-ley"></div><aside class="ficha-sat" id="ficha-sat" hidden aria-live="polite"></aside><div class="mapa-pista" id="mapa-pista">Haz clic en cualquier parcela para ver su ficha</div></div><nav class="rec-barra" aria-label="Pasos del recorrido"><button type="button" class="rec-flecha" data-d="-1" aria-label="Paso anterior">‹</button><div class="rec-botones" id="rec-botones"><button type="button" data-i="0" title="Territorio"><b>1</b><span>Territorio</span></button><button type="button" data-i="1" title="El municipio pesa más"><b>2</b><span>Municipio</span></button><button type="button" data-i="2" title="La lluvia de octubre"><b>3</b><span>Lluvia</span></button><button type="button" data-i="3" title="El verdor frente a las vecinas"><b>4</b><span>Vecinas</span></button><button type="button" data-i="4" title="Dónde se equivoca"><b>5</b><span>Error</span></button><button type="button" data-i="5" title="Las 59 estimaciones"><b>6</b><span>Las 59</span></button><button type="button" data-i="6" title="Explora por tu cuenta"><b>7</b><span>Explora</span></button></div><button type="button" class="rec-flecha" data-d="1" aria-label="Paso siguiente">›</button></nav></div><div class="tablero-der"><div class="cifras" id="cifras"></div><h3 class="tira-tit">Rendimiento por municipio (t/ha)</h3><div id="tira"></div><p class="nota" id="tira-nota" style="margin-top:8px"></p><details class="glosario"><summary>¿Qué significan los nombres del modelo?</summary><dl><dt>t/ha</dt><dd>Toneladas de cebada por hectárea.</dd><dt>MUN</dt><dd>Media del municipio: el promedio de las parcelas conocidas del mismo municipio.</dd><dt>MIX</dt><dd>Referencia territorial: mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.</dd><dt>K</dt><dd>La referencia corregida por el verdor de la parcela frente a sus vecinas a menos de 1 km.</dd><dt>J</dt><dd>La media del grupo regional ajustada por la lluvia de octubre de 2025 frente a 2022–2024.</dd><dt>E_JK</dt><dd>Estimación final: el promedio de K y J. Es la que se entrega.</dd><dt>RMSE</dt><dd>Error típico: cuánto se aleja la estimación del valor real, en t/ha.</dd><dt>Rango 80 %</dt><dd>Intervalo donde esperamos el valor real 8 de cada 10 veces.</dd></dl></details><h3 class="rec-tit">Recorre el mapa</h3><article class="rec-paso" data-accion="todo"><p class="fase">Paso 1 de 7</p><h4>Las 197 sobre el satélite</h4><p>Lejos, cada parcela es un punto; al acercarte aparece su forma real. Las rellenas tienen rendimiento conocido y las de surcos son las 59 que estima el modelo.</p></article><article class="rec-paso" data-accion="grupo"><p class="fase">Paso 2 de 7</p><h4>El municipio pesa más que todo lo demás</h4><p>Saber el municipio explica <span class="dato" data-txt="varianza">69 %</span> de la variación. Por eso el modelo parte de la media de cada grupo regional; en el mapa, cada color es un grupo.</p></article><article class="rec-paso" data-accion="lluvia"><p class="fase">Paso 3 de 7</p><h4>La lluvia de octubre ajusta la estimación</h4><p>Cuánto llovió en octubre de 2025 frente al promedio de 2022–2024. Cada punto porcentual suma <span class="dato" data-txt="pendiente">0.0168</span> t/ha: con 10 % más de lluvia, unas 0.17 t/ha más.</p></article><article class="rec-paso" data-accion="vecinas"><p class="fase">Paso 4 de 7</p><h4>El verdor frente a las vecinas</h4><p id="txt-vit">El anillo marca 1 km alrededor de la parcela. La estimación se corrige según qué tan verde estuvo frente a sus vecinas.</p></article><article class="rec-paso" data-accion="error"><p class="fase">Paso 5 de 7</p><h4>Dónde se equivoca</h4><p>Cada conocida pintada según cuánto falló el modelo cuando la ocultamos. Los errores grandes se juntan en Chignahuapan, el municipio con más parcelas.</p></article><article class="rec-paso" data-accion="estimadas"><p class="fase">Paso 6 de 7</p><h4>Las 59 estimaciones</h4><p>Con surcos y coloreadas por su estimación. Con borde rojo, las que no tienen vecinas suficientes a menos de 1 km para comparar su verdor; ahí se usa solo la referencia territorial.</p></article><article class="rec-paso" data-accion="libre"><p class="fase">Paso 7 de 7</p><h4>Ahora tú</h4><p>Filtra, cambia la vista del satélite, acerca con Ctrl y la rueda del mouse y elige cualquier parcela. La tabla de estimaciones y el cálculo paso a paso se mueven con el mapa.</p></article></div></div></div></section><section class="seccion banda" id="estimaciones"><div class="envoltura"><header class="cab"><h2>Las 59 estimaciones</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Elige una parcela para ver su ficha. La barra con surcos es el rango donde esperamos el valor real 8 de cada 10 veces; la línea gris, la referencia territorial (MIX).</p></div><p class="cab-base">Las bases piden una herramienta para consultar y visualizar los resultados de manera interactiva (criterio de aplicación, 30 %).</p></header><div class="estim"><div><div class="tabla-herr"><label class="oculto-a11y" for="buscar">Buscar parcela o municipio</label><input id="buscar" type="search" placeholder="Buscar parcela o municipio" autocomplete="off"><span class="nota" id="conteo"></span></div><div class="tabla-marco"><table class="t59" id="t59"><thead><tr><th><button data-o="id" data-orden="asc">Parcela</button></th><th class="col-mun"><button data-o="mun">Municipio</button></th><th style="text-align:right"><button data-o="pred">t/ha</button></th><th><button data-o="ancho">Rango 80 %</button></th><th class="col-dif" style="text-align:right"><button data-o="dif" title="Diferencia con la referencia territorial (MIX)">Frente a la referencia</button></th><th class="col-notas">Notas</th></tr></thead><tbody></tbody></table></div></div><aside class="ficha" id="ficha" aria-live="polite"></aside></div><div class="descargas" id="descargas"><h3>Descargar las estimaciones</h3><p class="nota" style="margin-top:6px">Mira el contenido antes de descargarlo. Los archivos se sirven desde Amazon S3; el CSV es el mismo de la entrega y su huella SHA-256 se comprueba en este navegador.</p><div class="desc-grid"><div class="desc" data-d="csv"><h4>Tabla CSV</h4><p>Formato de entrega: identificador de parcela y rendimiento estimado en t/ha.</p><div class="acc"><button class="btn sec" data-ver="csv">Vista previa</button><a class="btn" href="/descargas/predicciones_59.csv" download>Descargar CSV</a></div></div><div class="desc" data-d="xlsx"><h4>Libro de Excel</h4><p>Cuatro hojas: estimaciones, rangos, componentes del modelo y metadatos.</p><div class="acc"><button class="btn sec" data-ver="xlsx">Vista previa</button><a class="btn" href="/descargas/agrocebada_estimaciones.xlsx" download>Descargar Excel</a></div></div><div class="desc" data-d="pdf"><h4>Reporte PDF</h4><p>Una hoja con el mapa, las 59 estimaciones y sus rangos, lista para imprimir.</p><div class="acc"><button class="btn sec" data-ver="pdf">Vista previa</button><button class="btn" data-pdf>Guardar como PDF</button></div></div></div><div class="previa" id="previa"><p class="nota">Elige «Vista previa» en cualquiera de los tres formatos.</p></div></div></div></section><section class="seccion ejecutar sobre-azul" id="ejecutar"><div class="envoltura"><header class="cab"><h2>Ejecutar el modelo</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Elige una parcela y el modelo se calcula frente a ti, paso por paso, con los mismos números del archivo de entrega. Si quieres, también puedes reentrenarlo completo en AWS.</p></div><p class="cab-base">Las bases piden que la aplicación permita ejecutar el modelo predictivo y consultar los resultados.</p></header><ol class="ej-flujo" aria-label="Cómo usar esta sección"><li><b>1</b><span>Elige una parcela</span></li><li><b>2</b><span>Sigue el cálculo</span></li><li><b>3</b><span>Compáralo con la entrega</span></li></ol><div class="ej-barra"><div class="ej-elige"><label for="ej-parcela">Parcela</label><select id="ej-parcela"></select><button class="btn" id="ej-correr">Calcular paso a paso</button><button class="btn sec" id="ej-todas">Recalcular las 59</button></div><p class="ej-ayuda">La parcela cambia sola cuando eliges otra en el mapa o en la tabla de estimaciones.</p></div><div class="ej-grid"><div class="ej-col"><h3 class="ej-h" id="ej-tit-calc">Cálculo de la parcela</h3><div class="consola" id="consola" aria-live="polite"><p class="vacia">Elige una parcela y pulsa «Calcular paso a paso».</p></div></div><div class="ej-col"><h3 class="ej-h" id="ej-tit-fig">Las vecinas que usa</h3><div class="ej-figura"><svg id="ej-svg" viewBox="0 0 420 420" role="img" aria-label="Vecinas que usa el modelo"></svg></div><p class="nota" id="ej-nota" style="margin-top:10px"></p></div></div><div class="ej-nube"><div><h3>Reentrenar todo en AWS</h3><p>Una función de AWS Lambda vuelve a ajustar el modelo con las 138 parcelas conocidas y estima las 59. No guarda nada: cada llamada reentrena desde cero.</p><p class="estado-nube" id="estado-nube"><i></i><span>Buscando la función en AWS…</span></p></div><div class="ej-ctrl"><button class="btn" id="ej-nube" disabled>Reentrenar en AWS</button><a class="btn sec" id="ej-nube-csv" href="/api/reentrenar?formato=csv" hidden>Descargar el CSV reentrenado</a></div></div></div></section><section class="seccion" id="metodo"><div class="envoltura"><header class="cab"><h2>Cómo se hizo</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Seguimos las seis etapas de CRISP-DM. Baja para recorrerlas o usa las flechas y las barras bajo la figura para saltar de paso o de etapa. La figura cambia en cada paso y, si regresas, todo se deshace en orden.</p></div></header><div class="metodo-grid"><div class="pasos" id="pasos"><article class="paso" data-esc="oculto" data-fase="0"><div class="paso-texto"><p class="fase">Etapa 1. Entender el problema</p><h3>Estimar 59 parcelas que nadie nos dejó ver</h3><p>FIRA entregó el rendimiento de 138 parcelas y guardó el de 59 para calificar. Las ocultas están mezcladas con las demás: la parcela conocida más cercana está, en mediana, a <span class="dato" id="txt-dist">350 m</span>.</p><p>Por eso validamos así: ocultar parcelas al azar, estimarlas con las demás y medir el error, muchas veces.</p></div><figure class="figura" data-esc="oculto"><svg role="img" aria-label="Mapa de las 197 parcelas: conocidas y ocultas"></svg><figcaption></figcaption></figure></article><article class="paso largo" data-esc="capas" data-fase="1"><div class="paso-texto"><p class="fase">Etapa 2. Entender los datos</p><h3>Cuatro tipos de información sobre la misma parcela</h3><p>Elevación cada 120 m, lluvia mensual en celdas de unos 5 km por lado, el polígono de cada parcela y su verdor, visto en <span class="dato" id="txt-planet">cientos de imágenes de satélite</span>.</p><p>Las escalas no se parecen: una celda de lluvia cubre unas <span class="dato" id="txt-celda">2,900 ha</span> y esta parcela mide <span class="dato" id="txt-ha">1.75 ha</span>. Mientras bajas, las capas se juntan y cada una deja un número en la fila de la parcela. Si subes, se separan otra vez.</p></div><figure class="figura" data-esc="capas"><svg role="img" aria-label="Cuatro capas de datos que se juntan sobre una parcela"></svg><figcaption></figcaption></figure><div class="relleno-scroll" aria-hidden="true"></div></article><article class="paso" data-esc="territorio" data-fase="1"><div class="paso-texto"><p class="fase">Etapa 2. Entender los datos</p><h3>El territorio explica casi todo lo que se puede explicar</h3><p>Con solo saber el municipio, el error baja de <span class="dato" id="txt-global">0.85</span> a <span class="dato" id="txt-mun">0.49 t/ha</span>: el municipio explica cerca del <span class="dato" id="txt-var">69 %</span> de la variación.</p><p>De las <span class="dato">619 variables</span> que construimos, ninguna muestra por sí sola una señal dentro del municipio que se distinga del azar.</p></div><figure class="figura" data-esc="territorio"><svg role="img" aria-label="Rendimiento conocido por parcela y media de los municipios"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="vecinas" data-fase="2"><div class="paso-texto"><p class="fase">Etapa 3. Preparar los datos</p><h3>Primera variable: el territorio</h3><p>La referencia MIX promedia la media del municipio con el rendimiento de las 20 parcelas conocidas más cercanas; pesa más la que está más cerca.</p><p id="txt-vecinas"></p></div><figure class="figura" data-esc="vecinas"><svg role="img" aria-label="Las 20 vecinas conocidas de la parcela de ejemplo y su peso"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="verdor" data-fase="2"><div class="paso-texto"><p class="fase">Etapa 3. Preparar los datos</p><h3>Segunda variable: el verdor comparado con las vecinas</h3><p>Con las imágenes de Planet de 2025 armamos la curva de verdor hasta el 31 de octubre y medimos el área entre la curva y su nivel de abril–mayo, durante la temporada. A esa área le restamos la mediana de las parcelas a menos de 1 km.</p><p id="txt-verdor"></p></div><figure class="figura" data-esc="verdor"><svg role="img" aria-label="Curva de verdor de la parcela de ejemplo y de sus vecinas"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="lluvia" data-fase="2"><div class="paso-texto"><p class="fase">Etapa 3. Preparar los datos</p><h3>Tercera variable: la lluvia de octubre</h3><p>Ponderamos cada celda de lluvia por la parte de la parcela que cubre y comparamos octubre de 2025 con el promedio de 2022 a 2024.</p><p id="txt-lluvia"></p></div><figure class="figura" data-esc="lluvia"><svg role="img" aria-label="Celdas de lluvia de octubre alrededor de la parcela y lluvia por año"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="modelo" data-fase="3"><div class="paso-texto"><p class="fase">Etapa 4. Modelar</p><h3>Dos modelos sencillos, promediados</h3><p>K corrige la referencia territorial con el verdor relativo. J usa el grupo regional y la lluvia de octubre. Sus errores no coinciden del todo: su promedio, E_JK, nunca puede quedar peor que el promedio de los dos, y en validación cruzada fue mejor que cada uno.</p></div><figure class="figura" data-esc="modelo"><svg role="img" aria-label="Cómo se combinan MIX, K, J y E_JK para la parcela de ejemplo"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="experimentos" data-fase="4"><div class="paso-texto"><p class="fase">Etapa 5. Evaluar</p><h3>Once intentos contra una referencia difícil</h3><p>Cada punto es el mejor resultado de un experimento comparado con MIX. A la izquierda de la línea, mejor que la referencia. Agregar muchas variables casi siempre empeoró.</p></div><figure class="figura" data-esc="experimentos"><svg role="img" aria-label="Diferencia de error de once experimentos frente a MIX"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="evaluaciones" data-fase="4"><div class="paso-texto"><p class="fase">Etapa 5. Evaluar</p><h3>Cinco evaluaciones, incluida una caja cerrada</h3><p>Una validación independiente apartó 35 parcelas por sorteo antes de leer rendimientos y las abrió una sola vez. E_JK quedó por delante de MIX en las cinco evaluaciones, pero por poco: en la caja, por <span class="dato" id="txt-caja">0.003 t/ha</span>.</p><p>Como E_JK se eligió después de ver resultados, esperamos un error real de 0.47 a 0.49 t/ha. En las 59 concretas puede quedar entre <span class="dato" id="txt-banda">0.35 y 0.63</span>, según cuáles se ocultaron.</p></div><figure class="figura" data-esc="evaluaciones"><svg role="img" aria-label="Error de cada modelo en cinco evaluaciones"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="techo" data-fase="4"><div class="paso-texto"><p class="fase">Etapa 5. Evaluar</p><h3>Lo que falta no es un algoritmo</h3><p>Dos parcelas a menos de 250 m todavía difieren, típicamente, <span class="dato" id="txt-cerca">0.42 t/ha</span>. Y con más parcelas del mismo tipo el error bajaría menos de 0.01 t/ha.</p><p>Lo que movería el techo es información que cambie dentro del municipio: rendimiento medido en campo, manejo, suelo por parcela y varias campañas. Ninguna es pública en la zona.</p></div><figure class="figura" data-esc="techo"><svg role="img" aria-label="Parte del rendimiento que explica el municipio y curva de aprendizaje"></svg><figcaption></figcaption></figure></article><article class="paso" data-esc="despliegue" data-fase="5"><div class="paso-texto"><p class="fase">Etapa 6. Desplegar</p><h3>Datos publicados y modelo en la nube</h3><p>Esta página vive en Amazon S3 y la sirve CloudFront, junto con los datos. Antes de usar cada archivo, el navegador comprueba su huella SHA-256 contra el manifiesto.</p><p>«Reentrenar en AWS» llama a una función de AWS Lambda que ajusta el modelo con las 138 parcelas y devuelve las 59 estimaciones con la huella del CSV. Todo se crea con Terraform, sin pasos manuales en la consola.</p></div><figure class="figura" data-esc="despliegue"><svg role="img" aria-label="Arquitectura del sitio y del modelo en AWS"></svg><figcaption></figcaption></figure></article></div><div class="escenario" id="escenario" aria-hidden="false"><div class="escenario-marco" id="escenario-marco"></div></div></div></div><div class="etapa" id="etapa" aria-live="polite"><div class="etapa-nav"><button type="button" class="etapa-flecha" id="etapa-ant" aria-label="Paso anterior">‹</button><div class="etapa-seg" id="etapa-seg" role="group" aria-label="Ir a una etapa"><button type="button" data-fase="0" title="Etapa 1: Entender el problema" aria-label="Ir a la etapa 1, Entender el problema"><i></i></button><button type="button" data-fase="1" title="Etapa 2: Entender los datos" aria-label="Ir a la etapa 2, Entender los datos"><i></i></button><button type="button" data-fase="2" title="Etapa 3: Preparar los datos" aria-label="Ir a la etapa 3, Preparar los datos"><i></i></button><button type="button" data-fase="3" title="Etapa 4: Modelar" aria-label="Ir a la etapa 4, Modelar"><i></i></button><button type="button" data-fase="4" title="Etapa 5: Evaluar" aria-label="Ir a la etapa 5, Evaluar"><i></i></button><button type="button" data-fase="5" title="Etapa 6: Desplegar" aria-label="Ir a la etapa 6, Desplegar"><i></i></button></div><button type="button" class="etapa-flecha" id="etapa-sig" aria-label="Paso siguiente">›</button></div><div class="etapa-txt"><b id="etapa-nom">Entender el problema</b><small>Etapa <span id="etapa-n">1</span> de 6 de CRISP-DM · paso <span id="etapa-p">1</span> de <span id="etapa-t">11</span></small></div></div></section><section class="seccion banda" id="uso"><div class="envoltura"><header class="cab"><h2>Para qué sirve</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Una estimación de producción por parcela, con su rango, es información verificable para decidir sobre financiamiento en el campo.</p></div><p class="cab-base">Las bases recuerdan que FIRA busca «una mayor inclusión financiera de los productores, buscando facilitar su acceso al financiamiento formal», y en la segunda etapa evalúan la relación de la herramienta con ese problema.</p></header><div class="uso-grid"><div class="boleta" id="boleta"></div><div class="usos"><div><h3>Contrastar lo declarado</h3><p>Si una solicitud declara una producción muy por encima del rango estimado para su parcela, conviene revisarla en campo antes de decidir.</p></div><div><h3>Dimensionar con prudencia</h3><p>El límite inferior del rango da una producción conservadora para estimar capacidad de pago o un monto de avío.</p></div><div><h3>Priorizar visitas</h3><p>Las parcelas sin vecinas cercanas, como AGC_120, y las de Chignahuapan, donde el rango es más ancho, son las primeras que conviene verificar en campo.</p></div><div><h3>Lo que no es</h3><p>No es una calificación crediticia. Es una sola campaña y tiene un error típico de casi media tonelada por hectárea.</p></div></div></div></div></section><section class="seccion" id="preguntas"><div class="envoltura"><header class="cab"><h2>Las tres preguntas guía</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Las bases las cuentan como bonus. Respondemos con lo que la evidencia sostiene, después de controlar el territorio.</p></div></header><div class="preg-grid"><div class="preg"><p class="q">¿Qué índice es más importante en la predicción?</p><h3>El NDVI de Planet, comparado con las vecinas</h3><p>Su nivel absoluto no mejoró a la referencia territorial. Su diferencia con las parcelas a menos de 1 km sí, aunque poco y sin evidencia estadística suficiente. El signo es negativo: más verde que las vecinas, algo menos de grano.</p></div><div class="preg"><p class="q">¿Qué variable climática tiene mayor peso?</p><h3>La lluvia de octubre frente a 2022–2024</h3><p>El modelo J la eligió en 97 de 100 pliegues de validación, entre 148 variables. Pero la celda de lluvia explica el 99 % o más de su variación: funciona como una ubicación más fina y no prueba un efecto del clima.</p></div><div class="preg"><p class="q">¿Qué combinación de variables funciona mejor?</p><h3>Territorio, verdor relativo y lluvia, en dos modelos</h3><p>El salto grande es pasar de la media general a la del municipio. Después, cada paso aporta unos 0.005 t/ha y juntos casi 0.02.</p></div></div><div id="escalera"><h3>Error en validación cruzada, paso a paso</h3></div></div></section><section class="seccion banda" id="construccion"><div class="envoltura"><header class="cab"><h2>Cómo está hecho este sitio</h2><span class="acento" aria-hidden="true"></span><div class="cab-entrada"><p>Las herramientas con las que se armó cada parte de la página, qué hace cada una y el código que usa. Todo el sitio es estático: no necesita servidor salvo para reentrenar en AWS.</p></div></header><div class="cons-grid"><div class="cons-tabla-marco"><table class="cons-tabla"><thead><tr><th>Pieza</th><th>Biblioteca</th><th>Cómo se aplicó</th></tr></thead><tbody><tr><td><b>Estructura y secciones</b></td><td class="mono">Astro 7</td><td>Cada sección es un componente .astro; el sitio se construye como páginas estáticas.</td></tr><tr><td><b>Mapa satelital</b></td><td class="mono">Leaflet 1.9.4 + Esri World Imagery</td><td>Sustituye al mapa en SVG del tablero. La vista azul es un filtro CSS sobre las teselas; la natural lo quita.</td></tr><tr><td><b>Coordenadas</b></td><td class="mono">Función propia utm2ll</td><td>Los polígonos vienen en UTM 14N (metros). Se pasan a grados con la fórmula inversa de Transverse Mercator; el error frente a las coordenadas del JSON es menor a 0.000001°.</td></tr><tr><td><b>Surcos sobre el satélite</b></td><td class="mono">d3 7 (patrones SVG)</td><td>Los mismos patrones de comun.js se insertan dentro del SVG que dibuja Leaflet, así las estimadas se ven igual que en el resto del sitio.</td></tr><tr><td><b>Selección compartida</b></td><td class="mono">seleccionar y alSeleccionar</td><td>Elegir una parcela en el mapa, la tabla, la tira o la ficha avisa a todas las demás partes.</td></tr><tr><td><b>Selección en el mapa</b></td><td class="mono">Leaflet</td><td>Al elegir, el mapa vuela a la parcela, un marco se cierra sobre ella, se dibuja el círculo de 1 km con líneas a sus vecinas y aparece la ficha flotante.</td></tr><tr><td><b>Recorrido</b></td><td class="mono">IntersectionObserver + botones</td><td>Cada tarjeta cambia el modo de color del mapa y su encuadre cuando cruza el centro de la pantalla; la barra de pasos bajo el mapa y las flechas llevan al mismo lugar con un clic.</td></tr><tr><td><b>Figuras con satélite</b></td><td class="mono">d3 7 + satelite.js</td><td>Las figuras que son mapas en «Cómo se hizo» y el minimapa de la ficha dibujan las teselas de Esri como imágenes SVG debajo de la proyección UTM, con el mismo tinte azul del tablero.</td></tr><tr><td><b>Etapas con clic</b></td><td class="mono">metodo.js</td><td>Las seis barras de etapa y las flechas bajo la figura saltan al paso correspondiente; el scroll sigue funcionando igual.</td></tr><tr><td><b>Ejecutar el modelo</b></td><td class="mono">d3 7 + anime.js</td><td>Flujo en tres pasos: se elige la parcela, el cálculo aparece como lista numerada con el resultado de cada paso y termina comprobando contra el archivo de entrega; se actualiza solo con la selección del mapa o la tabla.</td></tr><tr><td><b>Gráficas, tabla y fichas</b></td><td class="mono">d3 7</td><td>Las del sitio original; el minimapa de la ficha y la boleta de «Para qué sirve» ahora llevan satélite.</td></tr><tr><td><b>Datos</b></td><td class="mono">Python con uv</td><td>scripts/exportar_web.py escribe public/datos/*.json y su manifiesto con SHA-256; el navegador comprueba cada huella antes de usar los datos.</td></tr></tbody></table></div><div class="cons-der"><h3 class="cons-h">Construir y probar</h3><pre class="cmd"># datos del sitio (desde la raíz del repositorio)
+uv run --group geo python scripts/exportar_web.py
+
+# sitio (Node 22.12 o posterior)
+cd web
+npm ci
+npm i leaflet@1.9.4      # única dependencia nueva
+npm run dev              # http://localhost:4321
+npm run build            # deja el sitio en web/dist</pre></div></div><h3 class="cons-h" style="margin-top:40px">Código aplicado</h3><div class="cons-codigo"><details><summary><span class="mono">src/components/Tablero.astro</span><span class="cons-que">Estructura del tablero: mapa, herramientas, cifras y las siete tarjetas del recorrido.</span><span class="cons-lin">107 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>---
+import CabSeccion from &quot;./CabSeccion.astro&quot;;
+import &quot;leaflet/dist/leaflet.css&quot;;
+import &quot;../styles/mapa-satelite.css&quot;;
+---
+&lt;section class=&quot;seccion&quot; id=&quot;tablero&quot;&gt;
+  &lt;div class=&quot;envoltura&quot;&gt;
+    &lt;CabSeccion titulo=&quot;El reto en una pantalla&quot;&gt;
+      &lt;p&gt;Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Con surcos: las 59 que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.&lt;/p&gt;
+    &lt;/CabSeccion&gt;
+    &lt;div class=&quot;tablero tablero-sat&quot;&gt;
+      &lt;div class=&quot;mapa-col&quot;&gt;
+      &lt;div class=&quot;mapa-marco sat&quot;&gt;
+        &lt;div class=&quot;mapa-herr alterna&quot; role=&quot;group&quot; aria-label=&quot;Filtrar parcelas&quot;&gt;
+          &lt;button data-f=&quot;todas&quot; aria-pressed=&quot;true&quot;&gt;Todas&lt;/button&gt;
+          &lt;button data-f=&quot;rep&quot; aria-pressed=&quot;false&quot;&gt;Conocidas&lt;/button&gt;
+          &lt;button data-f=&quot;est&quot; aria-pressed=&quot;false&quot;&gt;Estimadas&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;mapa-vista alterna&quot; role=&quot;group&quot; aria-label=&quot;Vista del satélite&quot;&gt;
+          &lt;button data-v=&quot;azul&quot; aria-pressed=&quot;true&quot;&gt;Satélite azul&lt;/button&gt;
+          &lt;button data-v=&quot;natural&quot; aria-pressed=&quot;false&quot;&gt;Natural&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;mapa-zoom&quot;&gt;
+          &lt;button data-z=&quot;1&quot; aria-label=&quot;Acercar&quot;&gt;+&lt;/button&gt;
+          &lt;button data-z=&quot;-1&quot; aria-label=&quot;Alejar&quot;&gt;−&lt;/button&gt;
+          &lt;button data-z=&quot;0&quot; aria-label=&quot;Ver todo el mapa&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 14 14&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; /&gt;&lt;/svg&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;mapa-sat&quot; id=&quot;mapa-sat&quot; role=&quot;img&quot; aria-label=&quot;Mapa satelital de las 197 parcelas coloreadas por rendimiento&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;mapa-ley&quot; id=&quot;mapa-ley&quot;&gt;&lt;/div&gt;
+        &lt;aside class=&quot;ficha-sat&quot; id=&quot;ficha-sat&quot; hidden aria-live=&quot;polite&quot;&gt;&lt;/aside&gt;
+        &lt;div class=&quot;mapa-pista&quot; id=&quot;mapa-pista&quot;&gt;Haz clic en cualquier parcela para ver su ficha&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;nav class=&quot;rec-barra&quot; aria-label=&quot;Pasos del recorrido&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;rec-flecha&quot; data-d=&quot;-1&quot; aria-label=&quot;Paso anterior&quot;&gt;‹&lt;/button&gt;
+        &lt;div class=&quot;rec-botones&quot; id=&quot;rec-botones&quot;&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;0&quot; title=&quot;Territorio&quot;&gt;&lt;b&gt;1&lt;/b&gt;&lt;span&gt;Territorio&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;1&quot; title=&quot;El municipio pesa más&quot;&gt;&lt;b&gt;2&lt;/b&gt;&lt;span&gt;Municipio&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;2&quot; title=&quot;La lluvia de octubre&quot;&gt;&lt;b&gt;3&lt;/b&gt;&lt;span&gt;Lluvia&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;3&quot; title=&quot;El verdor frente a las vecinas&quot;&gt;&lt;b&gt;4&lt;/b&gt;&lt;span&gt;Vecinas&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;4&quot; title=&quot;Dónde se equivoca&quot;&gt;&lt;b&gt;5&lt;/b&gt;&lt;span&gt;Error&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;5&quot; title=&quot;Las 59 estimaciones&quot;&gt;&lt;b&gt;6&lt;/b&gt;&lt;span&gt;Las 59&lt;/span&gt;&lt;/button&gt;
+          &lt;button type=&quot;button&quot; data-i=&quot;6&quot; title=&quot;Explora por tu cuenta&quot;&gt;&lt;b&gt;7&lt;/b&gt;&lt;span&gt;Explora&lt;/span&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button type=&quot;button&quot; class=&quot;rec-flecha&quot; data-d=&quot;1&quot; aria-label=&quot;Paso siguiente&quot;&gt;›&lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tablero-der&quot;&gt;
+        &lt;div class=&quot;cifras&quot; id=&quot;cifras&quot;&gt;&lt;/div&gt;
+        &lt;h3 class=&quot;tira-tit&quot;&gt;Rendimiento por municipio (t/ha)&lt;/h3&gt;
+        &lt;div id=&quot;tira&quot;&gt;&lt;/div&gt;
+        &lt;p class=&quot;nota&quot; id=&quot;tira-nota&quot; style=&quot;margin-top:8px&quot;&gt;&lt;/p&gt;
+
+        &lt;details class=&quot;glosario&quot;&gt;
+          &lt;summary&gt;¿Qué significan los nombres del modelo?&lt;/summary&gt;
+          &lt;dl&gt;
+            &lt;dt&gt;t/ha&lt;/dt&gt;&lt;dd&gt;Toneladas de cebada por hectárea.&lt;/dd&gt;
+            &lt;dt&gt;MUN&lt;/dt&gt;&lt;dd&gt;Media del municipio: el promedio de las parcelas conocidas del mismo municipio.&lt;/dd&gt;
+            &lt;dt&gt;MIX&lt;/dt&gt;&lt;dd&gt;Referencia territorial: mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.&lt;/dd&gt;
+            &lt;dt&gt;K&lt;/dt&gt;&lt;dd&gt;La referencia corregida por el verdor de la parcela frente a sus vecinas a menos de 1 km.&lt;/dd&gt;
+            &lt;dt&gt;J&lt;/dt&gt;&lt;dd&gt;La media del grupo regional ajustada por la lluvia de octubre de 2025 frente a 2022–2024.&lt;/dd&gt;
+            &lt;dt&gt;E_JK&lt;/dt&gt;&lt;dd&gt;Estimación final: el promedio de K y J. Es la que se entrega.&lt;/dd&gt;
+            &lt;dt&gt;RMSE&lt;/dt&gt;&lt;dd&gt;Error típico: cuánto se aleja la estimación del valor real, en t/ha.&lt;/dd&gt;
+            &lt;dt&gt;Rango 80 %&lt;/dt&gt;&lt;dd&gt;Intervalo donde esperamos el valor real 8 de cada 10 veces.&lt;/dd&gt;
+          &lt;/dl&gt;
+        &lt;/details&gt;
+
+        &lt;h3 class=&quot;rec-tit&quot;&gt;Recorre el mapa&lt;/h3&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;todo&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 1 de 7&lt;/p&gt;
+          &lt;h4&gt;Las 197 sobre el satélite&lt;/h4&gt;
+          &lt;p&gt;Lejos, cada parcela es un punto; al acercarte aparece su forma real. Las rellenas tienen rendimiento conocido y las de surcos son las 59 que estima el modelo.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;grupo&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 2 de 7&lt;/p&gt;
+          &lt;h4&gt;El municipio pesa más que todo lo demás&lt;/h4&gt;
+          &lt;p&gt;Saber el municipio explica &lt;span class=&quot;dato&quot; data-txt=&quot;varianza&quot;&gt;69 %&lt;/span&gt; de la variación. Por eso el modelo parte de la media de cada grupo regional; en el mapa, cada color es un grupo.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;lluvia&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 3 de 7&lt;/p&gt;
+          &lt;h4&gt;La lluvia de octubre ajusta la estimación&lt;/h4&gt;
+          &lt;p&gt;Cuánto llovió en octubre de 2025 frente al promedio de 2022–2024. Cada punto porcentual suma &lt;span class=&quot;dato&quot; data-txt=&quot;pendiente&quot;&gt;0.0168&lt;/span&gt; t/ha: con 10 % más de lluvia, unas 0.17 t/ha más.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;vecinas&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 4 de 7&lt;/p&gt;
+          &lt;h4&gt;El verdor frente a las vecinas&lt;/h4&gt;
+          &lt;p id=&quot;txt-vit&quot;&gt;El anillo marca 1 km alrededor de la parcela. La estimación se corrige según qué tan verde estuvo frente a sus vecinas.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;error&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 5 de 7&lt;/p&gt;
+          &lt;h4&gt;Dónde se equivoca&lt;/h4&gt;
+          &lt;p&gt;Cada conocida pintada según cuánto falló el modelo cuando la ocultamos. Los errores grandes se juntan en Chignahuapan, el municipio con más parcelas.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;estimadas&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 6 de 7&lt;/p&gt;
+          &lt;h4&gt;Las 59 estimaciones&lt;/h4&gt;
+          &lt;p&gt;Con surcos y coloreadas por su estimación. Con borde rojo, las que no tienen vecinas suficientes a menos de 1 km para comparar su verdor; ahí se usa solo la referencia territorial.&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;rec-paso&quot; data-accion=&quot;libre&quot;&gt;
+          &lt;p class=&quot;fase&quot;&gt;Paso 7 de 7&lt;/p&gt;
+          &lt;h4&gt;Ahora tú&lt;/h4&gt;
+          &lt;p&gt;Filtra, cambia la vista del satélite, acerca con Ctrl y la rueda del mouse y elige cualquier parcela. La tabla de estimaciones y el cálculo paso a paso se mueven con el mapa.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre></div></details><details><summary><span class="mono">src/scripts/mapaSatelite.js</span><span class="cons-que">El mapa satelital completo: conversión UTM, polígonos y símbolos, surcos, modos de color, marco de selección, anillo de 1 km y ficha flotante.</span><span class="cons-lin">209 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Mapa satelital del tablero: Leaflet sobre Esri World Imagery, con la misma selección que el resto de la página.
+// Al elegir una parcela: marco que se cierra sobre ella, anillo de 1 km con sus vecinas, ficha flotante y recorrido por pasos.
+import * as d3 from &quot;d3&quot;;
+import L from &quot;leaflet&quot;;
+import {
+  D, RAMPA, COLORES, TINTA, f, fs, pct, corto, clase, colorV, surcos, htmlParcela, mostrarTip, ocultarTip,
+  seleccionar, alSeleccionar, estado,
+} from &quot;./comun.js&quot;;
+import { utm2ll, ESRI } from &quot;./satelite.js&quot;;
+
+const GRUPOS = { Chignahuapan: &quot;#2F6FD6&quot;, Tlaxcala: &quot;#C27A12&quot;, Singuilucan: &quot;#B4477A&quot;, Otros_Hidalgo: &quot;#3A9E6E&quot;, Almoloya: &quot;#7A5CC2&quot; };
+const lluvia = d3.scaleSequential([0, 125], d3.interpolateBlues);
+const error = d3.scaleLinear([0, 0.3, 0.6, 1], [&quot;#3A9E6E&quot;, &quot;#C9D36A&quot;, &quot;#E0913A&quot;, &quot;#B2412C&quot;]).clamp(true);
+const valor = (p) =&gt; (p.oculta ? p.pred : p.obs);
+const vecinasDe = (p) =&gt; D.P.filter((q) =&gt; q.id !== p.id &amp;&amp; Math.hypot(q.x - p.x, q.y - p.y) &lt; 1000)
+  .sort((a, b) =&gt; Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y));
+
+/* Cada modo pinta el mapa de una forma y trae su leyenda. */
+const MODOS = {
+  rend: {
+    estilo: (p) =&gt; ({ fillColor: p.oculta ? `url(#L-s${clase(p.pred)})` : colorV(p.obs), fillOpacity: 0.92 }),
+    ley: () =&gt; `&lt;div class=&quot;lt&quot;&gt;Rendimiento (t/ha)&lt;/div&gt;&lt;div class=&quot;fil&quot;&gt;${RAMPA.map((c) =&gt; `&lt;span class=&quot;sw&quot; style=&quot;background:${c}&quot;&gt;&lt;/span&gt;`).join(&quot;&quot;)}&lt;/div&gt;
+      &lt;div class=&quot;eti&quot;&gt;${[&quot;&quot;, &quot;3&quot;, &quot;3.5&quot;, &quot;4&quot;, &quot;4.5&quot;, &quot;5&quot;].map((t) =&gt; `&lt;span&gt;${t}&lt;/span&gt;`).join(&quot;&quot;)}&lt;/div&gt;
+      &lt;div class=&quot;estado&quot;&gt;&lt;span&gt;&lt;i style=&quot;background:#946A1C&quot;&gt;&lt;/i&gt;Conocido&lt;/span&gt;&lt;span&gt;&lt;i class=&quot;sur&quot;&gt;&lt;/i&gt;Estimado&lt;/span&gt;&lt;/div&gt;`,
+  },
+  grupo: {
+    estilo: (p) =&gt; ({ fillColor: GRUPOS[p.grupo], fillOpacity: p.oculta ? 0.45 : 0.9 }),
+    ley: () =&gt; `&lt;div class=&quot;lt&quot;&gt;Grupo regional&lt;/div&gt;${Object.entries(GRUPOS).map(([g, c]) =&gt; `&lt;div class=&quot;li&quot;&gt;&lt;i style=&quot;background:${c}&quot;&gt;&lt;/i&gt;${g.replace(&quot;_&quot;, &quot; &quot;)}&lt;/div&gt;`).join(&quot;&quot;)}`,
+  },
+  anom: {
+    estilo: (p) =&gt; ({ fillColor: lluvia(p.anom), fillOpacity: 0.92 }),
+    ley: () =&gt; `&lt;div class=&quot;lt&quot;&gt;Lluvia de octubre 2025 frente a 2022–2024&lt;/div&gt;&lt;div class=&quot;grad&quot; style=&quot;background:linear-gradient(90deg,${d3.range(0, 1.01, 0.25).map((t) =&gt; lluvia(t * 125)).join(&quot;,&quot;)})&quot;&gt;&lt;/div&gt;&lt;div class=&quot;eti2&quot;&gt;&lt;span&gt;0 %&lt;/span&gt;&lt;span&gt;+60 %&lt;/span&gt;&lt;span&gt;+125 %&lt;/span&gt;&lt;/div&gt;`,
+  },
+  error: {
+    estilo: (p) =&gt; (p.oculta ? { fillColor: &quot;#ffffff&quot;, fillOpacity: 0.15 } : { fillColor: error(Math.abs(p.oof - p.obs)), fillOpacity: 0.92 }),
+    ley: () =&gt; `&lt;div class=&quot;lt&quot;&gt;Error cuando la ocultamos (t/ha)&lt;/div&gt;&lt;div class=&quot;grad&quot; style=&quot;background:linear-gradient(90deg,${[0, 0.3, 0.6, 1].map(error).join(&quot;,&quot;)})&quot;&gt;&lt;/div&gt;&lt;div class=&quot;eti2&quot;&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;0.5&lt;/span&gt;&lt;span&gt;1+ t/ha&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;estado&quot;&gt;&lt;span&gt;&lt;i style=&quot;background:#fff;opacity:.5&quot;&gt;&lt;/i&gt;Estimada (sin real)&lt;/span&gt;&lt;/div&gt;`,
+  },
+  est: {
+    estilo: (p) =&gt; (p.oculta ? { fillColor: `url(#L-s${clase(p.pred)})`, fillOpacity: 1, color: p.sin_k1 ? &quot;#B2412C&quot; : &quot;#fff&quot;, weight: p.sin_k1 ? 2.6 : 1.2 } : { fillOpacity: 0.12, fillColor: &quot;#fff&quot; }),
+    ley: () =&gt; `&lt;div class=&quot;lt&quot;&gt;Las 59 estimadas&lt;/div&gt;&lt;div class=&quot;fil&quot;&gt;${RAMPA.map((c) =&gt; `&lt;span class=&quot;sw&quot; style=&quot;background:repeating-linear-gradient(45deg,${c} 0 3px,#fff 3px 6px)&quot;&gt;&lt;/span&gt;`).join(&quot;&quot;)}&lt;/div&gt;
+      &lt;div class=&quot;eti&quot;&gt;${[&quot;&quot;, &quot;3&quot;, &quot;3.5&quot;, &quot;4&quot;, &quot;4.5&quot;, &quot;5&quot;].map((t) =&gt; `&lt;span&gt;${t}&lt;/span&gt;`).join(&quot;&quot;)}&lt;/div&gt;&lt;div class=&quot;estado&quot;&gt;&lt;span&gt;&lt;i style=&quot;border:2px solid #B2412C;background:none&quot;&gt;&lt;/i&gt;Sin vecinas para comparar verdor&lt;/span&gt;&lt;/div&gt;`,
+  },
+};
+
+export function mapaSatelite() {
+  const cont = document.getElementById(&quot;mapa-sat&quot;);
+  const map = L.map(cont, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: 0.25 })
+    .fitBounds(L.latLngBounds(D.P.map((p) =&gt; [p.lat, p.lon])), { padding: [30, 30] });
+  L.tileLayer(ESRI, { maxZoom: 18, attribution: &quot;Esri World Imagery&quot; }).addTo(map);
+  cont.classList.add(&quot;vista-azul&quot;);
+
+  /* polígonos y símbolos (los símbolos se ven al alejar, como en el mapa original) */
+  const rings = new Map(D.P.map((p) =&gt; [p.id, p.poly.map((r) =&gt; r.map(([x, y]) =&gt; utm2ll(x, y)))]));
+  const centro = (p) =&gt; [p.lat, p.lon];
+  const capa = L.layerGroup().addTo(map), simb = L.layerGroup().addTo(map);
+  const poli = new Map(), sim = new Map();
+  for (const p of D.P) {
+    const pl = L.polygon(rings.get(p.id), { color: TINTA, weight: 0.8, className: &quot;parcela-sat&quot; }).addTo(capa);
+    const cm = L.circleMarker(centro(p), { radius: 5, color: TINTA, weight: 0.8 }).addTo(simb);
+    for (const l of [pl, cm]) {
+      l.on(&quot;click&quot;, (e) =&gt; { L.DomEvent.stop(e); seleccionar(p.id, &quot;mapa&quot;); });
+      l.on(&quot;mouseover mousemove&quot;, (e) =&gt; mostrarTip(htmlParcela(p), e.originalEvent));
+      l.on(&quot;mouseout&quot;, ocultarTip);
+    }
+    poli.set(p.id, pl); sim.set(p.id, cm);
+  }
+  /* surcos en el SVG de Leaflet: los mismos patrones del sitio, prefijo L */
+  const svgL = map.getRenderer(poli.values().next().value)._container;
+  surcos(d3.select(svgL).insert(&quot;defs&quot;, &quot;:first-child&quot;), &quot;L&quot;, 7, &quot;rgba(255,255,255,.85)&quot;);
+
+  const todo = L.latLngBounds([...poli.values()].map((l) =&gt; l.getBounds()));
+  map.fitBounds(todo, { padding: [30, 30] });
+
+  /* rótulos de municipio */
+  const rot = L.layerGroup().addTo(map);
+  for (const [m, ps] of D.MUNICIPIOS) {
+    if (ps.length &lt; 9) continue;
+    L.marker([d3.max(ps, (p) =&gt; p.lat) + 0.006, d3.mean(ps, (p) =&gt; p.lon)], {
+      interactive: false, icon: L.divIcon({ className: &quot;rot-mun&quot;, html: `&lt;span&gt;${corto(m)}&lt;/span&gt;` }),
+    }).addTo(rot);
+  }
+
+  /* estado del mapa */
+  let modo = &quot;rend&quot;, filtro = &quot;todas&quot;;
+  const aux = L.layerGroup().addTo(map);
+  const visible = (p) =&gt; filtro === &quot;todas&quot; || (filtro === &quot;est&quot;) === p.oculta;
+  function pintar() {
+    const lejos = map.getZoom() &lt; 13;
+    for (const p of D.P) {
+      const sel = p.id === estado.seleccion, v = visible(p);
+      const base = { color: TINTA, weight: 0.8, opacity: 1, ...MODOS[modo].estilo(p) };
+      if (!v) { base.opacity = 0.1; base.fillOpacity = 0.06; }
+      if (sel) Object.assign(base, { color: &quot;#fff&quot;, weight: 3, opacity: 1 });
+      poli.get(p.id).setStyle({ ...base, opacity: lejos ? 0 : base.opacity, fillOpacity: lejos ? 0 : base.fillOpacity });
+      const fc = String(base.fillColor).startsWith(&quot;url&quot;) ? colorV(p.pred) : base.fillColor;
+      sim.get(p.id).setStyle({
+        radius: sel ? 8 : 5, color: sel ? &quot;#fff&quot; : base.color === &quot;#fff&quot; ? &quot;#fff&quot; : TINTA, weight: sel ? 2.5 : base.weight,
+        fillColor: fc, fillOpacity: lejos ? (p.oculta &amp;&amp; modo === &quot;rend&quot; ? 0.35 : base.fillOpacity) : 0,
+        opacity: lejos ? base.opacity : 0, dashArray: p.oculta &amp;&amp; modo === &quot;rend&quot; ? &quot;2 2&quot; : null,
+      });
+    }
+    document.getElementById(&quot;mapa-ley&quot;).innerHTML = MODOS[modo].ley();
+    poli.get(estado.seleccion)?.bringToFront();
+  }
+  map.on(&quot;zoomend&quot;, pintar);
+
+  /* marco de selección: cuatro esquinas que se cierran sobre la parcela elegida */
+  const ret = document.createElement(&quot;div&quot;);
+  ret.className = &quot;reticula&quot;;
+  ret.innerHTML = &quot;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&quot;;
+  cont.appendChild(ret);
+  const colocar = () =&gt; {
+    if (!estado.seleccion) return;
+    const b = poli.get(estado.seleccion).getBounds();
+    const a = map.latLngToContainerPoint(b.getNorthWest()), z = map.latLngToContainerPoint(b.getSouthEast()), m = 14;
+    Object.assign(ret.style, { left: `${a.x - m}px`, top: `${a.y - m}px`, width: `${z.x - a.x + 2 * m}px`, height: `${z.y - a.y + 2 * m}px` });
+  };
+  map.on(&quot;move zoom&quot;, colocar);
+
+  /* anillo de 1 km y líneas a las vecinas, como en el verdor relativo (K) */
+  function vecindad(p) {
+    aux.clearLayers();
+    const vs = vecinasDe(p);
+    L.circle(centro(p), { radius: 1000, color: &quot;#fff&quot;, weight: 1.4, dashArray: &quot;5 6&quot;, fill: false, interactive: false }).addTo(aux);
+    vs.forEach((q) =&gt; L.polyline([centro(p), centro(q)], { color: q.oculta ? &quot;#E3C772&quot; : &quot;#fff&quot;, weight: 1.2, dashArray: &quot;2 4&quot;, interactive: false }).addTo(aux));
+    return vs;
+  }
+
+  /* ficha flotante de la parcela elegida */
+  const ficha = document.getElementById(&quot;ficha-sat&quot;);
+  function pintarFicha(p, vs) {
+    const v = valor(p), x = d3.scaleLinear([2, 6], [0, 100]);
+    const conocidas = vs.filter((q) =&gt; !q.oculta);
+    const comp = p.oculta ? [[&quot;MUN&quot;, &quot;Municipio&quot;, p.mun_p], [&quot;MIX&quot;, &quot;Referencia&quot;, p.mix], [&quot;K&quot;, &quot;Con verdor&quot;, p.kv], [&quot;J&quot;, &quot;Con lluvia&quot;, p.jv], [&quot;E_JK&quot;, &quot;Final&quot;, p.pred]] : [];
+    const xb = d3.scaleLinear([2, 5.5], [0, 100]).clamp(true);
+    ficha.innerHTML = `&lt;div class=&quot;f-btns&quot;&gt;&lt;button class=&quot;minimizar&quot; aria-label=&quot;Minimizar ficha&quot; title=&quot;Minimizar&quot;&gt;−&lt;/button&gt;&lt;button class=&quot;cerrar&quot; aria-label=&quot;Cerrar ficha&quot; title=&quot;Cerrar&quot;&gt;×&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;f-id&quot;&gt;${p.id}&lt;/div&gt;&lt;div class=&quot;f-sub&quot;&gt;${p.mun}, ${p.edo} · ${f(p.ha)} ha&lt;/div&gt;
+      &lt;div class=&quot;f-val&quot;&gt;&lt;b class=&quot;num&quot;&gt;${f(v)}&lt;/b&gt; t/ha &lt;span&gt;${p.oculta ? &quot;estimadas&quot; : &quot;conocidas&quot;}&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;f-cuerpo&quot;&gt;
+      ${p.oculta ? `&lt;svg class=&quot;f-rango&quot; viewBox=&quot;0 0 100 12&quot; preserveAspectRatio=&quot;none&quot;&gt;&lt;rect x=&quot;${x(p.lo80)}&quot; y=&quot;3&quot; width=&quot;${x(p.hi80) - x(p.lo80)}&quot; height=&quot;6&quot; fill=&quot;url(#t-s${clase(p.pred)})&quot;/&gt;&lt;line x1=&quot;${x(p.mix)}&quot; x2=&quot;${x(p.mix)}&quot; y1=&quot;1&quot; y2=&quot;11&quot; stroke=&quot;#5B636B&quot; stroke-width=&quot;1&quot;/&gt;&lt;line x1=&quot;${x(p.pred)}&quot; x2=&quot;${x(p.pred)}&quot; y1=&quot;0&quot; y2=&quot;12&quot; stroke=&quot;${TINTA}&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;/svg&gt;
+        &lt;div class=&quot;f-nota&quot;&gt;80 %: ${f(p.lo80)} a ${f(p.hi80)} · frente a la referencia ${fs(p.pred - p.mix)}&lt;/div&gt;
+        &lt;div class=&quot;f-comp&quot;&gt;${comp.map(([k, nom, val]) =&gt; `&lt;div title=&quot;${k}&quot;&gt;&lt;span&gt;${nom}&lt;/span&gt;&lt;em&gt;&lt;i style=&quot;width:${xb(val)}%;background:${COLORES[k]}&quot;&gt;&lt;/i&gt;&lt;/em&gt;&lt;b&gt;${f(val)}&lt;/b&gt;&lt;/div&gt;`).join(&quot;&quot;)}&lt;/div&gt;`
+      : `&lt;div class=&quot;f-nota&quot;&gt;Al ocultarla, el modelo estimó ${f(p.oof)} t/ha (error ${fs(p.oof - p.obs)}).&lt;/div&gt;`}
+      &lt;div class=&quot;f-sec&quot;&gt;Lluvia de octubre: &lt;b&gt;${fs(p.anom, 0)} %&lt;/b&gt; frente a 2022–2024&lt;/div&gt;
+      &lt;div class=&quot;f-sec&quot;&gt;${vs.length ? `${vs.length} vecinas a menos de 1 km${conocidas.length ? `, ${conocidas.length} conocidas con media ${f(d3.mean(conocidas, (q) =&gt; q.obs))} t/ha` : &quot;&quot;}` : &quot;Sin vecinas a menos de 1 km&quot;}&lt;/div&gt;
+      ${vs.length ? `&lt;div class=&quot;f-chips&quot;&gt;${vs.slice(0, 12).map((q) =&gt; `&lt;button data-id=&quot;${q.id}&quot; class=&quot;${q.oculta ? &quot;e&quot; : &quot;&quot;}&quot;&gt;${q.id.slice(4)} · ${f(valor(q), 1)}&lt;/button&gt;`).join(&quot;&quot;)}&lt;/div&gt;` : &quot;&quot;}
+      ${p.sin_k1 ? `&lt;div class=&quot;f-aviso&quot;&gt;Sin vecinas suficientes para comparar su verdor: se usa solo la referencia territorial.&lt;/div&gt;` : &quot;&quot;}
+      &lt;a class=&quot;f-mas&quot; href=&quot;#estimaciones&quot;&gt;Ver ficha completa en la tabla&lt;/a&gt;&lt;/div&gt;`;
+    ficha.hidden = false;
+    ficha.querySelector(&quot;.cerrar&quot;).onclick = () =&gt; { ficha.hidden = true; };
+    ficha.querySelector(&quot;.minimizar&quot;).onclick = (e) =&gt; {
+      const mini = ficha.classList.toggle(&quot;mini&quot;);
+      e.currentTarget.textContent = mini ? &quot;+&quot; : &quot;−&quot;;
+      e.currentTarget.setAttribute(&quot;aria-label&quot;, mini ? &quot;Abrir ficha&quot; : &quot;Minimizar ficha&quot;);
+    };
+    ficha.querySelectorAll(&quot;.f-chips button&quot;).forEach((b) =&gt; (b.onclick = () =&gt; seleccionar(b.dataset.id, &quot;mapa&quot;)));
+  }
+
+  const pista = document.getElementById(&quot;mapa-pista&quot;);
+  function marcar(id, origen) {
+    const p = D.porId.get(id);
+    if (origen !== &quot;inicio&quot;) pista?.classList.add(&quot;oculta&quot;);
+    if (!p) return;
+    const vs = vecindad(p);
+    pintar();
+    if (origen !== &quot;inicio&quot;) {
+      const ancho = cont.clientWidth &gt; 560;
+      map.flyToBounds(poli.get(id).getBounds(), { paddingTopLeft: ancho ? [300, 120] : [40, 120], paddingBottomRight: ancho ? [70, 70] : [40, 260], maxZoom: 15.5, duration: 1.1 });
+      map.once(&quot;moveend&quot;, () =&gt; { colocar(); ret.classList.remove(&quot;on&quot;); void ret.offsetWidth; ret.classList.add(&quot;on&quot;); });
+      pintarFicha(p, vs);
+    }
+    ret.querySelector(&quot;span&quot;).textContent = id;
+  }
+  alSeleccionar(marcar);
+
+  /* herramientas: filtros, zoom, vista, Ctrl + rueda */
+  document.querySelectorAll(&quot;.mapa-herr button&quot;).forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; {
+    filtro = b.dataset.f;
+    document.querySelectorAll(&quot;.mapa-herr button&quot;).forEach((x) =&gt; x.setAttribute(&quot;aria-pressed&quot;, String(x === b)));
+    pintar();
+  }));
+  document.querySelectorAll(&quot;.mapa-zoom button&quot;).forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; {
+    const z = +b.dataset.z;
+    if (z === 0) map.flyToBounds(todo, { padding: [30, 30], duration: 0.8 });
+    else map.setZoom(map.getZoom() + z);
+  }));
+  document.querySelectorAll(&quot;.mapa-vista button&quot;).forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; {
+    cont.classList.toggle(&quot;vista-azul&quot;, b.dataset.v === &quot;azul&quot;);
+    document.querySelectorAll(&quot;.mapa-vista button&quot;).forEach((x) =&gt; x.setAttribute(&quot;aria-pressed&quot;, String(x === b)));
+  }));
+  cont.addEventListener(&quot;wheel&quot;, (ev) =&gt; {
+    if (!(ev.ctrlKey || ev.metaKey)) return;
+    ev.preventDefault();
+    map.setZoomAround(map.mouseEventToContainerPoint(ev), map.getZoom() + (ev.deltaY &lt; 0 ? 0.5 : -0.5));
+  }, { passive: false });
+
+  addEventListener(&quot;keydown&quot;, (e) =&gt; { if (e.key === &quot;Escape&quot; &amp;&amp; !ficha.hidden) ficha.hidden = true; });
+  pintar();
+  marcar(estado.seleccion, &quot;inicio&quot;);
+
+  /* lo que usa el recorrido */
+  return {
+    modo: (m) =&gt; { modo = m; pintar(); },
+    verTodo: () =&gt; map.flyToBounds(todo, { padding: [30, 30], duration: 1.1 }),
+    verMunicipio: (m) =&gt; map.flyToBounds(L.latLngBounds(D.P.filter((p) =&gt; p.mun === m).map(centro)), { padding: [40, 40], duration: 1.1 }),
+    texto: { varianza: pct(D.EV.varianza_municipio), pendiente: f(D.M.J.pendiente, 4) },
+  };
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/recorrido.js</span><span class="cons-que">Recorrido del tablero: cada paso se activa con scroll o con clic en la barra bajo el mapa.</span><span class="cons-lin">51 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Recorrido del tablero: cada tarjeta que cruza el centro de la pantalla cambia la capa del mapa satelital.
+import { D, seleccionar } from &quot;./comun.js&quot;;
+
+export function iniciarRecorrido(mapa) {
+  const pasos = [...document.querySelectorAll(&quot;.rec-paso&quot;)];
+  if (!pasos.length) return;
+  const vitrina = D.VIT.id;
+  const acciones = {
+    todo: () =&gt; { mapa.modo(&quot;rend&quot;); mapa.verTodo(); },
+    grupo: () =&gt; { mapa.modo(&quot;grupo&quot;); mapa.verTodo(); },
+    lluvia: () =&gt; { mapa.modo(&quot;anom&quot;); mapa.verTodo(); },
+    vecinas: () =&gt; { mapa.modo(&quot;rend&quot;); seleccionar(vitrina, &quot;recorrido&quot;); },
+    error: () =&gt; { mapa.modo(&quot;error&quot;); mapa.verMunicipio(&quot;Chignahuapan&quot;); },
+    estimadas: () =&gt; { mapa.modo(&quot;est&quot;); mapa.verTodo(); },
+    libre: () =&gt; { mapa.modo(&quot;rend&quot;); },
+  };
+  const V = D.VIT, txt = document.getElementById(&quot;txt-vit&quot;);
+  if (txt) txt.innerHTML = `${V.id} y sus ${Array.isArray(V.vecinas_1km) ? V.vecinas_1km.length : V.vecinas_1km} vecinas a menos de 1 km (el anillo). Estuvo un poco más verde que ellas y eso se asoció con algo menos de grano, así que su referencia bajó de &lt;span class=&quot;dato&quot;&gt;${V.mix.toFixed(2)}&lt;/span&gt; a &lt;span class=&quot;dato&quot;&gt;${V.k.toFixed(2)}&lt;/span&gt; t/ha.`;
+  document.querySelectorAll(&quot;[data-txt]&quot;).forEach((el) =&gt; { el.textContent = mapa.texto[el.dataset.txt] ?? el.textContent; });
+  let actual = null;
+  const botones = [...document.querySelectorAll(&quot;#rec-botones button&quot;)];
+  const flechas = [...document.querySelectorAll(&quot;.rec-flecha&quot;)];
+  const escritorio = matchMedia(&quot;(min-width: 1081px)&quot;);
+  const activar = (paso) =&gt; {
+    if (paso === actual) return;
+    actual = paso;
+    const i = pasos.indexOf(paso);
+    pasos.forEach((p) =&gt; p.classList.toggle(&quot;activo&quot;, p === paso));
+    botones.forEach((b, j) =&gt; { b.setAttribute(&quot;aria-current&quot;, String(j === i)); b.classList.toggle(&quot;hecho&quot;, j &lt; i); });
+    botones[i]?.scrollIntoView({ block: &quot;nearest&quot;, inline: &quot;nearest&quot; });
+    flechas[0].disabled = i &lt;= 0;
+    flechas[1].disabled = i &gt;= pasos.length - 1;
+    acciones[paso.dataset.accion]?.();
+  };
+  /* con scroll: la tarjeta que cruza el centro de la pantalla */
+  const io = new IntersectionObserver((es) =&gt; es.forEach((e) =&gt; { if (e.isIntersecting) activar(e.target); }), { rootMargin: &quot;-45% 0px -45% 0px&quot; });
+  pasos.forEach((p) =&gt; io.observe(p));
+  /* con clic: en escritorio se lleva la tarjeta al centro; en teléfono el mapa cambia sin mover la página */
+  let pedido = null, reloj = null;
+  const ir = (i) =&gt; {
+    pedido = Math.max(0, Math.min(pasos.length - 1, i));
+    clearTimeout(reloj); reloj = setTimeout(() =&gt; { pedido = null; }, 1200);
+    const paso = pasos[pedido];
+    if (escritorio.matches) paso.scrollIntoView({ behavior: &quot;smooth&quot;, block: &quot;center&quot; });
+    else activar(paso);
+  };
+  botones.forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; ir(+b.dataset.i)));
+  flechas.forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; ir((pedido ?? pasos.indexOf(actual)) + +b.dataset.d)));
+  flechas[0].disabled = true;
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/satelite.js</span><span class="cons-que">Conversión UTM ↔ grados y teselas de Esri teñidas debajo de cualquier figura de d3.</span><span class="cons-lin">116 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Imagen satelital para las figuras en SVG: convierte entre UTM 14N y grados y dibuja las teselas de Esri
+// debajo de cualquier proyección de d3, con el mismo tinte azul del mapa del tablero.
+import * as d3 from &quot;d3&quot;;
+const A = 6378137, FL = 1 / 298.257223563, K0 = 0.9996, E2 = FL * (2 - FL), EP2 = E2 / (1 - E2), RAD = Math.PI / 180;
+export const ESRI = &quot;https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}&quot;;
+
+/** UTM 14N (metros) a [lat, lon]. */
+export function utm2ll(E, N, zona = 14) {
+  const x = E - 5e5, M = N / K0;
+  const mu = M / (A * (1 - E2 / 4 - (3 * E2 * E2) / 64 - (5 * E2 ** 3) / 256));
+  const e1 = (1 - Math.sqrt(1 - E2)) / (1 + Math.sqrt(1 - E2));
+  const p1 = mu + ((3 * e1) / 2 - (27 * e1 ** 3) / 32) * Math.sin(2 * mu) + ((21 * e1 * e1) / 16 - (55 * e1 ** 4) / 32) * Math.sin(4 * mu)
+    + ((151 * e1 ** 3) / 96) * Math.sin(6 * mu) + ((1097 * e1 ** 4) / 512) * Math.sin(8 * mu);
+  const s = Math.sin(p1), c = Math.cos(p1), C1 = EP2 * c * c, T1 = Math.tan(p1) ** 2;
+  const N1 = A / Math.sqrt(1 - E2 * s * s), R1 = (A * (1 - E2)) / (1 - E2 * s * s) ** 1.5, D = x / (N1 * K0);
+  const lat = p1 - ((N1 * Math.tan(p1)) / R1) * ((D * D) / 2 - ((5 + 3 * T1 + 10 * C1 - 4 * C1 * C1 - 9 * EP2) * D ** 4) / 24
+    + ((61 + 90 * T1 + 298 * C1 + 45 * T1 * T1 - 252 * EP2 - 3 * C1 * C1) * D ** 6) / 720);
+  const lon = ((zona - 1) * 6 - 177) * RAD
+    + (D - ((1 + 2 * T1 + C1) * D ** 3) / 6 + ((5 - 2 * C1 + 28 * T1 - 3 * C1 * C1 + 8 * EP2 + 24 * T1 * T1) * D ** 5) / 120) / c;
+  return [lat / RAD, lon / RAD];
+}
+
+/** [lat, lon] a UTM 14N [x, y] en metros. */
+export function ll2utm(lat, lon, zona = 14) {
+  const f = lat * RAD, s = Math.sin(f), c = Math.cos(f), t = Math.tan(f);
+  const N = A / Math.sqrt(1 - E2 * s * s), T = t * t, C = EP2 * c * c, Aa = c * (lon - ((zona - 1) * 6 - 177)) * RAD;
+  const M = A * ((1 - E2 / 4 - (3 * E2 ** 2) / 64 - (5 * E2 ** 3) / 256) * f - ((3 * E2) / 8 + (3 * E2 ** 2) / 32 + (45 * E2 ** 3) / 1024) * Math.sin(2 * f)
+    + ((15 * E2 ** 2) / 256 + (45 * E2 ** 3) / 1024) * Math.sin(4 * f) - ((35 * E2 ** 3) / 3072) * Math.sin(6 * f));
+  const x = K0 * N * (Aa + ((1 - T + C) * Aa ** 3) / 6 + ((5 - 18 * T + T * T + 72 * C - 58 * EP2) * Aa ** 5) / 120) + 5e5;
+  const y = K0 * (M + N * t * ((Aa * Aa) / 2 + ((5 - T + 9 * C + 4 * C * C) * Aa ** 4) / 24 + ((61 - 58 * T + T * T + 600 * C - 330 * EP2) * Aa ** 6) / 720));
+  return [x, y];
+}
+
+const tx = (lon, z) =&gt; ((lon + 180) / 360) * 2 ** z;
+const ty = (lat, z) =&gt; ((1 - Math.log(Math.tan(lat * RAD) + 1 / Math.cos(lat * RAD)) / Math.PI) / 2) * 2 ** z;
+const tlon = (x, z) =&gt; (x / 2 ** z) * 360 - 180;
+const tlat = (y, z) =&gt; Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / 2 ** z))) / RAD;
+
+let nTinte = 0;
+const MATRIZ = [[0.19, 0.37, 0.07, 0.03], [0.21, 0.41, 0.08, 0.06], [0.23, 0.46, 0.09, 0.12]];
+const cache = new Map();
+/** Descarga una tesela como ImageBitmap (Esri permite CORS). */
+const tesela = (url) =&gt; {
+  if (!cache.has(url)) cache.set(url, fetch(url).then((r) =&gt; (r.ok ? r.blob() : Promise.reject(r.status))).then((b) =&gt; createImageBitmap(b)));
+  return cache.get(url);
+};
+
+/**
+ * Dibuja la imagen satelital en `g` (un grupo de d3) para la caja UTM [x0, y0, x1, y1].
+ * `aPunto(x, y)` lleva metros UTM a unidades del lienzo; `pixeles` es el ancho aproximado en pantalla de esa caja.
+ * Las teselas se juntan y se tiñen una sola vez en un canvas, y el SVG recibe una sola imagen ligera.
+ * Si el navegador no puede (sin CORS o sin canvas), usa las teselas sueltas con un filtro SVG.
+ */
+export function fondoSatelital(g, aPunto, [x0, y0, x1, y1], { pixeles = 800, nitidez = 1.6, max = 90, tinte = true, opacidad = 1 } = {}) {
+  const sw = utm2ll(x0, y0), ne = utm2ll(x1, y1), nw = utm2ll(x0, y1), se = utm2ll(x1, y0);
+  const lat0 = Math.min(sw[0], se[0]), lat1 = Math.max(nw[0], ne[0]), lon0 = Math.min(sw[1], nw[1]), lon1 = Math.max(se[1], ne[1]);
+  const mpp = (x1 - x0) / pixeles / nitidez;
+  let z = Math.max(5, Math.min(17, Math.round(Math.log2((156543.03 * Math.cos(((lat0 + lat1) / 2) * RAD)) / mpp))));
+  const rango = (zz) =&gt; [Math.floor(tx(lon0, zz)), Math.floor(tx(lon1, zz)), Math.floor(ty(lat1, zz)), Math.floor(ty(lat0, zz))];
+  let [a, b, c, d] = rango(z);
+  while ((b - a + 1) * (d - c + 1) &gt; max &amp;&amp; z &gt; 5) { z--; [a, b, c, d] = rango(z); }
+  const capa = g.append(&quot;g&quot;).attr(&quot;class&quot;, &quot;sat-fondo&quot;).attr(&quot;opacity&quot;, opacidad);
+  const piezas = [];
+  for (let i = a; i &lt;= b; i++) for (let j = c; j &lt;= d; j++) {
+    const [px0, py0] = aPunto(...ll2utm(tlat(j, z), tlon(i, z)));
+    const [px1, py1] = aPunto(...ll2utm(tlat(j + 1, z), tlon(i + 1, z)));
+    piezas.push({ url: ESRI.replace(&quot;{z}&quot;, z).replace(&quot;{y}&quot;, j).replace(&quot;{x}&quot;, i), x: Math.min(px0, px1), y: Math.min(py0, py1), w: Math.abs(px1 - px0), h: Math.abs(py1 - py0) });
+  }
+  const bx0 = d3.min(piezas, (p) =&gt; p.x), by0 = d3.min(piezas, (p) =&gt; p.y);
+  const bw = d3.max(piezas, (p) =&gt; p.x + p.w) - bx0, bh = d3.max(piezas, (p) =&gt; p.y + p.h) - by0;
+  const esc = Math.min(2, 2400 / Math.max(bw, bh));
+
+  const sueltas = () =&gt; {
+    if (tinte) {
+      const id = `tinte-sat-${++nTinte}`, svg = g.node().ownerSVGElement;
+      let defs = d3.select(svg).select(&quot;defs&quot;);
+      if (defs.empty()) defs = d3.select(svg).insert(&quot;defs&quot;, &quot;:first-child&quot;);
+      defs.append(&quot;filter&quot;).attr(&quot;id&quot;, id).attr(&quot;color-interpolation-filters&quot;, &quot;sRGB&quot;).append(&quot;feColorMatrix&quot;).attr(&quot;type&quot;, &quot;matrix&quot;)
+        .attr(&quot;values&quot;, MATRIZ.map((r) =&gt; `${r[0]} ${r[1]} ${r[2]} 0 ${r[3]}`).join(&quot; &quot;) + &quot; 0 0 0 1 0&quot;);
+      capa.attr(&quot;filter&quot;, `url(#${id})`);
+    }
+    piezas.forEach((p) =&gt; capa.append(&quot;image&quot;).attr(&quot;href&quot;, p.url).attr(&quot;x&quot;, p.x).attr(&quot;y&quot;, p.y)
+      .attr(&quot;width&quot;, p.w + 1.6).attr(&quot;height&quot;, p.h + 1.6).attr(&quot;preserveAspectRatio&quot;, &quot;none&quot;));
+  };
+
+  if (typeof createImageBitmap !== &quot;function&quot;) { sueltas(); return capa; }
+  Promise.all(piezas.map((p) =&gt; tesela(p.url))).then((imgs) =&gt; {
+    const cv = document.createElement(&quot;canvas&quot;);
+    cv.width = Math.round(bw * esc); cv.height = Math.round(bh * esc);
+    const ctx = cv.getContext(&quot;2d&quot;);
+    imgs.forEach((im, k) =&gt; { const p = piezas[k]; ctx.drawImage(im, (p.x - bx0) * esc, (p.y - by0) * esc, p.w * esc + 1, p.h * esc + 1); });
+    if (tinte) {
+      const datos = ctx.getImageData(0, 0, cv.width, cv.height), px = datos.data;
+      for (let k = 0; k &lt; px.length; k += 4) {
+        const r = px[k] / 255, gg = px[k + 1] / 255, bb = px[k + 2] / 255;
+        px[k] = 255 * Math.min(1, MATRIZ[0][0] * r + MATRIZ[0][1] * gg + MATRIZ[0][2] * bb + MATRIZ[0][3]);
+        px[k + 1] = 255 * Math.min(1, MATRIZ[1][0] * r + MATRIZ[1][1] * gg + MATRIZ[1][2] * bb + MATRIZ[1][3]);
+        px[k + 2] = 255 * Math.min(1, MATRIZ[2][0] * r + MATRIZ[2][1] * gg + MATRIZ[2][2] * bb + MATRIZ[2][3]);
+      }
+      ctx.putImageData(datos, 0, 0);
+    }
+    cv.toBlob((blob) =&gt; {
+      if (!blob) { sueltas(); return; }
+      capa.append(&quot;image&quot;).attr(&quot;href&quot;, URL.createObjectURL(blob)).attr(&quot;x&quot;, bx0).attr(&quot;y&quot;, by0).attr(&quot;width&quot;, bw).attr(&quot;height&quot;, bh)
+        .attr(&quot;preserveAspectRatio&quot;, &quot;none&quot;).attr(&quot;opacity&quot;, 0).transition().duration(400).attr(&quot;opacity&quot;, 1);
+    }, &quot;image/jpeg&quot;, 0.86);
+  }).catch(() =&gt; sueltas());
+  return capa;
+}
+
+/** Caja UTM que cubre todo el lienzo de una proyección de d3 (geoIdentity con invert). */
+export function cajaDeLienzo(proy, W, H) {
+  const [xa, ya] = proy.invert([0, H]), [xb, yb] = proy.invert([W, 0]);
+  return [Math.min(xa, xb), Math.min(ya, yb), Math.max(xa, xb), Math.max(ya, yb)];
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/escenas.js</span><span class="cons-que">Figuras de «Cómo se hizo»: las ocultas, el territorio, las vecinas, la lluvia y la capa del polígono ahora llevan satélite.</span><span class="cons-lin">503 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Figuras de «Cómo se hizo». Cada escena se dibuja en unidades del lienzo: 800×600 en escritorio y
+// 400 de ancho en teléfono (≈1 unidad por píxel), así el texto conserva su tamaño en ambos.
+import * as d3 from &quot;d3&quot;;
+import {
+  D, f, fs, pct, corto, clase, colorV, RAMPA, COLORES, NOMBRES, TINTA, GRIS, MARINO, PAJA, featureDe, cajaUTM, modeloFinal, mostrarTip, ocultarTip,
+} from &quot;./comun.js&quot;;
+import { fondoSatelital, cajaDeLienzo } from &quot;./satelite.js&quot;;
+
+export const CAPAS_FIN = 0.15;
+const RAYA = &quot;#E6E8E2&quot;;
+
+const limpiarEje = (size = 13) =&gt; (a) =&gt; a.call((s) =&gt; s.select(&quot;.domain&quot;).remove())
+  .call((s) =&gt; s.selectAll(&quot;line&quot;).attr(&quot;stroke&quot;, RAYA)).call((s) =&gt; s.selectAll(&quot;text&quot;).attr(&quot;fill&quot;, GRIS).attr(&quot;font-size&quot;, size));
+
+/** Texto en varias líneas. */
+function lineas(g, x, y, txt, { size = 13.5, color = GRIS, peso = 400, alto = 1.35, ancla = &quot;start&quot; } = {}) {
+  const t = g.append(&quot;text&quot;).attr(&quot;x&quot;, x).attr(&quot;y&quot;, y).attr(&quot;font-size&quot;, size).attr(&quot;fill&quot;, color).attr(&quot;font-weight&quot;, peso).attr(&quot;text-anchor&quot;, ancla);
+  [].concat(txt).forEach((l, i) =&gt; t.append(&quot;tspan&quot;).attr(&quot;x&quot;, x).attr(&quot;dy&quot;, i ? size * alto : 0).text(l));
+  return t;
+}
+function punta(g, id) {
+  g.append(&quot;defs&quot;).append(&quot;marker&quot;).attr(&quot;id&quot;, id).attr(&quot;viewBox&quot;, &quot;0 0 10 10&quot;).attr(&quot;refX&quot;, 9).attr(&quot;refY&quot;, 5)
+    .attr(&quot;markerWidth&quot;, 7).attr(&quot;markerHeight&quot;, 7).attr(&quot;orient&quot;, &quot;auto&quot;)
+    .append(&quot;path&quot;).attr(&quot;d&quot;, &quot;M0,0 L10,5 L0,10 z&quot;).attr(&quot;fill&quot;, &quot;#7A848D&quot;);
+}
+const vit = () =&gt; D.porId.get(D.VIT.id);
+/** Recuadro blanco para leyendas y notas encima de la imagen satelital. */
+function panel(g, x, y, w, h) {
+  return g.append(&quot;rect&quot;).attr(&quot;x&quot;, x).attr(&quot;y&quot;, y).attr(&quot;width&quot;, w).attr(&quot;height&quot;, h)
+    .attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;fill-opacity&quot;, 0.94).attr(&quot;stroke&quot;, &quot;#D2D6CE&quot;);
+}
+/** Satélite que cubre todo el lienzo de una proyección. */
+const satelite = (g, proy, W, H) =&gt; fondoSatelital(g, (x, y) =&gt; proy([x, y]), cajaDeLienzo(proy, W, H), { pixeles: W });
+/** Recorre los textos centrados que se salen del lienzo para que queden completos. */
+function dentro(g, W, mg = 8) {
+  requestAnimationFrame(() =&gt; g.selectAll(&quot;text[text-anchor=&#39;middle&#39;]&quot;).each(function () {
+    let w = 0;
+    try { w = this.getComputedTextLength(); } catch { return; }
+    if (!w) return;
+    const x = +this.getAttribute(&quot;x&quot;);
+    const nx = Math.min(W - mg - w / 2, Math.max(mg + w / 2, x));
+    if (nx !== x) this.setAttribute(&quot;x&quot;, nx);
+  }));
+}
+
+/* 1. Las 59 ocultas entre las conocidas, sobre la imagen satelital */
+function oculto(g, W, H, m) {
+  const proy = d3.geoIdentity().reflectY(true).fitExtent([[24, m ? 84 : 76], [W - 24, H - 22]], D.COLECCION);
+  satelite(g, proy, W, H);
+  const pt = (p) =&gt; proy([p.x, p.y]);
+  g.append(&quot;g&quot;).selectAll(&quot;circle&quot;).data(D.REP).join(&quot;circle&quot;).attr(&quot;cx&quot;, (p) =&gt; pt(p)[0]).attr(&quot;cy&quot;, (p) =&gt; pt(p)[1])
+    .attr(&quot;r&quot;, m ? 3 : 3.8).attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;fill-opacity&quot;, 0.9).attr(&quot;stroke&quot;, MARINO).attr(&quot;stroke-width&quot;, 0.8);
+  g.append(&quot;g&quot;).selectAll(&quot;circle&quot;).data(D.EST).join(&quot;circle&quot;).attr(&quot;cx&quot;, (p) =&gt; pt(p)[0]).attr(&quot;cy&quot;, (p) =&gt; pt(p)[1])
+    .attr(&quot;r&quot;, m ? 5 : 6.4).attr(&quot;fill&quot;, MARINO).attr(&quot;fill-opacity&quot;, 0.35).attr(&quot;stroke&quot;, PAJA).attr(&quot;stroke-width&quot;, 2.4);
+  const ley = g.append(&quot;g&quot;).attr(&quot;transform&quot;, &quot;translate(14,14)&quot;);
+  panel(ley, 0, 0, m ? W - 28 : 452, m ? 58 : 40);
+  const item = (x, y, ring, txt) =&gt; {
+    const c = ley.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`);
+    c.append(&quot;circle&quot;).attr(&quot;r&quot;, ring ? 6 : 4.2).attr(&quot;fill&quot;, ring ? &quot;#fff&quot; : &quot;#9AA1A8&quot;).attr(&quot;stroke&quot;, ring ? &quot;#C27A12&quot; : TINTA).attr(&quot;stroke-width&quot;, ring ? 2.4 : 0.8);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 13).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 13.5).attr(&quot;fill&quot;, TINTA).text(txt);
+  };
+  item(18, 20, false, &quot;138 con rendimiento conocido&quot;);
+  item(m ? 18 : 238, m ? 40 : 20, true, &quot;59 ocultas para calificar&quot;);
+}
+/* 2. Cuatro capas que se juntan en la fila de una parcela (avance ligado al scroll) */
+function capas(g, W, H, m) {
+  const V = D.VIT, p = vit(), E = V.elev;
+  const lado = E.paso * E.n, L = m ? 150 : 250, S = L / lado;
+  const x0 = p.x - lado / 2, y0 = p.y - lado / 2;
+  const loc = (x, y) =&gt; [(x - x0) * S, (y0 + lado - y) * S];
+  const trazo = (r) =&gt; &quot;M&quot; + r.map(([x, y]) =&gt; loc(x, y).map((v) =&gt; v.toFixed(1)).join(&quot;,&quot;)).join(&quot;L&quot;) + &quot;Z&quot;;
+  const iso = &quot;matrix(0.866,0.5,-0.866,0.5,0,0)&quot;;
+  const clip = `corte-capa-${m ? &quot;m&quot; : &quot;e&quot;}`;
+  g.append(&quot;defs&quot;).append(&quot;clipPath&quot;).attr(&quot;id&quot;, clip).append(&quot;rect&quot;).attr(&quot;width&quot;, L).attr(&quot;height&quot;, L);
+  const cx = m ? 142 : 300;
+  const base = m ? 184 : 235, paso = m ? 58 : 75, junto = m ? 97 : 122;
+  const etqX = m ? 140 : 226, notaSize = m ? 12 : 12.5;
+  const lista = [];
+  const nueva = (nombre, nota, color) =&gt; {
+    const c = g.append(&quot;g&quot;);
+    const dentro = c.append(&quot;g&quot;).attr(&quot;transform&quot;, iso).append(&quot;g&quot;).attr(&quot;clip-path&quot;, `url(#${clip})`);
+    const etq = c.append(&quot;g&quot;);
+    etq.append(&quot;rect&quot;).attr(&quot;x&quot;, etqX).attr(&quot;y&quot;, L / 2 - 20).attr(&quot;width&quot;, 4).attr(&quot;height&quot;, 36).attr(&quot;fill&quot;, color);
+    etq.append(&quot;text&quot;).attr(&quot;x&quot;, etqX + 12).attr(&quot;y&quot;, L / 2 - 5).attr(&quot;font-size&quot;, m ? 13.5 : 14.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(nombre);
+    etq.append(&quot;text&quot;).attr(&quot;x&quot;, etqX + 12).attr(&quot;y&quot;, L / 2 + 13).attr(&quot;font-size&quot;, notaSize).attr(&quot;fill&quot;, GRIS).text(nota);
+    lista.push({ c, etq });
+    return dentro;
+  };
+  // 1. elevación (abajo)
+  const e = nueva(m ? &quot;Elevación&quot; : &quot;Elevación INEGI, cada 120 m&quot;, m ? &quot;cada 120 m&quot; : &quot;probada; no entró al modelo final&quot;, &quot;#59645D&quot;);
+  const ev = E.valores.flat().filter((v) =&gt; v != null);
+  const gris = d3.scaleLinear(d3.extent(ev), [&quot;#EEF0EA&quot;, &quot;#59645D&quot;]);
+  const pe = E.paso * S;
+  E.valores.forEach((fila, i) =&gt; fila.forEach((v, j) =&gt; {
+    if (v == null) return;
+    const [px, py] = loc(E.x0 + j * E.paso - E.paso / 2, E.y0 - i * E.paso + E.paso / 2);
+    e.append(&quot;rect&quot;).attr(&quot;x&quot;, px).attr(&quot;y&quot;, py).attr(&quot;width&quot;, pe + 0.4).attr(&quot;height&quot;, pe + 0.4).attr(&quot;fill&quot;, gris(v));
+  }));
+  e.append(&quot;rect&quot;).attr(&quot;width&quot;, L).attr(&quot;height&quot;, L).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#59645D&quot;);
+  // 2. lluvia
+  const l = nueva(m ? &quot;Lluvia&quot; : &quot;Lluvia CHIRPS, octubre de 2025&quot;, m ? &quot;octubre de 2025&quot; : &quot;celdas de unos 5 km por lado&quot;, &quot;#2F6FD6&quot;);
+  const azul = d3.scaleLinear([110, 175], [&quot;#cde2fb&quot;, &quot;#256abf&quot;]);
+  V.celdas[&quot;2025&quot;].forEach((c) =&gt; l.append(&quot;path&quot;).attr(&quot;d&quot;, trazo(c.poly)).attr(&quot;fill&quot;, azul(c.valor)).attr(&quot;fill-opacity&quot;, 0.82).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.2));
+  l.append(&quot;rect&quot;).attr(&quot;width&quot;, L).attr(&quot;height&quot;, L).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#256abf&quot;);
+  // 3. polígono
+  const pc = nueva(m ? &quot;Polígono&quot; : `Polígono de ${V.id}`, m ? `${f(p.ha)} ha` : `${f(p.ha)} ha, sobre la imagen satelital`, &quot;#C27A12&quot;);
+  fondoSatelital(pc, loc, [x0, y0, x0 + lado, y0 + lado], { pixeles: L * 2.2, opacidad: 0.95 });
+  pc.append(&quot;rect&quot;).attr(&quot;width&quot;, L).attr(&quot;height&quot;, L).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#C27A12&quot;);
+  const [vx, vy] = loc(p.x, p.y);
+  pc.append(&quot;path&quot;).attr(&quot;d&quot;, p.poly.map(trazo).join(&quot;&quot;)).attr(&quot;fill&quot;, &quot;#C27A12&quot;).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.2);
+  pc.append(&quot;circle&quot;).attr(&quot;cx&quot;, vx).attr(&quot;cy&quot;, vy).attr(&quot;r&quot;, m ? 8 : 11).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, PAJA).attr(&quot;stroke-width&quot;, 1.8);
+  // 4. verdor de la parcela y de sus vecinas a menos de 1 km (arriba)
+  const vd = nueva(m ? &quot;Verdor&quot; : &quot;Verdor Planet, temporada 2025&quot;, m ? &quot;por parcela&quot; : &quot;área bajo la curva, por parcela&quot;, &quot;#3A9E6E&quot;);
+  vd.append(&quot;rect&quot;).attr(&quot;width&quot;, L).attr(&quot;height&quot;, L).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#3A9E6E&quot;);
+  const integ = new Map(V.curvas.map((c) =&gt; [c.id, c.integral]));
+  const verde = d3.scaleLinear(d3.extent([...integ.values()]), [&quot;#bfe3cd&quot;, &quot;#1f6e47&quot;]);
+  vd.append(&quot;circle&quot;).attr(&quot;cx&quot;, vx).attr(&quot;cy&quot;, vy).attr(&quot;r&quot;, 1000 * S).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#3A9E6E&quot;).attr(&quot;stroke-dasharray&quot;, &quot;3 3&quot;);
+  [...integ.keys()].forEach((id) =&gt; vd.append(&quot;path&quot;).attr(&quot;d&quot;, D.porId.get(id).poly.map(trazo).join(&quot;&quot;))
+    .attr(&quot;fill&quot;, verde(integ.get(id))).attr(&quot;stroke&quot;, id === p.id ? TINTA : &quot;none&quot;).attr(&quot;stroke-width&quot;, 1.2));
+  // la fila que resulta
+  const centro = E.valores[(E.n - 1) / 2][(E.n - 1) / 2];
+  const celdas = [
+    [&quot;Parcela&quot;, V.id, TINTA], [&quot;Elevación&quot;, `${f(centro, 0)} m`, &quot;#59645D&quot;],
+    [&quot;Lluvia oct. 2025&quot;, `${f(V.lluvia_pond[&quot;2025&quot;], 0)} mm (${fs(V.anom, 0)} %)`, &quot;#2F6FD6&quot;],
+    [&quot;Superficie&quot;, `${f(p.ha)} ha`, &quot;#C27A12&quot;], [&quot;Verdor&quot;, `${f(V.integral, 1)} (${fs(V.k1, 1)} vs vecinas)`, &quot;#3A9E6E&quot;],
+  ];
+  const pos = m
+    ? [[0, 0, 120], [130, 0, 110], [0, 66, 190], [250, 0, 130], [200, 66, 190]]
+    : [[0, 0, 120], [120, 0, 118], [238, 0, 186], [424, 0, 112], [536, 0, 214]];
+  const fila = g.append(&quot;g&quot;).attr(&quot;transform&quot;, m ? `translate(14,${H - 196})` : &quot;translate(24,500)&quot;);
+  const nodos = celdas.map(([t, v, c], i) =&gt; {
+    const [x, y, w] = pos[i];
+    const k = fila.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`);
+    k.append(&quot;rect&quot;).attr(&quot;width&quot;, w - 10).attr(&quot;height&quot;, 3).attr(&quot;fill&quot;, c);
+    k.append(&quot;text&quot;).attr(&quot;y&quot;, 21).attr(&quot;font-size&quot;, 13).attr(&quot;fill&quot;, GRIS).text(t);
+    k.append(&quot;text&quot;).attr(&quot;y&quot;, 43).attr(&quot;font-size&quot;, m ? 15.5 : 16.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(v);
+    return k;
+  });
+  const nota = lineas(fila, 0, m ? 150 : 76, m
+    ? [&quot;Cada capa deja un número en la fila de la parcela.&quot;, &quot;Así se arma la tabla: una fila por parcela.&quot;]
+    : &quot;Cada capa deja un número en la fila de la parcela. Así se arma la tabla: una fila por parcela.&quot;, { size: 13 });
+  const lim = (v) =&gt; Math.max(0, Math.min(1, v));
+  /** t = 1: capas separadas; t = CAPAS_FIN: capas juntas y fila completa. */
+  const colocar = (t, todo = false) =&gt; {
+    const u = lim((1 - t) / (1 - CAPAS_FIN));
+    lista.forEach((o, i) =&gt; {
+      const y = junto + (base - i * paso - junto) * t;
+      o.c.attr(&quot;transform&quot;, `translate(${cx},${y.toFixed(1)})`);
+      o.etq.attr(&quot;opacity&quot;, todo ? 1 : lim((t - 0.55) / 0.3));
+    });
+    nodos.forEach((k, i) =&gt; k.attr(&quot;opacity&quot;, todo ? 1 : lim(u * 6 - i)));
+    nota.attr(&quot;opacity&quot;, todo ? 1 : lim(u * 6 - 5));
+  };
+  colocar(1);
+  return { colocar };
+}
+
+/* 3. El territorio: rendimiento conocido y media de los municipios grandes, sobre la imagen satelital */
+function territorio(g, W, H, m) {
+  const proy = d3.geoIdentity().reflectY(true).fitExtent([[24, 30], [W - (m ? 120 : 190), H - (m ? 84 : 30)]], D.COLECCION);
+  satelite(g, proy, W, H);
+  const pt = (p) =&gt; proy([p.x, p.y]);
+  g.append(&quot;g&quot;).selectAll(&quot;circle&quot;).data(D.REP).join(&quot;circle&quot;).attr(&quot;cx&quot;, (p) =&gt; pt(p)[0]).attr(&quot;cy&quot;, (p) =&gt; pt(p)[1])
+    .attr(&quot;r&quot;, m ? 4 : 5.2).attr(&quot;fill&quot;, (p) =&gt; colorV(p.obs)).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.1);
+  // rótulo a la derecha de cada grupo, con una línea que lo une a sus parcelas
+  const ocupados = [];
+  D.MUNICIPIOS.filter(([, ps]) =&gt; ps.filter((p) =&gt; !p.oculta).length &gt; 8).forEach(([mun, ps]) =&gt; {
+    const rep = ps.filter((p) =&gt; !p.oculta), xs = rep.map((p) =&gt; pt(p)[0]), ys = rep.map((p) =&gt; pt(p)[1]);
+    const nombre = corto(mun), valor = `${f(d3.mean(rep, (p) =&gt; p.obs))} t/ha de media`;
+    const w = Math.max(nombre.length * 8.4, valor.length * 6.9) + 22, h = 44;
+    let x = d3.max(xs) + 16, y = d3.median(ys) - h / 2;
+    if (x + w &gt; W - 8) x = d3.min(xs) - 16 - w;
+    while (ocupados.some((o) =&gt; Math.abs(o - y) &lt; h + 6)) y += h + 6;
+    ocupados.push(y);
+    const c = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`);
+    const ancla = x &gt; d3.max(xs) ? [d3.max(xs) + 3 - x, d3.median(ys) - y] : [d3.min(xs) - 3 - x, d3.median(ys) - y];
+    c.append(&quot;line&quot;).attr(&quot;x1&quot;, ancla[0]).attr(&quot;y1&quot;, ancla[1]).attr(&quot;x2&quot;, x &gt; d3.max(xs) ? 0 : w).attr(&quot;y2&quot;, h / 2).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.2);
+    panel(c, 0, 0, w, h);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 11).attr(&quot;y&quot;, 18).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(nombre);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 11).attr(&quot;y&quot;, 35).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(valor);
+  });
+  const ley = g.append(&quot;g&quot;).attr(&quot;transform&quot;, m ? `translate(14,${H - 66})` : `translate(${W - 252},${H - 74})`);
+  panel(ley, 0, 0, 238, 60);
+  ley.append(&quot;text&quot;).attr(&quot;x&quot;, 12).attr(&quot;y&quot;, 19).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(&quot;Rendimiento conocido (t/ha)&quot;);
+  RAMPA.forEach((c, i) =&gt; ley.append(&quot;rect&quot;).attr(&quot;x&quot;, 12 + i * 36).attr(&quot;y&quot;, 27).attr(&quot;width&quot;, 34).attr(&quot;height&quot;, 10).attr(&quot;fill&quot;, c));
+  [&quot;3&quot;, &quot;3.5&quot;, &quot;4&quot;, &quot;4.5&quot;, &quot;5&quot;].forEach((t, i) =&gt; ley.append(&quot;text&quot;).attr(&quot;x&quot;, 12 + (i + 1) * 36 - 1).attr(&quot;y&quot;, 52).attr(&quot;text-anchor&quot;, &quot;middle&quot;).attr(&quot;font-size&quot;, 12).attr(&quot;fill&quot;, GRIS).text(t));
+}
+
+/* 4. Vecinas de la parcela de ejemplo sobre la imagen satelital (las líneas se trazan con el scroll) */
+function vecinas(g, W, H, m) {
+  const p = vit(), r = modeloFinal(p);
+  const R = d3.max(r.vecinas, (v) =&gt; v.d) * 1.08;
+  const asp = W / H;
+  const proy = d3.geoIdentity().reflectY(true).fitExtent([[0, m ? 110 : 0], [W, H]], cajaUTM(p.x - R * asp, p.y - R, p.x + R * asp, p.y + R));
+  const ruta = d3.geoPath(proy);
+  const clip = `corte-vecinas-${m ? &quot;m&quot; : &quot;e&quot;}`;
+  g.append(&quot;defs&quot;).append(&quot;clipPath&quot;).attr(&quot;id&quot;, clip).append(&quot;rect&quot;).attr(&quot;width&quot;, W).attr(&quot;height&quot;, H);
+  const mapa = g.append(&quot;g&quot;).attr(&quot;clip-path&quot;, `url(#${clip})`);
+  satelite(mapa, proy, W, H);
+  const [cx, cy] = proy([p.x, p.y]);
+  const cerca = D.P.filter((q) =&gt; q.id !== p.id &amp;&amp; Math.abs(q.x - p.x) &lt; R * asp * 1.2 &amp;&amp; Math.abs(q.y - p.y) &lt; R * 1.2);
+  mapa.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(cerca).join(&quot;path&quot;).attr(&quot;d&quot;, (q) =&gt; ruta(featureDe(q)))
+    .attr(&quot;fill&quot;, (q) =&gt; (q.oculta ? `url(#t-s${clase(q.pred)})` : colorV(q.obs))).attr(&quot;fill-opacity&quot;, 0.95)
+    .attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 0.7);
+  const wmax = d3.max(r.vecinas, (v) =&gt; v.w);
+  const ls = mapa.append(&quot;g&quot;).selectAll(&quot;line&quot;).data(r.vecinas).join(&quot;line&quot;).attr(&quot;x1&quot;, cx).attr(&quot;y1&quot;, cy)
+    .attr(&quot;x2&quot;, (v) =&gt; proy([v.q.x, v.q.y])[0]).attr(&quot;y2&quot;, (v) =&gt; proy([v.q.x, v.q.y])[1])
+    .attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-opacity&quot;, 0.85).attr(&quot;stroke-linecap&quot;, &quot;round&quot;).attr(&quot;stroke-width&quot;, (v) =&gt; 0.8 + (8 * v.w) / wmax);
+  mapa.append(&quot;path&quot;).attr(&quot;d&quot;, ruta(featureDe(p))).attr(&quot;fill&quot;, PAJA).attr(&quot;fill-opacity&quot;, 0.35).attr(&quot;stroke&quot;, PAJA).attr(&quot;stroke-width&quot;, 3);
+  mapa.append(&quot;circle&quot;).attr(&quot;cx&quot;, cx).attr(&quot;cy&quot;, cy).attr(&quot;r&quot;, 8).attr(&quot;fill&quot;, MARINO).attr(&quot;stroke&quot;, PAJA).attr(&quot;stroke-width&quot;, 3);
+  const et = mapa.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${cx + 14},${cy + 14})`);
+  panel(et, 0, 0, 78, 24);
+  et.append(&quot;text&quot;).attr(&quot;x&quot;, 8).attr(&quot;y&quot;, 17).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#A9650C&quot;).text(p.id);
+  // las tres vecinas que más pesan: marcas separadas para que no se encimen
+  const top = [...r.vecinas].sort((a, b) =&gt; b.w - a.w).slice(0, 3);
+  const pos = [];
+  top.forEach((v) =&gt; {
+    let [x, y] = proy([v.q.x, v.q.y]);
+    const dx = x - cx, dy = y - cy, dl = Math.hypot(dx, dy) || 1;
+    for (let k = 0; k &lt; 8 &amp;&amp; pos.some(([a, b]) =&gt; Math.hypot(a - x, b - y) &lt; 22); k++) { x += (dx / dl) * 14; y += (dy / dl) * 14 - 6; }
+    pos.push([x, y]);
+  });
+  const marca = (sel, i) =&gt; {
+    sel.append(&quot;circle&quot;).attr(&quot;r&quot;, 10).attr(&quot;fill&quot;, MARINO).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 2);
+    sel.append(&quot;text&quot;).attr(&quot;text-anchor&quot;, &quot;middle&quot;).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 11.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#fff&quot;).text(i + 1);
+  };
+  pos.forEach(([x, y], i) =&gt; marca(mapa.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`), i));
+  const lista = g.append(&quot;g&quot;).attr(&quot;transform&quot;, &quot;translate(14,14)&quot;);
+  panel(lista, 0, 0, m ? W - 28 : 372, 42 + top.length * 25);
+  lista.append(&quot;text&quot;).attr(&quot;x&quot;, 12).attr(&quot;y&quot;, 22).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(&quot;Las tres vecinas que más pesan&quot;);
+  top.forEach((v, i) =&gt; {
+    const t = lista.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(12,${22 + 25 * (i + 1)})`);
+    marca(t.append(&quot;g&quot;).attr(&quot;transform&quot;, &quot;translate(10,0)&quot;), i);
+    t.append(&quot;text&quot;).attr(&quot;x&quot;, 28).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 13).attr(&quot;fill&quot;, TINTA).text(`${v.id}: ${f(v.obs)} t/ha, a ${f(v.d, 0)} m, peso ${f(v.w * 100, 0)} %`);
+  });
+  const km = 1000 * proy.scale();
+  const b = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${W - 26 - km},${H - 16})`);
+  panel(b, -10, -28, km + 20, 38);
+  b.append(&quot;rect&quot;).attr(&quot;width&quot;, km).attr(&quot;height&quot;, 4).attr(&quot;fill&quot;, TINTA);
+  b.append(&quot;rect&quot;).attr(&quot;width&quot;, km / 2).attr(&quot;height&quot;, 4).attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;stroke&quot;, TINTA).attr(&quot;stroke-width&quot;, 0.8);
+  b.append(&quot;text&quot;).attr(&quot;y&quot;, -9).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(&quot;1 km&quot;);
+  return { lineas: ls.nodes() };
+}
+
+/* 5. Curvas de verdor (la curva se traza con el scroll) */
+function verdor(g, W, H, m) {
+  const V = D.VIT, c0 = V.curvas[0];
+  const mg = m ? { l: 40, r: 12, t: 44, b: 40 } : { l: 70, r: 30, t: 48, b: 60 };
+  const x = d3.scaleLinear([91, 304], [mg.l, W - mg.r]), y = d3.scaleLinear([0.15, 0.9], [H - mg.b, mg.t]);
+  const meses = m ? [[91, &quot;abr&quot;], [152, &quot;jun&quot;], [213, &quot;ago&quot;], [274, &quot;oct&quot;]] : [[91, &quot;abr&quot;], [121, &quot;may&quot;], [152, &quot;jun&quot;], [182, &quot;jul&quot;], [213, &quot;ago&quot;], [244, &quot;sep&quot;], [274, &quot;oct&quot;], [304, &quot;31 oct&quot;]];
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${H - mg.b})`)
+    .call(d3.axisBottom(x).tickValues(meses.map((d) =&gt; d[0])).tickFormat((d, i) =&gt; meses[i][1]).tickSize(-(H - mg.b - mg.t))).call(limpiarEje());
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(0).tickPadding(8)).call(limpiarEje());
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l).attr(&quot;y&quot;, mg.t - 22).attr(&quot;font-size&quot;, 13).attr(&quot;fill&quot;, GRIS).text(&quot;NDVI (verdor)&quot;);
+  const linea = d3.line().defined((d) =&gt; d[1] != null).x((d) =&gt; x(d[0])).y((d) =&gt; y(d[1]));
+  const serie = (c) =&gt; c.curva.map((v, i) =&gt; [i + 1, v]).filter((d) =&gt; d[0] &gt;= 91);
+  V.curvas.slice(1).forEach((c) =&gt; g.append(&quot;path&quot;).attr(&quot;d&quot;, linea(serie(c))).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#9AA1A8&quot;).attr(&quot;stroke-width&quot;, 1.2));
+  const area = d3.area().defined((d) =&gt; d[1] != null).x((d) =&gt; x(d[0])).y0(y(c0.base)).y1((d) =&gt; y(Math.max(d[1], c0.base)));
+  const ar = g.append(&quot;path&quot;).attr(&quot;d&quot;, area(serie(c0).filter((d) =&gt; d[0] &gt;= c0.inicio &amp;&amp; d[0] &lt;= c0.fin))).attr(&quot;fill&quot;, &quot;#3A9E6E&quot;).attr(&quot;fill-opacity&quot;, 0.22);
+  g.append(&quot;line&quot;).attr(&quot;x1&quot;, x(91)).attr(&quot;x2&quot;, x(304)).attr(&quot;y1&quot;, y(c0.base)).attr(&quot;y2&quot;, y(c0.base)).attr(&quot;stroke&quot;, &quot;#3A9E6E&quot;).attr(&quot;stroke-dasharray&quot;, &quot;5 4&quot;);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, x(302)).attr(&quot;y&quot;, y(c0.base) + 18).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, &quot;#2b7a54&quot;).text(&quot;nivel de abril–mayo (mediana)&quot;);
+  g.selectAll(&quot;circle&quot;).data(c0.capturas.filter((c) =&gt; c[0] &gt;= 91)).join(&quot;circle&quot;).attr(&quot;cx&quot;, (c) =&gt; x(c[0])).attr(&quot;cy&quot;, (c) =&gt; y(c[1])).attr(&quot;r&quot;, 2.4).attr(&quot;fill&quot;, &quot;#3A9E6E&quot;).attr(&quot;opacity&quot;, 0.45);
+  const cu = g.append(&quot;path&quot;).attr(&quot;d&quot;, linea(serie(c0))).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#3A9E6E&quot;).attr(&quot;stroke-width&quot;, 3);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, x(c0.dia_pico)).attr(&quot;y&quot;, y(c0.pico) - 12).attr(&quot;text-anchor&quot;, &quot;middle&quot;).attr(&quot;font-size&quot;, 14).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(`${V.id}: área ${f(V.integral, 1)}`);
+  lineas(g, x(m ? 95 : 128), y(0.86), m ? [`Gris: ${V.vecinas_1km.length} vecinas a menos de 1 km,`, `mediana ${f(V.mediana_vecinas, 1)}`] : `Gris: sus ${V.vecinas_1km.length} vecinas a menos de 1 km, mediana ${f(V.mediana_vecinas, 1)}`, { size: 13 });
+  return { curva: cu.node(), area: ar.node() };
+}
+
+/* 6. Lluvia de octubre por celdas y por año */
+function lluvia(g, W, H, m) {
+  const V = D.VIT, p = vit(), todas = V.celdas[&quot;2025&quot;];
+  const xs = todas.flatMap((c) =&gt; c.poly.map((q) =&gt; q[0])), ys = todas.flatMap((c) =&gt; c.poly.map((q) =&gt; q[1]));
+  const zona = m ? [[14, 14], [W - 14, 330]] : [[20, 30], [470, 570]];
+  const proy = d3.geoIdentity().reflectY(true).fitExtent(zona, cajaUTM(d3.min(xs), d3.min(ys), d3.max(xs), d3.max(ys)));
+  const ruta = d3.geoPath(proy);
+  const caja = [d3.min(xs), d3.min(ys), d3.max(xs), d3.max(ys)];
+  const [ax, ay] = proy([caja[0], caja[3]]), [bx, by] = proy([caja[2], caja[1]]);
+  const clip = `corte-lluvia-${m ? &quot;m&quot; : &quot;e&quot;}`;
+  g.append(&quot;defs&quot;).append(&quot;clipPath&quot;).attr(&quot;id&quot;, clip).append(&quot;rect&quot;).attr(&quot;x&quot;, ax).attr(&quot;y&quot;, ay).attr(&quot;width&quot;, bx - ax).attr(&quot;height&quot;, by - ay);
+  fondoSatelital(g.append(&quot;g&quot;).attr(&quot;clip-path&quot;, `url(#${clip})`), (x, y) =&gt; proy([x, y]), caja, { pixeles: bx - ax });
+  const azul = d3.scaleLinear([110, 175], [&quot;#cde2fb&quot;, &quot;#256abf&quot;]);
+  todas.forEach((c) =&gt; {
+    g.append(&quot;path&quot;).attr(&quot;d&quot;, &quot;M&quot; + c.poly.map((q) =&gt; proy(q).join(&quot;,&quot;)).join(&quot;L&quot;) + &quot;Z&quot;).attr(&quot;fill&quot;, azul(c.valor)).attr(&quot;fill-opacity&quot;, 0.42)
+      .attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-opacity&quot;, c.area &gt; 0 ? 1 : 0.55).attr(&quot;stroke-width&quot;, c.area &gt; 0 ? 3 : 1);
+    const cxy = proy([d3.min(c.poly, (q) =&gt; q[0]), d3.max(c.poly, (q) =&gt; q[1])]);
+    g.append(&quot;text&quot;).attr(&quot;x&quot;, cxy[0] + 8).attr(&quot;y&quot;, cxy[1] + 19).attr(&quot;font-size&quot;, m ? 12 : 13).attr(&quot;font-weight&quot;, 600)
+      .attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;paint-order&quot;, &quot;stroke&quot;).attr(&quot;stroke&quot;, MARINO).attr(&quot;stroke-width&quot;, 3).text(`${f(c.valor, 0)} mm`);
+  });
+  g.append(&quot;path&quot;).attr(&quot;d&quot;, ruta(featureDe(p))).attr(&quot;fill&quot;, &quot;#C27A12&quot;).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.5);
+  const [px, py] = proy([p.x, p.y]);
+  g.append(&quot;circle&quot;).attr(&quot;cx&quot;, px).attr(&quot;cy&quot;, py).attr(&quot;r&quot;, 10).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, PAJA).attr(&quot;stroke-width&quot;, 2.4);
+  const et = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${px + 14},${py + 12})`);
+  panel(et, 0, 0, 78, 24);
+  et.append(&quot;text&quot;).attr(&quot;x&quot;, 8).attr(&quot;y&quot;, 17).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#A9650C&quot;).text(V.id);
+  const anios = [&quot;2022&quot;, &quot;2023&quot;, &quot;2024&quot;, &quot;2025&quot;];
+  const [bx0, bx1, by0, by1, ty] = m ? [20, W - 20, H - 40, 420, 360] : [520, 770, 520, 90, 52];
+  const xb = d3.scaleBand(anios, [bx0, bx1]).padding(0.28), yb = d3.scaleLinear([0, 170], [by0, by1]);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, bx0).attr(&quot;y&quot;, ty).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(&quot;Lluvia de octubre en la parcela (mm)&quot;);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, bx0).attr(&quot;y&quot;, ty + 19).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(`línea: promedio 2022–2024, ${f(V.lluvia_ref, 0)} mm`);
+  anios.forEach((a) =&gt; {
+    const v = V.lluvia_pond[a];
+    g.append(&quot;rect&quot;).attr(&quot;x&quot;, xb(a)).attr(&quot;y&quot;, yb(v)).attr(&quot;width&quot;, xb.bandwidth()).attr(&quot;height&quot;, yb(0) - yb(v)).attr(&quot;fill&quot;, a === &quot;2025&quot; ? &quot;#2F6FD6&quot; : &quot;#9ec5f4&quot;);
+    g.append(&quot;text&quot;).attr(&quot;x&quot;, xb(a) + xb.bandwidth() / 2).attr(&quot;y&quot;, yb(v) - 6).attr(&quot;text-anchor&quot;, &quot;middle&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).text(f(v, 0));
+    g.append(&quot;text&quot;).attr(&quot;x&quot;, xb(a) + xb.bandwidth() / 2).attr(&quot;y&quot;, by0 + 19).attr(&quot;text-anchor&quot;, &quot;middle&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(a);
+  });
+  g.append(&quot;line&quot;).attr(&quot;x1&quot;, bx0 - 5).attr(&quot;x2&quot;, bx1 + 5).attr(&quot;y1&quot;, yb(V.lluvia_ref)).attr(&quot;y2&quot;, yb(V.lluvia_ref)).attr(&quot;stroke&quot;, TINTA).attr(&quot;stroke-dasharray&quot;, &quot;5 4&quot;);
+  if (!m) g.append(&quot;text&quot;).attr(&quot;x&quot;, bx0).attr(&quot;y&quot;, 576).attr(&quot;font-size&quot;, 14).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#2F6FD6&quot;).text(`2025: ${fs(V.anom, 1)} % sobre el promedio`);
+}
+
+/* 7. Composición del modelo para la parcela de ejemplo */
+function modelo(g, W, H, m) {
+  const p = vit(), r = modeloFinal(p), M = D.M;
+  const caja = (x, y, w, tit, val, color, sub) =&gt; {
+    const c = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`);
+    c.append(&quot;rect&quot;).attr(&quot;width&quot;, w).attr(&quot;height&quot;, 74).attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;stroke&quot;, color).attr(&quot;stroke-width&quot;, 2);
+    c.append(&quot;rect&quot;).attr(&quot;width&quot;, 6).attr(&quot;height&quot;, 74).attr(&quot;fill&quot;, color);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 18).attr(&quot;y&quot;, 26).attr(&quot;font-size&quot;, m ? 13 : 14).attr(&quot;fill&quot;, GRIS).text(tit);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 18).attr(&quot;y&quot;, 58).attr(&quot;font-size&quot;, m ? 23 : 26).attr(&quot;font-weight&quot;, 800).attr(&quot;fill&quot;, TINTA).text(val);
+    if (sub) c.append(&quot;text&quot;).attr(&quot;x&quot;, w - 12).attr(&quot;y&quot;, 58).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 13).attr(&quot;fill&quot;, GRIS).text(sub);
+  };
+  const id = `punta-mod-${m ? &quot;m&quot; : &quot;e&quot;}`;
+  punta(g, id);
+  const flecha = (x1, y1, x2, y2) =&gt; g.append(&quot;path&quot;).attr(&quot;d&quot;, `M${x1},${y1} C${x1},${(y1 + y2) / 2} ${x2},${(y1 + y2) / 2} ${x2},${y2}`)
+    .attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#7A848D&quot;).attr(&quot;stroke-width&quot;, 1.6).attr(&quot;marker-end&quot;, `url(#${id})`);
+  const gr = corto(p.mun);
+  if (m) {
+    caja(8, 8, 186, `Media de ${gr}`, f(r.MUN), COLORES.MUN);
+    caja(206, 8, 186, &quot;20 vecinas más cercanas&quot;, f(r.IDW), COLORES.MUN);
+    caja(8, 128, 186, &quot;MIX, referencia&quot;, f(r.MIX), COLORES.MIX);
+    caja(206, 128, 186, `Grupo ${gr}`, f(M.J[p.grupo]), COLORES.J);
+    caja(8, 248, 186, &quot;K, con verdor&quot;, f(r.K), COLORES.K, fs(r.K - r.MIX));
+    caja(206, 248, 186, &quot;J, con lluvia&quot;, f(r.J), COLORES.J, fs(r.J - M.J[p.grupo]));
+    caja(70, 380, 260, &quot;Final: E_JK = ½ K + ½ J&quot;, `${f(r.E)} t/ha`, COLORES.E_JK);
+    flecha(101, 82, 101, 126); flecha(299, 82, 120, 126); flecha(101, 202, 101, 246); flecha(299, 202, 299, 246);
+    flecha(101, 322, 160, 378); flecha(299, 322, 240, 378);
+  } else {
+    caja(30, 30, 220, `Media de ${gr}`, f(r.MUN), COLORES.MUN);
+    caja(270, 30, 220, &quot;20 vecinas más cercanas&quot;, f(r.IDW), COLORES.MUN);
+    caja(150, 160, 230, &quot;MIX, referencia&quot;, f(r.MIX), COLORES.MIX);
+    caja(150, 290, 230, &quot;K, con verdor relativo&quot;, f(r.K), COLORES.K, fs(r.K - r.MIX));
+    caja(520, 160, 250, `Nivel del grupo ${gr}`, f(M.J[p.grupo]), COLORES.J);
+    caja(520, 290, 250, &quot;J, con lluvia de octubre&quot;, f(r.J), COLORES.J, fs(r.J - M.J[p.grupo]));
+    caja(290, 450, 260, &quot;Final: E_JK = ½ K + ½ J&quot;, `${f(r.E)} t/ha`, COLORES.E_JK);
+    flecha(140, 104, 230, 158); flecha(380, 104, 300, 158); flecha(265, 234, 265, 288); flecha(645, 234, 645, 288);
+    flecha(265, 364, 380, 448); flecha(645, 364, 470, 448);
+  }
+}
+
+/* 8. Once experimentos frente a MIX */
+function experimentos(g, W, H, m) {
+  const E = D.EV.experimentos;
+  const mg = m ? { l: 16, r: 16, t: 54, b: 52 } : { l: 330, r: 40, t: 56, b: 60 };
+  const x = d3.scaleLinear([-0.016, 0.028], [mg.l, W - mg.r]);
+  const y = d3.scaleBand(E.map((e) =&gt; e.id), [mg.t, H - mg.b]).padding(m ? 0.15 : 0.4);
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${H - mg.b})`)
+    .call(d3.axisBottom(x).ticks(m ? 4 : 6).tickFormat((d) =&gt; (d === 0 ? &quot;MIX&quot; : fs(d, 2))).tickSize(-(H - mg.b - mg.t)))
+    .call(limpiarEje(12.5)).call((a) =&gt; a.selectAll(&quot;line&quot;).attr(&quot;stroke&quot;, (d) =&gt; (d === 0 ? TINTA : RAYA)).attr(&quot;stroke-width&quot;, (d) =&gt; (d === 0 ? 1.5 : 1)));
+  lineas(g, mg.l, H - 14, m ? &quot;Diferencia de RMSE con MIX (t/ha)&quot; : &quot;Diferencia de RMSE con MIX (t/ha): a la izquierda, mejor&quot;, { size: 12.5 });
+  const fila = g.selectAll(&quot;.e&quot;).data(E).join(&quot;g&quot;).attr(&quot;transform&quot;, (e) =&gt; `translate(0,${y(e.id) + y.bandwidth() * (m ? 0.72 : 0.5)})`);
+  if (m) fila.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l).attr(&quot;y&quot;, -13).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).attr(&quot;paint-order&quot;, &quot;stroke&quot;).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 4).text((e) =&gt; `${e.id.replace(&quot;EXP_&quot;, &quot;&quot;)}. ${e.nombre}`);
+  else fila.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l - 14).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 13.5).attr(&quot;fill&quot;, TINTA).text((e) =&gt; `${e.id.replace(&quot;EXP_&quot;, &quot;&quot;)}. ${e.nombre}`);
+  fila.append(&quot;line&quot;).attr(&quot;x1&quot;, x(0)).attr(&quot;x2&quot;, (e) =&gt; x(e.rmse - e.mix)).attr(&quot;stroke&quot;, &quot;#C9CFC6&quot;).attr(&quot;stroke-width&quot;, 2);
+  fila.append(&quot;path&quot;).attr(&quot;d&quot;, (e) =&gt; (e.escenario === &quot;FULL&quot; ? d3.symbol(d3.symbolSquare, 70)() : d3.symbol(d3.symbolCircle, 80)()))
+    .attr(&quot;transform&quot;, (e) =&gt; `translate(${x(e.rmse - e.mix)},0)`)
+    .attr(&quot;fill&quot;, (e) =&gt; (e.id === &quot;EXP_11&quot; ? &quot;#C27A12&quot; : e.rmse &lt; e.mix ? TINTA : &quot;#9AA1A8&quot;))
+    .on(&quot;pointerenter pointermove&quot;, (ev, e) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(`&lt;b&gt;${e.id}&lt;/b&gt; ${e.nombre}&lt;br&gt;RMSE ${f(e.rmse, 4)} frente a MIX ${f(e.mix, 4)}&lt;br&gt;&lt;span class=&quot;s&quot;&gt;${e.fuente}&lt;/span&gt;`, ev); })
+    .on(&quot;pointerleave&quot;, ocultarTip);
+  fila.filter((e) =&gt; e.id === &quot;EXP_11&quot;).append(&quot;text&quot;).attr(&quot;x&quot;, (e) =&gt; x(e.rmse - e.mix)).attr(&quot;y&quot;, 22).attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+    .attr(&quot;font-size&quot;, 12.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#A9650C&quot;).text(&quot;entrega&quot;);
+  const ley = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${mg.l},${m ? 18 : 24})`);
+  ley.append(&quot;path&quot;).attr(&quot;d&quot;, d3.symbol(d3.symbolSquare, 60)()).attr(&quot;transform&quot;, &quot;translate(6,0)&quot;).attr(&quot;fill&quot;, GRIS);
+  ley.append(&quot;text&quot;).attr(&quot;x&quot;, 16).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(&quot;138 parcelas (FULL)&quot;);
+  ley.append(&quot;path&quot;).attr(&quot;d&quot;, d3.symbol(d3.symbolCircle, 70)()).attr(&quot;transform&quot;, &quot;translate(166,0)&quot;).attr(&quot;fill&quot;, GRIS);
+  ley.append(&quot;text&quot;).attr(&quot;x&quot;, 176).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(&quot;municipio visto (SEEN)&quot;);
+}
+
+/* 9. Cinco evaluaciones */
+function evaluaciones(g, W, H, m) {
+  const EV = D.EV.evaluaciones, orden = [&quot;MUN&quot;, &quot;MIX&quot;, &quot;J&quot;, &quot;K&quot;, &quot;E_JK&quot;];
+  const mg = m ? { l: 16, r: 16, t: 60, b: 52 } : { l: 320, r: 30, t: 76, b: 60 };
+  const x = d3.scaleLinear([0.465, 0.512], [mg.l, W - mg.r]);
+  const y = d3.scaleBand(EV.map((e) =&gt; e.nombre), [mg.t, H - mg.b]).padding(m ? 0.2 : 0.5);
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${H - mg.b})`).call(d3.axisBottom(x).ticks(5).tickFormat((d) =&gt; f(d, 2)).tickSize(-(H - mg.b - mg.t))).call(limpiarEje(12.5));
+  lineas(g, mg.l, H - 14, &quot;RMSE (t/ha): a la izquierda, menor error&quot;, { size: 12.5 });
+  const fila = g.selectAll(&quot;.v&quot;).data(EV).join(&quot;g&quot;).attr(&quot;transform&quot;, (e) =&gt; `translate(0,${y(e.nombre) + y.bandwidth() * (m ? 0.7 : 0.5)})`);
+  if (m) fila.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l).attr(&quot;y&quot;, -16).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).attr(&quot;paint-order&quot;, &quot;stroke&quot;).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 4).text((e) =&gt; `${e.corto} (${e.parcelas})`);
+  else fila.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l - 14).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 13.5).attr(&quot;fill&quot;, TINTA).text((e) =&gt; `${e.corto} (${e.parcelas})`);
+  fila.append(&quot;line&quot;).attr(&quot;x1&quot;, (e) =&gt; x(d3.min(orden, (k) =&gt; e.rmse[k]))).attr(&quot;x2&quot;, (e) =&gt; x(d3.max(orden, (k) =&gt; e.rmse[k]))).attr(&quot;stroke&quot;, &quot;#D2D6CE&quot;).attr(&quot;stroke-width&quot;, 1.5);
+  fila.each(function (e) {
+    const s = d3.select(this);
+    orden.forEach((k) =&gt; s.append(&quot;circle&quot;).attr(&quot;cx&quot;, x(e.rmse[k])).attr(&quot;r&quot;, k === &quot;E_JK&quot; ? 8 : 6).attr(&quot;fill&quot;, COLORES[k]).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.5)
+      .on(&quot;pointerenter pointermove&quot;, (ev) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(`&lt;b&gt;${NOMBRES[k]}&lt;/b&gt;&lt;br&gt;${e.nombre}&lt;br&gt;RMSE &lt;b class=&quot;num&quot;&gt;${f(e.rmse[k], 4)}&lt;/b&gt;`, ev); })
+      .on(&quot;pointerleave&quot;, ocultarTip));
+  });
+  const ley = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${mg.l + 6},${m ? 20 : 30})`);
+  orden.forEach((k, i) =&gt; {
+    const c = ley.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${[0, 70, 132, 182, 234][i]},0)`);
+    c.append(&quot;circle&quot;).attr(&quot;r&quot;, 6).attr(&quot;fill&quot;, COLORES[k]);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 10).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).text(k);
+  });
+}
+
+/* 10. El techo: varianza explicada y curva de aprendizaje */
+function techo(g, W, H, m) {
+  const EV = D.EV, x = d3.scaleLinear([0, 1], [m ? 16 : 40, W - (m ? 16 : 40)]);
+  const vm = EV.varianza_municipio, quita = EV.quita_error_mun[0];
+  const barra = (y, titulo, parte, color, txtParte, txtResto, fuera) =&gt; {
+    lineas(g, x(0), y, titulo, { size: m ? 14 : 15, color: TINTA, peso: 700 });
+    g.append(&quot;rect&quot;).attr(&quot;x&quot;, x(0)).attr(&quot;y&quot;, y + 12).attr(&quot;width&quot;, x(parte) - x(0)).attr(&quot;height&quot;, 32).attr(&quot;fill&quot;, color);
+    g.append(&quot;rect&quot;).attr(&quot;x&quot;, x(parte) + 2).attr(&quot;y&quot;, y + 12).attr(&quot;width&quot;, x(1) - x(parte) - 2).attr(&quot;height&quot;, 32).attr(&quot;fill&quot;, &quot;#E8EAE3&quot;);
+    if (m) {
+      g.append(&quot;text&quot;).attr(&quot;x&quot;, x(0)).attr(&quot;y&quot;, y + 64).attr(&quot;font-size&quot;, 13).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, TINTA).text(txtParte);
+      g.append(&quot;text&quot;).attr(&quot;x&quot;, x(1)).attr(&quot;y&quot;, y + 64).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 13).attr(&quot;fill&quot;, GRIS).text(txtResto);
+    } else {
+      g.append(&quot;text&quot;).attr(&quot;x&quot;, fuera ? x(parte) + 12 : x(0) + 12).attr(&quot;y&quot;, y + 33).attr(&quot;font-size&quot;, 13.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, fuera ? TINTA : &quot;#fff&quot;).text(txtParte);
+      g.append(&quot;text&quot;).attr(&quot;x&quot;, x(1) - 12).attr(&quot;y&quot;, y + 33).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 13.5).attr(&quot;fill&quot;, TINTA).text(txtResto);
+    }
+  };
+  barra(m ? 20 : 34, m ? &quot;Variación del rendimiento (138 parcelas)&quot; : &quot;Variación del rendimiento entre las 138 parcelas&quot;, vm, &quot;#5B636B&quot;, `El municipio: ${pct(vm, 1)}`, `dentro del municipio: ${pct(1 - vm, 1)}`);
+  barra(m ? 118 : 124, m ? &quot;Error que deja la media municipal&quot; : &quot;Error que deja la media municipal (validación cruzada)&quot;, quita, &quot;#C27A12&quot;, `E_JK quita ${pct(quita, 1)}`, `sin explicar: ${pct(1 - quita, 1)}`, true);
+  // curva de aprendizaje: MIX con submuestras de las 138 (200 sorteos por tamaño), ajuste MSE = s² + c/n
+  const A = EV.aprendizaje, s2 = A.techo ** 2, c = 220 * (A.con_220 ** 2 - s2);
+  const ajuste = d3.range(41, 221).map((n) =&gt; [n, Math.sqrt(s2 + c / n)]);
+  const top = m ? 270 : 290, bot = m ? H - 46 : 540;
+  const xc = d3.scaleLinear([30, 230], [m ? 54 : 84, W - (m ? 14 : 40)]), yc = d3.scaleLinear([0.465, 0.515], [bot, top]);
+  lineas(g, m ? 16 : 40, top - 36, m ? [&quot;Error de MIX con más parcelas&quot;, &quot;del mismo tipo (RMSE, t/ha)&quot;] : &quot;Error de MIX con más parcelas del mismo tipo (RMSE, t/ha)&quot;, { size: m ? 14 : 15, color: TINTA, peso: 700 });
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${bot})`).call(d3.axisBottom(xc).tickValues(m ? [41, 124, 220] : [41, 83, 124, 138, 180, 220]).tickSize(-(bot - top))).call(limpiarEje(12.5));
+  g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${xc(30)},0)`).call(d3.axisLeft(yc).ticks(5).tickFormat((d) =&gt; f(d, 2)).tickSize(0).tickPadding(8)).call(limpiarEje(12.5));
+  g.append(&quot;line&quot;).attr(&quot;x1&quot;, xc(30)).attr(&quot;x2&quot;, xc(230)).attr(&quot;y1&quot;, yc(A.techo)).attr(&quot;y2&quot;, yc(A.techo)).attr(&quot;stroke&quot;, &quot;#7A848D&quot;).attr(&quot;stroke-dasharray&quot;, &quot;2 4&quot;);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, xc(230)).attr(&quot;y&quot;, yc(A.techo) + 17).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(`techo estimado: ${f(A.techo)}`);
+  g.append(&quot;line&quot;).attr(&quot;x1&quot;, xc(138)).attr(&quot;x2&quot;, xc(138)).attr(&quot;y1&quot;, top).attr(&quot;y2&quot;, bot).attr(&quot;stroke&quot;, TINTA).attr(&quot;stroke-width&quot;, 1.2);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, xc(138) + 7).attr(&quot;y&quot;, top + 14).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).text(&quot;hoy: 138&quot;);
+  g.append(&quot;path&quot;).attr(&quot;d&quot;, d3.line().x((d) =&gt; xc(d[0])).y((d) =&gt; yc(d[1]))(ajuste)).attr(&quot;fill&quot;, &quot;none&quot;).attr(&quot;stroke&quot;, &quot;#5B636B&quot;).attr(&quot;stroke-width&quot;, 2).attr(&quot;stroke-dasharray&quot;, &quot;6 4&quot;);
+  A.n.forEach((n, i) =&gt; g.append(&quot;circle&quot;).attr(&quot;cx&quot;, xc(n)).attr(&quot;cy&quot;, yc(A.rmse_mix[i])).attr(&quot;r&quot;, 5).attr(&quot;fill&quot;, &quot;#5B636B&quot;).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.5));
+  const fin = ajuste.at(-1);
+  g.append(&quot;circle&quot;).attr(&quot;cx&quot;, xc(fin[0])).attr(&quot;cy&quot;, yc(fin[1])).attr(&quot;r&quot;, 5).attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;stroke&quot;, &quot;#5B636B&quot;).attr(&quot;stroke-width&quot;, 2);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, xc(fin[0])).attr(&quot;y&quot;, yc(fin[1]) - 13).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, TINTA).text(`con 220: ${f(fin[1], 3)}`);
+  g.append(&quot;text&quot;).attr(&quot;x&quot;, xc(230)).attr(&quot;y&quot;, bot + 36).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(m ? &quot;parcelas para entrenar&quot; : &quot;parcelas con rendimiento conocido para entrenar&quot;);
+}
+
+/* 11. Despliegue real */
+function despliegue(g, W, H, m, salud) {
+  const nodo = (x, y, w, h, t1, t2, oscuro) =&gt; {
+    const c = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${x},${y})`);
+    c.append(&quot;rect&quot;).attr(&quot;width&quot;, w).attr(&quot;height&quot;, h).attr(&quot;fill&quot;, oscuro ? &quot;#022448&quot; : &quot;#fff&quot;).attr(&quot;stroke&quot;, oscuro ? &quot;#022448&quot; : TINTA).attr(&quot;stroke-width&quot;, 1.5);
+    c.append(&quot;text&quot;).attr(&quot;x&quot;, 14).attr(&quot;y&quot;, 25).attr(&quot;font-size&quot;, m ? 14 : 15).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, oscuro ? &quot;#fff&quot; : TINTA).text(t1);
+    lineas(c, 14, 46, t2, { size: m ? 12 : 12.5, color: oscuro ? &quot;#C9D6E6&quot; : GRIS });
+  };
+  const id = `punta-dep-${m ? &quot;m&quot; : &quot;e&quot;}`;
+  punta(g, id);
+  const fl = (x1, y1, x2, y2, t, lado = &quot;der&quot;) =&gt; {
+    g.append(&quot;line&quot;).attr(&quot;x1&quot;, x1).attr(&quot;y1&quot;, y1).attr(&quot;x2&quot;, x2).attr(&quot;y2&quot;, y2).attr(&quot;stroke&quot;, &quot;#7A848D&quot;).attr(&quot;stroke-width&quot;, 1.6).attr(&quot;marker-end&quot;, `url(#${id})`);
+    if (t) g.append(&quot;text&quot;).attr(&quot;x&quot;, (x1 + x2) / 2 + (lado === &quot;der&quot; ? 8 : -8)).attr(&quot;y&quot;, (y1 + y2) / 2 + 4).attr(&quot;text-anchor&quot;, lado === &quot;der&quot; ? &quot;start&quot; : &quot;end&quot;).attr(&quot;font-size&quot;, 12.5).attr(&quot;fill&quot;, GRIS).text(t);
+  };
+  const lambda = salud ? `Python ${salud.python.split(&quot;.&quot;).slice(0, 2).join(&quot;.&quot;)}, ${salud.region}` : &quot;Python 3.13 en arm64&quot;;
+  if (m) {
+    nodo(10, 10, 380, 66, &quot;Repositorio del equipo&quot;, &quot;cuadernos, recetas del modelo y datos&quot;);
+    fl(60, 78, 60, 126);
+    fl(340, 78, 340, 126);
+    lineas(g, 200, 96, [&quot;uv y npm: sitio y datos&quot;, &quot;uv: paquete de la API&quot;], { size: 12, ancla: &quot;middle&quot; });
+    nodo(10, 128, 185, 78, &quot;Amazon S3&quot;, [&quot;página, datos y&quot;, &quot;descargas (privado)&quot;]);
+    nodo(205, 128, 185, 78, &quot;AWS Lambda&quot;, [&quot;reentrena E_JK;&quot;, lambda], true);
+    fl(102, 208, 102, 262, &quot;/*&quot;);
+    fl(298, 208, 298, 262, &quot;/api/*&quot;, &quot;izq&quot;);
+    nodo(10, 264, 380, 66, &quot;CloudFront&quot;, &quot;un dominio con HTTPS; firma las llamadas a la API&quot;);
+    fl(200, 332, 200, 380, &quot;página, datos y reentrenamiento&quot;);
+    nodo(10, 382, 380, 66, &quot;Navegador del jurado&quot;, &quot;consulta, ejecuta, reentrena y descarga&quot;, true);
+    lineas(g, 10, 486, [&quot;Terraform crea el bucket, la función y la&quot;, &quot;distribución; nada se configura a mano.&quot;], { size: 13 });
+  } else {
+    nodo(40, 30, 330, 70, &quot;Repositorio del equipo&quot;, &quot;cuadernos, recetas del modelo y datos del reto&quot;);
+    nodo(430, 30, 330, 70, &quot;Terraform&quot;, &quot;crea el bucket, la función y la distribución&quot;);
+    nodo(40, 180, 330, 70, &quot;Amazon S3 (privado)&quot;, &quot;esta página, datos JSON y descargas&quot;);
+    nodo(430, 180, 330, 70, &quot;AWS Lambda&quot;, `reentrena E_JK; ${lambda}`, true);
+    nodo(40, 330, 720, 70, &quot;CloudFront&quot;, &quot;un solo dominio con HTTPS: /* va a S3 y /api/* a Lambda, con llamadas firmadas&quot;);
+    nodo(235, 480, 330, 70, &quot;Navegador del jurado&quot;, &quot;consulta, ejecuta, reentrena y descarga&quot;, true);
+    fl(205, 102, 205, 177, &quot;uv y npm: sitio y datos&quot;);
+    fl(370, 66, 500, 177, &quot;uv: paquete de la API&quot;);
+    fl(205, 252, 205, 327, &quot;/*&quot;);
+    fl(595, 252, 595, 327, &quot;/api/*&quot;);
+    fl(400, 402, 400, 477, &quot;HTTPS&quot;);
+  }
+}
+
+/** Alto en teléfono (el ancho es 400) y pie de cada escena. */
+export function escenas(salud) {
+  const V = D.VIT, p = vit();
+  const c25 = V.celdas[&quot;2025&quot;].filter((c) =&gt; c.area &gt; 0), tot = d3.sum(c25, (c) =&gt; c.area), mayor = d3.max(c25, (c) =&gt; c.area);
+  const lado = ((V.elev.paso * V.elev.n) / 1000).toLocaleString(&quot;es-MX&quot;, { maximumFractionDigits: 1 });
+  return {
+    oculto: { alto: 500, fn: oculto, pie: &quot;Las 59 ocultas están repartidas entre las 138 con rendimiento conocido.&quot; },
+    capas: { alto: 560, fn: capas, pie: `Escala real alrededor de ${V.id}: ${lado} km por lado. Al juntarse, cada capa deja un número en la fila de la parcela.` },
+    territorio: { alto: 520, fn: territorio, pie: &quot;Rendimiento conocido y media de los municipios con más parcelas.&quot; },
+    vecinas: { alto: 540, fn: vecinas, pie: &quot;Grosor de cada línea: peso de la vecina en la referencia territorial.&quot; },
+    verdor: { alto: 400, fn: verdor, pie: &quot;Curva de verdor suavizada (mediana móvil de 15 días). Área: lo que queda sobre el nivel de abril–mayo entre el inicio y el fin de la temporada.&quot; },
+    lluvia: { alto: 640, fn: lluvia, pie: `Celdas CHIRPS de octubre de 2025 alrededor de la parcela. Contorno blanco grueso: las ${c25.length} celdas que toca; el ${f((mayor / tot) * 100, 1)} % de su área cae en una. En 2025 llovió ${fs(V.anom, 1)} % sobre el promedio.` },
+    modelo: { alto: 470, fn: modelo, pie: `Números de ${p.id}, calculados en este navegador.` },
+    experimentos: { alto: 640, fn: experimentos, pie: &quot;Mejor procedimiento de cada experimento frente a MIX en su mismo escenario de validación. Cuadros y círculos usan escenarios distintos: no se comparan entre sí.&quot; },
+    evaluaciones: { alto: 520, fn: evaluaciones, pie: &quot;RMSE de cada modelo en cada evaluación. Con solo 35 parcelas, la caja cerrada no distingue diferencias de 1 a 2 %.&quot; },
+    techo: { alto: 600, fn: techo, pie: &quot;Arriba: varianza dentro de muestra y error fuera de muestra. Abajo: MIX entrenado con submuestras de las 138, 200 sorteos por tamaño; línea discontinua: ajuste MSE = s² + c/n.&quot; },
+    despliegue: { alto: 530, fn: (g, W, H, m) =&gt; despliegue(g, W, H, m, salud), pie: salud ? `Así está desplegada esta página. La función respondió desde ${salud.region} con el commit ${salud.commit}.` : &quot;Así está desplegada esta página.&quot; },
+  };
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/ejecutar.js</span><span class="cons-que">«Ejecutar el modelo»: cálculo paso a paso, las 59 de una vez, reentrenar en AWS y la figura de vecinas con satélite.</span><span class="cons-lin">210 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Ejecutar el modelo: paso a paso en el navegador, las 59 de una vez, o reentrenando en AWS Lambda.
+import * as d3 from &quot;d3&quot;;
+import { createTimeline, stagger, svg as asvg } from &quot;animejs&quot;;
+import {
+  D, QUIETO, NUBE, f, fs, r4, grupoTxt, modeloFinal, cajaUTM, mostrarTip, ocultarTip, seleccionar, alSeleccionar, estado, sha256hex,
+  clase, colorV, featureDe, TINTA,
+} from &quot;./comun.js&quot;;
+import { fondoSatelital, cajaDeLienzo } from &quot;./satelite.js&quot;;
+
+const W = 420, H = 420;
+let anim = null;
+const parar = () =&gt; { if (anim) { anim.revert(); anim = null; } };
+
+export function iniciarEjecutar() {
+  const sel = document.getElementById(&quot;ej-parcela&quot;);
+  const consola = document.getElementById(&quot;consola&quot;);
+  const nota = document.getElementById(&quot;ej-nota&quot;);
+  const svg = d3.select(&quot;#ej-svg&quot;);
+  const sha = D.MAN.entrega[&quot;predicciones_59.csv&quot;].sha256;
+  let csvEntrega = null;
+  const huellaEntrega = async () =&gt; {
+    if (csvEntrega === null) {
+      const r = await fetch(&quot;/descargas/predicciones_59.csv&quot;, { cache: &quot;no-cache&quot; });
+      csvEntrega = r.ok ? await r.arrayBuffer() : new ArrayBuffer(0);
+    }
+    return sha256hex(csvEntrega);
+  };
+
+  sel.innerHTML = `&lt;optgroup label=&quot;Estimadas (59)&quot;&gt;${D.EST.map((p) =&gt; `&lt;option value=&quot;${p.id}&quot;&gt;${p.id}, ${p.mun}&lt;/option&gt;`).join(&quot;&quot;)}&lt;/optgroup&gt;
+    &lt;optgroup label=&quot;Con rendimiento conocido (138), como si estuvieran ocultas&quot;&gt;${D.REP.map((p) =&gt; `&lt;option value=&quot;${p.id}&quot;&gt;${p.id}, ${p.mun}&lt;/option&gt;`).join(&quot;&quot;)}&lt;/optgroup&gt;`;
+  sel.value = estado.seleccion;
+
+  const titFig = document.getElementById(&quot;ej-tit-fig&quot;), titCalc = document.getElementById(&quot;ej-tit-calc&quot;);
+  /** Recuadro blanco, igual que en las demás figuras con satélite. */
+  const panel = (g, x, y, w, h) =&gt; g.append(&quot;rect&quot;).attr(&quot;x&quot;, x).attr(&quot;y&quot;, y).attr(&quot;width&quot;, w).attr(&quot;height&quot;, h).attr(&quot;fill&quot;, &quot;#fff&quot;).attr(&quot;fill-opacity&quot;, 0.94);
+
+  function dibujarVecinas(p, r) {
+    const R = Math.max(d3.max(r.vecinas, (v) =&gt; v.d) * 1.12, 900);
+    const proy = d3.geoIdentity().reflectY(true).fitExtent([[0, 0], [W, H]], cajaUTM(p.x - R, p.y - R, p.x + R, p.y + R));
+    const ruta = d3.geoPath(proy);
+    svg.html(&quot;&quot;);
+    svg.append(&quot;rect&quot;).attr(&quot;width&quot;, W).attr(&quot;height&quot;, H).attr(&quot;fill&quot;, &quot;#0b1c30&quot;);
+    fondoSatelital(svg.append(&quot;g&quot;), (x, y) =&gt; proy([x, y]), cajaDeLienzo(proy, W, H), { pixeles: W });
+    const cerca = D.P.filter((q) =&gt; q.id !== p.id &amp;&amp; Math.abs(q.x - p.x) &lt; R * 1.1 &amp;&amp; Math.abs(q.y - p.y) &lt; R * 1.1);
+    svg.append(&quot;g&quot;).selectAll(&quot;path&quot;).data(cerca).join(&quot;path&quot;).attr(&quot;d&quot;, (q) =&gt; ruta(featureDe(q)))
+      .attr(&quot;fill&quot;, (q) =&gt; (q.oculta ? `url(#t-s${clase(q.pred)})` : colorV(q.obs))).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 0.6);
+    const [cx, cy] = proy([p.x, p.y]);
+    const wmax = d3.max(r.vecinas, (v) =&gt; v.w);
+    const lineas = svg.append(&quot;g&quot;).selectAll(&quot;line&quot;).data(r.vecinas).join(&quot;line&quot;)
+      .attr(&quot;x1&quot;, cx).attr(&quot;y1&quot;, cy).attr(&quot;x2&quot;, (v) =&gt; proy([v.q.x, v.q.y])[0]).attr(&quot;y2&quot;, (v) =&gt; proy([v.q.x, v.q.y])[1])
+      .attr(&quot;stroke&quot;, &quot;#E3C772&quot;).attr(&quot;stroke-opacity&quot;, 0.95).attr(&quot;stroke-linecap&quot;, &quot;round&quot;).attr(&quot;stroke-width&quot;, (v) =&gt; 0.8 + (7 * v.w) / wmax);
+    svg.append(&quot;path&quot;).attr(&quot;d&quot;, ruta(featureDe(p))).attr(&quot;fill&quot;, &quot;#E3C772&quot;).attr(&quot;fill-opacity&quot;, 0.35).attr(&quot;stroke&quot;, &quot;#E3C772&quot;).attr(&quot;stroke-width&quot;, 2.5);
+    svg.append(&quot;circle&quot;).attr(&quot;cx&quot;, cx).attr(&quot;cy&quot;, cy).attr(&quot;r&quot;, 7).attr(&quot;fill&quot;, &quot;#022448&quot;).attr(&quot;stroke&quot;, &quot;#E3C772&quot;).attr(&quot;stroke-width&quot;, 3);
+    const et = svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${Math.min(cx + 12, W - 86)},${Math.min(cy + 12, H - 80)})`);
+    panel(et, 0, 0, 76, 22);
+    et.append(&quot;text&quot;).attr(&quot;x&quot;, 7).attr(&quot;y&quot;, 15.5).attr(&quot;font-size&quot;, 12.5).attr(&quot;font-weight&quot;, 700).attr(&quot;fill&quot;, &quot;#A9650C&quot;).text(p.id);
+    const L = R &gt;= 4000 ? 2000 : 1000, lp = L * proy.scale();
+    const g = svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${W - 20 - lp},${H - 14})`);
+    panel(g, -8, -26, lp + 16, 34);
+    g.append(&quot;rect&quot;).attr(&quot;width&quot;, lp).attr(&quot;height&quot;, 4).attr(&quot;fill&quot;, TINTA);
+    g.append(&quot;text&quot;).attr(&quot;y&quot;, -8).attr(&quot;fill&quot;, &quot;#5A6570&quot;).attr(&quot;font-size&quot;, 12).text(L &gt;= 1000 ? `${L / 1000} km` : `${L} m`);
+    const ley = svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(12,${H - 40})`);
+    panel(ley, 0, 0, 190, 28);
+    ley.append(&quot;rect&quot;).attr(&quot;x&quot;, 10).attr(&quot;y&quot;, 9).attr(&quot;width&quot;, 11).attr(&quot;height&quot;, 11).attr(&quot;fill&quot;, &quot;#946A1C&quot;);
+    ley.append(&quot;text&quot;).attr(&quot;x&quot;, 26).attr(&quot;y&quot;, 18.5).attr(&quot;font-size&quot;, 12).attr(&quot;fill&quot;, TINTA).text(&quot;conocida&quot;);
+    ley.append(&quot;rect&quot;).attr(&quot;x&quot;, 92).attr(&quot;y&quot;, 9).attr(&quot;width&quot;, 11).attr(&quot;height&quot;, 11).attr(&quot;fill&quot;, &quot;url(#t-s2)&quot;).attr(&quot;stroke&quot;, &quot;#946A1C&quot;);
+    ley.append(&quot;text&quot;).attr(&quot;x&quot;, 108).attr(&quot;y&quot;, 18.5).attr(&quot;font-size&quot;, 12).attr(&quot;fill&quot;, TINTA).text(&quot;estimada&quot;);
+    titFig.textContent = `Las ${r.vecinas.length} vecinas que usa ${p.id}`;
+    nota.textContent = `Cada línea une ${p.id} con una vecina conocida de la referencia territorial; más gruesa, más pesa.`;
+    return lineas;
+  }
+
+  function dispersion(lista, etiquetaY, nombreY) {
+    const m = 48;
+    const x = d3.scaleLinear([2.7, 4.8], [m, W - 16]), y = d3.scaleLinear([2.7, 4.8], [H - m, 16]);
+    svg.html(&quot;&quot;);
+    const ejes = (sel) =&gt; sel.call((a) =&gt; a.select(&quot;.domain&quot;).remove()).call((a) =&gt; a.selectAll(&quot;line&quot;).attr(&quot;stroke&quot;, &quot;#1b4673&quot;))
+      .call((a) =&gt; a.selectAll(&quot;text&quot;).attr(&quot;fill&quot;, &quot;#9FB3CB&quot;).attr(&quot;font-size&quot;, 12.5));
+    svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${H - m})`).call(d3.axisBottom(x).ticks(5).tickSize(-(H - m - 16))).call(ejes);
+    svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${m},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - m - 16))).call(ejes);
+    svg.append(&quot;line&quot;).attr(&quot;x1&quot;, x(2.7)).attr(&quot;y1&quot;, y(2.7)).attr(&quot;x2&quot;, x(4.8)).attr(&quot;y2&quot;, y(4.8)).attr(&quot;stroke&quot;, &quot;#6f8db0&quot;).attr(&quot;stroke-dasharray&quot;, &quot;4 4&quot;);
+    const pts = svg.append(&quot;g&quot;).selectAll(&quot;circle&quot;).data(lista).join(&quot;circle&quot;).attr(&quot;cx&quot;, (o) =&gt; x(o.x)).attr(&quot;cy&quot;, (o) =&gt; y(o.y)).attr(&quot;r&quot;, 5.2)
+      .attr(&quot;fill&quot;, &quot;#E3C772&quot;).attr(&quot;fill-opacity&quot;, 0.9).attr(&quot;stroke&quot;, &quot;#011a35&quot;).attr(&quot;stroke-width&quot;, 1)
+      .on(&quot;pointerenter pointermove&quot;, (ev, o) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(`&lt;b&gt;${o.id}&lt;/b&gt;&lt;br&gt;Archivo ${f(o.x, 4)}&lt;br&gt;${nombreY} ${f(o.y, 6)}`, ev); })
+      .on(&quot;pointerleave&quot;, ocultarTip);
+    svg.append(&quot;text&quot;).attr(&quot;x&quot;, W - 16).attr(&quot;y&quot;, H - 8).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;fill&quot;, &quot;#9FB3CB&quot;).attr(&quot;font-size&quot;, 12.5).text(&quot;predicciones_59.csv (t/ha)&quot;);
+    svg.append(&quot;text&quot;).attr(&quot;x&quot;, 12).attr(&quot;y&quot;, 11).attr(&quot;fill&quot;, &quot;#9FB3CB&quot;).attr(&quot;font-size&quot;, 12.5).text(etiquetaY);
+    return pts;
+  }
+
+  const lista = (filas) =&gt; `&lt;ol&gt;${filas.map((x) =&gt; `&lt;li class=&quot;${x.c || &quot;&quot;}&quot;&gt;&lt;span&gt;${x.t}${x.x ? `&lt;span class=&quot;x&quot;&gt;${x.x}&lt;/span&gt;` : &quot;&quot;}&lt;/span&gt;${x.r != null ? `&lt;span class=&quot;r&quot;&gt;${x.r}&lt;/span&gt;` : &quot;&quot;}&lt;/li&gt;`).join(&quot;&quot;)}&lt;/ol&gt;`;
+  const animarConsola = (extra) =&gt; {
+    parar();
+    if (QUIETO) return;
+    const tl = createTimeline({ defaults: { ease: &quot;outQuad&quot; } })
+      .add(consola.querySelectorAll(&quot;li&quot;), { opacity: [0, 1], x: [-8, 0], duration: 320, delay: stagger(220) });
+    if (extra) extra(tl);
+    anim = tl;
+  };
+
+  async function ejecutar() {
+    const p = D.porId.get(sel.value);
+    if (estado.seleccion !== p.id) seleccionar(p.id, &quot;ejecutar&quot;);
+    const r = modeloFinal(p);
+    const top = [...r.vecinas].sort((a, b) =&gt; b.w - a.w).slice(0, 3);
+    const M = D.M;
+    const filas = [
+      { t: `Parcela ${p.id} en ${p.mun}, ${p.edo}. Grupo regional: ${grupoTxt(p.grupo)}.`, x: p.oculta ? &quot;Su rendimiento no se conoce.&quot; : &quot;Para probar el modelo, su rendimiento se excluye de los cálculos de abajo.&quot;, r: p.oculta ? &quot;&quot; : `conocido: ${f(p.obs)}` },
+      { t: `Media de su municipio (${r.nMun} parcelas conocidas)`, x: &quot;Si el municipio no tuviera parcelas conocidas, se usaría la media general.&quot;, r: f(r.MUN, 3) },
+      { t: `Promedio de sus ${r.vecinas.length} vecinas conocidas, pesando más las más cercanas`, x: `Pesan más: ${top.map((v) =&gt; `${v.id} a ${f(v.d, 0)} m (${f(v.w * 100, 0)} %)`).join(&quot;, &quot;)}.`, r: f(r.IDW, 3) },
+      { t: `Referencia territorial MIX = ½ · ${f(r.MUN, 3)} + ½ · ${f(r.IDW, 3)}`, r: f(r.MIX, 3) },
+      p.k1 == null
+        ? { t: &quot;Verdor frente a sus vecinas: no tiene al menos 2 vecinas a menos de 1 km&quot;, x: &quot;K queda igual a MIX.&quot;, r: f(r.K, 3) }
+        : { t: `Verdor frente a sus vecinas a menos de 1 km: ${fs(p.k1)} (${p.k1 &gt; 0 ? &quot;más&quot; : &quot;menos&quot;} verde que ellas)`, x: `K = MIX ${M.K.beta &lt; 0 ? &quot;−&quot; : &quot;+&quot;} ${f(Math.abs(M.K.beta), 4)} × ${f(r.z, 3)} = ${f(r.MIX, 3)} ${M.K.beta * r.z &lt; 0 ? &quot;−&quot; : &quot;+&quot;} ${f(Math.abs(M.K.beta * r.z), 3)}`, r: f(r.K, 3) },
+      { t: `Lluvia de octubre de 2025 frente a 2022–2024: ${fs(p.anom, 1)} %`, x: `J = ${f(M.J[p.grupo], 3)} (grupo ${grupoTxt(p.grupo)}) + ${f(M.J.pendiente, 5)} × ${f(p.anom, 1)}`, r: f(r.J, 3) },
+      { t: `Estimación final: promedio de K y J = ½ · ${f(r.K, 3)} + ½ · ${f(r.J, 3)}`, r: `${f(r.E)} t/ha`, c: &quot;fin&quot; },
+    ];
+    if (p.oculta) {
+      const igual = Math.abs(r4(r.E) - p.pred) &lt; 1e-9;
+      filas.push({ t: `Rango 80 % para la zona ${p.zona === &quot;Chignahuapan&quot; ? &quot;Chignahuapan&quot; : &quot;resto&quot;}: ${f(p.lo80)} a ${f(p.hi80)} t/ha.`, c: &quot;ok&quot; });
+      filas.push({ t: igual ? `Coincide con predicciones_59.csv: ${f(p.pred, 4)} t/ha, a 4 decimales.` : `No coincide con el archivo: diferencia de ${f(Math.abs(r.E - p.pred), 5)} t/ha.`, x: &quot;Comprobando la huella del archivo…&quot;, c: &quot;ok&quot; });
+    } else {
+      filas.push({ t: `Rendimiento conocido: ${f(p.obs)} t/ha. Error de esta estimación: ${fs(r.E - p.obs)} t/ha.`, x: `En la validación cruzada, sin verla, el promedio de 10 repeticiones fue ${f(p.oof)} t/ha. Aquí los coeficientes son los del ajuste final, que sí la incluyen: es una aproximación.`, c: &quot;ok&quot; });
+    }
+    titCalc.textContent = `Cálculo de ${p.id}`;
+    consola.innerHTML = lista(filas);
+    const lineas = dibujarVecinas(p, r);
+    animarConsola((tl) =&gt; tl.add(asvg.createDrawable(lineas.nodes()), { draw: [&quot;0 0&quot;, &quot;0 1&quot;], duration: 700, delay: stagger(30) }, 520));
+    if (p.oculta) {
+      const h = await huellaEntrega();
+      const x = consola.querySelector(&quot;li:last-child .x&quot;);
+      if (x) x.textContent = h === null ? &quot;La huella no se puede calcular en este navegador.&quot; : h === sha ? `Huella SHA-256 ${sha.slice(0, 16)}… verificada.` : &quot;La huella no coincide con la entrega.&quot;;
+    }
+  }
+
+  async function recalcularTodas() {
+    const t0 = performance.now();
+    const res = D.EST.map((p) =&gt; ({ p, r: modeloFinal(p) }));
+    const ms = performance.now() - t0;
+    const iguales = res.filter((o) =&gt; Math.abs(r4(o.r.E) - o.p.pred) &lt; 1e-9).length;
+    const dmax = d3.max(res, (o) =&gt; Math.abs(o.r.E - o.p.e_jk));
+    consola.innerHTML = lista([
+      { t: &quot;Recalculadas las 59 estimaciones con la fórmula de E_JK, desde las 138 parcelas conocidas.&quot;, x: &quot;Para cada una: media municipal, 20 vecinas, verdor relativo y lluvia de octubre.&quot;, r: `${f(Math.max(ms, 1), 0)} ms` },
+      { t: &quot;Iguales a predicciones_59.csv al redondear a 4 decimales, como el archivo&quot;, r: `${iguales} de 59` },
+      { t: &quot;Diferencia máxima con detalle_59.csv, sin redondear&quot;, x: &quot;detalle_59.csv guarda E_JK con todos sus decimales.&quot;, r: dmax &lt; 1e-9 ? &quot;menos de 10⁻⁹ t/ha&quot; : `${f(dmax, 9)} t/ha` },
+      { t: &quot;Comprobando la huella del archivo…&quot;, c: &quot;ok&quot; },
+    ]);
+    titCalc.textContent = &quot;Las 59 recalculadas&quot;;
+    titFig.textContent = &quot;Archivo de entrega frente a este navegador&quot;;
+    const pts = dispersion(res.map((o) =&gt; ({ id: o.p.id, x: o.p.pred, y: o.r.E })), &quot;calculado aquí (t/ha)&quot;, &quot;Navegador&quot;);
+    nota.textContent = &quot;Cada punto es una de las 59: el archivo de entrega frente al cálculo de este navegador. Todas caen sobre la diagonal.&quot;;
+    animarConsola((tl) =&gt; tl.add(pts.nodes(), { opacity: [0, 1], duration: 300, delay: stagger(12) }, 200));
+    const h = await huellaEntrega();
+    consola.querySelector(&quot;li:last-child &gt; span&quot;).textContent = h === null ? &quot;Este navegador no permite calcular la huella.&quot; : h === sha ? `Huella SHA-256 del archivo verificada: ${sha.slice(0, 16)}…` : &quot;La huella del archivo no coincide con la entrega.&quot;;
+  }
+
+  const bNube = document.getElementById(&quot;ej-nube&quot;);
+  const csvNube = document.getElementById(&quot;ej-nube-csv&quot;);
+  async function reentrenarNube() {
+    bNube.disabled = true;
+    consola.innerHTML = `&lt;p class=&quot;vacia&quot;&gt;Reentrenando en AWS Lambda con las 138 parcelas conocidas…&lt;/p&gt;`;
+    const t0 = performance.now();
+    let r;
+    try {
+      const res = await fetch(&quot;/api/reentrenar&quot;, { cache: &quot;no-store&quot; });
+      if (!res.ok) throw new Error(`respuesta ${res.status}`);
+      r = await res.json();
+    } catch (e) {
+      consola.innerHTML = `&lt;p class=&quot;vacia&quot;&gt;No se pudo reentrenar en AWS (${e.message}). Intenta de nuevo o usa el cálculo en el navegador.&lt;/p&gt;`;
+      bNube.disabled = false;
+      return;
+    }
+    bNube.disabled = false;
+    const ida = (performance.now() - t0) / 1000;
+    const iguales = r.predicciones.filter((q) =&gt; { const p = D.porId.get(q.id); return p &amp;&amp; Math.abs(r4(q.E_JK) - p.pred) &lt; 1e-9; }).length;
+    consola.innerHTML = lista([
+      { t: `Reentrenado en AWS Lambda con ${r.parcelas_entrenamiento} parcelas conocidas.`, x: `${r.arranque_en_frio ? &quot;Primera llamada: la función arrancó en frío.&quot; : &quot;La función ya estaba activa.&quot;} Ida y vuelta: ${f(ida, 2)} s.`, r: `${f(r.segundos_ajuste, 3)} s` },
+      { t: `K: β ajustada con 4 pliegues internos (semilla ${r.semilla_interna_K})`, r: fs(r.K.beta, 4) },
+      { t: &quot;J eligió su variable entre 148&quot;, x: r.J_variable, r: r.J_variable === &quot;anom_precip_pct_d&quot; ? &quot;lluvia de octubre&quot; : r.J_variable },
+      { t: &quot;Estimaciones iguales a predicciones_59.csv a 4 decimales&quot;, r: `${iguales} de ${r.parcelas_estimadas}` },
+      { t: r.coincide ? `El CSV reentrenado tiene la misma huella SHA-256 que la entrega: ${r.csv_sha256.slice(0, 16)}…` : &quot;La huella del CSV reentrenado no coincide con la entrega.&quot;, c: &quot;ok&quot; },
+    ]);
+    csvNube.hidden = false;
+    titCalc.textContent = &quot;Reentrenado en AWS&quot;;
+    titFig.textContent = &quot;Archivo de entrega frente a AWS&quot;;
+    const pts = dispersion(r.predicciones.map((q) =&gt; ({ id: q.id, x: D.porId.get(q.id).pred, y: q.E_JK })), &quot;reentrenado en AWS (t/ha)&quot;, &quot;AWS&quot;);
+    nota.textContent = &quot;Cada punto es una de las 59: el archivo de entrega frente al modelo reentrenado en AWS Lambda.&quot;;
+    animarConsola((tl) =&gt; tl.add(pts.nodes(), { opacity: [0, 1], duration: 300, delay: stagger(12) }, 200));
+  }
+
+  const estadoNube = document.getElementById(&quot;estado-nube&quot;);
+  NUBE.then((s) =&gt; {
+    if (!s) {
+      estadoNube.querySelector(&quot;span&quot;).textContent = &quot;La función de AWS no responde desde aquí. El cálculo en el navegador sigue disponible.&quot;;
+      return;
+    }
+    estadoNube.classList.add(&quot;activa&quot;);
+    estadoNube.querySelector(&quot;span&quot;).textContent = `Función activa en AWS Lambda (${s.region}): Python ${s.python}, numpy ${s.numpy}, pandas ${s.pandas}; ${s.insumos_verificados} insumos verificados.`;
+    bNube.disabled = false;
+    bNube.addEventListener(&quot;click&quot;, reentrenarNube);
+  });
+  document.getElementById(&quot;ej-correr&quot;).addEventListener(&quot;click&quot;, ejecutar);
+  document.getElementById(&quot;ej-todas&quot;).addEventListener(&quot;click&quot;, recalcularTodas);
+  sel.addEventListener(&quot;change&quot;, ejecutar);
+  alSeleccionar((id, origen) =&gt; { if (origen !== &quot;ejecutar&quot; &amp;&amp; origen !== &quot;inicio&quot;) { sel.value = id; ejecutar(); } });
+  sel.value = estado.seleccion;
+  ejecutar();
+  return { cargar: (id) =&gt; { sel.value = id; ejecutar(); } };
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/metodo.js</span><span class="cons-que">Avance de «Cómo se hizo» con scroll, con las flechas o con las barras de etapa.</span><span class="cons-lin">172 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// «Cómo se hizo»: pasos con figura fija (escritorio) o figura en línea (teléfono).
+// Las capas, las vecinas y la curva de verdor avanzan con el scroll y se deshacen al regresar.
+import * as d3 from &quot;d3&quot;;
+import { animate, onScroll, stagger, svg as asvg } from &quot;animejs&quot;;
+import { D, QUIETO, NUBE, f, fs, pct, modeloFinal } from &quot;./comun.js&quot;;
+import { escenas, CAPAS_FIN } from &quot;./escenas.js&quot;;
+
+/** Observadores de scroll activos: se vuelven a medir si cambia el alto de la página. */
+const observadores = new Set();
+
+const FASES = [&quot;Entender el problema&quot;, &quot;Entender los datos&quot;, &quot;Preparar los datos&quot;, &quot;Modelar&quot;, &quot;Evaluar&quot;, &quot;Desplegar&quot;];
+const mqMovil = matchMedia(&quot;(max-width: 1080px)&quot;);
+
+function textos() {
+  const V = D.VIT, EV = D.EV, p = D.porId.get(V.id), r = modeloFinal(p);
+  const pon = (id, html) =&gt; { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  pon(&quot;txt-dist&quot;, `${f(EV.distancia_mediana_oculta_conocida_m, 0)} m`);
+  pon(&quot;txt-planet&quot;, `${f(EV.planet.imagenes_mediana_por_parcela, 0)} imágenes Planet por parcela (mediana)`);
+  pon(&quot;txt-celda&quot;, `${f(Math.round(V.celda_ha / 100) * 100, 0)} ha`);
+  pon(&quot;txt-ha&quot;, `${f(p.ha)} ha`);
+  pon(&quot;txt-global&quot;, f(EV.escalera.GLOBAL));
+  pon(&quot;txt-mun&quot;, `${f(EV.escalera.MUN)} t/ha`);
+  pon(&quot;txt-var&quot;, pct(EV.varianza_municipio));
+  const caja = EV.evaluaciones[4].rmse;
+  pon(&quot;txt-caja&quot;, `${f(caja.MIX - caja.E_JK, 3)} t/ha`);
+  pon(&quot;txt-banda&quot;, `${f(EV.banda_59[0])} y ${f(EV.banda_59[1])}`);
+  pon(&quot;txt-cerca&quot;, `${f(EV.semivariograma[0].diferencia)} t/ha`);
+  pon(&quot;txt-vecinas&quot;, `Para ${V.id}: media de ${p.mun} &lt;span class=&quot;dato&quot;&gt;${f(r.MUN)}&lt;/span&gt;, vecinas &lt;span class=&quot;dato&quot;&gt;${f(r.IDW)}&lt;/span&gt;, MIX &lt;span class=&quot;dato&quot;&gt;${f(r.MIX)}&lt;/span&gt; t/ha.`);
+  pon(&quot;txt-verdor&quot;, `${V.id} acumuló &lt;span class=&quot;dato&quot;&gt;${f(V.integral, 1)}&lt;/span&gt; y sus ${V.vecinas_1km.length} vecinas, en mediana, &lt;span class=&quot;dato&quot;&gt;${f(V.mediana_vecinas, 1)}&lt;/span&gt;: un contraste de ${fs(V.k1)}. Estar más verde que las vecinas se asoció con un poco menos de grano, así que K baja ${f(Math.abs(r.K - r.MIX), 3)} t/ha.`);
+  pon(&quot;txt-lluvia&quot;, `Octubre de 2025 llovió &lt;span class=&quot;dato&quot;&gt;${fs(V.anom, 1)} %&lt;/span&gt; sobre el promedio en ${V.id}. La celda explica el 99 % o más de la variación de esta variable, así que funciona como una ubicación más fina y no prueba un efecto de la lluvia.`);
+}
+
+export async function iniciarMetodo() {
+  textos();
+  const salud = await Promise.race([NUBE, new Promise((r) =&gt; setTimeout(() =&gt; r(null), 2500))]);
+  const ESC = escenas(salud);
+  const pasos = [...document.querySelectorAll(&quot;.paso&quot;)];
+  const figuras = new Map(pasos.map((p) =&gt; [p.dataset.esc, p.querySelector(&quot;.figura&quot;)]));
+  const marco = document.getElementById(&quot;escenario-marco&quot;);
+  const hechas = new Map(); // nombre → { limpiar() }
+  let modo = null, activo = null;
+
+  /* sincronía con el scroll (anime.js onScroll) */
+  function sincronizar(nombre, partes, fig, paso) {
+    if (QUIETO || !partes) {
+      partes?.colocar?.(CAPAS_FIN, true);
+      return () =&gt; {};
+    }
+    const movil = modo === &quot;movil&quot;;
+    const objetivo = movil ? fig : paso;
+    const umbral = movil ? { enter: &quot;90% top&quot;, leave: &quot;35% top&quot; } : { enter: &quot;center top&quot;, leave: &quot;center center&quot; };
+    const piezas = [];
+    if (partes.colocar) {
+      // escritorio: separadas el primer 12 % del paso, se juntan hasta el 70 % y se quedan juntas.
+      // teléfono: la figura queda fija mientras pasa el relleno de debajo.
+      const relleno = paso.querySelector(&quot;.relleno-scroll&quot;);
+      const enc = () =&gt; document.querySelector(&quot;.encabezado&quot;).offsetHeight + 8 + fig.offsetHeight;
+      const obs = movil
+        ? onScroll({ target: relleno, enter: () =&gt; ({ container: enc(), target: &quot;top&quot; }), leave: () =&gt; ({ container: enc(), target: &quot;bottom&quot; }), sync: 0.6 })
+        : onScroll({ target: paso, enter: &quot;center top&quot;, leave: &quot;center bottom&quot;, sync: 0.6 });
+      const est = { p: 0 };
+      const [a, b] = movil ? [0.08, 0.85] : [0.12, 0.7];
+      piezas.push(animate(est, {
+        p: [0, 1], ease: &quot;linear&quot;, duration: 1000, autoplay: obs,
+        onUpdate: () =&gt; {
+          const u = Math.max(0, Math.min(1, (est.p - a) / (b - a)));
+          partes.colocar(1 - (1 - CAPAS_FIN) * u);
+        },
+      }), obs);
+    }
+    if (partes.lineas) {
+      const obs = onScroll({ target: objetivo, ...umbral, sync: 0.6 });
+      piezas.push(animate(asvg.createDrawable(partes.lineas), { draw: [&quot;0 0&quot;, &quot;0 1&quot;], ease: &quot;outQuad&quot;, duration: 600, delay: stagger(40, { from: &quot;random&quot; }), autoplay: obs }), obs);
+    }
+    if (partes.curva) {
+      const obs = onScroll({ target: objetivo, ...umbral, sync: 0.6 });
+      piezas.push(animate(asvg.createDrawable(partes.curva), { draw: [&quot;0 0&quot;, &quot;0 1&quot;], ease: &quot;inOutSine&quot;, duration: 1000, autoplay: obs }), obs);
+      const obs2 = onScroll({ target: objetivo, ...umbral, sync: 0.6 });
+      piezas.push(animate(partes.area, { opacity: [0, 0, 1], ease: &quot;linear&quot;, duration: 1000, autoplay: obs2 }), obs2);
+    }
+    piezas.filter((x) =&gt; typeof x.refresh === &quot;function&quot;).forEach((o) =&gt; observadores.add(o));
+    return () =&gt; piezas.forEach((x) =&gt; { observadores.delete(x); x.revert(); });
+  }
+
+  function construir(nombre) {
+    if (hechas.has(nombre)) return;
+    const fig = figuras.get(nombre), paso = fig.closest(&quot;.paso&quot;) ?? pasos.find((p) =&gt; p.dataset.esc === nombre);
+    const e = ESC[nombre];
+    const movil = modo === &quot;movil&quot;;
+    const W = movil ? 400 : 800, H = movil ? e.alto : 600;
+    const svg = d3.select(fig.querySelector(&quot;svg&quot;)).html(&quot;&quot;).attr(&quot;viewBox&quot;, `0 0 ${W} ${H}`);
+    const partes = e.fn(svg.append(&quot;g&quot;), W, H, movil);
+    fig.querySelector(&quot;figcaption&quot;).textContent = e.pie;
+    hechas.set(nombre, { limpiar: sincronizar(nombre, partes, fig, paso) });
+  }
+
+  function acomodar() {
+    const nuevo = mqMovil.matches ? &quot;movil&quot; : &quot;escritorio&quot;;
+    if (nuevo === modo) return;
+    modo = nuevo;
+    hechas.forEach((h) =&gt; h.limpiar());
+    hechas.clear();
+    pasos.forEach((p) =&gt; {
+      const fig = figuras.get(p.dataset.esc);
+      if (modo === &quot;escritorio&quot;) marco.appendChild(fig);
+      else p.insertBefore(fig, p.querySelector(&quot;.relleno-scroll&quot;));
+      fig.classList.remove(&quot;activa&quot;);
+    });
+    if (modo === &quot;escritorio&quot;) {
+      // todas en el escenario fijo: se dibujan ya para que el cambio de paso sea inmediato
+      pasos.forEach((p) =&gt; construir(p.dataset.esc));
+      if (activo) figuras.get(activo)?.classList.add(&quot;activa&quot;);
+    }
+  }
+
+  /* en teléfono, cada figura se dibuja al acercarse */
+  const cerca = new IntersectionObserver((es) =&gt; es.forEach((e) =&gt; {
+    if (e.isIntersecting &amp;&amp; modo === &quot;movil&quot;) construir(e.target.dataset.esc);
+  }), { rootMargin: &quot;120% 0px&quot; });
+  figuras.forEach((fig) =&gt; cerca.observe(fig));
+
+  /* paso activo e indicador de etapa */
+  const seg = [...document.querySelectorAll(&quot;#etapa-seg button&quot;)];
+  const irA = (paso) =&gt; paso?.scrollIntoView({ behavior: QUIETO ? &quot;auto&quot; : &quot;smooth&quot;, block: &quot;center&quot; });
+  seg.forEach((b) =&gt; b.addEventListener(&quot;click&quot;, () =&gt; irA(pasos.find((p) =&gt; p.dataset.fase === b.dataset.fase))));
+  // clics seguidos mientras la página aún se desliza: se cuenta desde el paso pedido, no desde el visible
+  let pedido = null, reloj = null;
+  const indice = () =&gt; pedido ?? pasos.findIndex((p) =&gt; p.dataset.esc === activo);
+  const saltar = (d) =&gt; {
+    pedido = Math.max(0, Math.min(pasos.length - 1, indice() + d));
+    clearTimeout(reloj); reloj = setTimeout(() =&gt; { pedido = null; }, 1200);
+    irA(pasos[pedido]);
+  };
+  document.getElementById(&quot;etapa-ant&quot;).addEventListener(&quot;click&quot;, () =&gt; saltar(-1));
+  document.getElementById(&quot;etapa-sig&quot;).addEventListener(&quot;click&quot;, () =&gt; saltar(1));
+  document.getElementById(&quot;etapa-t&quot;).textContent = pasos.length;
+  const etapa = document.getElementById(&quot;etapa&quot;);
+  const activar = (paso) =&gt; {
+    activo = paso.dataset.esc;
+    pasos.forEach((x) =&gt; x.classList.toggle(&quot;activo&quot;, x === paso));
+    if (modo === &quot;escritorio&quot;) {
+      construir(activo);
+      figuras.forEach((fig, n) =&gt; fig.classList.toggle(&quot;activa&quot;, n === activo));
+    }
+    const fz = +paso.dataset.fase;
+    seg.forEach((s, i) =&gt; { s.className = i &lt; fz ? &quot;hecho&quot; : i === fz ? &quot;actual&quot; : &quot;&quot;; s.setAttribute(&quot;aria-current&quot;, String(i === fz)); });
+    document.getElementById(&quot;etapa-p&quot;).textContent = pasos.indexOf(paso) + 1;
+    document.getElementById(&quot;etapa-ant&quot;).disabled = pasos.indexOf(paso) === 0;
+    document.getElementById(&quot;etapa-sig&quot;).disabled = pasos.indexOf(paso) === pasos.length - 1;
+    document.getElementById(&quot;etapa-nom&quot;).textContent = FASES[fz];
+    document.getElementById(&quot;etapa-n&quot;).textContent = fz + 1;
+  };
+  const io = new IntersectionObserver((es) =&gt; es.forEach((e) =&gt; { if (e.isIntersecting) activar(e.target); }),
+    { rootMargin: &quot;-48% 0px -48% 0px&quot; });
+  pasos.forEach((p) =&gt; io.observe(p));
+  new IntersectionObserver((es) =&gt; es.forEach((e) =&gt; etapa.classList.toggle(&quot;visible&quot;, e.isIntersecting)),
+    { rootMargin: &quot;-35% 0px -35% 0px&quot; }).observe(document.getElementById(&quot;pasos&quot;));
+
+  // indicador de etapa: bajo la figura en escritorio, fijo abajo a la izquierda en teléfono
+  const escenario = document.getElementById(&quot;escenario&quot;), seccion = document.getElementById(&quot;metodo&quot;);
+  const moverEtapa = () =&gt; (modo === &quot;escritorio&quot; ? escenario.appendChild(etapa) : seccion.appendChild(etapa));
+  mqMovil.addEventListener(&quot;change&quot;, () =&gt; { acomodar(); moverEtapa(); });
+  let espera = null;
+  new ResizeObserver(() =&gt; {
+    clearTimeout(espera);
+    espera = setTimeout(() =&gt; observadores.forEach((o) =&gt; o.refresh()), 150);
+  }).observe(document.body);
+  acomodar();
+  moverEtapa();
+  if (!activo) activar(pasos[0]);
+}
+</code></pre></div></details><details><summary><span class="mono">src/scripts/tablero.js</span><span class="cons-que">Arranque del tablero y las cifras y la tira por municipio del sitio original.</span><span class="cons-lin">58 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Tablero: mapa satelital con recorrido, cifras del reto y rendimiento por municipio.
+import * as d3 from &quot;d3&quot;;
+import { D, TINTA, GRIS, LINEA, f, pct, corto, conTip, htmlParcela, seleccionar, alAncho } from &quot;./comun.js&quot;;
+import { mapaSatelite } from &quot;./mapaSatelite.js&quot;;
+import { iniciarRecorrido } from &quot;./recorrido.js&quot;;
+
+function cifras() {
+  const obs = D.REP.map((p) =&gt; p.obs), pr = D.EST.map((p) =&gt; p.pred);
+  const filas = [
+    [&quot;197&quot;, `parcelas en &lt;strong&gt;9 municipios&lt;/strong&gt; de Hidalgo, Puebla y Tlaxcala`],
+    [&quot;138&quot;, `con rendimiento conocido: de ${f(d3.min(obs), 1)} a ${f(d3.max(obs), 1)} t/ha, promedio &lt;strong&gt;${f(d3.mean(obs))}&lt;/strong&gt;`],
+    [&quot;59&quot;, `estimadas por el modelo: de ${f(d3.min(pr), 1)} a ${f(d3.max(pr), 1)} t/ha`],
+    [pct(D.EV.varianza_municipio), `de la variación del rendimiento se explica con solo saber el &lt;strong&gt;municipio&lt;/strong&gt;`],
+    [f(D.EV.escalera.E_JK), `t/ha de error típico esperado por parcela (RMSE en validación cruzada)`],
+  ];
+  d3.select(&quot;#cifras&quot;).selectAll(&quot;div&quot;).data(filas).join(&quot;div&quot;).attr(&quot;class&quot;, &quot;cifra&quot;)
+    .html((d) =&gt; `&lt;b class=&quot;num&quot;&gt;${d[0]}&lt;/b&gt;&lt;span&gt;${d[1]}&lt;/span&gt;`);
+}
+
+function tira() {
+  const mun = D.MUNICIPIOS.map(([m, ps]) =&gt; ({ m, ps, media: d3.mean(ps.filter((p) =&gt; !p.oculta), (p) =&gt; p.obs) }))
+    .sort((a, b) =&gt; d3.descending(a.media ?? 0, b.media ?? 0));
+  const cont = document.getElementById(&quot;tira&quot;);
+  alAncho(cont, (W) =&gt; {
+    const angosto = W &lt; 440, fila = 30, mg = { l: Math.min(160, W * (angosto ? 0.42 : 0.36)), r: 14, t: 6, b: 26 };
+    const H = mg.t + mun.length * fila + mg.b;
+    const svg = d3.select(cont).html(&quot;&quot;).append(&quot;svg&quot;).attr(&quot;viewBox&quot;, `0 0 ${W} ${H}`).attr(&quot;width&quot;, W).attr(&quot;height&quot;, H);
+    const x = d3.scaleLinear([2, 6], [mg.l, W - mg.r]);
+    svg.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(0,${H - mg.b})`)
+      .call(d3.axisBottom(x).ticks(W &lt; 420 ? 4 : 8).tickSize(-(H - mg.b - mg.t)).tickFormat((d) =&gt; f(d, d % 1 ? 1 : 0)))
+      .call((a) =&gt; a.select(&quot;.domain&quot;).remove()).call((a) =&gt; a.selectAll(&quot;line&quot;).attr(&quot;stroke&quot;, LINEA))
+      .call((a) =&gt; a.selectAll(&quot;text&quot;).attr(&quot;fill&quot;, GRIS).attr(&quot;font-size&quot;, 12.5));
+    const g = svg.selectAll(&quot;.m&quot;).data(mun).join(&quot;g&quot;).attr(&quot;transform&quot;, (d, i) =&gt; `translate(0,${mg.t + i * fila + fila / 2})`);
+    g.append(&quot;text&quot;).attr(&quot;x&quot;, mg.l - 10).attr(&quot;dy&quot;, &quot;.35em&quot;).attr(&quot;text-anchor&quot;, &quot;end&quot;).attr(&quot;font-size&quot;, angosto ? 12.5 : 13.5).attr(&quot;fill&quot;, TINTA)
+      .text((d) =&gt; `${corto(d.m)} (${d.ps.length})`);
+    g.filter((d) =&gt; d.media).append(&quot;line&quot;).attr(&quot;x1&quot;, (d) =&gt; x(d.media)).attr(&quot;x2&quot;, (d) =&gt; x(d.media)).attr(&quot;y1&quot;, -10).attr(&quot;y2&quot;, 10)
+      .attr(&quot;stroke&quot;, TINTA).attr(&quot;stroke-width&quot;, 2.2);
+    const azar = d3.randomLcg(7);
+    g.each(function (d) {
+      const pts = d3.select(this).selectAll(&quot;circle&quot;).data(d.ps).join(&quot;circle&quot;)
+        .attr(&quot;cx&quot;, (p) =&gt; x(p.oculta ? p.pred : p.obs)).attr(&quot;cy&quot;, () =&gt; (azar() - 0.5) * 13).attr(&quot;r&quot;, 3.6)
+        .attr(&quot;fill&quot;, (p) =&gt; (p.oculta ? &quot;#fff&quot; : &quot;rgba(28,39,51,.5)&quot;)).attr(&quot;stroke&quot;, (p) =&gt; (p.oculta ? &quot;#C27A12&quot; : &quot;none&quot;)).attr(&quot;stroke-width&quot;, 1.7)
+        .style(&quot;cursor&quot;, &quot;pointer&quot;).on(&quot;click&quot;, (ev, p) =&gt; seleccionar(p.id, &quot;tira&quot;));
+      conTip(pts, htmlParcela);
+    });
+  });
+  const media = (m) =&gt; d3.mean(D.REP.filter((p) =&gt; p.mun === m), (p) =&gt; p.obs);
+  document.getElementById(&quot;tira-nota&quot;).innerHTML =
+    `Línea: media de las parcelas conocidas. Círculos huecos: estimadas. El municipio pesa más que cualquier otra variable: Calpulalpan ronda ${f(media(&quot;Calpulalpan&quot;), 1)} t/ha y Chignahuapan ${f(media(&quot;Chignahuapan&quot;), 1)} t/ha.`;
+}
+
+export function iniciarTablero() {
+  const mapa = mapaSatelite();
+  cifras();
+  tira();
+  iniciarRecorrido(mapa);
+}
+</code></pre></div></details><details><summary><span class="mono">src/styles/mapa-satelite.css</span><span class="cons-que">Estilos del mapa, la vista azul, el marco de selección, la ficha, el recorrido, «Ejecutar» y esta sección.</span><span class="cons-lin">184 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>/* ── Mapa satelital del tablero (Leaflet) ─────────────────────────────── */
+.tablero-sat { align-items: start; }
+.mapa-col { position: sticky; top: calc(var(--enc) + 16px); }
+@media (max-width: 1080px) { .mapa-col { position: relative; top: 0; } }
+.mapa-marco.sat { background: #0b1c30; overflow: hidden; }
+.mapa-sat { width: 100%; height: min(calc(100vh - var(--enc) - 110px), 660px); min-height: 420px; background: #0b1c30; }
+
+/* barra de pasos: avanzar con clic además del scroll */
+.rec-barra { display: flex; align-items: stretch; gap: 6px; margin-top: 10px; }
+.rec-botones { display: flex; flex: 1; min-width: 0; overflow-x: auto; border: 1px solid #c9d0c4; scrollbar-width: none; container-type: inline-size; }
+.rec-botones::-webkit-scrollbar { display: none; }
+.rec-botones button { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; gap: 6px; border: 0; background: #fff; padding: 8px 10px; font-size: 13.5px; font-weight: 600; color: var(--color-tinta-2); cursor: pointer; white-space: nowrap; }
+.rec-botones button + button { border-left: 1px solid #c9d0c4; }
+.rec-botones button b { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: var(--color-banda); font-size: 11.5px; color: var(--color-gris); }
+.rec-botones button:hover { background: var(--color-banda); }
+.rec-botones button.hecho b { background: var(--color-verde); color: #fff; }
+.rec-botones button[aria-current=&quot;true&quot;] { background: var(--color-marino); color: #fff; }
+.rec-botones button[aria-current=&quot;true&quot;] b { background: var(--color-paja); color: var(--color-marino); }
+.rec-flecha { width: 38px; border: 1px solid #c9d0c4; background: #fff; color: var(--color-marino); font-size: 20px; cursor: pointer; }
+.rec-flecha:hover:not([disabled]) { background: var(--color-marino); color: #fff; }
+.rec-flecha[disabled] { opacity: .35; cursor: default; }
+
+/* pista inicial sobre el mapa */
+.mapa-pista { position: absolute; z-index: 500; left: 12px; bottom: 12px; background: rgba(2, 36, 72, .88); color: #fff;
+  font-size: 13.5px; padding: 7px 14px; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+.mapa-pista.oculta { opacity: 0; }
+@media (max-width: 760px) { .mapa-pista { font-size: 12.5px; bottom: 10px; } }
+@media (max-width: 760px) { .mapa-sat { height: 520px; } }
+.mapa-sat.vista-azul .leaflet-tile-pane { filter: grayscale(1) sepia(.35) hue-rotate(178deg) saturate(1.5) brightness(.72) contrast(1.08); }
+.mapa-sat .leaflet-tile-pane { transition: filter .5s; }
+.mapa-marco.sat .mapa-herr, .mapa-marco.sat .mapa-vista, .mapa-marco.sat .mapa-zoom, .mapa-marco.sat .mapa-ley, .ficha-sat { z-index: 500; }
+.mapa-vista { position: absolute; left: 12px; top: 54px; }
+.mapa-vista button { font-size: 13px; padding: 5px 11px; }
+.mapa-marco.sat .leaflet-control-attribution { font-size: 10px; background: rgba(255, 255, 255, .7); }
+.mapa-marco.sat .leaflet-container { font-family: var(--font-sans); }
+.parcela-sat { transition: fill-opacity .35s, stroke-opacity .35s; }
+
+/* leyenda (reusa .mapa-ley del sitio) */
+.mapa-ley .lt { font-weight: 650; margin-bottom: 4px; }
+.mapa-ley .estado i, .mapa-ley .li i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: .7px solid var(--color-tinta); }
+.mapa-ley .estado i.sur { background: repeating-linear-gradient(45deg, #946A1C 0 3px, #fff 3px 6px); }
+.mapa-ley .li { display: flex; align-items: center; gap: 6px; }
+.mapa-ley .grad { width: 170px; height: 10px; margin: 6px 0 3px; }
+.mapa-ley .eti2 { display: flex; justify-content: space-between; width: 170px; font-size: 11.5px; color: var(--color-gris); }
+
+/* rótulos de municipio */
+.rot-mun span { display: inline-block; transform: translate(-50%, -100%); white-space: nowrap; font: 650 12.5px var(--font-sans); color: #fff; text-shadow: 0 0 3px #022448, 0 0 6px #022448; }
+
+/* retícula: las esquinas se cierran sobre la parcela elegida */
+.reticula { position: absolute; z-index: 450; pointer-events: none; display: none; }
+.reticula i { position: absolute; width: 18px; height: 18px; border: 2px solid #fff; }
+.reticula i:nth-child(1) { left: 0; top: 0; border-right: 0; border-bottom: 0; }
+.reticula i:nth-child(2) { right: 0; top: 0; border-left: 0; border-bottom: 0; }
+.reticula i:nth-child(3) { left: 0; bottom: 0; border-right: 0; border-top: 0; }
+.reticula i:nth-child(4) { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+.reticula span { position: absolute; left: 0; top: -22px; font: 600 12px var(--font-sans); color: #fff; background: var(--color-sel); padding: 1px 6px; }
+.reticula.on { display: block; animation: cierra .55s ease-out; }
+@keyframes cierra { from { transform: scale(1.8); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ficha flotante */
+.ficha-sat { position: absolute; left: 12px; bottom: 12px; width: min(268px, calc(100% - 24px)); max-height: calc(100% - 110px); overflow: auto;
+  background: rgba(255, 255, 255, .97); box-shadow: 0 10px 28px rgba(2, 36, 72, .25); padding: 14px 16px; font-size: 13.5px; line-height: 1.45; }
+@media (max-width: 760px) {
+  /* en teléfono la ficha es una hoja inferior: el mapa queda libre */
+  .ficha-sat { position: fixed; left: 0; right: 0; bottom: 0; width: auto; max-height: 52vh; z-index: 60; padding: 14px max(16px, env(safe-area-inset-left, 0px)) calc(14px + env(safe-area-inset-bottom, 0px));
+    background: #fff; border-top: 3px solid var(--color-marino); box-shadow: 0 -10px 30px rgba(2, 36, 72, .25); }
+  .ficha-sat.mini { min-width: 0; }
+}
+.ficha-sat .f-btns { position: absolute; right: 6px; top: 6px; display: flex; gap: 2px; }
+.ficha-sat .f-btns button { width: 26px; height: 26px; border: 0; background: none; font-size: 19px; line-height: 1; color: var(--color-gris); cursor: pointer; }
+.ficha-sat .f-btns button:hover { background: var(--color-banda); color: var(--color-marino); }
+.ficha-sat.mini .f-cuerpo { display: none; }
+.ficha-sat.mini { width: auto; min-width: 190px; }
+.ficha-sat .f-id { font-weight: 800; font-size: 18px; color: var(--color-marino); }
+.ficha-sat .f-sub { color: var(--color-gris); }
+.ficha-sat .f-val { margin: 6px 0 2px; } .ficha-sat .f-val b { font-size: 30px; font-weight: 800; color: var(--color-marino); }
+.ficha-sat .f-val span { color: var(--color-gris); }
+.ficha-sat .f-rango { width: 100%; height: 14px; display: block; }
+.ficha-sat .f-nota { font-size: 12.5px; color: var(--color-gris); margin: 2px 0 8px; }
+.ficha-sat .f-comp div { display: grid; grid-template-columns: 74px 1fr 40px; gap: 6px; align-items: center; font-size: 12.5px; }
+.ficha-sat .f-comp em { height: 7px; background: var(--color-banda); } .ficha-sat .f-comp em i { display: block; height: 100%; }
+.ficha-sat .f-comp b { text-align: right; font-weight: 600; }
+.ficha-sat .f-sec { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--color-linea); }
+.ficha-sat .f-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.ficha-sat .f-chips button { border: 1px solid #c9d0c4; background: #fff; font-size: 12px; padding: 2px 6px; cursor: pointer; }
+.ficha-sat .f-chips button.e { border-style: dashed; border-color: #C27A12; }
+.ficha-sat .f-chips button:hover { background: var(--color-marino); color: #fff; }
+.ficha-sat .f-aviso { margin-top: 8px; color: #B2412C; font-size: 12.5px; }
+.ficha-sat .f-mas { display: inline-block; margin-top: 10px; font-weight: 600; color: var(--color-sel); }
+
+/* recorrido */
+.rec-tit { margin: 48px 0 6px; font-size: 15px; font-weight: 700; }
+.rec-paso { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; padding-left: 18px; border-left: 2px solid var(--color-linea); opacity: .4; transition: opacity .4s, border-color .4s; }
+.rec-paso:last-child { min-height: 40vh; }
+.rec-paso.activo { opacity: 1; border-left-color: var(--color-verde); }
+.rec-paso .fase { font-size: 14px; font-weight: 600; color: var(--color-verde-hondo); margin: 0; }
+.rec-paso h4 { font-size: 24px; line-height: 1.25; margin: 6px 0 10px; color: var(--color-tinta); }
+.rec-paso p { margin: 0; color: var(--color-tinta-2); }
+.rec-paso .dato { font-weight: 700; color: var(--color-marino); }
+@media (max-width: 1080px) { .rec-paso { min-height: auto; padding: 18px 0 18px 16px; opacity: 1; } }
+
+/* ── Cómo se construyó ────────────────────────────────────────────────── */
+.cons-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+@media (max-width: 1080px) { .cons-grid { grid-template-columns: minmax(0, 1fr); } }
+.cons-tabla { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.5; background: #fff; }
+.cons-tabla th { text-align: left; font-size: 13px; color: var(--color-gris); font-weight: 600; padding: 10px 12px; border-bottom: 2px solid var(--color-linea); }
+.cons-tabla td { padding: 10px 12px; border-bottom: 1px solid var(--color-linea); vertical-align: top; }
+.cons-tabla td.mono { color: var(--color-marino); }
+.cons-h { font-size: 17px; font-weight: 700; margin: 0 0 10px; }
+.cons-codigo details { background: #fff; border: 1px solid var(--color-linea); margin-bottom: 8px; }
+.cons-codigo summary { display: flex; gap: 14px; align-items: baseline; padding: 12px 16px; cursor: pointer; list-style: none; }
+.cons-codigo summary::-webkit-details-marker { display: none; }
+.cons-codigo summary::before { content: &quot;+&quot;; font-weight: 700; color: var(--color-verde-hondo); width: 12px; }
+.cons-codigo details[open] summary::before { content: &quot;−&quot;; }
+.cons-codigo summary .mono { color: var(--color-marino); font-weight: 600; white-space: nowrap; }
+.cons-que { color: var(--color-tinta-2); font-size: 14.5px; flex: 1; }
+.cons-lin { color: var(--color-gris); font-size: 13px; white-space: nowrap; }
+@media (max-width: 760px) { .cons-codigo summary { flex-wrap: wrap; } .cons-lin { display: none; } }
+.cons-bloque { position: relative; border-top: 1px solid var(--color-linea); }
+.cons-bloque pre { margin: 0; max-height: 520px; overflow: auto; padding: 16px 18px; background: #0b1c30; color: #dce7f3; font: 12.5px/1.55 var(--font-mono); tab-size: 2; }
+.cons-copiar { position: absolute; right: 18px; top: 10px; padding: 4px 12px; font-size: 13px; background: #fff !important; }
+
+@container (max-width: 640px) {
+  .rec-botones button { padding: 8px 6px; }
+  .rec-botones button:not([aria-current=&quot;true&quot;]) span { display: none; }
+}
+.cons-tabla-marco { min-width: 0; overflow-x: auto; }
+.cons-der { min-width: 0; }
+.cons-der pre.cmd { overflow-x: auto; }
+@media (max-width: 760px) { .cons-tabla { font-size: 13.5px; } .cons-tabla th, .cons-tabla td { padding: 8px; } }
+
+/* ── Ejecutar: flujo en tres pasos, cálculo como recibo y figura con satélite ── */
+.ejecutar .ej-flujo { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 34px; margin: -18px 0 28px; padding: 0; }
+.ejecutar .ej-flujo li { display: flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 600; color: #d5e0ec; position: relative; }
+.ejecutar .ej-flujo li + li::before { content: &quot;&quot;; position: absolute; left: -26px; top: 50%; width: 18px; height: 1px; background: rgba(255, 255, 255, .35); }
+.ejecutar .ej-flujo b, .ejecutar .ej-h b { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--color-paja); color: var(--color-marino); font-size: 13.5px; }
+.ejecutar .ej-barra { background: #fff; color: var(--color-tinta); padding: 18px 20px; margin-bottom: 36px; border-top: 3px solid var(--color-paja); }
+.ejecutar .ej-elige { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.ejecutar .ej-elige label { font-weight: 700; color: var(--color-marino); }
+.ejecutar .ej-elige select { flex: 1 1 260px; min-height: 44px; max-width: 100%; padding: 8px 10px; background: #fff; color: var(--color-tinta); border: 1px solid #c9d0c4; border-radius: 2px; font-size: 15px; }
+.ejecutar .ej-barra .btn { background: var(--color-marino); border-color: var(--color-marino); color: #fff; }
+.ejecutar .ej-barra .btn:hover { background: #0a3563; }
+.ejecutar .ej-barra .btn.sec { background: #fff; color: var(--color-marino); }
+.ejecutar .ej-barra .btn.sec:hover { background: var(--color-banda); }
+.ejecutar .ej-ayuda { margin: 8px 0 0; font-size: 13.5px; color: var(--color-gris); }
+.ejecutar .ej-grid { gap: 40px; }
+.ejecutar .ej-col { min-width: 0; }
+.ejecutar .ej-h { display: flex; align-items: center; gap: 10px; font-size: 18px; margin: 0 0 12px; color: #fff; }
+.ejecutar .ej-figura { border: 1px solid var(--color-marino-linea); background: #0b1c30; }
+
+/* el cálculo como una lista numerada de pasos con su resultado a la derecha */
+.ejecutar .consola { min-height: 0; padding: 6px 18px; background: rgba(1, 16, 33, .5); }
+.ejecutar .consola .vacia { padding: 14px 0; }
+.ejecutar .consola ol { counter-reset: paso; }
+.ejecutar .consola li { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 12px 0; }
+.ejecutar .consola li::before { counter-increment: paso; content: counter(paso); display: grid; place-items: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, .35); font-size: 12px; font-weight: 700; color: #c9d6e6; }
+.ejecutar .consola li .r { font-size: 16px; text-align: right; }
+.ejecutar .consola li.fin { background: rgba(227, 199, 114, .1); margin: 4px -18px; padding: 14px 18px; border-bottom: 0; }
+.ejecutar .consola li.fin::before { background: var(--color-paja); border-color: var(--color-paja); color: var(--color-marino); }
+.ejecutar .consola li.fin .r { font-size: 22px; }
+.ejecutar .consola li.ok::before { counter-increment: none; content: &quot;✓&quot;; background: var(--color-verde); border-color: var(--color-verde); color: var(--color-marino); font-size: 13px; }
+.ejecutar .consola li.ok &gt; span:first-child { padding-left: 0; }
+.ejecutar .consola li.ok &gt; span:first-child::before { content: none; }
+.ejecutar .consola li.ok { color: #dfe8d2; }
+
+/* reentrenar en AWS: tarjeta aparte al final */
+.ejecutar .ej-nube { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; margin-top: 44px; padding: 22px 24px; border: 1px solid var(--color-marino-linea); background: rgba(1, 16, 33, .35); }
+.ejecutar .ej-nube h3 { font-size: 18px; margin: 0 0 4px; }
+.ejecutar .ej-nube p { font-size: 15px; color: #c3d1e0; margin: 0; }
+.ejecutar .ej-nube .estado-nube { margin-top: 10px; }
+@media (max-width: 760px) { .ejecutar .ej-nube { grid-template-columns: minmax(0, 1fr); } .ejecutar .ej-flujo { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: -10px; } .ejecutar .ej-flujo li + li::before { content: none; } }
+
+/* boleta de «Para qué sirve»: la parcela sobre el satélite, como en el resto del sitio */
+.boleta .mini-uso { margin: 0 0 10px; }
+.boleta .mini-uso svg { display: block; width: 100%; height: auto; }
+
+/* glosario del tablero */
+.glosario { margin-top: 22px; border: 1px solid var(--color-linea); background: var(--color-banda); }
+.glosario summary { cursor: pointer; padding: 10px 14px; font-weight: 700; font-size: 15px; color: var(--color-marino); }
+.glosario dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; margin: 0; padding: 4px 14px 14px; font-size: 14.5px; line-height: 1.45; }
+.glosario dt { font-weight: 700; color: var(--color-marino); }
+.glosario dd { margin: 0; color: var(--color-tinta-2); }
+</code></pre></div></details><details><summary><span class="mono">src/scripts/comun.js</span><span class="cons-que">Del sitio original: colores, surcos, selección compartida y la fórmula del modelo final.</span><span class="cons-lin">132 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Utilidades compartidas: datos cargados, formato, colores, selección y el modelo final.
+import * as d3 from &quot;d3&quot;;
+
+export const QUIETO = matchMedia(&quot;(prefers-reduced-motion: reduce)&quot;).matches;
+
+/** Datos verificados (ver datos.js). Se asigna una vez con fijarDatos. */
+export let D = null;
+export function fijarDatos(d) { D = d; }
+
+/* ── Colores ──────────────────────────────────────────────────────────── */
+export const RAMPA = [&quot;#CBA03A&quot;, &quot;#B08528&quot;, &quot;#946A1C&quot;, &quot;#775114&quot;, &quot;#5A3A0D&quot;, &quot;#3F280A&quot;];
+export const CORTES = [3, 3.5, 4, 4.5, 5];
+export const clase = (v) =&gt; d3.bisectRight(CORTES, v);
+export const colorV = (v) =&gt; RAMPA[clase(v)];
+export const COLORES = { MUN: &quot;#9AA1A8&quot;, MIX: &quot;#5B636B&quot;, J: &quot;#2F6FD6&quot;, K: &quot;#3A9E6E&quot;, E_JK: &quot;#C27A12&quot; };
+export const NOMBRES = { MUN: &quot;Media municipal&quot;, MIX: &quot;MIX (referencia)&quot;, J: &quot;J, lluvia y región&quot;, K: &quot;K, verdor relativo&quot;, E_JK: &quot;E_JK, entrega&quot; };
+export const TINTA = &quot;#1C2733&quot;, GRIS = &quot;#5A6570&quot;, LINEA = &quot;#E3E7E0&quot;, MARINO = &quot;#022448&quot;, PAJA = &quot;#E3C772&quot;, VERDE = &quot;#95BD59&quot;;
+
+/* ── Formato (es-MX) ──────────────────────────────────────────────────── */
+export const f = (v, d = 2) =&gt;
+  v == null || !isFinite(v) ? &quot;—&quot; : v.toLocaleString(&quot;es-MX&quot;, { minimumFractionDigits: d, maximumFractionDigits: d });
+export const fs = (v, d = 2) =&gt; {
+  const t = f(Math.abs(v), d);
+  return (Number(t.replace(/,/g, &quot;&quot;)) === 0 ? &quot;&quot; : v &gt; 0 ? &quot;+&quot; : &quot;−&quot;) + t;
+};
+export const pct = (v, d = 0) =&gt; `${f(v * 100, d)} %`;
+export const corto = (m) =&gt; m.replace(&quot; de Mariano Arista&quot;, &quot;&quot;).replace(&quot; de Hinojosa&quot;, &quot;&quot;);
+export const r4 = (v) =&gt; Math.round(v * 1e4) / 1e4;
+export const grupoTxt = (g) =&gt; g.replace(&quot;_&quot;, &quot; &quot;);
+
+/* ── Selección compartida entre mapa, tabla, ficha, ejecución y boleta ─── */
+export const estado = { seleccion: null };
+const oyentes = [];
+export function alSeleccionar(fn) { oyentes.push(fn); }
+export function seleccionar(id, origen) {
+  estado.seleccion = id;
+  oyentes.forEach((fn) =&gt; fn(id, origen));
+}
+
+/* ── Tooltip único ────────────────────────────────────────────────────── */
+let tip = null;
+export function mostrarTip(html, ev) {
+  tip ??= document.getElementById(&quot;tip&quot;);
+  tip.innerHTML = html;
+  tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width &gt; innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height &gt; innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = `${Math.max(8, x)}px`;
+  tip.style.top = `${Math.max(8, y)}px`;
+}
+export function ocultarTip() { if (tip) tip.style.opacity = 0; }
+export function htmlParcela(p) {
+  return p.oculta
+    ? `&lt;b&gt;${p.id}&lt;/b&gt; &lt;span class=&quot;s&quot;&gt;${p.mun}&lt;/span&gt;&lt;br&gt;Estimado &lt;b class=&quot;num&quot;&gt;${f(p.pred)}&lt;/b&gt; t/ha&lt;br&gt;&lt;span class=&quot;s&quot;&gt;80 %: ${f(p.lo80)} a ${f(p.hi80)}. ${f(p.ha)} ha&lt;/span&gt;`
+    : `&lt;b&gt;${p.id}&lt;/b&gt; &lt;span class=&quot;s&quot;&gt;${p.mun}&lt;/span&gt;&lt;br&gt;Conocido &lt;b class=&quot;num&quot;&gt;${f(p.obs)}&lt;/b&gt; t/ha&lt;br&gt;&lt;span class=&quot;s&quot;&gt;${f(p.ha)} ha&lt;/span&gt;`;
+}
+/** Tooltip con ratón; en pantallas táctiles el toque selecciona. */
+export function conTip(sel, html) {
+  sel.on(&quot;pointerenter pointermove&quot;, (ev, d) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(html(d), ev); })
+    .on(&quot;pointerleave&quot;, ocultarTip);
+}
+
+/* ── Geometría ────────────────────────────────────────────────────────── */
+/** Polígonos en UTM 14N (metros) como GeoJSON plano. */
+export const featureDe = (p) =&gt; ({ type: &quot;Feature&quot;, properties: { id: p.id }, geometry: { type: &quot;MultiPolygon&quot;, coordinates: p.poly.map((r) =&gt; [r]) } });
+export const cajaUTM = (x0, y0, x1, y1) =&gt; ({ type: &quot;Feature&quot;, geometry: { type: &quot;Polygon&quot;, coordinates: [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]] } });
+
+/** Surcos (rayado a 45°) por clase de rendimiento. Devuelve una función para seguir el zoom. */
+export function surcos(defs, pref, tam = 6, fondo = &quot;#fff&quot;) {
+  RAMPA.forEach((c, i) =&gt; {
+    const pt = defs.append(&quot;pattern&quot;).attr(&quot;id&quot;, `${pref}-s${i}`).attr(&quot;patternUnits&quot;, &quot;userSpaceOnUse&quot;)
+      .attr(&quot;width&quot;, tam).attr(&quot;height&quot;, tam).attr(&quot;patternTransform&quot;, &quot;rotate(45)&quot;);
+    pt.append(&quot;rect&quot;).attr(&quot;width&quot;, tam).attr(&quot;height&quot;, tam).attr(&quot;fill&quot;, fondo);
+    pt.append(&quot;rect&quot;).attr(&quot;width&quot;, tam * 0.56).attr(&quot;height&quot;, tam).attr(&quot;fill&quot;, c);
+  });
+  return (k = 1) =&gt; defs.selectAll(&quot;pattern&quot;).filter(function () { return this.id.startsWith(pref + &quot;-s&quot;); })
+    .attr(&quot;patternTransform&quot;, `rotate(45) scale(${1 / k})`);
+}
+export const rellenoDe = (p, pref) =&gt; (p.oculta ? `url(#${pref}-s${clase(p.pred)})` : colorV(p.obs));
+
+/* ── Huellas ──────────────────────────────────────────────────────────── */
+export async function sha256hex(datos) {
+  if (!(window.crypto &amp;&amp; crypto.subtle)) return null;
+  const b = typeof datos === &quot;string&quot; ? new TextEncoder().encode(datos) : datos;
+  const h = await crypto.subtle.digest(&quot;SHA-256&quot;, b);
+  return [...new Uint8Array(h)].map((x) =&gt; x.toString(16).padStart(2, &quot;0&quot;)).join(&quot;&quot;);
+}
+
+/* ── Estado de la API en AWS ──────────────────────────────────────────── */
+export const NUBE = (async () =&gt; {
+  if (!/^https?:$/.test(location.protocol)) return null;
+  try {
+    const r = await fetch(&quot;/api/salud&quot;, { cache: &quot;no-store&quot; });
+    if (!r.ok) return null;
+    const s = await r.json();
+    return s &amp;&amp; s.estado === &quot;ok&quot; ? s : null;
+  } catch {
+    return null;
+  }
+})();
+
+/* ── El modelo final, como en el cuaderno 04 ──────────────────────────── */
+/** Para una parcela conocida se excluye su propio rendimiento (como si estuviera oculta). */
+export function modeloFinal(p) {
+  const M = D.M;
+  const ent = p.oculta ? D.REP : D.REP.filter((q) =&gt; q.id !== p.id);
+  const delMun = ent.filter((q) =&gt; q.mun === p.mun);
+  const MUN = delMun.length ? d3.mean(delMun, (q) =&gt; q.obs) : d3.mean(ent, (q) =&gt; q.obs);
+  const dist = ent.map((q) =&gt; ({ q, d: Math.hypot(q.x - p.x, q.y - p.y) })).sort((a, b) =&gt; a.d - b.d).slice(0, M.idw.k);
+  const w = dist.map((o) =&gt; 1 / Math.max(o.d, M.idw.piso_m) ** M.idw.potencia);
+  const sw = d3.sum(w);
+  const vecinas = dist.map((o, i) =&gt; ({ id: o.q.id, d: o.d, w: w[i] / sw, obs: o.q.obs, q: o.q }));
+  const IDW = d3.sum(vecinas, (v) =&gt; v.w * v.obs);
+  const MIX = 0.5 * MUN + 0.5 * IDW;
+  const z = p.k1 == null ? 0 : (p.k1 - M.K.mediana) / M.K.escala;
+  const K = MIX + M.K.beta * z;
+  const J = M.J[p.grupo] + M.J.pendiente * p.anom;
+  return { MUN, nMun: delMun.length, IDW, vecinas, MIX, z, K, J, E: 0.5 * J + 0.5 * K };
+}
+
+/** Rinde una función de dibujo al tamaño real del contenedor y la repite al cambiar de ancho. */
+export function alAncho(el, dibujar) {
+  let ancho = 0;
+  const ro = new ResizeObserver(() =&gt; {
+    const w = Math.round(el.clientWidth);
+    if (w &amp;&amp; Math.abs(w - ancho) &gt; 2) { ancho = w; dibujar(w); }
+  });
+  ro.observe(el);
+}
+</code></pre></div></details></div></div><script type="module">document.querySelectorAll(`.cons-copiar`).forEach(e=>e.addEventListener(`click`,async()=>{let t=e.parentElement?.querySelector(`code`)?.textContent??``;try{await navigator.clipboard.writeText(t),e.textContent=`Copiado`}catch{e.textContent=`Selecciona y copia`}setTimeout(()=>e.textContent=`Copiar`,1600)}));</script></section></main><footer class="pie-datos" id="datos"><div class="envoltura"><h2>Datos y código</h2><span class="acento" aria-hidden="true"></span><div class="pie-grid"><div><p>Todo lo que muestra esta página sale de los archivos de la tabla. Cada uno lleva su huella SHA-256 en el manifiesto; la última columna dice si este navegador la comprobó.</p><p id="pie-gen"></p><p>Para reproducir las estimaciones en tu equipo, desde el repositorio:</p><pre class="cmd">uv sync --locked --all-groups
+uv run --locked --all-groups python scripts/ejecutar_notebook_04.py</pre><p id="pie-nube" class="nota"></p></div><table class="manif" id="manif"><thead><tr><th>Archivo</th><th>SHA-256</th><th>Navegador</th></tr></thead><tbody></tbody></table></div><p class="creditos">Reto AgroCebada FIRA 2026. Estimaciones para la campaña de abril a octubre de 2025.</p></div></footer><div class="tip" id="tip" role="tooltip"></div><div class="aviso-datos" id="aviso-datos" role="alert" hidden></div><div id="hoja"></div><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.BSHYL4hK.js"></script></body></html>
