@@ -1,0 +1,40 @@
+---
+---
+<section class="portada sobre-azul" id="portada">
+  <svg class="relieve" id="relieve" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="envoltura portada-grid">
+    <div>
+      <h1><span>197 parcelas</span><span>de cebada.</span><span>59 por estimar.</span></h1>
+      <span class="acento" aria-hidden="true"></span>
+      <p class="entrada">De 138 parcelas del altiplano conocemos el rendimiento al final de la cosecha. Esta herramienta estima las otras 59, ejecuta el modelo frente a ti y explica de dónde sale cada número.</p>
+      <div class="acciones">
+        <a class="btn" href="#estimaciones">Consultar las 59 estimaciones</a>
+        <a class="btn sec" href="#ejecutar">Ejecutar el modelo</a>
+      </div>
+      <p class="pie">Reto AgroCebada FIRA 2026. Hidalgo, Puebla y Tlaxcala, campaña de abril a octubre de 2025. Las líneas del fondo son el relieve real de la zona.</p>
+    </div>
+    <div class="lamina" aria-label="Lámina de las 197 parcelas con su forma real">
+      <div class="lamina-cab">
+        <span>Cada figura es una parcela con su forma real, agrupada por municipio.</span>
+        <span class="cuenta"><b class="num" id="contador">0</b>de 59 estimadas</span>
+      </div>
+      <div class="lamina-grupos" id="lamina"></div>
+      <div class="lamina-ley">
+        <span><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><rect x="6" y="6" width="88" height="88" fill="#E3C772" /></svg>Rendimiento conocido</span>
+        <span><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><rect x="6" y="6" width="88" height="88" fill="url(#surco-paja)" stroke="#E3C772" stroke-width="8" /></svg>Estimado por el modelo (con surcos)</span>
+      </div>
+    </div>
+  </div>
+  <picture>
+    <source media="(max-width: 1080px)" srcset="/img/cebada-420.webp" />
+    <img class="cebada" src="/img/cebada-700.webp" alt="" width="700" height="664" fetchpriority="low" />
+  </picture>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="surco-paja" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
+        <rect width="12" height="12" fill="#022448" />
+        <rect width="6.5" height="12" fill="#E3C772" />
+      </pattern>
+    </defs>
+  </svg>
+</section>

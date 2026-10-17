@@ -1,0 +1,52 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion ejecutar sobre-azul" id="ejecutar">
+  <div class="envoltura">
+    <CabSeccion titulo="Ejecutar el modelo" base="Las bases piden que la aplicación permita ejecutar el modelo predictivo y consultar los resultados.">
+      <p>Elige una parcela y el modelo se calcula frente a ti, paso por paso, con los mismos números del archivo de entrega. Si quieres, también puedes reentrenarlo completo en AWS.</p>
+    </CabSeccion>
+
+    <ol class="ej-flujo" aria-label="Cómo usar esta sección">
+      <li><b>1</b><span>Elige una parcela</span></li>
+      <li><b>2</b><span>Sigue el cálculo</span></li>
+      <li><b>3</b><span>Compáralo con la entrega</span></li>
+    </ol>
+
+    <div class="ej-barra">
+      <div class="ej-elige">
+        <label for="ej-parcela">Parcela</label>
+        <select id="ej-parcela"></select>
+        <button class="btn" id="ej-correr">Calcular paso a paso</button>
+        <button class="btn sec" id="ej-todas">Recalcular las 59</button>
+      </div>
+      <p class="ej-ayuda">La parcela cambia sola cuando eliges otra en el mapa o en la tabla de estimaciones.</p>
+    </div>
+
+    <div class="ej-grid">
+      <div class="ej-col">
+        <h3 class="ej-h" id="ej-tit-calc">Cálculo de la parcela</h3>
+        <div class="consola" id="consola" aria-live="polite"><p class="vacia">Elige una parcela y pulsa «Calcular paso a paso».</p></div>
+      </div>
+      <div class="ej-col">
+        <h3 class="ej-h" id="ej-tit-fig">Las vecinas que usa</h3>
+        <div class="ej-figura">
+          <svg id="ej-svg" viewBox="0 0 420 420" role="img" aria-label="Vecinas que usa el modelo"></svg>
+        </div>
+        <p class="nota" id="ej-nota" style="margin-top:10px"></p>
+      </div>
+    </div>
+
+    <div class="ej-nube">
+      <div>
+        <h3>Reentrenar todo en AWS</h3>
+        <p>Una función de AWS Lambda vuelve a ajustar el modelo con las 138 parcelas conocidas y estima las 59. No guarda nada: cada llamada reentrena desde cero.</p>
+        <p class="estado-nube" id="estado-nube"><i></i><span>Buscando la función en AWS…</span></p>
+      </div>
+      <div class="ej-ctrl">
+        <button class="btn" id="ej-nube" disabled>Reentrenar en AWS</button>
+        <a class="btn sec" id="ej-nube-csv" href="/api/reentrenar?formato=csv" hidden>Descargar el CSV reentrenado</a>
+      </div>
+    </div>
+  </div>
+</section>

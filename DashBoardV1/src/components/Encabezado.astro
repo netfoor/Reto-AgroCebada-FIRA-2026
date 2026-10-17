@@ -1,0 +1,28 @@
+---
+import { SECCIONES } from "../secciones";
+---
+<header class="encabezado">
+  <div class="envoltura enc-fila">
+    <a class="logos" href="#portada" aria-label="Inicio de la página">
+      <img class="utp" src="/logos/utp.webp" alt="Universidad Tecnológica de Puebla" width="120" height="120" />
+      <img class="tec" src="/logos/tec.webp" alt="Tecnológico de Monterrey" width="362" height="96" />
+      <img class="fira" src="/logos/fira.webp" alt="FIRA, Fideicomisos Instituidos en Relación con la Agricultura" width="352" height="96" />
+    </a>
+    <nav class="ubicacion" aria-label="Secciones">
+      <button class="ubic-boton" id="ubic-boton" aria-expanded="false" aria-controls="ubic-lista">
+        <span class="pos" id="ubic-pos">1 de {SECCIONES.length}</span>
+        <span id="ubic-nombre">{SECCIONES[0].corto}</span>
+        <svg width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" /></svg>
+      </button>
+      <ol class="ubic-lista" id="ubic-lista" hidden>
+        {SECCIONES.map((s) => <li><a href={`#${s.id}`} data-sec={s.id}><i></i>{s.corto}</a></li>)}
+        <li class="ubic-pie" id="ubic-pie">Comprobando los datos…</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="riel" aria-hidden="true">
+    <div class="riel-avance"></div>
+    {SECCIONES.slice(1).map((s) => <i class="riel-marca" data-sec={s.id}></i>)}
+    <div class="riel-punta"></div>
+  </div>
+</header>

@@ -1,0 +1,28 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion" id="preguntas">
+  <div class="envoltura">
+    <CabSeccion titulo="Las tres preguntas guía">
+      <p>Las bases las cuentan como bonus. Respondemos con lo que la evidencia sostiene, después de controlar el territorio.</p>
+    </CabSeccion>
+    <div class="preg-grid">
+      <div class="preg">
+        <p class="q">¿Qué índice es más importante en la predicción?</p>
+        <h3>El NDVI de Planet, comparado con las vecinas</h3>
+        <p>Su nivel absoluto no mejoró a la referencia territorial. Su diferencia con las parcelas a menos de 1 km sí, aunque poco y sin evidencia estadística suficiente. El signo es negativo: más verde que las vecinas, algo menos de grano.</p>
+      </div>
+      <div class="preg">
+        <p class="q">¿Qué variable climática tiene mayor peso?</p>
+        <h3>La lluvia de octubre frente a 2022–2024</h3>
+        <p>El modelo J la eligió en 97 de 100 pliegues de validación, entre 148 variables. Pero la celda de lluvia explica el 99 % o más de su variación: funciona como una ubicación más fina y no prueba un efecto del clima.</p>
+      </div>
+      <div class="preg">
+        <p class="q">¿Qué combinación de variables funciona mejor?</p>
+        <h3>Territorio, verdor relativo y lluvia, en dos modelos</h3>
+        <p>El salto grande es pasar de la media general a la del municipio. Después, cada paso aporta unos 0.005 t/ha y juntos casi 0.02.</p>
+      </div>
+    </div>
+    <div id="escalera"><h3>Error en validación cruzada, paso a paso</h3></div>
+  </div>
+</section>
