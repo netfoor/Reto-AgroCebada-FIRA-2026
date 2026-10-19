@@ -374,8 +374,9 @@ svg text { font-family: var(--font-sans); }
 .preg { padding: 28px 28px 28px 0; }
 .preg + .preg { padding-left: 28px; border-left: 1px solid var(--color-linea); }
 @media (max-width: 1080px) { .preg, .preg + .preg { padding: 24px 0; border-left: 0; border-bottom: 1px solid var(--color-linea); } }
-.preg .q { font-size: 15px; color: var(--color-gris); margin-bottom: 10px; }
-.preg h3 { font-size: 21px; line-height: 1.3; margin-bottom: 12px; color: var(--color-marino); }
+.preg .q { text-wrap: wrap; display: flex; gap: 8px; align-items: baseline; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--color-gris); margin: 0 0 10px; }
+.preg .q-n { flex: none; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--color-banda); color: var(--color-marino); font-size: 12px; font-weight: 700; transform: translateY(-1px); }
+.preg .resp { font-size: 21px; line-height: 1.3; font-weight: 700; margin: 0 0 12px; color: var(--color-marino); }
 .preg p { color: var(--color-tinta-2); font-size: 16px; }
 #escalera { margin-top: 48px; }
 #escalera h3 { font-size: 18px; margin-bottom: 8px; }
