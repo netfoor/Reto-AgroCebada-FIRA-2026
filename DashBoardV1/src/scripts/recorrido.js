@@ -27,7 +27,9 @@ export function iniciarRecorrido(mapa) {
     const i = pasos.indexOf(paso);
     pasos.forEach((p) => p.classList.toggle("activo", p === paso));
     botones.forEach((b, j) => { b.setAttribute("aria-current", String(j === i)); b.classList.toggle("hecho", j < i); });
-    botones[i]?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    /* solo desplaza la barra de pasos de lado; nunca mueve la página */
+    const bt = botones[i], barra = bt?.parentElement;
+    if (bt && barra && barra.scrollWidth > barra.clientWidth) barra.scrollTo({ left: bt.offsetLeft - (barra.clientWidth - bt.offsetWidth) / 2, behavior: "smooth" });
     flechas[0].disabled = i <= 0;
     flechas[1].disabled = i >= pasos.length - 1;
     acciones[paso.dataset.accion]?.();
