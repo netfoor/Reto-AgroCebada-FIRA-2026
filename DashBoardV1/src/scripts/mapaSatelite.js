@@ -48,6 +48,14 @@ export function mapaSatelite() {
     .fitBounds(L.latLngBounds(D.P.map((p) => [p.lat, p.lon])), { padding: [30, 30] });
   L.tileLayer(ESRI, { maxZoom: 18, attribution: "Esri World Imagery" }).addTo(map);
   cont.classList.add("vista-azul");
+  /* en pantallas táctiles un dedo desplaza la página y dos dedos mueven o acercan el mapa */
+  if (matchMedia("(pointer: coarse)").matches) {
+    map.dragging.disable();
+    cont.addEventListener("touchstart", (e) => { if (e.touches.length > 1) map.dragging.enable(); }, { passive: true });
+    cont.addEventListener("touchend", (e) => { if (e.touches.length === 0) map.dragging.disable(); }, { passive: true });
+    const pt = document.getElementById("mapa-pista");
+    if (pt) pt.textContent = "Toca una parcela para ver su ficha. Usa dos dedos para mover el mapa";
+  }
 
   /* polígonos y símbolos (los símbolos se ven al alejar, como en el mapa original) */
   const rings = new Map(D.P.map((p) => [p.id, p.poly.map((r) => r.map(([x, y]) => utm2ll(x, y)))]));
