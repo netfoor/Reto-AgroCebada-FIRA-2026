@@ -4,8 +4,8 @@ import { D, COLORES, TINTA, GRIS, f, alAncho } from "./comun.js";
 
 export function iniciarPreguntas() {
   const E = D.EV.escalera;
-  const pasos = [["Media general", E.GLOBAL, "#C9CFC6"], ["Media del municipio", E.MUN, COLORES.MUN], ["MIX: municipio y vecinas", E.MIX, COLORES.MIX],
-    ["K: más NDVI contra cercanas", E.K, COLORES.K], ["E_JK: con J, lluvia y región", E.E_JK, COLORES.E_JK]];
+  const pasos = [["Media general", E.GLOBAL, "#C9CFC6"], ["Media del municipio", E.MUN, COLORES.MUN], ["Referencia (municipio + vecinas)", E.MIX, COLORES.MIX],
+    ["K: más NDVI contra cercanas", E.K, COLORES.K], ["E_JK: con J, grupo regional y lluvia", E.E_JK, COLORES.E_JK]];
   const cont = document.getElementById("escalera");
   const caja = document.createElement("div");
   cont.append(caja);

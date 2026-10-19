@@ -4,7 +4,7 @@ import * as d3 from "d3";
 import L from "leaflet";
 import {
   D, RAMPA, COLORES, TINTA, f, fs, pct, corto, clase, colorV, surcos, htmlParcela, mostrarTip, ocultarTip,
-  seleccionar, alSeleccionar, estado,
+  seleccionar, alSeleccionar, estado, grupoTxt,
 } from "./comun.js";
 import { utm2ll, ESRI } from "./satelite.js";
 
@@ -21,11 +21,11 @@ const MODOS = {
     estilo: (p) => ({ fillColor: p.oculta ? `url(#L-s${clase(p.pred)})` : colorV(p.obs), fillOpacity: 0.92 }),
     ley: () => `<div class="lt">Rendimiento (t/ha)</div><div class="fil">${RAMPA.map((c) => `<span class="sw" style="background:${c}"></span>`).join("")}</div>
       <div class="eti">${["", "3", "3.5", "4", "4.5", "5"].map((t) => `<span>${t}</span>`).join("")}</div>
-      <div class="estado"><span><i style="background:#946A1C"></i>Conocido</span><span><i class="sur"></i>Estimado</span></div>`,
+      <div class="estado"><span><i style="background:#946A1C"></i>Conocido</span><span><i class="sur"></i>Sin dato (estimada)</span></div>`,
   },
   grupo: {
     estilo: (p) => ({ fillColor: GRUPOS[p.grupo], fillOpacity: p.oculta ? 0.45 : 0.9 }),
-    ley: () => `<div class="lt">Grupo regional</div>${Object.entries(GRUPOS).map(([g, c]) => `<div class="li"><i style="background:${c}"></i>${g.replace("_", " ")}</div>`).join("")}`,
+    ley: () => `<div class="lt">Grupo regional</div>${Object.entries(GRUPOS).map(([g, c]) => `<div class="li"><i style="background:${c}"></i>${grupoTxt(g)}</div>`).join("")}`,
   },
   anom: {
     estilo: (p) => ({ fillColor: lluvia(p.anom), fillOpacity: 0.92 }),
@@ -37,7 +37,7 @@ const MODOS = {
   },
   est: {
     estilo: (p) => (p.oculta ? { fillColor: `url(#L-s${clase(p.pred)})`, fillOpacity: 1, color: p.sin_k1 ? "#B2412C" : "#fff", weight: p.sin_k1 ? 2.6 : 1.2 } : { fillOpacity: 0.12, fillColor: "#fff" }),
-    ley: () => `<div class="lt">Las 59 estimadas</div><div class="fil">${RAMPA.map((c) => `<span class="sw" style="background:repeating-linear-gradient(45deg,${c} 0 3px,#fff 3px 6px)"></span>`).join("")}</div>
+    ley: () => `<div class="lt">Las 59 sin dato (estimación, t/ha)</div><div class="fil">${RAMPA.map((c) => `<span class="sw" style="background:repeating-linear-gradient(45deg,${c} 0 3px,#fff 3px 6px)"></span>`).join("")}</div>
       <div class="eti">${["", "3", "3.5", "4", "4.5", "5"].map((t) => `<span>${t}</span>`).join("")}</div><div class="estado"><span><i style="border:2px solid #B2412C;background:none"></i>Sin parcelas cercanas para comparar NDVI</span></div>`,
   },
 };
@@ -142,19 +142,19 @@ export function mapaSatelite() {
   function pintarFicha(p, vs) {
     const v = valor(p), x = d3.scaleLinear([2, 6], [0, 100]);
     const conocidas = vs.filter((q) => !q.oculta);
-    const comp = p.oculta ? [["MUN", "Municipio", p.mun_p], ["MIX", "Referencia", p.mix], ["K", "Con NDVI", p.kv], ["J", "Con lluvia", p.jv], ["E_JK", "Final", p.pred]] : [];
+    const comp = p.oculta ? [["MUN", "Municipio", p.mun_p], ["MIX", "Referencia", p.mix], ["K", "Con NDVI", p.kv], ["J", "Grupo y lluvia", p.jv], ["E_JK", "Final", p.pred]] : [];
     const xb = d3.scaleLinear([2, 5.5], [0, 100]).clamp(true);
     ficha.innerHTML = `<div class="f-btns"><button class="minimizar" aria-label="Minimizar ficha" title="Minimizar">−</button><button class="cerrar" aria-label="Cerrar ficha" title="Cerrar">×</button></div>
       <div class="f-id">${p.id}</div><div class="f-sub">${p.mun}, ${p.edo} · ${f(p.ha)} ha</div>
       <div class="f-val"><b class="num">${f(v)}</b> t/ha <span>${p.oculta ? "estimadas" : "conocidas"}</span></div>
       <div class="f-cuerpo">
       ${p.oculta ? `<svg class="f-rango" viewBox="0 0 100 12" preserveAspectRatio="none"><rect x="${x(p.lo80)}" y="3" width="${x(p.hi80) - x(p.lo80)}" height="6" fill="url(#t-s${clase(p.pred)})"/><line x1="${x(p.mix)}" x2="${x(p.mix)}" y1="1" y2="11" stroke="#5B636B" stroke-width="1"/><line x1="${x(p.pred)}" x2="${x(p.pred)}" y1="0" y2="12" stroke="${TINTA}" stroke-width="1.6"/></svg>
-        <div class="f-nota">80 %: ${f(p.lo80)} a ${f(p.hi80)} · frente a la referencia ${fs(p.pred - p.mix)}</div>
+        <div class="f-nota">Rango 80 %: ${f(p.lo80)} a ${f(p.hi80)} t/ha · vs. referencia ${fs(p.pred - p.mix)}</div>
         <div class="f-comp">${comp.map(([k, nom, val]) => `<div title="${k}"><span>${nom}</span><em><i style="width:${xb(val)}%;background:${COLORES[k]}"></i></em><b>${f(val)}</b></div>`).join("")}</div>`
       : `<div class="f-nota">Al ocultarla, el modelo estimó ${f(p.oof)} t/ha (error ${fs(p.oof - p.obs)}).</div>`}
       <div class="f-sec">Lluvia de octubre: <b>${fs(p.anom, 0)} %</b> frente a 2022–2024</div>
-      <div class="f-sec">${vs.length ? `${vs.length} parcelas cercanas (a menos de 1 km)${conocidas.length ? `, ${conocidas.length} conocidas con media ${f(d3.mean(conocidas, (q) => q.obs))} t/ha` : ""}` : "Sin parcelas a menos de 1 km"}</div>
-      ${vs.length ? `<div class="f-chips">${vs.slice(0, 12).map((q) => `<button data-id="${q.id}" class="${q.oculta ? "e" : ""}">${q.id.slice(4)} · ${f(valor(q), 1)}</button>`).join("")}</div>` : ""}
+      <div class="f-sec">${vs.length ? `${vs.length} ${vs.length === 1 ? "parcela cercana" : "parcelas cercanas"} (a menos de 1 km)${conocidas.length ? `, ${conocidas.length} ${conocidas.length === 1 ? "conocida" : "conocidas"} con media ${f(d3.mean(conocidas, (q) => q.obs))} t/ha` : ""}` : "Sin parcelas a menos de 1 km"}</div>
+      ${vs.length ? `<div class="f-chips">${vs.slice(0, 12).map((q) => `<button data-id="${q.id}" class="${q.oculta ? "e" : ""}" title="${q.id}: ${f(valor(q), 2)} t/ha${q.oculta ? ", sin dato (estimada)" : ""}">${q.id} · ${f(valor(q), 1)} t/ha</button>`).join("")}</div>` : ""}
       ${p.sin_k1 ? `<div class="f-aviso">Sin parcelas cercanas suficientes para comparar su NDVI: se usa solo la referencia (municipio + vecinas).</div>` : ""}
       <a class="f-mas" href="#estimaciones">Ver ficha completa en la tabla</a></div>`;
     ficha.hidden = false;
@@ -167,6 +167,9 @@ export function mapaSatelite() {
     ficha.querySelectorAll(".f-chips button").forEach((b) => (b.onclick = () => seleccionar(b.dataset.id, "mapa")));
   }
 
+  const TELEFONO = matchMedia("(max-width: 760px)");
+  /* en teléfono la hoja se cierra cuando el mapa sale de la pantalla */
+  new IntersectionObserver((es) => { if (TELEFONO.matches && !es[0].isIntersecting) ficha.hidden = true; }, { threshold: 0.15 }).observe(cont.closest(".mapa-marco") || cont);
   const pista = document.getElementById("mapa-pista");
   function marcar(id, origen) {
     const p = D.porId.get(id);
@@ -178,7 +181,9 @@ export function mapaSatelite() {
       const ancho = cont.clientWidth > 560;
       map.flyToBounds(poli.get(id).getBounds(), { paddingTopLeft: ancho ? [300, 120] : [40, 120], paddingBottomRight: ancho ? [70, 70] : [40, 260], maxZoom: 15.5, duration: 1.1 });
       map.once("moveend", () => { colocar(); ret.classList.remove("on"); void ret.offsetWidth; ret.classList.add("on"); });
-      pintarFicha(p, vs);
+      /* en teléfono la ficha es una hoja fija: solo se abre cuando el usuario toca el mapa */
+      if (origen === "mapa" || !TELEFONO.matches) pintarFicha(p, vs);
+      else ficha.hidden = true;
     }
     ret.querySelector("span").textContent = id;
   }

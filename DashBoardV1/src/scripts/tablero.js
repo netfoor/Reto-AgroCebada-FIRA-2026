@@ -9,7 +9,7 @@ function cifras() {
   const filas = [
     ["197", `parcelas en <strong>9 municipios</strong> de Hidalgo, Puebla y Tlaxcala`],
     ["138", `con rendimiento conocido: de ${f(d3.min(obs), 1)} a ${f(d3.max(obs), 1)} t/ha, promedio <strong>${f(d3.mean(obs))}</strong>`],
-    ["59", `estimadas por el modelo: de ${f(d3.min(pr), 1)} a ${f(d3.max(pr), 1)} t/ha`],
+    ["59", `sin dato: el modelo las estima entre ${f(d3.min(pr), 1)} y ${f(d3.max(pr), 1)} t/ha`],
     [pct(D.EV.varianza_municipio), `de la variación del rendimiento se explica con solo saber el <strong>municipio</strong>`],
     [f(D.EV.escalera.E_JK), `t/ha de error típico esperado por parcela (RMSE en validación cruzada)`],
   ];

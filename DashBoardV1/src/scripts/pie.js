@@ -5,7 +5,7 @@ import { verificarArchivo } from "./datos.js";
 export function iniciarPie(estadoDatos) {
   const M = D.MAN, filas = Object.entries(M.archivos);
   const fecha = M.fecha_commit ? new Date(M.fecha_commit).toLocaleString("es-MX", { dateStyle: "long", timeStyle: "short" }) : null;
-  document.getElementById("pie-gen").textContent = `Datos exportados desde el commit ${M.commit || "—"}${fecha ? ` (${fecha})` : ""} del repositorio. Las tres tablas de descarga son copias exactas de resultados/04_seleccion_modelo_final.`;
+  document.getElementById("pie-gen").textContent = `Datos exportados desde la versión ${M.commit || "—"}${fecha ? ` (${fecha})` : ""} del repositorio. Las tres tablas de descarga son copias exactas de resultados/04_seleccion_modelo_final.`;
   const tbody = document.querySelector("#manif tbody");
   tbody.innerHTML = filas.map(([n, m]) => `<tr data-r="${n}"><td><a href="/${n}">${n.split("/")[1]}</a></td><td><code>${m.sha256}</code><br><span>${m.bytes.toLocaleString("es-MX")} bytes</span></td><td class="v">pendiente</td></tr>`).join("");
   const marcar = (ruta, ok) => {

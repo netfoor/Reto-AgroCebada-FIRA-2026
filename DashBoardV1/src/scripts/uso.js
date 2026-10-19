@@ -12,9 +12,9 @@ export function iniciarUso() {
     actual = p;
     const prod = p.ha * p.pred, lo = p.ha * p.lo80, hi = p.ha * p.hi80;
     const totHa = d3.sum(D.EST, (q) => q.ha), totProd = d3.sum(D.EST, (q) => q.ha * q.pred);
-    el.innerHTML = `<h3>Evidencia productiva de ${p.id}</h3><p class="nota" style="margin:4px 0 12px">${p.mun}, ${p.edo}. Elige otra parcela estimada en el mapa, la tabla o el mapa de inicio.</p>
+    el.innerHTML = `<h3>Producción estimada de ${p.id}</h3><p class="nota" style="margin:4px 0 12px">${p.mun}, ${p.edo}. Elige otra parcela sin dato en el mapa, la tabla o el mapa de inicio.</p>
       <div class="mini-uso"></div>
-      <div class="linea"><span>Superficie del polígono</span><b>${f(p.ha)} ha</b></div>
+      <div class="linea"><span>Superficie de la parcela</span><b>${f(p.ha)} ha</b></div>
       <div class="linea"><span>Rendimiento estimado</span><b>${f(p.pred)} t/ha</b></div>
       <div class="linea total"><span>Producción estimada</span><b>${f(prod, 1)} t</b></div>
       <div class="linea"><span>Rango 80 % (8 de cada 10 veces)</span><b>${f(lo, 1)} a ${f(hi, 1)} t</b></div>

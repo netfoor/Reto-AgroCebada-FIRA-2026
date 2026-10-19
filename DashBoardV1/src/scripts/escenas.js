@@ -7,6 +7,22 @@ import {
 import { fondoSatelital, cajaDeLienzo } from "./satelite.js";
 
 export const CAPAS_FIN = 0.15;
+
+/* nombres para leer en voz alta (los archivos de datos conservan los originales) */
+const LEGIBLE = {
+  "Descriptores temporales, Ridge y árboles": "Curvas de NDVI en el tiempo, con dos tipos de modelo",
+  "Lluvia de octubre y cinco regiones": "Lluvia de octubre y cinco grupos regionales",
+  "Fecha del pico de verdor": "Fecha del NDVI más alto",
+  "Dispersión del verdor dentro de la parcela": "Qué tan parejo es el NDVI dentro de la parcela",
+  "Verdor contra las vecinas": "NDVI contra las parcelas cercanas",
+  "Cinco fuentes en contraste vecinal": "Cinco fuentes de datos contra las parcelas cercanas",
+  "Verdor con el corte de octubre corregido": "NDVI con el corte de octubre corregido",
+  "Validación cruzada, particiones históricas": "Validación cruzada (repartos originales)",
+  "Validación cruzada, históricas": "Validación cruzada, reparto 1",
+  "Validación cruzada, nuevas": "Validación cruzada, reparto 2",
+  "Validación cruzada, particiones nuevas": "Validación cruzada (repartos nuevos)",
+};
+const legibles = (lista) => lista.forEach((e) => { if (LEGIBLE[e.nombre]) e.nombre = LEGIBLE[e.nombre]; if (LEGIBLE[e.corto]) e.corto = LEGIBLE[e.corto]; });
 const RAYA = "#E6E8E2";
 
 const limpiarEje = (size = 13) => (a) => a.call((s) => s.select(".domain").remove())
@@ -87,7 +103,7 @@ function capas(g, W, H, m) {
     return dentro;
   };
   // 1. elevación (abajo)
-  const e = nueva(m ? "Elevación" : "Elevación INEGI, cada 120 m", m ? "cada 120 m" : "se probó, pero no mejoró el modelo", "#59645D");
+  const e = nueva(m ? "Elevación" : "Elevación (INEGI), cada 120 m", m ? "cada 120 m" : "se probó, pero no mejoró el modelo", "#59645D");
   const ev = E.valores.flat().filter((v) => v != null);
   const gris = d3.scaleLinear(d3.extent(ev), ["#EEF0EA", "#59645D"]);
   const pe = E.paso * S;
@@ -98,7 +114,7 @@ function capas(g, W, H, m) {
   }));
   e.append("rect").attr("width", L).attr("height", L).attr("fill", "none").attr("stroke", "#59645D");
   // 2. lluvia
-  const l = nueva(m ? "Lluvia" : "Lluvia CHIRPS, octubre de 2025", m ? "octubre de 2025" : "celdas de unos 5 km por lado", "#2F6FD6");
+  const l = nueva(m ? "Lluvia" : "Lluvia por satélite (CHIRPS), oct. 2025", m ? "octubre de 2025" : "celdas de unos 5 km por lado", "#2F6FD6");
   const azul = d3.scaleLinear([110, 175], ["#cde2fb", "#256abf"]);
   V.celdas["2025"].forEach((c) => l.append("path").attr("d", trazo(c.poly)).attr("fill", azul(c.valor)).attr("fill-opacity", 0.82).attr("stroke", "#fff").attr("stroke-width", 1.2));
   l.append("rect").attr("width", L).attr("height", L).attr("fill", "none").attr("stroke", "#256abf");
@@ -110,7 +126,7 @@ function capas(g, W, H, m) {
   pc.append("path").attr("d", p.poly.map(trazo).join("")).attr("fill", "#C27A12").attr("stroke", "#fff").attr("stroke-width", 1.2);
   pc.append("circle").attr("cx", vx).attr("cy", vy).attr("r", m ? 8 : 11).attr("fill", "none").attr("stroke", PAJA).attr("stroke-width", 1.8);
   // 4. verdor de la parcela y de sus vecinas a menos de 1 km (arriba)
-  const vd = nueva(m ? "NDVI" : "NDVI de Planet, temporada 2025", m ? "por parcela" : "área bajo la curva, por parcela", "#3A9E6E");
+  const vd = nueva(m ? "NDVI" : "NDVI del satélite Planet, temporada 2025", m ? "por parcela" : "área bajo la curva, por parcela", "#3A9E6E");
   vd.append("rect").attr("width", L).attr("height", L).attr("fill", "none").attr("stroke", "#3A9E6E");
   const integ = new Map(V.curvas.map((c) => [c.id, c.integral]));
   const verde = d3.scaleLinear(d3.extent([...integ.values()]), ["#bfe3cd", "#1f6e47"]);
@@ -122,7 +138,7 @@ function capas(g, W, H, m) {
   const celdas = [
     ["Parcela", V.id, TINTA], ["Elevación", `${f(centro, 0)} m`, "#59645D"],
     ["Lluvia oct. 2025", `${f(V.lluvia_pond["2025"], 0)} mm (${fs(V.anom, 0)} %)`, "#2F6FD6"],
-    ["Superficie", `${f(p.ha)} ha`, "#C27A12"], ["NDVI", `${f(V.integral, 1)} (${fs(V.k1, 1)} vs cercanas)`, "#3A9E6E"],
+    ["Superficie", `${f(p.ha)} ha`, "#C27A12"], ["NDVI", `${f(V.integral, 1)} (${fs(V.k1, 2)} vs cercanas)`, "#3A9E6E"],
   ];
   const pos = m
     ? [[0, 0, 120], [130, 0, 110], [0, 66, 190], [250, 0, 130], [200, 66, 190]]
@@ -349,6 +365,7 @@ function modelo(g, W, H, m) {
 /* 8. Once experimentos frente a MIX */
 function experimentos(g, W, H, m) {
   const E = D.EV.experimentos;
+  legibles(E);
   const mg = m ? { l: 16, r: 16, t: 54, b: 52 } : { l: 330, r: 40, t: 56, b: 60 };
   const x = d3.scaleLinear([-0.016, 0.028], [mg.l, W - mg.r]);
   const y = d3.scaleBand(E.map((e) => e.id), [mg.t, H - mg.b]).padding(m ? 0.15 : 0.4);
@@ -376,7 +393,9 @@ function experimentos(g, W, H, m) {
 
 /* 9. Cinco evaluaciones */
 function evaluaciones(g, W, H, m) {
-  const EV = D.EV.evaluaciones, orden = ["MUN", "MIX", "J", "K", "E_JK"];
+  const EV = D.EV.evaluaciones;
+  legibles(EV);
+  const orden = ["MUN", "MIX", "J", "K", "E_JK"];
   const mg = m ? { l: 16, r: 16, t: 60, b: 52 } : { l: 320, r: 30, t: 76, b: 60 };
   const x = d3.scaleLinear([0.465, 0.512], [mg.l, W - mg.r]);
   const y = d3.scaleBand(EV.map((e) => e.nombre), [mg.t, H - mg.b]).padding(m ? 0.2 : 0.5);
@@ -417,7 +436,9 @@ function techo(g, W, H, m) {
     }
   };
   barra(m ? 20 : 34, m ? "Variación del rendimiento (138 parcelas)" : "Variación del rendimiento entre las 138 parcelas", vm, "#5B636B", `El municipio: ${pct(vm, 1)}`, `dentro del municipio: ${pct(1 - vm, 1)}`);
-  barra(m ? 118 : 124, m ? "Error que deja la media municipal" : "Error que deja la media municipal (validación cruzada)", quita, "#C27A12", `E_JK reduce ${pct(quita, 1)}`, `error que queda: ${pct(1 - quita, 1)}`, true);
+  /* el dato guardado es la reducción del error cuadrático; se muestra la del error típico (RMSE) */
+  const quitaT = 1 - Math.sqrt(1 - quita);
+  barra(m ? 118 : 124, m ? "Error típico que deja la media municipal" : "Error típico que deja la media municipal (validación cruzada)", quitaT, "#C27A12", `E_JK lo reduce ${pct(quitaT, 1)}`, `error que queda: ${pct(1 - quitaT, 1)}`, true);
   // curva de aprendizaje: MIX con submuestras de las 138 (200 sorteos por tamaño), ajuste MSE = s² + c/n
   const A = EV.aprendizaje, s2 = A.techo ** 2, c = 220 * (A.con_220 ** 2 - s2);
   const ajuste = d3.range(41, 221).map((n) => [n, Math.sqrt(s2 + c / n)]);
@@ -452,7 +473,7 @@ function despliegue(g, W, H, m, salud) {
     g.append("line").attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2).attr("stroke", "#7A848D").attr("stroke-width", 1.6).attr("marker-end", `url(#${id})`);
     if (t) g.append("text").attr("x", (x1 + x2) / 2 + (lado === "der" ? 8 : -8)).attr("y", (y1 + y2) / 2 + 4).attr("text-anchor", lado === "der" ? "start" : "end").attr("font-size", 12.5).attr("fill", GRIS).text(t);
   };
-  const lambda = salud ? `Python ${salud.python.split(".").slice(0, 2).join(".")}, ${salud.region}` : "Python 3.13 en arm64";
+  const lambda = salud ? `Python ${salud.python.split(".").slice(0, 2).join(".")}, ${salud.region}` : "Python 3.13";
   if (m) {
     nodo(10, 10, 380, 66, "Repositorio del equipo", "cuadernos, recetas del modelo y datos");
     fl(60, 78, 60, 126);
@@ -465,13 +486,13 @@ function despliegue(g, W, H, m, salud) {
     nodo(10, 264, 380, 66, "CloudFront", "un dominio con HTTPS; firma las llamadas a la API");
     fl(200, 332, 200, 380, "página, datos y reentrenamiento");
     nodo(10, 382, 380, 66, "Navegador del jurado", "consulta, ejecuta, reentrena y descarga", true);
-    lineas(g, 10, 486, ["Terraform crea el bucket, la función y la", "distribución; nada se configura a mano."], { size: 13 });
+    lineas(g, 10, 486, ["Terraform crea todo en Amazon con un", "script; nada se configura a mano."], { size: 13 });
   } else {
     nodo(40, 30, 330, 70, "Repositorio del equipo", "cuadernos, recetas del modelo y datos del reto");
-    nodo(430, 30, 330, 70, "Terraform", "crea el bucket, la función y la distribución");
+    nodo(430, 30, 330, 70, "Terraform", "crea con un script el almacén, la función y el dominio");
     nodo(40, 180, 330, 70, "Amazon S3 (privado)", "esta página, datos JSON y descargas");
     nodo(430, 180, 330, 70, "AWS Lambda", `reentrena E_JK; ${lambda}`, true);
-    nodo(40, 330, 720, 70, "CloudFront", "un solo dominio con HTTPS: /* va a S3 y /api/* a Lambda, con llamadas firmadas");
+    nodo(40, 330, 720, 70, "CloudFront", "una sola dirección segura (HTTPS): la página sale de S3 y el reentrenamiento de Lambda");
     nodo(235, 480, 330, 70, "Navegador del jurado", "consulta, ejecuta, reentrena y descarga", true);
     fl(205, 102, 205, 177, "uv y npm: sitio y datos");
     fl(370, 66, 500, 177, "uv: paquete de la API");
@@ -491,8 +512,8 @@ export function escenas(salud) {
     capas: { alto: 560, fn: capas, pie: `Escala real alrededor de ${V.id}: ${lado} km por lado. Al juntarse, cada capa deja un número en la fila de la parcela.` },
     territorio: { alto: 520, fn: territorio, pie: "Rendimiento conocido y media de los municipios con más parcelas." },
     vecinas: { alto: 540, fn: vecinas, pie: "Grosor de cada línea: peso de la vecina en la referencia (municipio + vecinas)." },
-    verdor: { alto: 400, fn: verdor, pie: "Curva de verdor suavizada (mediana móvil de 15 días). Área: lo que queda sobre el nivel de abril–mayo entre el inicio y el fin de la temporada." },
-    lluvia: { alto: 640, fn: lluvia, pie: `Celdas CHIRPS de octubre de 2025 alrededor de la parcela. Contorno blanco grueso: las ${c25.length} celdas que toca; el ${f((mayor / tot) * 100, 1)} % de su área cae en una. En 2025 llovió ${fs(V.anom, 1)} % sobre el promedio.` },
+    verdor: { alto: 400, fn: verdor, pie: "Curva del NDVI suavizada (mediana móvil de 15 días). Área: lo que queda sobre el nivel de abril–mayo entre el inicio y el fin de la temporada." },
+    lluvia: { alto: 640, fn: lluvia, pie: `Celdas de lluvia por satélite (CHIRPS) de octubre de 2025 alrededor de la parcela. Contorno blanco grueso: las ${c25.length} celdas que toca; el ${f((mayor / tot) * 100, 1)} % de su área cae en una. En 2025 llovió ${fs(V.anom, 1)} % sobre el promedio.` },
     modelo: { alto: 470, fn: modelo, pie: `Números de ${p.id}, calculados en este navegador.` },
     experimentos: { alto: 640, fn: experimentos, pie: "Mejor procedimiento de cada experimento frente a MIX en su mismo escenario de validación. Cuadros y círculos usan escenarios distintos: no se comparan entre sí." },
     evaluaciones: { alto: 520, fn: evaluaciones, pie: "RMSE de cada modelo en cada evaluación. La caja cerrada son 35 parcelas que apartamos al inicio y solo abrimos una vez al final; con tan pocas no distingue diferencias de 1 a 2 %." },
