@@ -108,16 +108,16 @@ export function iniciarEjecutar() {
       { t: `Parcela ${p.id} en ${p.mun}, ${p.edo}. Grupo regional: ${grupoTxt(p.grupo)}.`, x: p.oculta ? "Su rendimiento no se conoce." : "Para probar el modelo, su rendimiento se excluye de los cálculos de abajo.", r: p.oculta ? "" : `conocido: ${f(p.obs)}` },
       { t: `Media de su municipio (${r.nMun} parcelas conocidas)`, x: "Si el municipio no tuviera parcelas conocidas, se usaría la media general.", r: f(r.MUN, 3) },
       { t: `Promedio de sus ${r.vecinas.length} vecinas conocidas, pesando más las más cercanas`, x: `Pesan más: ${top.map((v) => `${v.id} a ${f(v.d, 0)} m (${f(v.w * 100, 0)} %)`).join(", ")}.`, r: f(r.IDW, 3) },
-      { t: `Referencia territorial MIX = ½ · ${f(r.MUN, 3)} + ½ · ${f(r.IDW, 3)}`, r: f(r.MIX, 3) },
+      { t: `Referencia (municipio + vecinas), MIX = ½ · ${f(r.MUN, 3)} + ½ · ${f(r.IDW, 3)}`, r: f(r.MIX, 3) },
       p.k1 == null
-        ? { t: "Verdor frente a sus vecinas: no tiene al menos 2 vecinas a menos de 1 km", x: "K queda igual a MIX.", r: f(r.K, 3) }
-        : { t: `Verdor frente a sus vecinas a menos de 1 km: ${fs(p.k1)} (${p.k1 > 0 ? "más" : "menos"} verde que ellas)`, x: `K = MIX ${M.K.beta < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta), 4)} × ${f(r.z, 3)} = ${f(r.MIX, 3)} ${M.K.beta * r.z < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta * r.z), 3)}`, r: f(r.K, 3) },
-      { t: `Lluvia de octubre de 2025 frente a 2022–2024: ${fs(p.anom, 1)} %`, x: `J = ${f(M.J[p.grupo], 3)} (grupo ${grupoTxt(p.grupo)}) + ${f(M.J.pendiente, 5)} × ${f(p.anom, 1)}`, r: f(r.J, 3) },
+        ? { t: "NDVI contra las cercanas: no tiene al menos 2 parcelas a menos de 1 km", x: "K queda igual a MIX.", r: f(r.K, 3) }
+        : { t: `NDVI contra las parcelas cercanas (a menos de 1 km): ${fs(p.k1)} (${p.k1 > 0 ? "más" : "menos"} vegetación que ellas)`, x: `En la escala del modelo ese contraste vale ${f(r.z, 3)}. K = MIX ${M.K.beta < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta), 4)} × ${f(r.z, 3)} = ${f(r.MIX, 3)} ${M.K.beta * r.z < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta * r.z), 3)}`, r: f(r.K, 3) },
+      { t: `Lluvia de octubre de 2025 frente a 2022–2024: ${fs(p.anom, 1)} %`, x: `J = ${f(M.J[p.grupo], 3)} (nivel del grupo ${grupoTxt(p.grupo)}, con lluvia normal) + ${f(M.J.pendiente, 5)} × ${f(p.anom, 1)}`, r: f(r.J, 3) },
       { t: `Estimación final: promedio de K y J = ½ · ${f(r.K, 3)} + ½ · ${f(r.J, 3)}`, r: `${f(r.E)} t/ha`, c: "fin" },
     ];
     if (p.oculta) {
       const igual = Math.abs(r4(r.E) - p.pred) < 1e-9;
-      filas.push({ t: `Rango 80 % para la zona ${p.zona === "Chignahuapan" ? "Chignahuapan" : "resto"}: ${f(p.lo80)} a ${f(p.hi80)} t/ha.`, c: "ok" });
+      filas.push({ t: `Rango 80 %: ${f(p.lo80)} a ${f(p.hi80)} t/ha. Su ancho depende de si la parcela está en Chignahuapan o en el resto de la zona.`, c: "ok" });
       filas.push({ t: igual ? `Coincide con predicciones_59.csv: ${f(p.pred, 4)} t/ha, a 4 decimales.` : `No coincide con el archivo: diferencia de ${f(Math.abs(r.E - p.pred), 5)} t/ha.`, x: "Comprobando la huella del archivo…", c: "ok" });
     } else {
       filas.push({ t: `Rendimiento conocido: ${f(p.obs)} t/ha. Error de esta estimación: ${fs(r.E - p.obs)} t/ha.`, x: `En la validación cruzada, sin verla, el promedio de 10 repeticiones fue ${f(p.oof)} t/ha. Aquí los coeficientes son los del ajuste final, que sí la incluyen: es una aproximación.`, c: "ok" });
@@ -140,7 +140,7 @@ export function iniciarEjecutar() {
     const iguales = res.filter((o) => Math.abs(r4(o.r.E) - o.p.pred) < 1e-9).length;
     const dmax = d3.max(res, (o) => Math.abs(o.r.E - o.p.e_jk));
     consola.innerHTML = lista([
-      { t: "Recalculadas las 59 estimaciones con la fórmula de E_JK, desde las 138 parcelas conocidas.", x: "Para cada una: media municipal, 20 vecinas, verdor relativo y lluvia de octubre.", r: `${f(Math.max(ms, 1), 0)} ms` },
+      { t: "Recalculadas las 59 estimaciones con la fórmula de E_JK, desde las 138 parcelas conocidas.", x: "Para cada una: media municipal, 20 vecinas, NDVI contra las cercanas y lluvia de octubre.", r: `${f(Math.max(ms, 1), 0)} ms` },
       { t: "Iguales a predicciones_59.csv al redondear a 4 decimales, como el archivo", r: `${iguales} de 59` },
       { t: "Diferencia máxima con detalle_59.csv, sin redondear", x: "detalle_59.csv guarda E_JK con todos sus decimales.", r: dmax < 1e-9 ? "menos de 10⁻⁹ t/ha" : `${f(dmax, 9)} t/ha` },
       { t: "Comprobando la huella del archivo…", c: "ok" },
@@ -191,7 +191,7 @@ export function iniciarEjecutar() {
   const estadoNube = document.getElementById("estado-nube");
   NUBE.then((s) => {
     if (!s) {
-      estadoNube.querySelector("span").textContent = "La función de AWS no responde desde aquí. El cálculo en el navegador sigue disponible.";
+      estadoNube.querySelector("span").textContent = "Esta opción funciona en la versión publicada del sitio. Aquí puedes usar el cálculo paso a paso.";
       return;
     }
     estadoNube.classList.add("activa");

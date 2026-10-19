@@ -26,7 +26,7 @@ function textos() {
   pon("txt-banda", `${f(EV.banda_59[0])} y ${f(EV.banda_59[1])}`);
   pon("txt-cerca", `${f(EV.semivariograma[0].diferencia)} t/ha`);
   pon("txt-vecinas", `Para ${V.id}: media de ${p.mun} <span class="dato">${f(r.MUN)}</span>, vecinas <span class="dato">${f(r.IDW)}</span>, MIX <span class="dato">${f(r.MIX)}</span> t/ha.`);
-  pon("txt-verdor", `${V.id} acumuló <span class="dato">${f(V.integral, 1)}</span> y sus ${V.vecinas_1km.length} vecinas, en mediana, <span class="dato">${f(V.mediana_vecinas, 1)}</span>: un contraste de ${fs(V.k1)}. Estar más verde que las vecinas se asoció con un poco menos de grano, así que K baja ${f(Math.abs(r.K - r.MIX), 3)} t/ha.`);
+  pon("txt-verdor", `${V.id} acumuló <span class="dato">${f(V.integral, 1)}</span> y sus ${V.vecinas_1km.length} parcelas cercanas, en mediana, <span class="dato">${f(V.mediana_vecinas, 1)}</span>: un contraste de ${fs(V.k1)}. Tener un NDVI más alto que las cercanas se asoció con un poco menos de grano, así que K baja ${f(Math.abs(r.K - r.MIX), 3)} t/ha.`);
   pon("txt-lluvia", `Octubre de 2025 llovió <span class="dato">${fs(V.anom, 1)} %</span> sobre el promedio en ${V.id}. La celda explica el 99 % o más de la variación de esta variable, así que funciona como una ubicación más fina y no prueba un efecto de la lluvia.`);
 }
 

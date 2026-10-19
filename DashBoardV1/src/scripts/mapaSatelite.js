@@ -38,7 +38,7 @@ const MODOS = {
   est: {
     estilo: (p) => (p.oculta ? { fillColor: `url(#L-s${clase(p.pred)})`, fillOpacity: 1, color: p.sin_k1 ? "#B2412C" : "#fff", weight: p.sin_k1 ? 2.6 : 1.2 } : { fillOpacity: 0.12, fillColor: "#fff" }),
     ley: () => `<div class="lt">Las 59 estimadas</div><div class="fil">${RAMPA.map((c) => `<span class="sw" style="background:repeating-linear-gradient(45deg,${c} 0 3px,#fff 3px 6px)"></span>`).join("")}</div>
-      <div class="eti">${["", "3", "3.5", "4", "4.5", "5"].map((t) => `<span>${t}</span>`).join("")}</div><div class="estado"><span><i style="border:2px solid #B2412C;background:none"></i>Sin vecinas para comparar verdor</span></div>`,
+      <div class="eti">${["", "3", "3.5", "4", "4.5", "5"].map((t) => `<span>${t}</span>`).join("")}</div><div class="estado"><span><i style="border:2px solid #B2412C;background:none"></i>Sin parcelas cercanas para comparar NDVI</span></div>`,
   },
 };
 
@@ -131,7 +131,7 @@ export function mapaSatelite() {
   function pintarFicha(p, vs) {
     const v = valor(p), x = d3.scaleLinear([2, 6], [0, 100]);
     const conocidas = vs.filter((q) => !q.oculta);
-    const comp = p.oculta ? [["MUN", "Municipio", p.mun_p], ["MIX", "Referencia", p.mix], ["K", "Con verdor", p.kv], ["J", "Con lluvia", p.jv], ["E_JK", "Final", p.pred]] : [];
+    const comp = p.oculta ? [["MUN", "Municipio", p.mun_p], ["MIX", "Referencia", p.mix], ["K", "Con NDVI", p.kv], ["J", "Con lluvia", p.jv], ["E_JK", "Final", p.pred]] : [];
     const xb = d3.scaleLinear([2, 5.5], [0, 100]).clamp(true);
     ficha.innerHTML = `<div class="f-btns"><button class="minimizar" aria-label="Minimizar ficha" title="Minimizar">−</button><button class="cerrar" aria-label="Cerrar ficha" title="Cerrar">×</button></div>
       <div class="f-id">${p.id}</div><div class="f-sub">${p.mun}, ${p.edo} · ${f(p.ha)} ha</div>
@@ -142,9 +142,9 @@ export function mapaSatelite() {
         <div class="f-comp">${comp.map(([k, nom, val]) => `<div title="${k}"><span>${nom}</span><em><i style="width:${xb(val)}%;background:${COLORES[k]}"></i></em><b>${f(val)}</b></div>`).join("")}</div>`
       : `<div class="f-nota">Al ocultarla, el modelo estimó ${f(p.oof)} t/ha (error ${fs(p.oof - p.obs)}).</div>`}
       <div class="f-sec">Lluvia de octubre: <b>${fs(p.anom, 0)} %</b> frente a 2022–2024</div>
-      <div class="f-sec">${vs.length ? `${vs.length} vecinas a menos de 1 km${conocidas.length ? `, ${conocidas.length} conocidas con media ${f(d3.mean(conocidas, (q) => q.obs))} t/ha` : ""}` : "Sin vecinas a menos de 1 km"}</div>
+      <div class="f-sec">${vs.length ? `${vs.length} parcelas cercanas (a menos de 1 km)${conocidas.length ? `, ${conocidas.length} conocidas con media ${f(d3.mean(conocidas, (q) => q.obs))} t/ha` : ""}` : "Sin parcelas a menos de 1 km"}</div>
       ${vs.length ? `<div class="f-chips">${vs.slice(0, 12).map((q) => `<button data-id="${q.id}" class="${q.oculta ? "e" : ""}">${q.id.slice(4)} · ${f(valor(q), 1)}</button>`).join("")}</div>` : ""}
-      ${p.sin_k1 ? `<div class="f-aviso">Sin vecinas suficientes para comparar su verdor: se usa solo la referencia territorial.</div>` : ""}
+      ${p.sin_k1 ? `<div class="f-aviso">Sin parcelas cercanas suficientes para comparar su NDVI: se usa solo la referencia territorial.</div>` : ""}
       <a class="f-mas" href="#estimaciones">Ver ficha completa en la tabla</a></div>`;
     ficha.hidden = false;
     ficha.querySelector(".cerrar").onclick = () => { ficha.hidden = true; };

@@ -15,7 +15,7 @@ export function iniciarRecorrido(mapa) {
     libre: () => { mapa.modo("rend"); },
   };
   const V = D.VIT, txt = document.getElementById("txt-vit");
-  if (txt) txt.innerHTML = `${V.id} y sus ${Array.isArray(V.vecinas_1km) ? V.vecinas_1km.length : V.vecinas_1km} vecinas a menos de 1 km (el anillo). Estuvo un poco más verde que ellas y eso se asoció con algo menos de grano, así que su referencia bajó de <span class="dato">${V.mix.toFixed(2)}</span> a <span class="dato">${V.k.toFixed(2)}</span> t/ha.`;
+  if (txt) txt.innerHTML = `${V.id} y sus ${Array.isArray(V.vecinas_1km) ? V.vecinas_1km.length : V.vecinas_1km} parcelas cercanas, a menos de 1 km (el anillo). Su NDVI fue un poco más alto que el de ellas y eso se asoció con algo menos de grano, así que su referencia bajó de <span class="dato">${V.mix.toFixed(2)}</span> a <span class="dato">${V.k.toFixed(2)}</span> t/ha.`;
   document.querySelectorAll("[data-txt]").forEach((el) => { el.textContent = mapa.texto[el.dataset.txt] ?? el.textContent; });
   let actual = null;
   const botones = [...document.querySelectorAll("#rec-botones button")];
