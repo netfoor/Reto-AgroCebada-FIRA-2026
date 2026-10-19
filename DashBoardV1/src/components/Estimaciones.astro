@@ -3,8 +3,8 @@ import CabSeccion from "./CabSeccion.astro";
 ---
 <section class="seccion banda" id="estimaciones">
   <div class="envoltura">
-    <CabSeccion titulo="Las 59 estimaciones" base="Las bases piden una herramienta para consultar y visualizar los resultados de manera interactiva (criterio de aplicación, 30 %).">
-      <p>Elige una parcela para ver su ficha. La barra con surcos es el rango donde esperamos el valor real 8 de cada 10 veces; la línea gris, la referencia territorial (MIX).</p>
+    <CabSeccion titulo="Resultados por parcela" base="La convocatoria pide una herramienta para consultar y visualizar los resultados de manera interactiva (criterio de aplicación, 30 %).">
+      <p>Elige una parcela para ver su ficha. La barra rayada es el rango donde esperamos el valor real 8 de cada 10 veces; la línea gris, la referencia (municipio + vecinas).</p>
     </CabSeccion>
     <div class="estim">
       <div>
@@ -20,7 +20,7 @@ import CabSeccion from "./CabSeccion.astro";
               <th class="col-mun"><button data-o="mun">Municipio</button></th>
               <th style="text-align:right"><button data-o="pred">t/ha</button></th>
               <th><button data-o="ancho">Rango 80 %</button></th>
-              <th class="col-dif" style="text-align:right"><button data-o="dif" title="Diferencia con la referencia territorial (MIX)">Frente a la referencia</button></th>
+              <th class="col-dif" style="text-align:right"><button data-o="dif" title="Estimación menos la referencia (municipio + vecinas), en t/ha">Diferencia vs. referencia (t/ha)</button></th>
               <th class="col-notas">Notas</th>
             </tr></thead>
             <tbody></tbody>
