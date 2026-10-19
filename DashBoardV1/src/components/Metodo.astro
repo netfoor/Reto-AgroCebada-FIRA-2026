@@ -70,7 +70,7 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
           <div class="paso-texto">
             <p class="fase">{fase(3)}</p>
             <h3>El modelo final: promedio de dos</h3>
-            <p>K corrige la referencia territorial con el NDVI comparado contra las parcelas cercanas. J usa el grupo regional y la lluvia de octubre. Como se equivocan en parcelas distintas, al promediarlos los errores se compensan: el promedio, E_JK, fue mejor que K y que J por separado.</p>
+            <p>K corrige la referencia (municipio + vecinas) con el NDVI comparado contra las parcelas cercanas. J usa el grupo regional y la lluvia de octubre. Como se equivocan en parcelas distintas, al promediarlos los errores se compensan: el promedio, E_JK, fue mejor que K y que J por separado.</p>
           </div>
           <figure class="figura" data-esc="modelo"><svg role="img" aria-label="Cómo se combinan MIX, K, J y E_JK para la parcela de ejemplo"></svg><figcaption></figcaption></figure>
         </article>
