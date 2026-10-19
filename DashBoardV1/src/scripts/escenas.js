@@ -490,13 +490,13 @@ export function escenas(salud) {
     oculto: { alto: 500, fn: oculto, pie: "Las 59 sin dato están repartidas entre las 138 con rendimiento conocido." },
     capas: { alto: 560, fn: capas, pie: `Escala real alrededor de ${V.id}: ${lado} km por lado. Al juntarse, cada capa deja un número en la fila de la parcela.` },
     territorio: { alto: 520, fn: territorio, pie: "Rendimiento conocido y media de los municipios con más parcelas." },
-    vecinas: { alto: 540, fn: vecinas, pie: "Grosor de cada línea: peso de la vecina en la referencia territorial." },
+    vecinas: { alto: 540, fn: vecinas, pie: "Grosor de cada línea: peso de la vecina en la referencia (municipio + vecinas)." },
     verdor: { alto: 400, fn: verdor, pie: "Curva de verdor suavizada (mediana móvil de 15 días). Área: lo que queda sobre el nivel de abril–mayo entre el inicio y el fin de la temporada." },
     lluvia: { alto: 640, fn: lluvia, pie: `Celdas CHIRPS de octubre de 2025 alrededor de la parcela. Contorno blanco grueso: las ${c25.length} celdas que toca; el ${f((mayor / tot) * 100, 1)} % de su área cae en una. En 2025 llovió ${fs(V.anom, 1)} % sobre el promedio.` },
     modelo: { alto: 470, fn: modelo, pie: `Números de ${p.id}, calculados en este navegador.` },
     experimentos: { alto: 640, fn: experimentos, pie: "Mejor procedimiento de cada experimento frente a MIX en su mismo escenario de validación. Cuadros y círculos usan escenarios distintos: no se comparan entre sí." },
     evaluaciones: { alto: 520, fn: evaluaciones, pie: "RMSE de cada modelo en cada evaluación. La caja cerrada son 35 parcelas que apartamos al inicio y solo abrimos una vez al final; con tan pocas no distingue diferencias de 1 a 2 %." },
-    techo: { alto: 600, fn: techo, pie: "Arriba: varianza dentro de muestra y error fuera de muestra. Abajo: MIX entrenado con submuestras de las 138, 200 sorteos por tamaño; línea discontinua: ajuste MSE = s² + c/n." },
+    techo: { alto: 600, fn: techo, pie: "Arriba: cuánto del rendimiento explica el municipio y cuánto error quita el modelo. Abajo: el error de la referencia al entrenarla con menos parcelas (200 sorteos por tamaño); la línea punteada proyecta qué pasaría con más." },
     despliegue: { alto: 530, fn: (g, W, H, m) => despliegue(g, W, H, m, salud), pie: salud ? `Así está desplegada esta página. La función respondió desde ${salud.region} con el commit ${salud.commit}.` : "Así está desplegada esta página." },
   };
 }

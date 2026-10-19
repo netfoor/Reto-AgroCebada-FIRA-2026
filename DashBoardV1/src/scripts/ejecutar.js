@@ -66,7 +66,7 @@ export function iniciarEjecutar() {
     ley.append("rect").attr("x", 92).attr("y", 9).attr("width", 11).attr("height", 11).attr("fill", "url(#t-s2)").attr("stroke", "#946A1C");
     ley.append("text").attr("x", 108).attr("y", 18.5).attr("font-size", 12).attr("fill", TINTA).text("estimada");
     titFig.textContent = `Las ${r.vecinas.length} vecinas que usa ${p.id}`;
-    nota.textContent = `Cada línea une ${p.id} con una vecina conocida de la referencia territorial; más gruesa, más pesa.`;
+    nota.textContent = `Cada línea une ${p.id} con una de sus 20 vecinas conocidas; entre más gruesa, más pesa en la referencia.`;
     return lineas;
   }
 
@@ -175,8 +175,8 @@ export function iniciarEjecutar() {
     const iguales = r.predicciones.filter((q) => { const p = D.porId.get(q.id); return p && Math.abs(r4(q.E_JK) - p.pred) < 1e-9; }).length;
     consola.innerHTML = lista([
       { t: `Reentrenado en AWS Lambda con ${r.parcelas_entrenamiento} parcelas conocidas.`, x: `${r.arranque_en_frio ? "Primera llamada: la función arrancó en frío." : "La función ya estaba activa."} Ida y vuelta: ${f(ida, 2)} s.`, r: `${f(r.segundos_ajuste, 3)} s` },
-      { t: `K: β ajustada con 4 pliegues internos (semilla ${r.semilla_interna_K})`, r: fs(r.K.beta, 4) },
-      { t: "J eligió su variable entre 148", x: r.J_variable, r: r.J_variable === "anom_precip_pct_d" ? "lluvia de octubre" : r.J_variable },
+      { t: "K: peso del NDVI recalculado con las 138 parcelas", x: `Se validó dividiendo los datos en 4 partes (semilla ${r.semilla_interna_K}).`, r: fs(r.K.beta, 4) },
+      { t: "J eligió su variable de clima entre 148 candidatas", x: `Nombre en los datos: ${r.J_variable}`, r: r.J_variable === "anom_precip_pct_d" ? "lluvia de octubre" : r.J_variable },
       { t: "Estimaciones iguales a predicciones_59.csv a 4 decimales", r: `${iguales} de ${r.parcelas_estimadas}` },
       { t: r.coincide ? `El CSV reentrenado tiene la misma huella SHA-256 que la entrega: ${r.csv_sha256.slice(0, 16)}…` : "La huella del CSV reentrenado no coincide con la entrega.", c: "ok" },
     ]);

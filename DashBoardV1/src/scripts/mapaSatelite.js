@@ -42,10 +42,13 @@ const MODOS = {
   },
 };
 
+/* margen al encuadrar todo: arriba deja libres los botones del mapa */
+const MARGEN = () => ({ paddingTopLeft: [30, 90], paddingBottomRight: [30, 30] });
+
 export function mapaSatelite() {
   const cont = document.getElementById("mapa-sat");
   const map = L.map(cont, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: 0.25 })
-    .fitBounds(L.latLngBounds(D.P.map((p) => [p.lat, p.lon])), { padding: [30, 30] });
+    .fitBounds(L.latLngBounds(D.P.map((p) => [p.lat, p.lon])), MARGEN());
   L.tileLayer(ESRI, { maxZoom: 18, attribution: "Esri World Imagery" }).addTo(map);
   cont.classList.add("vista-azul");
   /* en pantallas táctiles un dedo desplaza la página y dos dedos mueven o acercan el mapa */
@@ -77,7 +80,7 @@ export function mapaSatelite() {
   surcos(d3.select(svgL).insert("defs", ":first-child"), "L", 7, "rgba(255,255,255,.85)");
 
   const todo = L.latLngBounds([...poli.values()].map((l) => l.getBounds()));
-  map.fitBounds(todo, { padding: [30, 30] });
+  map.fitBounds(todo, MARGEN());
 
   /* rótulos de municipio */
   const rot = L.layerGroup().addTo(map);
@@ -152,7 +155,7 @@ export function mapaSatelite() {
       <div class="f-sec">Lluvia de octubre: <b>${fs(p.anom, 0)} %</b> frente a 2022–2024</div>
       <div class="f-sec">${vs.length ? `${vs.length} parcelas cercanas (a menos de 1 km)${conocidas.length ? `, ${conocidas.length} conocidas con media ${f(d3.mean(conocidas, (q) => q.obs))} t/ha` : ""}` : "Sin parcelas a menos de 1 km"}</div>
       ${vs.length ? `<div class="f-chips">${vs.slice(0, 12).map((q) => `<button data-id="${q.id}" class="${q.oculta ? "e" : ""}">${q.id.slice(4)} · ${f(valor(q), 1)}</button>`).join("")}</div>` : ""}
-      ${p.sin_k1 ? `<div class="f-aviso">Sin parcelas cercanas suficientes para comparar su NDVI: se usa solo la referencia territorial.</div>` : ""}
+      ${p.sin_k1 ? `<div class="f-aviso">Sin parcelas cercanas suficientes para comparar su NDVI: se usa solo la referencia (municipio + vecinas).</div>` : ""}
       <a class="f-mas" href="#estimaciones">Ver ficha completa en la tabla</a></div>`;
     ficha.hidden = false;
     ficha.querySelector(".cerrar").onclick = () => { ficha.hidden = true; };
@@ -189,7 +192,7 @@ export function mapaSatelite() {
   }));
   document.querySelectorAll(".mapa-zoom button").forEach((b) => b.addEventListener("click", () => {
     const z = +b.dataset.z;
-    if (z === 0) map.flyToBounds(todo, { padding: [30, 30], duration: 0.8 });
+    if (z === 0) map.flyToBounds(todo, { ...MARGEN(), duration: 0.8 });
     else map.setZoom(map.getZoom() + z);
   }));
   document.querySelectorAll(".mapa-vista button").forEach((b) => b.addEventListener("click", () => {
@@ -209,7 +212,7 @@ export function mapaSatelite() {
   /* lo que usa el recorrido */
   return {
     modo: (m) => { modo = m; pintar(); },
-    verTodo: () => map.flyToBounds(todo, { padding: [30, 30], duration: 1.1 }),
+    verTodo: () => map.flyToBounds(todo, { ...MARGEN(), duration: 1.1 }),
     verMunicipio: (m) => map.flyToBounds(L.latLngBounds(D.P.filter((p) => p.mun === m).map(centro)), { padding: [40, 40], duration: 1.1 }),
     texto: { varianza: pct(D.EV.varianza_municipio), pendiente: f(D.M.J.pendiente, 4) },
   };
