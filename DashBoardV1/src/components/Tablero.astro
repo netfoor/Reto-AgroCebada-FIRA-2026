@@ -6,7 +6,7 @@ import "../styles/mapa-satelite.css";
 <section class="seccion" id="tablero">
   <div class="envoltura">
     <CabSeccion titulo="El mapa de las 197 parcelas">
-      <p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Rayadas: las 59 sin dato, que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.</p>
+      <p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Rayadas: las 59 sin dato, que estima el modelo. Baja con el scroll o usa los pasos bajo el mapa: el mapa explica cada decisión. Elige una parcela para ver su ficha.</p>
     </CabSeccion>
     <div class="tablero tablero-sat">
       <div class="mapa-col">
@@ -14,7 +14,7 @@ import "../styles/mapa-satelite.css";
         <div class="mapa-herr alterna" role="group" aria-label="Filtrar parcelas">
           <button data-f="todas" aria-pressed="true">Todas</button>
           <button data-f="rep" aria-pressed="false">Conocidas</button>
-          <button data-f="est" aria-pressed="false">Estimadas</button>
+          <button data-f="est" aria-pressed="false">Sin dato</button>
         </div>
         <div class="mapa-vista alterna" role="group" aria-label="Vista del satélite">
           <button data-v="azul" aria-pressed="true">Vista resaltada</button>
@@ -57,10 +57,10 @@ import "../styles/mapa-satelite.css";
             <dt>MUN</dt><dd>Media del municipio: el promedio de las parcelas conocidas del mismo municipio.</dd>
             <dt>MIX</dt><dd>Referencia (municipio + vecinas): mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.</dd>
             <dt>K</dt><dd>La referencia corregida por el NDVI de la parcela contra las parcelas cercanas (a menos de 1 km).</dd>
-            <dt>J</dt><dd>Un nivel por grupo regional ajustado por la lluvia de octubre de 2025 frente a 2022–2024. Los grupos son cinco: Chignahuapan, Almoloya, Singuilucan, Tlaxcala y el resto de Hidalgo.</dd>
+            <dt>J</dt><dd>La media de su grupo regional, ajustada por la lluvia de octubre de 2025 frente a 2022–2024. Los grupos son cinco: Chignahuapan, Almoloya, Singuilucan, Tlaxcala y el resto de Hidalgo.</dd>
             <dt>E_JK</dt><dd>Estimación final: el promedio de K y J. Es la que se entrega.</dd>
             <dt>RMSE</dt><dd>Error típico: cuánto se aleja la estimación del valor real, en t/ha.</dd>
-            <dt>NDVI</dt><dd>Índice de vegetación medido por satélite: compara la luz roja y la infrarroja que refleja la planta. Entre más vegetación viva y vigorosa, más alto.</dd>
+            <dt>NDVI</dt><dd>Índice de vegetación medido por satélite: compara la luz roja y la infrarroja que refleja la planta. Mientras más vegetación viva y vigorosa, más alto.</dd>
             <dt>Validación cruzada</dt><dd>Ocultar parcelas conocidas, estimarlas con las demás y medir el error, muchas veces.</dd>
             <dt>Rango 80 %</dt><dd>Intervalo donde esperamos el valor real 8 de cada 10 veces.</dd>
           </dl>
@@ -75,7 +75,7 @@ import "../styles/mapa-satelite.css";
         <article class="rec-paso" data-accion="grupo">
           <p class="fase">Paso 2 de 7</p>
           <h4>El municipio pesa más que todo lo demás</h4>
-          <p>Saber el municipio explica <span class="dato" data-txt="varianza">69 %</span> de la variación. Por eso el modelo parte de la media de cada grupo regional; en el mapa, cada color es un grupo.</p>
+          <p>Saber el municipio explica <span class="dato" data-txt="varianza">69 %</span> de la variación. Por eso el modelo junta los municipios en cinco grupos regionales y parte de la media de cada grupo; en el mapa, cada color es un grupo.</p>
         </article>
         <article class="rec-paso" data-accion="lluvia">
           <p class="fase">Paso 3 de 7</p>
@@ -100,7 +100,7 @@ import "../styles/mapa-satelite.css";
         <article class="rec-paso" data-accion="libre">
           <p class="fase">Paso 7 de 7</p>
           <h4>Ahora tú</h4>
-          <p>Filtra, cambia la vista del satélite, acerca con Ctrl y la rueda del mouse y elige cualquier parcela. La tabla de estimaciones y el cálculo paso a paso se mueven con el mapa.</p>
+          <p>Filtra, cambia la vista del satélite, acerca con Ctrl y la rueda del mouse (en el celular, con dos dedos) y elige cualquier parcela. La tabla de estimaciones y el cálculo paso a paso se mueven con el mapa.</p>
         </article>
       </div>
     </div>

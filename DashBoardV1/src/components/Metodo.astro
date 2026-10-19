@@ -1,7 +1,7 @@
 ---
 import CabSeccion from "./CabSeccion.astro";
 
-const FASES = ["Entender el problema", "Entender los datos", "Preparar los datos", "Modelar", "Evaluar", "Desplegar"];
+const FASES = ["Entender el problema", "Entender los datos", "Preparar los datos", "Modelar", "Evaluar", "Publicar"];
 const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
 ---
 <section class="seccion" id="metodo">
@@ -18,7 +18,7 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
             <p>FIRA entregó el rendimiento de 138 parcelas y guardó el de 59 para calificar. Las 59 están mezcladas con las demás: la parcela conocida más cercana está, en mediana, a <span class="dato" id="txt-dist">350 m</span>.</p>
             <p>Por eso validamos así: ocultar parcelas al azar, estimarlas con las demás y medir el error, muchas veces.</p>
           </div>
-          <figure class="figura" data-esc="oculto"><svg role="img" aria-label="Mapa de las 197 parcelas: conocidas y ocultas"></svg><figcaption></figcaption></figure>
+          <figure class="figura" data-esc="oculto"><svg role="img" aria-label="Mapa de las 197 parcelas: conocidas y sin dato"></svg><figcaption></figcaption></figure>
         </article>
         <article class="paso largo" data-esc="capas" data-fase="1">
           <div class="paso-texto">
@@ -33,7 +33,7 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
         <article class="paso" data-esc="territorio" data-fase="1">
           <div class="paso-texto">
             <p class="fase">{fase(1)}</p>
-            <h3>El municipio explica 69 % del rendimiento</h3>
+            <h3>El municipio explica 69 % de las diferencias de rendimiento</h3>
             <p>Con solo saber el municipio, el error baja de <span class="dato" id="txt-global">0.85</span> a <span class="dato" id="txt-mun">0.49 t/ha</span>: el municipio explica cerca del <span class="dato" id="txt-var">69 %</span> de la variación.</p>
             <p>De las <span class="dato">619 variables</span> que construimos (148 pasaron el primer filtro y compitieron en el modelo), ninguna muestra por sí sola una señal dentro del municipio que se distinga del azar.</p>
           </div>
@@ -55,7 +55,7 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
             <p>Con las imágenes de Planet de 2025 armamos la curva del NDVI hasta el 31 de octubre y medimos el área entre la curva y su nivel de abril–mayo, durante la temporada. A esa área le restamos la mediana de las parcelas a menos de 1 km.</p>
             <p id="txt-verdor"></p>
           </div>
-          <figure class="figura" data-esc="verdor"><svg role="img" aria-label="Curva de verdor de la parcela de ejemplo y de sus vecinas"></svg><figcaption></figcaption></figure>
+          <figure class="figura" data-esc="verdor"><svg role="img" aria-label="Curva del NDVI de la parcela de ejemplo y de sus parcelas cercanas"></svg><figcaption></figcaption></figure>
         </article>
         <article class="paso" data-esc="lluvia" data-fase="2">
           <div class="paso-texto">
@@ -70,7 +70,7 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
           <div class="paso-texto">
             <p class="fase">{fase(3)}</p>
             <h3>El modelo final: promedio de dos</h3>
-            <p>K corrige la referencia (municipio + vecinas) con el NDVI comparado contra las parcelas cercanas. J usa el grupo regional y la lluvia de octubre. Como se equivocan en parcelas distintas, al promediarlos los errores se compensan: el promedio, E_JK, fue mejor que K y que J por separado.</p>
+            <p>K corrige la referencia (municipio + vecinas) con el NDVI comparado contra las parcelas cercanas. J usa el grupo regional y la lluvia de octubre. Como se equivocan en parcelas distintas, al promediarlos los errores se compensan: en validación cruzada el promedio, E_JK, tuvo menos error que K y que J por separado (0.476 frente a 0.482 y 0.484 t/ha).</p>
           </div>
           <figure class="figura" data-esc="modelo"><svg role="img" aria-label="Cómo se combinan MIX, K, J y E_JK para la parcela de ejemplo"></svg><figcaption></figcaption></figure>
         </article>
@@ -86,7 +86,13 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
           <div class="paso-texto">
             <p class="fase">{fase(4)}</p>
             <h3>Cómo comprobamos el error</h3>
-            <p>Medimos el error de cinco formas: dos validaciones cruzadas con las 138 parcelas, dos rondas de una validación independiente con 103 y una «caja cerrada»: 35 parcelas apartadas por sorteo antes de ver rendimientos y abiertas una sola vez al final. E_JK quedó por delante de la referencia en las cinco, pero por poco: en la caja cerrada, por <span class="dato" id="txt-caja">0.003 t/ha</span>.</p>
+            <p>Medimos el error de cinco formas:</p>
+            <ul class="lista-eval">
+              <li>Dos validaciones cruzadas con las 138 parcelas, repartidas de dos maneras.</li>
+              <li>Dos rondas de una validación independiente con 103 parcelas.</li>
+              <li>Una «caja cerrada»: 35 parcelas apartadas por sorteo antes de ver rendimientos y abiertas una sola vez al final.</li>
+            </ul>
+            <p>E_JK quedó por delante de la referencia en las cinco, pero por poco: en la caja cerrada, por <span class="dato" id="txt-caja">0.003 t/ha</span>.</p>
             <p>Como E_JK se eligió después de ver resultados, esperamos un error real de 0.47 a 0.49 t/ha. En las 59 concretas puede quedar entre <span class="dato" id="txt-banda">0.35 y 0.63</span>, según cuáles se ocultaron.</p>
           </div>
           <figure class="figura" data-esc="evaluaciones"><svg role="img" aria-label="Error de cada modelo en cinco evaluaciones"></svg><figcaption></figcaption></figure>
@@ -104,8 +110,8 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
           <div class="paso-texto">
             <p class="fase">{fase(5)}</p>
             <h3>Dónde vive la página</h3>
-            <p>Esta página vive en Amazon S3 y la sirve CloudFront, junto con los datos. Antes de usar cada archivo, el navegador comprueba su huella SHA-256 contra el manifiesto.</p>
-            <p>«Reentrenar en AWS» llama a una función de AWS Lambda que ajusta el modelo con las 138 parcelas y devuelve las 59 estimaciones con la huella del CSV. Todo se crea con Terraform, sin pasos manuales en la consola.</p>
+            <p>La página y sus datos están guardados en Amazon (S3 y CloudFront). Antes de usar cada archivo, el navegador revisa su huella digital (SHA-256) para confirmar que no cambió.</p>
+            <p>El botón «Reentrenar en AWS» vuelve a calcular el modelo en la nube (AWS Lambda) con las 138 parcelas y devuelve las 59 estimaciones. Toda esta infraestructura se crea con un script (Terraform), sin pasos a mano.</p>
           </div>
           <figure class="figura" data-esc="despliegue"><svg role="img" aria-label="Arquitectura del sitio y del modelo en AWS"></svg><figcaption></figcaption></figure>
         </article>
@@ -119,6 +125,6 @@ const fase = (i: number) => `Etapa ${i + 1}. ${FASES[i]}`;
       <div class="etapa-seg" id="etapa-seg" role="group" aria-label="Ir a una etapa">{FASES.map((n, i) => <button type="button" data-fase={i} title={`Etapa ${i + 1}: ${n}`} aria-label={`Ir a la etapa ${i + 1}, ${n}`}><i></i></button>)}</div>
       <button type="button" class="etapa-flecha" id="etapa-sig" aria-label="Paso siguiente">›</button>
     </div>
-    <div class="etapa-txt"><b id="etapa-nom">{FASES[0]}</b><small>Etapa <span id="etapa-n">1</span> de 6 de CRISP-DM · paso <span id="etapa-p">1</span> de <span id="etapa-t">11</span></small></div>
+    <div class="etapa-txt"><b id="etapa-nom">{FASES[0]}</b><small>Etapa <span id="etapa-n">1</span> de 6 · paso <span id="etapa-p">1</span> de <span id="etapa-t">11</span></small></div>
   </div>
 </section>
