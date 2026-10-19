@@ -8,7 +8,7 @@ import { escenas, CAPAS_FIN } from "./escenas.js";
 /** Observadores de scroll activos: se vuelven a medir si cambia el alto de la página. */
 const observadores = new Set();
 
-const FASES = ["Entender el problema", "Entender los datos", "Preparar los datos", "Modelar", "Evaluar", "Desplegar"];
+const FASES = ["Entender el problema", "Entender los datos", "Preparar los datos", "Modelar", "Evaluar", "Publicar"];
 const mqMovil = matchMedia("(max-width: 1080px)");
 
 function textos() {
@@ -27,7 +27,7 @@ function textos() {
   pon("txt-cerca", `${f(EV.semivariograma[0].diferencia)} t/ha`);
   pon("txt-vecinas", `Para ${V.id}: media de ${p.mun} <span class="dato">${f(r.MUN)}</span>, vecinas <span class="dato">${f(r.IDW)}</span>, MIX <span class="dato">${f(r.MIX)}</span> t/ha.`);
   pon("txt-verdor", `${V.id} acumuló <span class="dato">${f(V.integral, 1)}</span> y sus ${V.vecinas_1km.length} parcelas cercanas, en mediana, <span class="dato">${f(V.mediana_vecinas, 1)}</span>: un contraste de ${fs(V.k1)}. Tener un NDVI más alto que las cercanas se asoció con un poco menos de grano, así que K baja ${f(Math.abs(r.K - r.MIX), 3)} t/ha.`);
-  pon("txt-lluvia", `Octubre de 2025 llovió <span class="dato">${fs(V.anom, 1)} %</span> sobre el promedio en ${V.id}. La celda explica el 99 % o más de la variación de esta variable, así que funciona como una ubicación más fina y no prueba un efecto de la lluvia.`);
+  pon("txt-lluvia", `En octubre de 2025 llovió <span class="dato">${f(Math.abs(V.anom), 1)} % ${V.anom >= 0 ? "más" : "menos"}</span> que el promedio en ${V.id}. La celda explica el 99 % o más de la variación de esta variable, así que funciona como una ubicación más fina y no prueba un efecto de la lluvia.`);
 }
 
 export async function iniciarMetodo() {

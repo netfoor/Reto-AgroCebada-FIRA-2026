@@ -1,15 +1,18 @@
 // Recorrido del tablero: cada tarjeta que cruza el centro de la pantalla cambia la capa del mapa satelital.
-import { D, seleccionar } from "./comun.js";
+import { D, estado, seleccionar, alSeleccionar } from "./comun.js";
 
 export function iniciarRecorrido(mapa) {
   const pasos = [...document.querySelectorAll(".rec-paso")];
   if (!pasos.length) return;
   const vitrina = D.VIT.id;
+  let eligio = false;
+  alSeleccionar((id, origen) => { if (origen !== "inicio" && origen !== "recorrido") eligio = true; });
   const acciones = {
     todo: () => { mapa.modo("rend"); mapa.verTodo(); },
     grupo: () => { mapa.modo("grupo"); mapa.verTodo(); },
     lluvia: () => { mapa.modo("anom"); mapa.verTodo(); },
-    vecinas: () => { mapa.modo("rend"); seleccionar(vitrina, "recorrido"); },
+    /* si el usuario ya eligió una parcela, se respeta su elección y se muestra su vecindad */
+    vecinas: () => { mapa.modo("rend"); seleccionar(eligio ? estado.seleccion : vitrina, "recorrido"); },
     error: () => { mapa.modo("error"); mapa.verMunicipio("Chignahuapan"); },
     estimadas: () => { mapa.modo("est"); mapa.verTodo(); },
     libre: () => { mapa.modo("rend"); },

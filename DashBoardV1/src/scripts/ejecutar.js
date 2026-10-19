@@ -53,7 +53,7 @@ export function iniciarEjecutar() {
     svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", 7).attr("fill", "#022448").attr("stroke", "#E3C772").attr("stroke-width", 3);
     const et = svg.append("g").attr("transform", `translate(${Math.min(cx + 12, W - 86)},${Math.min(cy + 12, H - 80)})`);
     panel(et, 0, 0, 76, 22);
-    et.append("text").attr("x", 7).attr("y", 15.5).attr("font-size", 12.5).attr("font-weight", 700).attr("fill", "#A9650C").text(p.id);
+    et.append("text").attr("x", 7).attr("y", 15.5).attr("font-size", 12.5).attr("font-weight", 700).attr("fill", "#7A4708").text(p.id);
     const L = R >= 4000 ? 2000 : 1000, lp = L * proy.scale();
     const g = svg.append("g").attr("transform", `translate(${W - 20 - lp},${H - 14})`);
     panel(g, -8, -26, lp + 16, 34);
@@ -106,13 +106,13 @@ export function iniciarEjecutar() {
     const M = D.M;
     const filas = [
       { t: `Parcela ${p.id} en ${p.mun}, ${p.edo}. Grupo regional: ${grupoTxt(p.grupo)}.`, x: p.oculta ? "Su rendimiento no se conoce." : "Para probar el modelo, su rendimiento se excluye de los cálculos de abajo.", r: p.oculta ? "" : `conocido: ${f(p.obs)}` },
-      { t: `Media de su municipio (${r.nMun} parcelas conocidas)`, x: "Si el municipio no tuviera parcelas conocidas, se usaría la media general.", r: f(r.MUN, 3) },
+      { t: `Media de su municipio (${r.nMun} ${r.nMun === 1 ? "parcela conocida" : "parcelas conocidas"})`, x: "Si el municipio no tuviera parcelas conocidas, se usaría la media general.", r: f(r.MUN, 3) },
       { t: `Promedio de sus ${r.vecinas.length} vecinas conocidas, pesando más las más cercanas`, x: `Pesan más: ${top.map((v) => `${v.id} a ${f(v.d, 0)} m (${f(v.w * 100, 0)} %)`).join(", ")}.`, r: f(r.IDW, 3) },
       { t: `Referencia (municipio + vecinas), MIX = ½ · ${f(r.MUN, 3)} + ½ · ${f(r.IDW, 3)}`, r: f(r.MIX, 3) },
       p.k1 == null
         ? { t: "NDVI contra las cercanas: no tiene al menos 2 parcelas a menos de 1 km", x: "K queda igual a MIX.", r: f(r.K, 3) }
-        : { t: `NDVI contra las parcelas cercanas (a menos de 1 km): ${fs(p.k1)} (${p.k1 > 0 ? "más" : "menos"} vegetación que ellas)`, x: `En la escala del modelo ese contraste vale ${f(r.z, 3)}. K = MIX ${M.K.beta < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta), 4)} × ${f(r.z, 3)} = ${f(r.MIX, 3)} ${M.K.beta * r.z < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta * r.z), 3)}`, r: f(r.K, 3) },
-      { t: `Lluvia de octubre de 2025 frente a 2022–2024: ${fs(p.anom, 1)} %`, x: `J = ${f(M.J[p.grupo], 3)} (nivel del grupo ${grupoTxt(p.grupo)}, con lluvia normal) + ${f(M.J.pendiente, 5)} × ${f(p.anom, 1)}`, r: f(r.J, 3) },
+        : { t: `NDVI contra las parcelas cercanas (a menos de 1 km): ${fs(p.k1)} (${p.k1 > 0 ? "más" : "menos"} vegetación que ellas)`, x: `Ajustada a la escala del modelo, la diferencia vale ${r.z < 0 ? "−" : ""}${f(Math.abs(r.z), 3)}. K = MIX ${M.K.beta < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta), 4)} × ${r.z < 0 ? `(−${f(-r.z, 3)})` : f(r.z, 3)} = ${f(r.MIX, 3)} ${M.K.beta * r.z < 0 ? "−" : "+"} ${f(Math.abs(M.K.beta * r.z), 3)}`, r: f(r.K, 3) },
+      { t: `Lluvia de octubre de 2025 frente a 2022–2024: ${fs(p.anom, 1)} %`, x: `J = ${f(M.J[p.grupo], 3)} (nivel del grupo ${grupoTxt(p.grupo)}, con lluvia normal) + ${f(M.J.pendiente, 5)} × ${f(p.anom, 2)}`, r: f(r.J, 3) },
       { t: `Estimación final: promedio de K y J = ½ · ${f(r.K, 3)} + ½ · ${f(r.J, 3)}`, r: `${f(r.E)} t/ha`, c: "fin" },
     ];
     if (p.oculta) {
@@ -129,7 +129,7 @@ export function iniciarEjecutar() {
     if (p.oculta) {
       const h = await huellaEntrega();
       const x = consola.querySelector("li:last-child .x");
-      if (x) x.textContent = h === null ? "La huella no se puede calcular en este navegador." : h === sha ? `Huella SHA-256 ${sha.slice(0, 16)}… verificada.` : "La huella no coincide con la entrega.";
+      if (x) x.textContent = h === null ? "La huella no se puede calcular en este navegador." : h === sha ? `Archivo verificado: es el mismo de la entrega (huella SHA-256 ${sha.slice(0, 16)}…).` : "La huella no coincide con la entrega.";
     }
   }
 
