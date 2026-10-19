@@ -41,7 +41,7 @@ function lamina() {
   D.MUNICIPIOS.forEach(([mun, ps]) => {
     const g = cont.append("div").attr("class", "grupo");
     const n59 = ps.filter((p) => p.oculta).length;
-    g.append("div").attr("class", "tit").html(`<b>${mun}</b>${ps.length} ${ps.length === 1 ? "parcela" : "parcelas"}${n59 ? `, ${n59} por estimar` : ""}`);
+    g.append("div").attr("class", "tit").html(`<b>${mun}</b>${ps.length} ${ps.length === 1 ? "parcela" : "parcelas"}${n59 ? `, ${n59} sin dato` : ""}`);
     const cel = g.append("div").attr("class", "celdas");
     [...ps].sort((a, b) => d3.ascending(a.id, b.id)).forEach((p) => {
       const b = cel.append("button").attr("class", "pz" + (p.oculta ? " est" : "")).attr("data-id", p.id)

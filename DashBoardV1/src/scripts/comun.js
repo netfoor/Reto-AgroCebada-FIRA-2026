@@ -13,7 +13,7 @@ export const CORTES = [3, 3.5, 4, 4.5, 5];
 export const clase = (v) => d3.bisectRight(CORTES, v);
 export const colorV = (v) => RAMPA[clase(v)];
 export const COLORES = { MUN: "#9AA1A8", MIX: "#5B636B", J: "#2F6FD6", K: "#3A9E6E", E_JK: "#C27A12" };
-export const NOMBRES = { MUN: "Media municipal", MIX: "MIX (referencia)", J: "J, lluvia y región", K: "K, verdor relativo", E_JK: "E_JK, entrega" };
+export const NOMBRES = { MUN: "Media municipal", MIX: "MIX (referencia)", J: "J, lluvia y región", K: "K, NDVI contra las cercanas", E_JK: "E_JK, entrega" };
 export const TINTA = "#1C2733", GRIS = "#5A6570", LINEA = "#E3E7E0", MARINO = "#022448", PAJA = "#E3C772", VERDE = "#95BD59";
 
 /* ── Formato (es-MX) ──────────────────────────────────────────────────── */

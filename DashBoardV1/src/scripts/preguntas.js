@@ -5,7 +5,7 @@ import { D, COLORES, TINTA, GRIS, f, alAncho } from "./comun.js";
 export function iniciarPreguntas() {
   const E = D.EV.escalera;
   const pasos = [["Media general", E.GLOBAL, "#C9CFC6"], ["Media del municipio", E.MUN, COLORES.MUN], ["MIX: municipio y vecinas", E.MIX, COLORES.MIX],
-    ["K: más verdor relativo", E.K, COLORES.K], ["E_JK: con J, lluvia y región", E.E_JK, COLORES.E_JK]];
+    ["K: más NDVI contra cercanas", E.K, COLORES.K], ["E_JK: con J, lluvia y región", E.E_JK, COLORES.E_JK]];
   const cont = document.getElementById("escalera");
   const caja = document.createElement("div");
   cont.append(caja);
@@ -26,6 +26,6 @@ export function iniciarPreguntas() {
     g.append("rect").attr("x", mg.l).attr("width", (d) => x(d[1]) - mg.l).attr("height", y.bandwidth()).attr("fill", (d) => d[2]);
     g.append("text").attr("x", (d) => x(d[1]) + 8).attr("y", y.bandwidth() / 2).attr("dy", ".35em").attr("font-size", 14).attr("font-weight", 700).attr("fill", TINTA).text((d) => f(d[1], 3));
     s.append("text").attr("x", mg.l).attr("y", H - 6).attr("font-size", 12.5).attr("fill", GRIS)
-      .text(m ? "RMSE (t/ha), particiones históricas. Menos es mejor." : "RMSE en validación cruzada (t/ha), particiones históricas, municipio visto. Menos es mejor.");
+      .text(m ? "Error típico, RMSE en t/ha. Menos es mejor." : "Error típico en validación cruzada (RMSE, t/ha). Menos es mejor.");
   });
 }

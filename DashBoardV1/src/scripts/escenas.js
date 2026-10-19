@@ -60,7 +60,7 @@ function oculto(g, W, H, m) {
     c.append("text").attr("x", 13).attr("dy", ".35em").attr("font-size", 13.5).attr("fill", TINTA).text(txt);
   };
   item(18, 20, false, "138 con rendimiento conocido");
-  item(m ? 18 : 238, m ? 40 : 20, true, "59 ocultas para calificar");
+  item(m ? 18 : 238, m ? 40 : 20, true, "59 sin dato (FIRA las guarda para calificar)");
 }
 /* 2. Cuatro capas que se juntan en la fila de una parcela (avance ligado al scroll) */
 function capas(g, W, H, m) {
@@ -87,7 +87,7 @@ function capas(g, W, H, m) {
     return dentro;
   };
   // 1. elevación (abajo)
-  const e = nueva(m ? "Elevación" : "Elevación INEGI, cada 120 m", m ? "cada 120 m" : "probada; no entró al modelo final", "#59645D");
+  const e = nueva(m ? "Elevación" : "Elevación INEGI, cada 120 m", m ? "cada 120 m" : "se probó, pero no mejoró el modelo", "#59645D");
   const ev = E.valores.flat().filter((v) => v != null);
   const gris = d3.scaleLinear(d3.extent(ev), ["#EEF0EA", "#59645D"]);
   const pe = E.paso * S;
@@ -110,7 +110,7 @@ function capas(g, W, H, m) {
   pc.append("path").attr("d", p.poly.map(trazo).join("")).attr("fill", "#C27A12").attr("stroke", "#fff").attr("stroke-width", 1.2);
   pc.append("circle").attr("cx", vx).attr("cy", vy).attr("r", m ? 8 : 11).attr("fill", "none").attr("stroke", PAJA).attr("stroke-width", 1.8);
   // 4. verdor de la parcela y de sus vecinas a menos de 1 km (arriba)
-  const vd = nueva(m ? "Verdor" : "Verdor Planet, temporada 2025", m ? "por parcela" : "área bajo la curva, por parcela", "#3A9E6E");
+  const vd = nueva(m ? "NDVI" : "NDVI de Planet, temporada 2025", m ? "por parcela" : "área bajo la curva, por parcela", "#3A9E6E");
   vd.append("rect").attr("width", L).attr("height", L).attr("fill", "none").attr("stroke", "#3A9E6E");
   const integ = new Map(V.curvas.map((c) => [c.id, c.integral]));
   const verde = d3.scaleLinear(d3.extent([...integ.values()]), ["#bfe3cd", "#1f6e47"]);
@@ -122,7 +122,7 @@ function capas(g, W, H, m) {
   const celdas = [
     ["Parcela", V.id, TINTA], ["Elevación", `${f(centro, 0)} m`, "#59645D"],
     ["Lluvia oct. 2025", `${f(V.lluvia_pond["2025"], 0)} mm (${fs(V.anom, 0)} %)`, "#2F6FD6"],
-    ["Superficie", `${f(p.ha)} ha`, "#C27A12"], ["Verdor", `${f(V.integral, 1)} (${fs(V.k1, 1)} vs vecinas)`, "#3A9E6E"],
+    ["Superficie", `${f(p.ha)} ha`, "#C27A12"], ["NDVI", `${f(V.integral, 1)} (${fs(V.k1, 1)} vs cercanas)`, "#3A9E6E"],
   ];
   const pos = m
     ? [[0, 0, 120], [130, 0, 110], [0, 66, 190], [250, 0, 130], [200, 66, 190]]
@@ -251,7 +251,7 @@ function verdor(g, W, H, m) {
   g.append("g").attr("transform", `translate(0,${H - mg.b})`)
     .call(d3.axisBottom(x).tickValues(meses.map((d) => d[0])).tickFormat((d, i) => meses[i][1]).tickSize(-(H - mg.b - mg.t))).call(limpiarEje());
   g.append("g").attr("transform", `translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(0).tickPadding(8)).call(limpiarEje());
-  g.append("text").attr("x", mg.l).attr("y", mg.t - 22).attr("font-size", 13).attr("fill", GRIS).text("NDVI (verdor)");
+  g.append("text").attr("x", mg.l).attr("y", mg.t - 22).attr("font-size", 13).attr("fill", GRIS).text("NDVI (índice de vegetación)");
   const linea = d3.line().defined((d) => d[1] != null).x((d) => x(d[0])).y((d) => y(d[1]));
   const serie = (c) => c.curva.map((v, i) => [i + 1, v]).filter((d) => d[0] >= 91);
   V.curvas.slice(1).forEach((c) => g.append("path").attr("d", linea(serie(c))).attr("fill", "none").attr("stroke", "#9AA1A8").attr("stroke-width", 1.2));
@@ -262,7 +262,7 @@ function verdor(g, W, H, m) {
   g.selectAll("circle").data(c0.capturas.filter((c) => c[0] >= 91)).join("circle").attr("cx", (c) => x(c[0])).attr("cy", (c) => y(c[1])).attr("r", 2.4).attr("fill", "#3A9E6E").attr("opacity", 0.45);
   const cu = g.append("path").attr("d", linea(serie(c0))).attr("fill", "none").attr("stroke", "#3A9E6E").attr("stroke-width", 3);
   g.append("text").attr("x", x(c0.dia_pico)).attr("y", y(c0.pico) - 12).attr("text-anchor", "middle").attr("font-size", 14).attr("font-weight", 700).attr("fill", TINTA).text(`${V.id}: área ${f(V.integral, 1)}`);
-  lineas(g, x(m ? 95 : 128), y(0.86), m ? [`Gris: ${V.vecinas_1km.length} vecinas a menos de 1 km,`, `mediana ${f(V.mediana_vecinas, 1)}`] : `Gris: sus ${V.vecinas_1km.length} vecinas a menos de 1 km, mediana ${f(V.mediana_vecinas, 1)}`, { size: 13 });
+  lineas(g, x(m ? 95 : 128), y(0.86), m ? [`Gris: ${V.vecinas_1km.length} parcelas a menos de 1 km,`, `mediana ${f(V.mediana_vecinas, 1)}`] : `Gris: sus ${V.vecinas_1km.length} parcelas cercanas (a menos de 1 km), mediana ${f(V.mediana_vecinas, 1)}`, { size: 13 });
   return { curva: cu.node(), area: ar.node() };
 }
 
@@ -328,7 +328,7 @@ function modelo(g, W, H, m) {
     caja(206, 8, 186, "20 vecinas más cercanas", f(r.IDW), COLORES.MUN);
     caja(8, 128, 186, "MIX, referencia", f(r.MIX), COLORES.MIX);
     caja(206, 128, 186, `Grupo ${gr}`, f(M.J[p.grupo]), COLORES.J);
-    caja(8, 248, 186, "K, con verdor", f(r.K), COLORES.K, fs(r.K - r.MIX));
+    caja(8, 248, 186, "K, con NDVI", f(r.K), COLORES.K, fs(r.K - r.MIX));
     caja(206, 248, 186, "J, con lluvia", f(r.J), COLORES.J, fs(r.J - M.J[p.grupo]));
     caja(70, 380, 260, "Final: E_JK = ½ K + ½ J", `${f(r.E)} t/ha`, COLORES.E_JK);
     flecha(101, 82, 101, 126); flecha(299, 82, 120, 126); flecha(101, 202, 101, 246); flecha(299, 202, 299, 246);
@@ -337,7 +337,7 @@ function modelo(g, W, H, m) {
     caja(30, 30, 220, `Media de ${gr}`, f(r.MUN), COLORES.MUN);
     caja(270, 30, 220, "20 vecinas más cercanas", f(r.IDW), COLORES.MUN);
     caja(150, 160, 230, "MIX, referencia", f(r.MIX), COLORES.MIX);
-    caja(150, 290, 230, "K, con verdor relativo", f(r.K), COLORES.K, fs(r.K - r.MIX));
+    caja(150, 290, 230, "K, con NDVI contra cercanas", f(r.K), COLORES.K, fs(r.K - r.MIX));
     caja(520, 160, 250, `Nivel del grupo ${gr}`, f(M.J[p.grupo]), COLORES.J);
     caja(520, 290, 250, "J, con lluvia de octubre", f(r.J), COLORES.J, fs(r.J - M.J[p.grupo]));
     caja(290, 450, 260, "Final: E_JK = ½ K + ½ J", `${f(r.E)} t/ha`, COLORES.E_JK);
@@ -355,7 +355,7 @@ function experimentos(g, W, H, m) {
   g.append("g").attr("transform", `translate(0,${H - mg.b})`)
     .call(d3.axisBottom(x).ticks(m ? 4 : 6).tickFormat((d) => (d === 0 ? "MIX" : fs(d, 2))).tickSize(-(H - mg.b - mg.t)))
     .call(limpiarEje(12.5)).call((a) => a.selectAll("line").attr("stroke", (d) => (d === 0 ? TINTA : RAYA)).attr("stroke-width", (d) => (d === 0 ? 1.5 : 1)));
-  lineas(g, mg.l, H - 14, m ? "Diferencia de RMSE con MIX (t/ha)" : "Diferencia de RMSE con MIX (t/ha): a la izquierda, mejor", { size: 12.5 });
+  lineas(g, mg.l, H - 14, m ? "Error frente a la referencia (t/ha)" : "Error frente a la referencia, RMSE en t/ha: a la izquierda, mejor", { size: 12.5 });
   const fila = g.selectAll(".e").data(E).join("g").attr("transform", (e) => `translate(0,${y(e.id) + y.bandwidth() * (m ? 0.72 : 0.5)})`);
   if (m) fila.append("text").attr("x", mg.l).attr("y", -13).attr("font-size", 12.5).attr("fill", TINTA).attr("paint-order", "stroke").attr("stroke", "#fff").attr("stroke-width", 4).text((e) => `${e.id.replace("EXP_", "")}. ${e.nombre}`);
   else fila.append("text").attr("x", mg.l - 14).attr("dy", ".35em").attr("text-anchor", "end").attr("font-size", 13.5).attr("fill", TINTA).text((e) => `${e.id.replace("EXP_", "")}. ${e.nombre}`);
@@ -369,9 +369,9 @@ function experimentos(g, W, H, m) {
     .attr("font-size", 12.5).attr("font-weight", 700).attr("fill", "#A9650C").text("entrega");
   const ley = g.append("g").attr("transform", `translate(${mg.l},${m ? 18 : 24})`);
   ley.append("path").attr("d", d3.symbol(d3.symbolSquare, 60)()).attr("transform", "translate(6,0)").attr("fill", GRIS);
-  ley.append("text").attr("x", 16).attr("dy", ".35em").attr("font-size", 12.5).attr("fill", GRIS).text("138 parcelas (FULL)");
+  ley.append("text").attr("x", 16).attr("dy", ".35em").attr("font-size", 12.5).attr("fill", GRIS).text("Con las 138 parcelas");
   ley.append("path").attr("d", d3.symbol(d3.symbolCircle, 70)()).attr("transform", "translate(166,0)").attr("fill", GRIS);
-  ley.append("text").attr("x", 176).attr("dy", ".35em").attr("font-size", 12.5).attr("fill", GRIS).text("municipio visto (SEEN)");
+  ley.append("text").attr("x", 176).attr("dy", ".35em").attr("font-size", 12.5).attr("fill", GRIS).text("Solo municipios con datos");
 }
 
 /* 9. Cinco evaluaciones */
@@ -381,7 +381,7 @@ function evaluaciones(g, W, H, m) {
   const x = d3.scaleLinear([0.465, 0.512], [mg.l, W - mg.r]);
   const y = d3.scaleBand(EV.map((e) => e.nombre), [mg.t, H - mg.b]).padding(m ? 0.2 : 0.5);
   g.append("g").attr("transform", `translate(0,${H - mg.b})`).call(d3.axisBottom(x).ticks(5).tickFormat((d) => f(d, 2)).tickSize(-(H - mg.b - mg.t))).call(limpiarEje(12.5));
-  lineas(g, mg.l, H - 14, "RMSE (t/ha): a la izquierda, menor error", { size: 12.5 });
+  lineas(g, mg.l, H - 14, "Error típico, RMSE en t/ha: a la izquierda, menor error", { size: 12.5 });
   const fila = g.selectAll(".v").data(EV).join("g").attr("transform", (e) => `translate(0,${y(e.nombre) + y.bandwidth() * (m ? 0.7 : 0.5)})`);
   if (m) fila.append("text").attr("x", mg.l).attr("y", -16).attr("font-size", 12.5).attr("fill", TINTA).attr("paint-order", "stroke").attr("stroke", "#fff").attr("stroke-width", 4).text((e) => `${e.corto} (${e.parcelas})`);
   else fila.append("text").attr("x", mg.l - 14).attr("dy", ".35em").attr("text-anchor", "end").attr("font-size", 13.5).attr("fill", TINTA).text((e) => `${e.corto} (${e.parcelas})`);
@@ -417,17 +417,17 @@ function techo(g, W, H, m) {
     }
   };
   barra(m ? 20 : 34, m ? "Variación del rendimiento (138 parcelas)" : "Variación del rendimiento entre las 138 parcelas", vm, "#5B636B", `El municipio: ${pct(vm, 1)}`, `dentro del municipio: ${pct(1 - vm, 1)}`);
-  barra(m ? 118 : 124, m ? "Error que deja la media municipal" : "Error que deja la media municipal (validación cruzada)", quita, "#C27A12", `E_JK quita ${pct(quita, 1)}`, `sin explicar: ${pct(1 - quita, 1)}`, true);
+  barra(m ? 118 : 124, m ? "Error que deja la media municipal" : "Error que deja la media municipal (validación cruzada)", quita, "#C27A12", `E_JK reduce ${pct(quita, 1)}`, `error que queda: ${pct(1 - quita, 1)}`, true);
   // curva de aprendizaje: MIX con submuestras de las 138 (200 sorteos por tamaño), ajuste MSE = s² + c/n
   const A = EV.aprendizaje, s2 = A.techo ** 2, c = 220 * (A.con_220 ** 2 - s2);
   const ajuste = d3.range(41, 221).map((n) => [n, Math.sqrt(s2 + c / n)]);
   const top = m ? 270 : 290, bot = m ? H - 46 : 540;
   const xc = d3.scaleLinear([30, 230], [m ? 54 : 84, W - (m ? 14 : 40)]), yc = d3.scaleLinear([0.465, 0.515], [bot, top]);
-  lineas(g, m ? 16 : 40, top - 36, m ? ["Error de MIX con más parcelas", "del mismo tipo (RMSE, t/ha)"] : "Error de MIX con más parcelas del mismo tipo (RMSE, t/ha)", { size: m ? 14 : 15, color: TINTA, peso: 700 });
+  lineas(g, m ? 16 : 40, top - 36, m ? ["Error si tuviéramos", "más parcelas (RMSE, t/ha)"] : "Error si tuviéramos más parcelas del mismo tipo (RMSE, t/ha)", { size: m ? 14 : 15, color: TINTA, peso: 700 });
   g.append("g").attr("transform", `translate(0,${bot})`).call(d3.axisBottom(xc).tickValues(m ? [41, 124, 220] : [41, 83, 124, 138, 180, 220]).tickSize(-(bot - top))).call(limpiarEje(12.5));
   g.append("g").attr("transform", `translate(${xc(30)},0)`).call(d3.axisLeft(yc).ticks(5).tickFormat((d) => f(d, 2)).tickSize(0).tickPadding(8)).call(limpiarEje(12.5));
   g.append("line").attr("x1", xc(30)).attr("x2", xc(230)).attr("y1", yc(A.techo)).attr("y2", yc(A.techo)).attr("stroke", "#7A848D").attr("stroke-dasharray", "2 4");
-  g.append("text").attr("x", xc(230)).attr("y", yc(A.techo) + 17).attr("text-anchor", "end").attr("font-size", 12.5).attr("fill", GRIS).text(`techo estimado: ${f(A.techo)}`);
+  g.append("text").attr("x", xc(230)).attr("y", yc(A.techo) + 17).attr("text-anchor", "end").attr("font-size", 12.5).attr("fill", GRIS).text(`error mínimo esperado: ${f(A.techo)}`);
   g.append("line").attr("x1", xc(138)).attr("x2", xc(138)).attr("y1", top).attr("y2", bot).attr("stroke", TINTA).attr("stroke-width", 1.2);
   g.append("text").attr("x", xc(138) + 7).attr("y", top + 14).attr("font-size", 12.5).attr("fill", TINTA).text("hoy: 138");
   g.append("path").attr("d", d3.line().x((d) => xc(d[0])).y((d) => yc(d[1]))(ajuste)).attr("fill", "none").attr("stroke", "#5B636B").attr("stroke-width", 2).attr("stroke-dasharray", "6 4");
@@ -487,7 +487,7 @@ export function escenas(salud) {
   const c25 = V.celdas["2025"].filter((c) => c.area > 0), tot = d3.sum(c25, (c) => c.area), mayor = d3.max(c25, (c) => c.area);
   const lado = ((V.elev.paso * V.elev.n) / 1000).toLocaleString("es-MX", { maximumFractionDigits: 1 });
   return {
-    oculto: { alto: 500, fn: oculto, pie: "Las 59 ocultas están repartidas entre las 138 con rendimiento conocido." },
+    oculto: { alto: 500, fn: oculto, pie: "Las 59 sin dato están repartidas entre las 138 con rendimiento conocido." },
     capas: { alto: 560, fn: capas, pie: `Escala real alrededor de ${V.id}: ${lado} km por lado. Al juntarse, cada capa deja un número en la fila de la parcela.` },
     territorio: { alto: 520, fn: territorio, pie: "Rendimiento conocido y media de los municipios con más parcelas." },
     vecinas: { alto: 540, fn: vecinas, pie: "Grosor de cada línea: peso de la vecina en la referencia territorial." },
@@ -495,7 +495,7 @@ export function escenas(salud) {
     lluvia: { alto: 640, fn: lluvia, pie: `Celdas CHIRPS de octubre de 2025 alrededor de la parcela. Contorno blanco grueso: las ${c25.length} celdas que toca; el ${f((mayor / tot) * 100, 1)} % de su área cae en una. En 2025 llovió ${fs(V.anom, 1)} % sobre el promedio.` },
     modelo: { alto: 470, fn: modelo, pie: `Números de ${p.id}, calculados en este navegador.` },
     experimentos: { alto: 640, fn: experimentos, pie: "Mejor procedimiento de cada experimento frente a MIX en su mismo escenario de validación. Cuadros y círculos usan escenarios distintos: no se comparan entre sí." },
-    evaluaciones: { alto: 520, fn: evaluaciones, pie: "RMSE de cada modelo en cada evaluación. Con solo 35 parcelas, la caja cerrada no distingue diferencias de 1 a 2 %." },
+    evaluaciones: { alto: 520, fn: evaluaciones, pie: "RMSE de cada modelo en cada evaluación. La caja cerrada son 35 parcelas que apartamos al inicio y solo abrimos una vez al final; con tan pocas no distingue diferencias de 1 a 2 %." },
     techo: { alto: 600, fn: techo, pie: "Arriba: varianza dentro de muestra y error fuera de muestra. Abajo: MIX entrenado con submuestras de las 138, 200 sorteos por tamaño; línea discontinua: ajuste MSE = s² + c/n." },
     despliegue: { alto: 530, fn: (g, W, H, m) => despliegue(g, W, H, m, salud), pie: salud ? `Así está desplegada esta página. La función respondió desde ${salud.region} con el commit ${salud.commit}.` : "Así está desplegada esta página." },
   };

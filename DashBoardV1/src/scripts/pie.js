@@ -34,7 +34,7 @@ export function iniciarPie(estadoDatos) {
   NUBE.then((s) => {
     document.getElementById("pie-nube").textContent = s
       ? `Sitio en Amazon S3 y CloudFront; reentrenamiento en AWS Lambda (${s.region}), Python ${s.python}, numpy ${s.numpy}, pandas ${s.pandas}, commit ${s.commit}.`
-      : "Sitio estático; la función de reentrenamiento no respondió desde este navegador.";
+      : "Sitio estático. El reentrenamiento en AWS funciona en la versión publicada.";
     estadoDatos(resumen() + (s ? "<br>Modelo en AWS Lambda: activo." : ""));
   });
 }

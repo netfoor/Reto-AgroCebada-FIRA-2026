@@ -14,8 +14,8 @@ export function defsGlobales() {
 
 export const notasDe = (p) => {
   const n = [];
-  if (p.id === "AGC_120") n.push(["1 conocida", "Su municipio tiene una sola parcela conocida y no tiene vecinas a menos de 1 km"]);
-  if (p.sin_k1) n.push(["sin verdor", "Sin vecinas suficientes a menos de 1 km: K usa solo la referencia MIX"]);
+  if (p.id === "AGC_120") n.push(["1 conocida", "Su municipio tiene una sola parcela conocida y no tiene parcelas cercanas a menos de 1 km"]);
+  if (p.sin_k1) n.push(["sin NDVI", "Sin parcelas cercanas suficientes para comparar su NDVI: K usa solo la referencia"]);
   if (p.celda_sin) n.push(["celda nueva", "Su celda de lluvia no tiene parcelas conocidas"]);
   return n;
 };
@@ -93,9 +93,9 @@ function ficha(irAEjecutar) {
         <div class="val"><b class="num">${f(p.obs)}</b><span>t/ha, rendimiento conocido</span></div>
         <p class="rango-txt">Cuando la ocultamos en la validación, el modelo estimó ${f(p.oof)} t/ha (promedio de 10 repeticiones).</p>
         <div class="mini"></div>
-        <div class="acc"><button class="btn sec" data-ir="${p.id}">Ejecutar paso a paso</button></div>`;
+        <div class="acc"><button class="btn sec" data-ir="${p.id}">Ver cálculo</button></div>`;
     } else {
-      const comp = [["MUN", "Media del municipio", p.mun_p], ["MIX", "Referencia territorial MIX", p.mix], ["K", "K, referencia corregida por verdor", p.kv], ["J", "J, región y lluvia de octubre", p.jv]];
+      const comp = [["MUN", "Media del municipio", p.mun_p], ["MIX", "Referencia (municipio + vecinas)", p.mix], ["K", "K, referencia corregida por NDVI", p.kv], ["J", "J, región y lluvia de octubre", p.jv]];
       el.innerHTML = `<h3>${p.id}</h3><p class="sub">${p.mun}, ${p.edo}. ${f(p.ha)} ha.</p>
         <div class="val"><b class="num">${f(p.pred)}</b><span>t/ha estimadas</span></div>
         <p class="rango-txt">8 de cada 10 veces entre ${f(p.lo80)} y ${f(p.hi80)}; 9 de cada 10, entre ${f(p.lo90)} y ${f(p.hi90)}.</p>
@@ -103,7 +103,7 @@ function ficha(irAEjecutar) {
         <table class="comp">${comp.map((c) => `<tr><td><i style="background:${COLORES[c[0]]}"></i>${c[1]}</td><td>${f(c[2])}</td></tr>`).join("")}
           <tr class="fin"><td>Estimación final (E_JK = ½ K + ½ J)</td><td>${f(p.pred)}</td></tr></table>
         ${notasDe(p).map((n) => `<p class="nota" style="margin:0 0 6px">${n[1]}.</p>`).join("")}
-        <div class="acc"><button class="btn" data-ir="${p.id}">Ejecutar paso a paso</button>
+        <div class="acc"><button class="btn" data-ir="${p.id}">Ver cálculo</button>
           <a class="btn sec" target="_blank" rel="noopener" href="https://www.google.com/maps/@${p.lat},${p.lon},700m/data=!3m1!1e3">Ver en satélite</a></div>`;
     }
     miniMapa(el.querySelector(".mini"), p);
