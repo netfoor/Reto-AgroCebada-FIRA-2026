@@ -5,8 +5,8 @@ import "../styles/mapa-satelite.css";
 ---
 <section class="seccion" id="tablero">
   <div class="envoltura">
-    <CabSeccion titulo="El reto en una pantalla">
-      <p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Con surcos: las 59 que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.</p>
+    <CabSeccion titulo="El mapa de las 197 parcelas">
+      <p>Las 197 parcelas sobre la imagen de satélite. Rellenas: rendimiento conocido. Rayadas: las 59 sin dato, que estima el modelo. Baja por la columna derecha o usa los pasos bajo el mapa: el mapa explica cada decisión. Haz clic en una parcela para ver su ficha.</p>
     </CabSeccion>
     <div class="tablero tablero-sat">
       <div class="mapa-col">
@@ -17,7 +17,7 @@ import "../styles/mapa-satelite.css";
           <button data-f="est" aria-pressed="false">Estimadas</button>
         </div>
         <div class="mapa-vista alterna" role="group" aria-label="Vista del satélite">
-          <button data-v="azul" aria-pressed="true">Satélite azul</button>
+          <button data-v="azul" aria-pressed="true">Vista resaltada</button>
           <button data-v="natural" aria-pressed="false">Natural</button>
         </div>
         <div class="mapa-zoom">
@@ -36,9 +36,9 @@ import "../styles/mapa-satelite.css";
           <button type="button" data-i="0" title="Territorio"><b>1</b><span>Territorio</span></button>
           <button type="button" data-i="1" title="El municipio pesa más"><b>2</b><span>Municipio</span></button>
           <button type="button" data-i="2" title="La lluvia de octubre"><b>3</b><span>Lluvia</span></button>
-          <button type="button" data-i="3" title="El verdor frente a las vecinas"><b>4</b><span>Vecinas</span></button>
+          <button type="button" data-i="3" title="NDVI contra las parcelas cercanas"><b>4</b><span>Cercanas</span></button>
           <button type="button" data-i="4" title="Dónde se equivoca"><b>5</b><span>Error</span></button>
-          <button type="button" data-i="5" title="Las 59 estimaciones"><b>6</b><span>Las 59</span></button>
+          <button type="button" data-i="5" title="Las 59 sin dato"><b>6</b><span>Las 59</span></button>
           <button type="button" data-i="6" title="Explora por tu cuenta"><b>7</b><span>Explora</span></button>
         </div>
         <button type="button" class="rec-flecha" data-d="1" aria-label="Paso siguiente">›</button>
@@ -55,11 +55,13 @@ import "../styles/mapa-satelite.css";
           <dl>
             <dt>t/ha</dt><dd>Toneladas de cebada por hectárea.</dd>
             <dt>MUN</dt><dd>Media del municipio: el promedio de las parcelas conocidas del mismo municipio.</dd>
-            <dt>MIX</dt><dd>Referencia territorial: mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.</dd>
-            <dt>K</dt><dd>La referencia corregida por el verdor de la parcela frente a sus vecinas a menos de 1 km.</dd>
-            <dt>J</dt><dd>La media del grupo regional ajustada por la lluvia de octubre de 2025 frente a 2022–2024.</dd>
+            <dt>MIX</dt><dd>Referencia (municipio + vecinas): mitad la media del municipio y mitad las 20 parcelas conocidas más cercanas.</dd>
+            <dt>K</dt><dd>La referencia corregida por el NDVI de la parcela contra las parcelas cercanas (a menos de 1 km).</dd>
+            <dt>J</dt><dd>Un nivel por grupo regional ajustado por la lluvia de octubre de 2025 frente a 2022–2024. Los grupos son cinco: Chignahuapan, Almoloya, Singuilucan, Tlaxcala y el resto de Hidalgo.</dd>
             <dt>E_JK</dt><dd>Estimación final: el promedio de K y J. Es la que se entrega.</dd>
             <dt>RMSE</dt><dd>Error típico: cuánto se aleja la estimación del valor real, en t/ha.</dd>
+            <dt>NDVI</dt><dd>Índice de vegetación medido por satélite: compara la luz roja y la infrarroja que refleja la planta. Entre más vegetación viva y vigorosa, más alto.</dd>
+            <dt>Validación cruzada</dt><dd>Ocultar parcelas conocidas, estimarlas con las demás y medir el error, muchas veces.</dd>
             <dt>Rango 80 %</dt><dd>Intervalo donde esperamos el valor real 8 de cada 10 veces.</dd>
           </dl>
         </details>
@@ -68,7 +70,7 @@ import "../styles/mapa-satelite.css";
         <article class="rec-paso" data-accion="todo">
           <p class="fase">Paso 1 de 7</p>
           <h4>Las 197 sobre el satélite</h4>
-          <p>Lejos, cada parcela es un punto; al acercarte aparece su forma real. Las rellenas tienen rendimiento conocido y las de surcos son las 59 que estima el modelo.</p>
+          <p>Lejos, cada parcela es un punto; al acercarte aparece su forma real. Las rellenas tienen rendimiento conocido y las rayadas son las 59 sin dato que estima el modelo.</p>
         </article>
         <article class="rec-paso" data-accion="grupo">
           <p class="fase">Paso 2 de 7</p>
@@ -82,8 +84,8 @@ import "../styles/mapa-satelite.css";
         </article>
         <article class="rec-paso" data-accion="vecinas">
           <p class="fase">Paso 4 de 7</p>
-          <h4>El verdor frente a las vecinas</h4>
-          <p id="txt-vit">El anillo marca 1 km alrededor de la parcela. La estimación se corrige según qué tan verde estuvo frente a sus vecinas.</p>
+          <h4>El NDVI contra las parcelas cercanas</h4>
+          <p id="txt-vit">El anillo marca 1 km alrededor de la parcela. La estimación se corrige según su NDVI contra las parcelas cercanas.</p>
         </article>
         <article class="rec-paso" data-accion="error">
           <p class="fase">Paso 5 de 7</p>
@@ -92,8 +94,8 @@ import "../styles/mapa-satelite.css";
         </article>
         <article class="rec-paso" data-accion="estimadas">
           <p class="fase">Paso 6 de 7</p>
-          <h4>Las 59 estimaciones</h4>
-          <p>Con surcos y coloreadas por su estimación. Con borde rojo, las que no tienen vecinas suficientes a menos de 1 km para comparar su verdor; ahí se usa solo la referencia territorial.</p>
+          <h4>Las 59 parcelas sin dato</h4>
+          <p>Rayadas y coloreadas por su estimación. Con borde rojo, las que no tienen suficientes parcelas cercanas (a menos de 1 km) para comparar su NDVI; ahí se usa solo la referencia territorial.</p>
         </article>
         <article class="rec-paso" data-accion="libre">
           <p class="fase">Paso 7 de 7</p>

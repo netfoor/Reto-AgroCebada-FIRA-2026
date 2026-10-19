@@ -3,7 +3,7 @@ import CabSeccion from "./CabSeccion.astro";
 ---
 <section class="seccion ejecutar sobre-azul" id="ejecutar">
   <div class="envoltura">
-    <CabSeccion titulo="Ejecutar el modelo" base="Las bases piden que la aplicación permita ejecutar el modelo predictivo y consultar los resultados.">
+    <CabSeccion titulo="Ver el cálculo paso a paso" base="La convocatoria pide que la aplicación permita ejecutar el modelo predictivo y consultar los resultados.">
       <p>Elige una parcela y el modelo se calcula frente a ti, paso por paso, con los mismos números del archivo de entrega. Si quieres, también puedes reentrenarlo completo en AWS.</p>
     </CabSeccion>
 
@@ -17,8 +17,8 @@ import CabSeccion from "./CabSeccion.astro";
       <div class="ej-elige">
         <label for="ej-parcela">Parcela</label>
         <select id="ej-parcela"></select>
-        <button class="btn" id="ej-correr">Calcular paso a paso</button>
-        <button class="btn sec" id="ej-todas">Recalcular las 59</button>
+        <button class="btn" id="ej-correr">Ver cálculo</button>
+        <button class="btn sec" id="ej-todas">Calcular las 59</button>
       </div>
       <p class="ej-ayuda">La parcela cambia sola cuando eliges otra en el mapa o en la tabla de estimaciones.</p>
     </div>
@@ -26,7 +26,7 @@ import CabSeccion from "./CabSeccion.astro";
     <div class="ej-grid">
       <div class="ej-col">
         <h3 class="ej-h" id="ej-tit-calc">Cálculo de la parcela</h3>
-        <div class="consola" id="consola" aria-live="polite"><p class="vacia">Elige una parcela y pulsa «Calcular paso a paso».</p></div>
+        <div class="consola" id="consola" aria-live="polite"><p class="vacia">Elige una parcela y pulsa «Ver cálculo».</p></div>
       </div>
       <div class="ej-col">
         <h3 class="ej-h" id="ej-tit-fig">Las vecinas que usa</h3>
