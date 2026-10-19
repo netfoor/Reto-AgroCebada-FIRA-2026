@@ -181,3 +181,10 @@
 .glosario dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; margin: 0; padding: 4px 14px 14px; font-size: 14.5px; line-height: 1.45; }
 .glosario dt { font-weight: 700; color: var(--color-marino); }
 .glosario dd { margin: 0; color: var(--color-tinta-2); }
+
+/* teléfono: el aviso inicial va a lo ancho abajo y la leyenda sube para no taparse */
+@media (max-width: 760px) {
+  .mapa-pista { left: 10px; right: 10px; text-align: center; white-space: normal; line-height: 1.35; }
+  .mapa-ley { transition: bottom .3s ease; }
+  .mapa-marco:has(.mapa-pista:not(.oculta)) .mapa-ley { bottom: 68px; }
+}

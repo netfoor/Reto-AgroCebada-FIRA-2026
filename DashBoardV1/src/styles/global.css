@@ -118,7 +118,7 @@ svg text { font-family: var(--font-sans); }
 .sobre-azul .cab-base { color: #9fb3cb; }
 
 .nota { font-size: 14.5px; line-height: 1.55; color: var(--color-gris); }
-.sobre-azul .nota { color: #9fb3cb; }
+.sobre-azul .nota, .pie-datos .nota { color: #9fb3cb; }
 
 /* ── Botones y controles ──────────────────────────────────────────────── */
 .btn {
