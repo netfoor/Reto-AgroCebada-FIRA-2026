@@ -1,0 +1,15 @@
+hipotesis,familia,variable,signo_registrado,signo_coincide,delta_v1,n_mejora_v1,delta_v2,n_mejora_v2,veredicto,lectura
+HN3,clima_anomalias,anom_precip_pct_d,ninguno,sin signo,0.0437,94,0.0861,100,pasa E1,hallazgo exploratorio (sin signo registrado)
+HR11,clima_anomalias,anom_tmin_sep_oct,+,si,0.0384,99,0.047,96,pasa E1,confirmada (signo coincide)
+HN5,clima_anomalias,anom_tmin_c,ninguno,sin signo,0.0368,97,0.0468,90,pasa E1,hallazgo exploratorio (sin signo registrado)
+HN6,clima_anomalias,anom_tmax_c,-,no,0.036,97,0.0483,96,pasa E1,contradice el signo registrado
+HN7,clima_anomalias,anom_tmax_d,ninguno,sin signo,0.0357,97,0.0421,85,pasa E1,hallazgo exploratorio (sin signo registrado)
+HN6,clima_anomalias,anom_tmax_b,-,no,0.0356,98,0.055,96,pasa E1,contradice el signo registrado
+HB8,clima_ventanas,clim_rango_termico_sep,-,si,0.0347,93,0.045,87,pasa E1,confirmada (signo coincide)
+HN7,clima_anomalias,anom_tmin_d,ninguno,sin signo,0.0343,97,0.0423,97,pasa E1,hallazgo exploratorio (sin signo registrado)
+HN7,clima_anomalias,anom_tmax_ciclo,ninguno,sin signo,0.0321,96,0.039,88,pasa E1,hallazgo exploratorio (sin signo registrado)
+HN1,clima_anomalias,anom_precip_pct_a,+,no,0.0292,92,0.0314,76,pasa E1,contradice el signo registrado
+HS4,sat_compuestos,satc_ndvi_s2_m05,ninguno,sin signo,0.026,87,0.0405,99,pasa E1,hallazgo exploratorio (sin signo registrado)
+HS4,sat_compuestos,satc_ndvi_s2_m04,ninguno,sin signo,0.0232,83,0.0342,95,pasa E1,hallazgo exploratorio (sin signo registrado)
+HS4,sat_compuestos,satc_savi_s2_m05,ninguno,sin signo,0.0219,83,0.0381,99,pasa E1,hallazgo exploratorio (sin signo registrado)
+HW6,clima_ventanas,clim_tmin_a,ninguno,sin signo,0.0231,89,-0.0016,65,solo con vecinos (falla c),depende de vecinos (falla c)

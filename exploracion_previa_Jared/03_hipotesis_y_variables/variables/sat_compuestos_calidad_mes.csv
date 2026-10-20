@@ -1,0 +1,15 @@
+sensor,mes,mes_nombre,n_parcelas_validas,pct_na,obs_totales_media,obs_validas_media_todas,obs_validas_media_validas,obs_validas_mediana,obs_validas_min,pct_parcelas_con_1_obs
+s2,4,abril,197,0,8,7.37,7.37,7,6,0
+s2,5,mayo,197,0,7,4.11,4.11,4,2,0
+s2,6,junio,197,0,8,2.46,2.46,2,1,6.09
+s2,7,julio,197,0,7,5.07,5.07,5,3,0
+s2,8,agosto,197,0,7,6.03,6.03,6,4,0
+s2,9,septiembre,197,0,6.69,3.21,3.21,3,1,5.08
+s2,10,octubre,197,0,7,4.43,4.43,4,2,0
+planet,4,abril,197,0,24.16,21.68,21.68,22,16,0
+planet,5,mayo,197,0,22.52,14.2,14.2,14,9,0
+planet,6,junio,197,0,11.23,5.28,5.28,5,2,0
+planet,7,julio,197,0,14.92,7.53,7.53,8,3,0
+planet,8,agosto,197,0,22.24,13.95,13.95,14,8,0
+planet,9,septiembre,197,0,20.12,7.7,7.7,8,2,0
+planet,10,octubre,197,0,18.08,10.13,10.13,9,6,0

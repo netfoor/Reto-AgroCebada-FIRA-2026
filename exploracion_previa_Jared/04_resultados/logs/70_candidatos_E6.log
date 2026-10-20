@@ -1,0 +1,19 @@
+Variables lineales: 148; anomalias climaticas: 17
+V1: 100 particiones listas
+V2: 100 particiones listas
+Comprobacion V1: top1_global aqui 0.4734 contra script 60 0.4734; B2 0.5021 contra 0.5021
+Comprobacion V2: top1_global aqui 0.4679 contra script 60 0.4679; B2 0.5237 contra 0.5237
+
+  candidato  rmse_V1  delta_V1_vs_B2  n_mejora_V1_vs_B2  rmse_V2  delta_V2_vs_B2  n_mejora_V2_vs_B2        E1  mejora_V1_vs_top1  n_mejor_V1_vs_top1  mejora_V2_vs_top1 reemplaza_a_top1
+top1_global   0.4734          0.0287                 86   0.4679          0.0558                 94   pasa E1                NaN                 NaN                NaN              NaN
+   C1_celda   0.4734          0.0287                 86   0.4679          0.0558                 94   pasa E1            -0.0000                 0.0             0.0000            False
+ C2_ridge17   0.4739          0.0282                 87   0.4840          0.0397                 90   pasa E1            -0.0005                47.0            -0.0161            False
+C3_ridge148   0.4975          0.0046                 74   0.5055          0.0183                 87 descartar            -0.0241                24.0            -0.0375            False
+ C5_arboles   0.4916          0.0105                 66   0.5392         -0.0155                 41 descartar            -0.0183                24.0            -0.0713            False
+
+B2: V1 0.5021, V2 0.5237
+k elegido en C1 (V1):  {inf: 99, 64.0: 1}
+alpha elegido C2 (V1): {10.0: 48, 30.0: 33, 1.0: 12, 0.1: 7}
+alpha elegido C3 (V1): {1000: 48, 300: 25, 3000: 14, 100: 7, 10000: 3, 10: 2, 30: 1}
+
+Hecho.

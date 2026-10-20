@@ -1,0 +1,3 @@
+dataset,n_filas,n_con_lai,n_negativos,pct_negativos_de_con_lai,minimo,n_parcelas_con_negativo
+BASICO (Sentinel-2),107666,44877,18916,42.151,-0.192,197
+PRO (Planet),47804,35747,1,0.003,-0.112,1

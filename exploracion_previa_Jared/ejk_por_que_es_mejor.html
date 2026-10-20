@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Por qué elegimos E_JK</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1f2328;--muted:#5b6470;--line:#dedbd1;--ver:#1d7a5c;--verbg:#e3f1ea;--azul:#2a6fbb;--amb:#9a5b00;--ambbg:#fbefd9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16181b;--card:#1f2226;--ink:#e8e6e1;--muted:#a3a9b2;--line:#3a3f46;--ver:#5fc9a0;--verbg:#18332a;--azul:#7ab2ec;--amb:#e8b560;--ambbg:#3a2d12}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:880px;margin:0 auto;padding:24px 16px 56px}
+h1{font-size:1.7rem;margin:0 0 4px} h2{font-size:1.2rem;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px;margin:0 0 16px}
+.hero{border-left:6px solid var(--ver)}
+.recipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.pill{background:var(--verbg);color:var(--ver);border-radius:999px;padding:4px 12px;font-weight:600}
+.op{font-weight:700;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:.93rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:right;white-space:nowrap}
+th{text-align:left;font-weight:600} thead th{text-align:right;color:var(--muted);font-weight:600} thead th:first-child{text-align:left}
+td.best{background:var(--verbg);color:var(--ver);font-weight:700}
+tr.sum th,tr.sum td{border-top:2px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.mini{border:1px solid var(--line);border-radius:10px;padding:12px}
+.mini b{display:block;margin-bottom:4px}
+.warn{border-left:6px solid var(--amb);background:var(--ambbg)}
+ul{margin:6px 0 0;padding-left:20px} li{margin:5px 0}
+.chart{width:100%;height:auto} .ax{fill:var(--muted);font-size:11px} .lab{fill:var(--ink);font-size:11px;font-weight:600}
+.note{color:var(--muted);font-size:.88rem;margin:8px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.88rem;color:var(--muted);margin-top:6px}
+</style></head><body><main>
+<h1>Por qué elegimos E_JK</h1>
+<p class="sub">Resumen para el equipo, reto AgroCebada FIRA 2026. Todas las cifras salen del cuaderno de validación de nuestro compañero (error medido sobre parcelas que el modelo no vio).</p>
+
+<section class="card hero">
+<h2>En una frase</h2>
+<p>E_JK no gana en todas las pruebas, pero es el modelo <b>más estable</b>: tiene el menor error promedio, el peor caso más bajo, nunca queda por debajo de MIX y es el mejor en las dos zonas del mapa.</p>
+<div class="recipe"><span class="pill">E_JK</span><span class="op">=</span><span class="pill" style="background:#e4eefa;color:var(--azul)">½ J</span><span class="op">+</span><span class="pill" style="background:#efe6f7;color:#8e5bb5">½ K</span></div>
+<p><b>J</b> es nuestro modelo (grupo regional más la anomalía de lluvia de octubre). <b>K</b> es el de nuestro compañero (media municipal y vecinas, más una corrección con la curva de NDVI de Planet). E_JK es el promedio simple de las dos predicciones, sin pesos que estimar.</p>
+</section>
+
+<section class="card">
+<h2>1. Error (RMSE, t/ha) en las cinco evaluaciones</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Evaluación (parcelas)</th><th>MUN</th><th>MIX</th><th>J</th><th>K</th><th>E_JK</th></tr></thead>
+<tbody><tr><th scope='row'>Histórica, 10×5 (1350)</th><td>0.4934</td><td>0.4872</td><td>0.4835</td><td>0.4820</td><td class="best">0.4757</td></tr><tr><th scope='row'>Nuevas semillas, 10×5 (1350)</th><td>0.4922</td><td>0.4857</td><td>0.4821</td><td>0.4810</td><td class="best">0.4744</td></tr><tr><th scope='row'>Opus ronda 1 (998)</th><td>0.5002</td><td>0.4906</td><td>0.4752</td><td>0.4898</td><td class="best">0.4750</td></tr><tr><th scope='row'>Opus ronda 2 (992)</th><td>0.5069</td><td>0.5043</td><td class="best">0.4839</td><td>0.5042</td><td>0.4871</td></tr><tr><th scope='row'>Caja cerrada (35)</th><td>0.4784</td><td>0.4855</td><td>0.5047</td><td class="best">0.4717</td><td>0.4822</td></tr><tr class='sum'><th scope='row'>Promedio de las 5</th><td>0.4942</td><td>0.4907</td><td>0.4859</td><td>0.4857</td><td class="best">0.4789</td></tr><tr class='sum'><th scope='row'>Peor de las 5</th><td>0.5069</td><td>0.5043</td><td>0.5047</td><td>0.5042</td><td class="best">0.4871</td></tr></tbody></table></div>
+<p class="note">Verde: el menor de la fila. E_JK es el mejor en 3 de 5 evaluaciones; J y K ganan una cada uno (R2 de Opus y caja cerrada). Ningún otro modelo tiene tan bajos el promedio y el peor caso (las dos últimas filas).</p>
+<svg viewBox="0 0 640 150" role="img" aria-label="RMSE promedio de las cinco evaluaciones por modelo" class="chart"><line x1="125.0" y1="20" x2="125.0" y2="110" stroke="var(--line)"/><text x="125.0" y="126" text-anchor="middle" class="ax">0.47</text><line x1="235.0" y1="20" x2="235.0" y2="110" stroke="var(--line)"/><text x="235.0" y="126" text-anchor="middle" class="ax">0.48</text><line x1="345.0" y1="20" x2="345.0" y2="110" stroke="var(--line)"/><text x="345.0" y="126" text-anchor="middle" class="ax">0.49</text><line x1="455.0" y1="20" x2="455.0" y2="110" stroke="var(--line)"/><text x="455.0" y="126" text-anchor="middle" class="ax">0.50</text><line x1="565.0" y1="20" x2="565.0" y2="110" stroke="var(--line)"/><text x="565.0" y="126" text-anchor="middle" class="ax">0.51</text><text x="4" y="64" class="ax">Promedio </text><line x1="70" y1="60" x2="620" y2="60" stroke="var(--line)" stroke-dasharray="3 3"/><rect x="386.4200000000003" y="55" width="10" height="10" fill="none" stroke="#8a8f98" stroke-width="2"/><text x="391.4" y="80" text-anchor="middle" class="lab">MUN</text><rect x="347.25999999999965" y="55" width="10" height="10" fill="#5b6470"/><text x="352.3" y="46" text-anchor="middle" class="lab">MIX</text><circle cx="299.6800000000002" cy="60" r="6" fill="#2a6fbb"/><text x="299.7" y="80" text-anchor="middle" class="lab">J</text><polygon points="298.1399999999999,53 291.1399999999999,66 305.1399999999999,66" fill="#8e5bb5"/><text x="298.1" y="46" text-anchor="middle" class="lab">K</text><polygon points="222.68000000000006,52 230.68000000000006,60 222.68000000000006,68 214.68000000000006,60" fill="#1d7a5c"/><text x="222.7" y="80" text-anchor="middle" class="lab">E_JK</text><text x="345.0" y="144" text-anchor="middle" class="ax">RMSE en t/ha (menor es mejor)</text></svg>
+<div class="legend"><span>□ MUN</span><span>■ MIX</span><span>● J</span><span>▲ K</span><span>◆ E_JK</span></div>
+</section>
+
+<section class="card">
+<h2>2. Siempre mejor que MIX, la referencia que había que superar</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Evaluación</th><th>MIX</th><th>E_JK</th><th>Ventaja de E_JK</th></tr></thead>
+<tbody><tr><th scope='row'>Histórica, 10×5 (1350)</th><td>0.4872</td><td>0.4757</td><td class='best'>0.0115</td></tr><tr><th scope='row'>Nuevas semillas, 10×5 (1350)</th><td>0.4857</td><td>0.4744</td><td class='best'>0.0113</td></tr><tr><th scope='row'>Opus ronda 1 (998)</th><td>0.4906</td><td>0.4750</td><td class='best'>0.0156</td></tr><tr><th scope='row'>Opus ronda 2 (992)</th><td>0.5043</td><td>0.4871</td><td class='best'>0.0172</td></tr><tr><th scope='row'>Caja cerrada (35)</th><td>0.4855</td><td>0.4822</td><td class='best'>0.0033</td></tr></tbody></table></div>
+<p class="note">Las 5 diferencias van a favor de E_JK. En la caja cerrada de 35 parcelas la ventaja es muy pequeña (0.003).</p>
+</section>
+
+<section class="card">
+<h2>3. Por qué combinar J y K funciona</h2>
+<div class="grid">
+<div class="mini"><b>Se equivocan distinto</b>Los errores de J y de K se parecen mucho (correlación 0.94), pero lo que cada uno corrige respecto a MIX casi no se parece (correlación 0.03). Son dos ayudas distintas, no la misma dos veces.</div>
+<div class="mini"><b>Promediar no puede empeorar mucho</b>El error de un promedio nunca supera el promedio de los errores de sus partes. Si J y K fallan en parcelas distintas, el promedio baja más.</div>
+<div class="mini"><b>Control que sí falla</b>Se probó E_MK (mitad MUN, mitad K). No mejora a K, mientras que E_JK sí mejora a E_MK en 10 de 10 repeticiones. La mejora no viene de promediar por promediar, viene de J.</div>
+<div class="mini"><b>Pesos iguales a propósito</b>No se estimó ningún peso. La literatura de combinación de modelos indica que los pesos iguales suelen ganar a los estimados cuando hay pocos datos.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>4. Gana en las dos zonas</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Zona y partición</th><th>MUN</th><th>MIX</th><th>J</th><th>K</th><th>E_JK</th></tr></thead>
+<tbody><tr><th scope='row'>Chignahuapan, histórica</th><td>0.5902</td><td>0.5736</td><td>0.5755</td><td>0.5687</td><td class="best">0.5664</td></tr><tr><th scope='row'>Chignahuapan, nuevas semillas</th><td>0.5883</td><td>0.5692</td><td>0.5753</td><td>0.5648</td><td class="best">0.5642</td></tr><tr><th scope='row'>Resto de parcelas, histórica</th><td>0.3565</td><td>0.3683</td><td>0.3546</td><td>0.3623</td><td class="best">0.3483</td></tr><tr><th scope='row'>Resto de parcelas, nuevas semillas</th><td>0.3564</td><td>0.3716</td><td>0.3510</td><td>0.3661</td><td class="best">0.3486</td></tr></tbody></table></div>
+<p class="note">Chignahuapan es la zona difícil (error cercano a 0.57) y el resto es la fácil (cerca de 0.35). E_JK es el mejor en ambas, en las dos particiones.</p>
+</section>
+
+<section class="card">
+<h2>5. La regla se fijó antes de ver la prueba final</h2>
+<ul>
+<li>Se escribió el 11 de octubre, antes de la segunda ronda de evaluación: si el resultado salía parcial o no favorable, E_JK se quedaba sin cambios y no se seguía ajustando.</li>
+<li>Los pesos (½ y ½) se fijaron sin estimar nada con los datos. Eso reduce el margen para sobreajustar.</li>
+<li>Esta regla protege contra seguir retocando, pero no borra que E_JK se diseñó después de ver los rendimientos (ver el cuadro de abajo).</li>
+</ul>
+</section>
+
+<section class="card warn">
+<h2>Lo que hay que decir en voz alta</h2>
+<ul>
+<li><b>E_JK se armó después de ver los rendimientos.</b> K1, la variable de NDVI, se escogió explorando las mismas 138 parcelas. Eso puede inflar un poco las cifras.</li>
+<li><b>La ventaja sobre J es pequeña:</b> cerca de 0.008 t/ha en las dos evaluaciones 10×5, casi empate en Opus ronda 1 y J gana por 0.003 en Opus ronda 2. Es menos que el ruido por semilla de azar (cerca de 0.012). Es una preferencia por estabilidad, no una victoria clara.</li>
+<li><b>En la caja cerrada de 35 parcelas</b> E_JK es tercero (0.4822); K fue el mejor (0.4717) y J el último (0.5047).</li>
+<li><b>Municipios nuevos:</b> en 3 parcelas de municipios sin etiquetas E_JK tiene 0.556 y J 0.473. Si en las 59 hay muchos casos así, conviene vigilar.</li>
+<li><b>Una sola temporada (2025).</b> Error esperado en las 59 parcelas entre 0.47 y 0.49 t/ha, con una banda más amplia de 0.35 a 0.63 por parcela.</li>
+<li><b>No está probado estadísticamente.</b> Una prueba Reality Check sobre 11 familias de modelos dio p = 1.0: al corregir por haber probado muchas cosas, no se puede afirmar que algún modelo supere de verdad a MIX. La ventaja es consistente, no demostrada.</li>
+</ul>
+</section>
+<p class="note">Fuente: cuaderno 04_seleccion_modelo_final y exp_11_combinacion_modelos de nuestro compañero. Cifras copiadas de sus salidas, promedios y rangos calculados con un script.</p>
+</main></body></html>

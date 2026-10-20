@@ -1,0 +1,72 @@
+Variables candidatas: 148 | por familia: {'sat_compuestos': 40, 'sat_indices17': 32, 'sat_sensor': 32, 'clima_ventanas': 27, 'clima_anomalias': 17}
+Comprobacion 1: el calculo rapido coincide con minimos cuadrados completos en 5 casos al azar.
+Comprobacion 2: el RMSE de B2 coincide con lineas_base.csv en las 200 particiones. B2 medio V1: 0.502 | V2: 0.524
+
+Pruebas realizadas (variables lineales mas curvas): 150
+Veredicto E1 sobre las pruebas reales:
+veredicto
+descartar                     136
+pasa E1                        13
+solo con vecinos (falla c)      1
+
+Lectura de las pruebas:
+lectura
+descartada                                      136
+hallazgo exploratorio (sin signo registrado)      8
+contradice el signo registrado                    3
+confirmada (signo coincide)                       2
+depende de vecinos (falla c)                      1
+no evaluable                                      1
+
+Pasan E1 o solo fallan (c), ordenadas por delta V1:
+hipotesis               variable signo_registrado signo_coincide  delta_v1  n_mejora_v1  delta_v2                                      lectura
+      HN3      anom_precip_pct_d          ninguno      sin signo    0.0437         94.0    0.0861 hallazgo exploratorio (sin signo registrado)
+     HR11      anom_tmin_sep_oct                +             si    0.0384         99.0    0.0470                  confirmada (signo coincide)
+      HN5            anom_tmin_c          ninguno      sin signo    0.0368         97.0    0.0468 hallazgo exploratorio (sin signo registrado)
+      HN6            anom_tmax_c                -             no    0.0360         97.0    0.0483               contradice el signo registrado
+      HN7            anom_tmax_d          ninguno      sin signo    0.0357         97.0    0.0421 hallazgo exploratorio (sin signo registrado)
+      HN6            anom_tmax_b                -             no    0.0356         98.0    0.0550               contradice el signo registrado
+      HB8 clim_rango_termico_sep                -             si    0.0347         93.0    0.0450                  confirmada (signo coincide)
+      HN7            anom_tmin_d          ninguno      sin signo    0.0343         97.0    0.0423 hallazgo exploratorio (sin signo registrado)
+      HN7        anom_tmax_ciclo          ninguno      sin signo    0.0321         96.0    0.0390 hallazgo exploratorio (sin signo registrado)
+      HN1      anom_precip_pct_a                +             no    0.0292         92.0    0.0314               contradice el signo registrado
+      HS4       satc_ndvi_s2_m05          ninguno      sin signo    0.0260         87.0    0.0405 hallazgo exploratorio (sin signo registrado)
+      HS4       satc_ndvi_s2_m04          ninguno      sin signo    0.0232         83.0    0.0342 hallazgo exploratorio (sin signo registrado)
+      HW6            clim_tmin_a          ninguno      sin signo    0.0231         89.0   -0.0016                 depende de vecinos (falla c)
+      HS4       satc_savi_s2_m05          ninguno      sin signo    0.0219         83.0    0.0381 hallazgo exploratorio (sin signo registrado)
+
+== Seleccion dentro de cada particion (delta = B2 menos procedimiento; positivo = mejora) ==
+esquema        procedimiento  rmse_B2  rmse_proc  delta_medio  delta_p5  delta_p95  n_mejora  n_part
+     V1          top1_global   0.5021     0.4734       0.0287   -0.0185     0.0798        86     100
+     V1          top3_global   0.5021     0.4732       0.0289   -0.0235     0.0791        85     100
+     V1  top1_clima_ventanas   0.5021     0.4741       0.0280   -0.0283     0.0690        84     100
+     V1 top1_clima_anomalias   0.5021     0.4616       0.0405   -0.0028     0.0933        94     100
+     V1  top1_sat_compuestos   0.5021     0.4891       0.0130   -0.0273     0.0478        70     100
+     V1      top1_sat_sensor   0.5021     0.5107      -0.0086   -0.0494     0.0150        39     100
+     V1   top1_sat_indices17   0.5021     0.4957       0.0065   -0.0324     0.0377        65     100
+     V2          top1_global   0.5237     0.4679       0.0558   -0.0065     0.1067        94     100
+     V2          top3_global   0.5237     0.4626       0.0611    0.0103     0.1134        99     100
+     V2  top1_clima_ventanas   0.5237     0.4911       0.0326   -0.0267     0.0878        81     100
+     V2 top1_clima_anomalias   0.5237     0.4475       0.0762    0.0229     0.1677        95     100
+     V2  top1_sat_compuestos   0.5237     0.4934       0.0303   -0.0003     0.0648        95     100
+     V2      top1_sat_sensor   0.5237     0.5250      -0.0012   -0.0471     0.0264        60     100
+     V2   top1_sat_indices17   0.5237     0.5150       0.0087   -0.0281     0.0383        63     100
+
+== Control de permutacion, nulo por grupo (100 repeticiones) ==
+Variables que pasan E1 completa por azar: media Python 0.33 (max 18) | R 0.08 (max 5) | REAL: 13
+Variables que pasan (a)+(b) por azar: media Python 0.33 (max 18) | R 0.08 | REAL: 14
+Mejor delta V1 entre todas por azar: media Python 0.0074 | R 0.0078 | REAL: 0.0437
+Elegir la mejor variable dentro de la particion con el nulo: delta V1 Python -0.0197 | R -0.0184; V2 Python -0.0332 | R -0.0347 (negativo = empeora a B2)
+
+== Control de permutacion, nulo por celda (100 repeticiones) ==
+Variables que pasan E1 completa por azar: media Python 0.53 (max 11) | R 0.16 (max 11) | REAL: 13
+Variables que pasan (a)+(b) por azar: media Python 0.56 (max 11) | R 0.16 | REAL: 14
+Mejor delta V1 entre todas por azar: media Python 0.0107 | R 0.0088 | REAL: 0.0437
+Elegir la mejor variable dentro de la particion con el nulo: delta V1 Python -0.0141 | R -0.0166; V2 Python -0.0690 | R -0.0739 (negativo = empeora a B2)
+
+== Comprobacion contra los CSV que produjo R ==
+Pruebas emparejadas con R: 150 de 150 (R tiene 150)
+Diferencia maxima en deltas y conteos: 0.0e+00; veredictos distintos: 0
+60_seleccion_en_particion.csv: diferencia maxima contra R = 0.00e+00 (OK)
+
+Hecho.

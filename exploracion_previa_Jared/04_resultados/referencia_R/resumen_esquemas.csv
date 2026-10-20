@@ -1,0 +1,6 @@
+esquema,n_reps,n_val_min,n_val_media,n_val_max,pct_vecino_media,pct_vecino_min,pct_vecino_max
+V1 espejo (aleatorio dentro del grupo),100,41,41,41,92.22,82.93,100
+V2 por celda climática,100,35,39.63,48,0,0,0
+V3 dejar un grupo fuera,5,10,27.6,71,24.08,0,50.7
+REAL: 59 ocultas vs 138 (celda real),1,59,59,59,96.61,96.61,96.61
+REAL: 59 ocultas vs 138 (aproximación por valores),1,59,59,59,83.05,83.05,83.05

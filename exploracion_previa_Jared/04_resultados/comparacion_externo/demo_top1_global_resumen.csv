@@ -1,0 +1,19 @@
+concepto,valor
+rmse_V1,0.4734
+rmse_V1_B2,0.5021
+rmse_V1_B3,0.4989
+rmse_V1_top1_global,0.4734
+delta_V1_vs_B2,0.0287
+n_mejora_V1_vs_B2,86
+rmse_V2,0.4679
+rmse_V2_B2,0.5237
+rmse_V2_top1_global,0.4679
+delta_V2_vs_B2,0.0558
+n_mejora_V2_vs_B2,94
+E1_a,True
+E1_b,True
+E1_c,True
+veredicto_E1,pasa E1
+mejora_V1_vs_top1_global,-0.0000
+n_mejor_V1_vs_top1_global,0
+mejora_V2_vs_top1_global,0.0000

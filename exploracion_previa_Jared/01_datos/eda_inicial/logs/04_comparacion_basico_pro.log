@@ -1,0 +1,57 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Cobertura temporal y de sensores:
+# A tibble: 2 × 7
+  dataset n_filas n_parcelas fecha_min  fecha_max  n_fechas_distintas sensores  
+  <chr>     <int>      <int> <chr>      <chr>                   <int> <chr>     
+1 Basico   107666        197 2022-01-01 2025-12-31                608 Landsat/S…
+2 PRO       47804        197 2025-01-01 2025-12-30                311 Planet    
+
+Resumen de observaciones por parcela - Basico:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  494.0   504.0   511.0   546.5   573.0   692.0 
+Resumen de observaciones por parcela - PRO:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  233.0   240.0   243.0   242.7   246.0   251.0 
+
+Comparacion de rango/distribucion por indice comun (Basico Sentinel-2 vs PRO Planet):
+# A tibble: 6 × 8
+  fuente              indice            n    min media mediana   max    sd
+  <chr>               <chr>         <int>  <dbl> <dbl>   <dbl> <dbl> <dbl>
+1 Basico (Sentinel-2) evi_promedio  44877 -0.031 0.190   0.13  0.905 0.142
+2 PRO (Planet)        evi_promedio  35747  0.028 0.215   0.16  0.877 0.123
+3 Basico (Sentinel-2) lai_promedio  44877 -0.192 0.131   0.016 3.04  0.285
+4 PRO (Planet)        lai_promedio  35747 -0.112 1.22    0.962 3.66  0.613
+5 Basico (Sentinel-2) ndvi_promedio 44877 -0.066 0.243   0.175 0.82  0.157
+6 PRO (Planet)        ndvi_promedio 35747  0.007 0.354   0.275 0.907 0.175
+
+Diferencia relativa de medias PRO vs Basico (mismo nombre de indice):
+# A tibble: 3 × 4
+  indice        media_basico media_pro diferencia_relativa_pct
+  <chr>                <dbl>     <dbl>                   <dbl>
+1 evi_promedio         0.190     0.215                    12.8
+2 lai_promedio         0.131     1.22                    828. 
+3 ndvi_promedio        0.243     0.354                    45.6
+
+Observaciones Sentinel-2 (Basico) en 2025: 16820 | Observaciones PRO (Planet) en 2025: 47804 
+
+Comparacion restringida a 2025 (periodo de solapamiento real):
+# A tibble: 6 × 6
+  fuente            indice            n media mediana    sd
+  <chr>             <chr>         <int> <dbl>   <dbl> <dbl>
+1 Basico S2 (2025)  evi_promedio  13091 0.230   0.16  0.159
+2 Basico S2 (2025)  lai_promedio  13091 0.204   0.064 0.319
+3 Basico S2 (2025)  ndvi_promedio 13091 0.289   0.213 0.177
+4 PRO Planet (2025) evi_promedio  35747 0.215   0.16  0.123
+5 PRO Planet (2025) lai_promedio  35747 1.22    0.962 0.613
+6 PRO Planet (2025) ndvi_promedio 35747 0.354   0.275 0.175
+
+04_comparacion_basico_pro.R completado.

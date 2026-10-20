@@ -1,0 +1,152 @@
+hipotesis,familia,variable,signo_registrado,r_parcial_en_grupo,signo_observado,rmse_B2_v1,rmse_modelo_v1,delta_v1,n_mejora_v1,rmse_B2_v2,rmse_modelo_v2,delta_v2,n_mejora_v2,signo_coincide,E1_a,E1_b,E1_c,veredicto,nota,lectura
+HA4,clima_ventanas,clim_tmin_jul,ninguno,0.11,+,0.5021,0.5003,0.0018,70.0,0.5237,0.545,-0.0212,31.0,sin signo,False,False,False,descartar,,descartada
+HA4,clima_ventanas,clim_tmin_ago,ninguno,0.072,+,0.5021,0.5032,-0.001,58.0,0.5237,0.5475,-0.0237,17.0,sin signo,False,False,False,descartar,,descartada
+HA5,clima_ventanas,clim_tmin_sep,+,0.034,+,0.5021,0.5051,-0.003,31.0,0.5237,0.5497,-0.026,4.0,si,False,False,False,descartar,,descartada
+HA5,clima_ventanas,clim_tmin_oct,+,0.122,+,0.5021,0.499,0.0032,71.0,0.5237,0.544,-0.0203,31.0,si,False,False,False,descartar,,descartada
+HA6,clima_ventanas,clim_precip_jun,+,0.008,+,0.5021,0.5077,-0.0055,13.0,0.5237,0.5746,-0.0509,0.0,si,False,False,False,descartar,,descartada
+HA6,clima_ventanas,clim_precip_jul,+,0.05,+,0.5021,0.506,-0.0039,37.0,0.5237,0.569,-0.0453,4.0,si,False,False,False,descartar,,descartada
+HB1,clima_ventanas,clim_tmax_ago,-,-0.176,-,0.5021,0.4997,0.0024,73.0,0.5237,0.5213,0.0024,62.0,si,False,False,True,descartar,,descartada
+HB1,clima_ventanas,clim_tmax_sep,-,-0.251,-,0.5021,0.4897,0.0124,79.0,0.5237,0.495,0.0287,86.0,si,False,True,True,descartar,,descartada
+HB2,clima_ventanas,clim_precip_min_mensual_jun_sep,+,0.031,+,0.5021,0.5076,-0.0055,27.0,0.5237,0.5769,-0.0532,1.0,si,False,False,False,descartar,,descartada
+HB8,clima_ventanas,clim_rango_termico_sep,-,-0.338,-,0.5021,0.4674,0.0347,93.0,0.5237,0.4787,0.045,87.0,si,True,True,True,pasa E1,,confirmada (signo coincide)
+HC1,clima_ventanas,clim_precip_jul_ago,-,0.039,+,0.5021,0.5069,-0.0048,33.0,0.5237,0.572,-0.0483,2.0,no,False,False,False,descartar,,descartada
+HW1,clima_ventanas,clim_precip_a,+,-0.142,-,0.5021,0.5012,0.0009,69.0,0.5237,0.5422,-0.0184,55.0,no,False,False,False,descartar,,descartada
+HW1,clima_ventanas,clim_precip_b,+,0.026,+,0.5021,0.5071,-0.005,25.0,0.5237,0.5729,-0.0491,1.0,si,False,False,False,descartar,,descartada
+HW2,clima_ventanas,clim_precip_c,ninguno,0.021,+,0.5021,0.5073,-0.0052,19.0,0.5237,0.5777,-0.054,1.0,sin signo,False,False,False,descartar,,descartada
+HW2,clima_ventanas,clim_precip_oct,ninguno,0.176,+,0.5021,0.4923,0.0099,81.0,0.5237,0.5369,-0.0132,52.0,sin signo,False,True,False,descartar,,descartada
+HW3,clima_ventanas,clim_precip_ciclo,ninguno,0.021,+,0.5021,0.5074,-0.0053,21.0,0.5237,0.5717,-0.048,1.0,sin signo,False,False,False,descartar,,descartada
+HW4,clima_ventanas,clim_tmax_b,-,-0.217,-,0.5021,0.4949,0.0072,76.0,0.5237,0.5071,0.0166,79.0,si,False,True,True,descartar,,descartada
+HW4,clima_ventanas,clim_tmax_c,-,-0.215,-,0.5021,0.4951,0.007,76.0,0.5237,0.5082,0.0155,77.0,si,False,True,True,descartar,,descartada
+HW5,clima_ventanas,clim_tmax_a,ninguno,-0.113,-,0.5021,0.5045,-0.0024,58.0,0.5237,0.5343,-0.0106,32.0,sin signo,False,False,False,descartar,,descartada
+HW5,clima_ventanas,clim_tmax_oct,ninguno,-0.269,-,0.5021,0.4869,0.0152,79.0,0.5237,0.4887,0.035,90.0,sin signo,False,True,True,descartar,,descartada
+HW5,clima_ventanas,clim_tmax_ciclo,ninguno,-0.214,-,0.5021,0.4953,0.0068,75.0,0.5237,0.5064,0.0173,80.0,sin signo,False,True,True,descartar,,descartada
+HW6,clima_ventanas,clim_tmin_a,ninguno,0.28,+,0.5021,0.479,0.0231,89.0,0.5237,0.5254,-0.0016,65.0,sin signo,True,True,False,solo con vecinos (falla c),,depende de vecinos (falla c)
+HW6,clima_ventanas,clim_tmin_b,ninguno,0.101,+,0.5021,0.5011,0.001,69.0,0.5237,0.5456,-0.0219,29.0,sin signo,False,False,False,descartar,,descartada
+HW6,clima_ventanas,clim_tmin_c,ninguno,0.054,+,0.5021,0.5042,-0.0021,51.0,0.5237,0.5486,-0.0249,15.0,sin signo,False,False,False,descartar,,descartada
+HW6,clima_ventanas,clim_tmin_ciclo,ninguno,0.166,+,0.5021,0.4944,0.0077,82.0,0.5237,0.5477,-0.024,47.0,sin signo,False,True,False,descartar,,descartada
+HW7,clima_ventanas,clim_precip_ago,ninguno,0.024,+,0.5021,0.5081,-0.006,20.0,0.5237,0.5763,-0.0526,1.0,sin signo,False,False,False,descartar,,descartada
+HW7,clima_ventanas,clim_precip_sep,ninguno,0.018,+,0.5021,0.5069,-0.0048,11.0,0.5237,0.6024,-0.0787,3.0,sin signo,False,False,False,descartar,,descartada
+HN1,clima_anomalias,anom_precip_pct_a,+,-0.308,-,0.5021,0.4729,0.0292,92.0,0.5237,0.4923,0.0314,76.0,no,True,True,True,pasa E1,,contradice el signo registrado
+HN1,clima_anomalias,anom_precip_pct_b,+,-0.032,-,0.5021,0.5073,-0.0052,15.0,0.5237,0.5825,-0.0588,1.0,no,False,False,False,descartar,,descartada
+HN2,clima_anomalias,anom_precip_pct_c,-,-0.125,-,0.5021,0.5015,0.0006,74.0,0.5237,0.5605,-0.0368,42.0,si,False,False,False,descartar,,descartada
+HN3,clima_anomalias,anom_precip_pct_d,ninguno,0.387,+,0.5021,0.4584,0.0437,94.0,0.5237,0.4376,0.0861,100.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HN3,clima_anomalias,anom_precip_pct_ciclo,ninguno,-0.037,-,0.5021,0.5063,-0.0042,28.0,0.5237,0.579,-0.0553,18.0,sin signo,False,False,False,descartar,,descartada
+HN4,clima_anomalias,anom_tmin_a,+,-0.171,-,0.5021,0.4964,0.0057,78.0,0.5237,0.5188,0.0049,74.0,no,False,True,True,descartar,,descartada
+HN5,clima_anomalias,anom_tmin_b,ninguno,-0.235,-,0.5021,0.4887,0.0135,85.0,0.5237,0.5241,-0.0004,57.0,sin signo,False,True,False,descartar,,descartada
+HN5,clima_anomalias,anom_tmin_c,ninguno,0.342,+,0.5021,0.4653,0.0368,97.0,0.5237,0.477,0.0468,90.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HN6,clima_anomalias,anom_tmax_a,-,-0.234,-,0.5021,0.488,0.0141,81.0,0.5237,0.5437,-0.02,67.0,si,False,True,False,descartar,,descartada
+HN6,clima_anomalias,anom_tmax_b,-,0.335,+,0.5021,0.4665,0.0356,98.0,0.5237,0.4688,0.055,96.0,no,True,True,True,pasa E1,,contradice el signo registrado
+HN6,clima_anomalias,anom_tmax_c,-,0.334,+,0.5021,0.4661,0.036,97.0,0.5237,0.4754,0.0483,96.0,no,True,True,True,pasa E1,,contradice el signo registrado
+HN7,clima_anomalias,anom_tmin_d,ninguno,0.324,+,0.5021,0.4678,0.0343,97.0,0.5237,0.4814,0.0423,97.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HN7,clima_anomalias,anom_tmax_d,ninguno,0.336,+,0.5021,0.4664,0.0357,97.0,0.5237,0.4817,0.0421,85.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HN7,clima_anomalias,anom_tmin_ciclo,ninguno,0.144,+,0.5021,0.4973,0.0048,74.0,0.5237,0.5457,-0.022,46.0,sin signo,False,False,False,descartar,,descartada
+HN7,clima_anomalias,anom_tmax_ciclo,ninguno,0.312,+,0.5021,0.47,0.0321,96.0,0.5237,0.4847,0.039,88.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HR10,clima_anomalias,anom_precip_mm_jun_ago,-,0.01,+,0.5021,0.5092,-0.0071,10.0,0.5237,0.594,-0.0703,0.0,no,False,False,False,descartar,,descartada
+HR11,clima_anomalias,anom_tmin_sep_oct,+,0.34,+,0.5021,0.4637,0.0384,99.0,0.5237,0.4767,0.047,96.0,si,True,True,True,pasa E1,,confirmada (signo coincide)
+HA3,sat_compuestos,satc_ndvi_max_ciclo_s2,+,0.032,+,0.5021,0.5069,-0.0048,16.0,0.5237,0.5258,-0.0021,46.0,si,False,False,False,descartar,,descartada
+HA3,sat_compuestos,satc_ndvi_max_ciclo_planet,+,0.012,+,0.5021,0.5072,-0.0051,10.0,0.5237,0.5279,-0.0042,23.0,si,False,False,False,descartar,,descartada
+HR12,sat_compuestos,satc_ndvi_s2_m08,+,-0.115,-,0.5021,0.5041,-0.002,63.0,0.5237,0.5227,0.001,60.0,no,False,False,True,descartar,,descartada
+HR12,sat_compuestos,satc_ndvi_s2_m09,+,0.111,+,0.5021,0.5032,-0.0011,66.0,0.5237,0.5186,0.0051,81.0,si,False,False,True,descartar,,descartada
+HR12,sat_compuestos,satc_savi_s2_m08,+,-0.139,-,0.5021,0.5027,-0.0006,64.0,0.5237,0.5205,0.0032,70.0,no,False,False,True,descartar,,descartada
+HR12,sat_compuestos,satc_savi_s2_m09,+,0.071,+,0.5021,0.5077,-0.0056,42.0,0.5237,0.5228,0.0009,68.0,si,False,False,True,descartar,,descartada
+HS1,sat_compuestos,satc_ndvi_planet_m08,+,-0.122,-,0.5021,0.5031,-0.001,64.0,0.5237,0.5213,0.0024,70.0,no,False,False,True,descartar,,descartada
+HS1,sat_compuestos,satc_ndvi_planet_m09,+,0.111,+,0.5021,0.5016,0.0005,70.0,0.5237,0.5194,0.0043,85.0,si,False,False,True,descartar,,descartada
+HS1,sat_compuestos,satc_msavi_planet_m08,+,-0.129,-,0.5021,0.5026,-0.0005,64.0,0.5237,0.5249,-0.0012,57.0,no,False,False,False,descartar,,descartada
+HS1,sat_compuestos,satc_msavi_planet_m09,+,0.096,+,0.5021,0.5042,-0.0021,58.0,0.5237,0.5195,0.0042,84.0,si,False,False,True,descartar,,descartada
+HS2,sat_compuestos,satc_ndvi_s2_b_prom,+,-0.122,-,0.5021,0.502,0.0001,65.0,0.5237,0.5223,0.0015,62.0,no,False,False,True,descartar,,descartada
+HS2,sat_compuestos,satc_savi_s2_b_prom,+,-0.154,-,0.5021,0.4992,0.0029,69.0,0.5237,0.5156,0.0081,78.0,no,False,False,True,descartar,,descartada
+HS2,sat_compuestos,satc_ndvi_planet_b_prom,+,-0.114,-,0.5021,0.5024,-0.0003,58.0,0.5237,0.5223,0.0015,65.0,no,False,False,True,descartar,,descartada
+HS2,sat_compuestos,satc_msavi_planet_b_prom,+,-0.143,-,0.5021,0.4996,0.0025,66.0,0.5237,0.5143,0.0094,89.0,no,False,False,True,descartar,,descartada
+HS3,sat_compuestos,satc_ndvi_s2_c_prom,+,-0.039,-,0.5021,0.506,-0.0039,33.0,0.5237,0.531,-0.0073,22.0,no,False,False,False,descartar,,descartada
+HS3,sat_compuestos,satc_savi_s2_c_prom,+,-0.076,-,0.5021,0.5047,-0.0026,44.0,0.5237,0.5302,-0.0064,43.0,no,False,False,False,descartar,,descartada
+HS3,sat_compuestos,satc_ndvi_planet_c_prom,+,-0.038,-,0.5021,0.506,-0.0039,32.0,0.5237,0.5322,-0.0085,22.0,no,False,False,False,descartar,,descartada
+HS3,sat_compuestos,satc_msavi_planet_c_prom,+,-0.039,-,0.5021,0.5061,-0.004,31.0,0.5237,0.535,-0.0112,22.0,no,False,False,False,descartar,,descartada
+HS4,sat_compuestos,satc_ndvi_s2_m04,ninguno,0.31,+,0.5021,0.4789,0.0232,83.0,0.5237,0.4895,0.0342,95.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HS4,sat_compuestos,satc_ndvi_s2_m05,ninguno,0.309,+,0.5021,0.4761,0.026,87.0,0.5237,0.4832,0.0405,99.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HS4,sat_compuestos,satc_savi_s2_m04,ninguno,0.272,+,0.5021,0.4872,0.0149,78.0,0.5237,0.4954,0.0284,94.0,sin signo,False,True,True,descartar,,descartada
+HS4,sat_compuestos,satc_savi_s2_m05,ninguno,0.293,+,0.5021,0.4802,0.0219,83.0,0.5237,0.4856,0.0381,99.0,sin signo,True,True,True,pasa E1,,hallazgo exploratorio (sin signo registrado)
+HS4,sat_compuestos,satc_ndvi_planet_m04,ninguno,0.246,+,0.5021,0.489,0.0131,77.0,0.5237,0.5044,0.0193,93.0,sin signo,False,True,True,descartar,,descartada
+HS4,sat_compuestos,satc_ndvi_planet_m05,ninguno,0.202,+,0.5021,0.4935,0.0086,75.0,0.5237,0.5139,0.0099,74.0,sin signo,False,True,True,descartar,,descartada
+HS4,sat_compuestos,satc_msavi_planet_m04,ninguno,0.224,+,0.5021,0.4946,0.0075,76.0,0.5237,0.5069,0.0168,91.0,sin signo,False,True,True,descartar,,descartada
+HS4,sat_compuestos,satc_msavi_planet_m05,ninguno,0.226,+,0.5021,0.4913,0.0108,78.0,0.5237,0.5038,0.0199,84.0,sin signo,False,True,True,descartar,,descartada
+HS5,sat_compuestos,satc_ndvi_s2_m06,ninguno,0.089,+,0.5021,0.5038,-0.0017,58.0,0.5237,0.5305,-0.0067,61.0,sin signo,False,False,False,descartar,,descartada
+HS5,sat_compuestos,satc_ndvi_s2_m07,ninguno,-0.167,-,0.5021,0.4986,0.0035,70.0,0.5237,0.5168,0.0069,80.0,sin signo,False,False,True,descartar,,descartada
+HS5,sat_compuestos,satc_savi_s2_m06,ninguno,0.078,+,0.5021,0.5043,-0.0022,58.0,0.5237,0.5296,-0.0059,60.0,sin signo,False,False,False,descartar,,descartada
+HS5,sat_compuestos,satc_savi_s2_m07,ninguno,-0.186,-,0.5021,0.4964,0.0058,73.0,0.5237,0.5119,0.0118,84.0,sin signo,False,False,True,descartar,,descartada
+HS5,sat_compuestos,satc_ndvi_planet_m06,ninguno,0.024,+,0.5021,0.5054,-0.0033,21.0,0.5237,0.532,-0.0082,16.0,sin signo,False,False,False,descartar,,descartada
+HS5,sat_compuestos,satc_ndvi_planet_m07,ninguno,-0.138,-,0.5021,0.501,0.0011,59.0,0.5237,0.5201,0.0037,76.0,sin signo,False,False,True,descartar,,descartada
+HS5,sat_compuestos,satc_msavi_planet_m06,ninguno,0.022,+,0.5021,0.5068,-0.0046,13.0,0.5237,0.5304,-0.0066,0.0,sin signo,False,False,False,descartar,,descartada
+HS5,sat_compuestos,satc_msavi_planet_m07,ninguno,-0.156,-,0.5021,0.4995,0.0026,65.0,0.5237,0.5144,0.0093,88.0,sin signo,False,False,True,descartar,,descartada
+HS6,sat_compuestos,satc_ndvi_s2_m10,ninguno,0.153,+,0.5021,0.4993,0.0028,73.0,0.5237,0.5084,0.0153,99.0,sin signo,False,False,True,descartar,,descartada
+HS6,sat_compuestos,satc_savi_s2_m10,ninguno,0.136,+,0.5021,0.5014,0.0007,69.0,0.5237,0.5111,0.0126,99.0,sin signo,False,False,True,descartar,,descartada
+HS6,sat_compuestos,satc_ndvi_planet_m10,ninguno,0.136,+,0.5021,0.5006,0.0016,74.0,0.5237,0.5114,0.0123,99.0,sin signo,False,False,True,descartar,,descartada
+HS6,sat_compuestos,satc_msavi_planet_m10,ninguno,0.12,+,0.5021,0.503,-0.0008,65.0,0.5237,0.5138,0.0099,99.0,sin signo,False,False,True,descartar,,descartada
+HS7,sat_compuestos,satc_nobs_s2_ciclo,ninguno,-0.075,-,0.5021,0.5032,-0.0011,59.0,0.5237,0.523,0.0007,71.0,sin signo,False,False,True,descartar,,descartada
+HS7,sat_compuestos,satc_nobs_planet_ciclo,ninguno,-0.215,-,0.5021,0.4923,0.0098,75.0,0.5237,0.4947,0.029,95.0,sin signo,False,True,True,descartar,,descartada
+HR1,sat_sensor,sat_savi_s2_tipico_2022_2024,+,-0.006,-,0.5021,0.5069,-0.0048,7.0,0.5237,0.5333,-0.0096,19.0,no,False,False,False,descartar,,descartada
+HR2,sat_sensor,sat_cv_interanual_ndvi_s2,-,-0.052,-,0.5021,0.506,-0.0039,41.0,0.5237,0.5281,-0.0043,37.0,si,False,False,False,descartar,,descartada
+HP1,sat_sensor,sat_savi_s2_b,+,-0.176,-,0.5021,0.4976,0.0045,71.0,0.5237,0.5124,0.0113,85.0,no,False,False,True,descartar,,descartada
+HP1,sat_sensor,sat_savi_s2_c,+,-0.085,-,0.5021,0.5044,-0.0023,55.0,0.5237,0.5302,-0.0065,50.0,no,False,False,False,descartar,,descartada
+HP1,sat_sensor,sat_savi_s2_ciclo,+,-0.068,-,0.5021,0.5048,-0.0027,48.0,0.5237,0.5275,-0.0038,31.0,no,False,False,False,descartar,,descartada
+HP2,sat_sensor,sat_ndvi_s2_b,+,-0.136,-,0.5021,0.501,0.0011,65.0,0.5237,0.5193,0.0044,80.0,no,False,False,True,descartar,,descartada
+HP2,sat_sensor,sat_ndvi_s2_c,+,-0.067,-,0.5021,0.5056,-0.0035,46.0,0.5237,0.5318,-0.008,31.0,no,False,False,False,descartar,,descartada
+HP2,sat_sensor,sat_ndvi_s2_ciclo,+,-0.002,-,0.5021,0.5068,-0.0047,2.0,0.5237,0.5291,-0.0054,1.0,no,False,False,False,descartar,,descartada
+HP3,sat_sensor,sat_evi_s2_b,+,-0.182,-,0.5021,0.4971,0.005,71.0,0.5237,0.5117,0.0121,86.0,no,False,False,True,descartar,,descartada
+HP3,sat_sensor,sat_evi_s2_c,+,-0.088,-,0.5021,0.5041,-0.002,54.0,0.5237,0.5318,-0.0081,49.0,no,False,False,False,descartar,,descartada
+HP3,sat_sensor,sat_evi_s2_ciclo,+,-0.086,-,0.5021,0.5038,-0.0017,56.0,0.5237,0.5275,-0.0038,36.0,no,False,False,False,descartar,,descartada
+HP4,sat_sensor,sat_msi_s2_b,-,0.113,+,0.5021,0.5033,-0.0012,62.0,0.5237,0.5263,-0.0025,57.0,no,False,False,False,descartar,,descartada
+HP4,sat_sensor,sat_msi_s2_c,-,0.114,+,0.5021,0.5033,-0.0012,60.0,0.5237,0.5301,-0.0064,43.0,no,False,False,False,descartar,,descartada
+HP4,sat_sensor,sat_msi_s2_ciclo,-,-0.006,-,0.5021,0.5064,-0.0043,7.0,0.5237,0.5278,-0.004,24.0,si,False,False,False,descartar,,descartada
+HP5,sat_sensor,sat_ndwi_s2_b,ninguno,-0.123,-,0.5021,0.5022,-0.0001,61.0,0.5237,0.5249,-0.0012,66.0,sin signo,False,False,False,descartar,,descartada
+HP5,sat_sensor,sat_ndwi_s2_c,ninguno,-0.102,-,0.5021,0.5036,-0.0015,53.0,0.5237,0.5341,-0.0103,37.0,sin signo,False,False,False,descartar,,descartada
+HP5,sat_sensor,sat_ndwi_s2_ciclo,ninguno,-0.015,-,0.5021,0.5064,-0.0042,9.0,0.5237,0.5302,-0.0065,14.0,sin signo,False,False,False,descartar,,descartada
+HP6,sat_sensor,sat_lai_s2_ciclo,ninguno,-0.072,-,0.5021,0.504,-0.0019,53.0,0.5237,0.5278,-0.004,42.0,sin signo,False,False,False,descartar,,descartada
+HP6,sat_sensor,sat_lai_s2_ciclo_frac_neg,ninguno,-0.183,-,0.5021,0.4996,0.0025,72.0,0.5237,0.5067,0.0171,94.0,sin signo,False,False,True,descartar,,descartada
+HP7,sat_sensor,sat_ndvi_planet_b,+,-0.119,-,0.5021,0.5014,0.0007,63.0,0.5237,0.5185,0.0052,83.0,no,False,False,True,descartar,,descartada
+HP7,sat_sensor,sat_ndvi_planet_c,+,-0.071,-,0.5021,0.5058,-0.0036,46.0,0.5237,0.5309,-0.0072,36.0,no,False,False,False,descartar,,descartada
+HP7,sat_sensor,sat_ndvi_planet_ciclo,+,-0.014,-,0.5021,0.509,-0.0069,11.0,0.5237,0.5274,-0.0037,13.0,no,False,False,False,descartar,,descartada
+HP8,sat_sensor,sat_evi_planet_b,+,-0.157,-,0.5021,0.4987,0.0034,71.0,0.5237,0.5102,0.0136,95.0,no,False,False,True,descartar,,descartada
+HP8,sat_sensor,sat_evi_planet_c,+,-0.052,-,0.5021,0.5059,-0.0038,36.0,0.5237,0.5351,-0.0114,33.0,no,False,False,False,descartar,,descartada
+HP8,sat_sensor,sat_evi_planet_ciclo,+,-0.075,-,0.5021,0.5072,-0.0051,39.0,0.5237,0.5266,-0.0029,51.0,no,False,False,False,descartar,,descartada
+HP9,sat_sensor,sat_msavi_planet_b,+,-0.142,-,0.5021,0.4997,0.0024,69.0,0.5237,0.5131,0.0106,92.0,no,False,False,True,descartar,,descartada
+HP9,sat_sensor,sat_msavi_planet_c,+,-0.054,-,0.5021,0.5058,-0.0037,36.0,0.5237,0.5343,-0.0106,34.0,no,False,False,False,descartar,,descartada
+HP9,sat_sensor,sat_msavi_planet_ciclo,+,-0.057,-,0.5021,0.5073,-0.0052,39.0,0.5237,0.5271,-0.0034,41.0,no,False,False,False,descartar,,descartada
+HP10,sat_sensor,sat_lai_planet_b,ninguno,-0.108,-,0.5021,0.5022,-0.0,60.0,0.5237,0.5198,0.0039,79.0,sin signo,False,False,True,descartar,,descartada
+HP10,sat_sensor,sat_lai_planet_c,ninguno,-0.042,-,0.5021,0.5065,-0.0044,32.0,0.5237,0.5326,-0.0089,21.0,sin signo,False,False,False,descartar,,descartada
+HP10,sat_sensor,sat_lai_planet_ciclo,ninguno,0.011,+,0.5021,0.5089,-0.0068,9.0,0.5237,0.5265,-0.0028,14.0,sin signo,False,False,False,descartar,,descartada
+HP11,sat_sensor,sat_savi_s2_dev_2025,+,-0.068,-,0.5021,0.5048,-0.0027,49.0,0.5237,0.5304,-0.0067,0.0,no,False,False,False,descartar,,descartada
+HR3,sat_indices17,sat_ndwi_s2_a,ninguno,0.158,+,0.5021,0.5,0.0021,73.0,0.5237,0.5172,0.0066,77.0,sin signo,False,False,True,descartar,,descartada
+HR3,sat_indices17,sat_nddi_s2_a,ninguno,-0.085,-,0.5021,0.5036,-0.0015,65.0,0.5237,0.5241,-0.0004,58.0,sin signo,False,False,False,descartar,,descartada
+HR6,sat_indices17,sat_savi_cv_s2_jul_sep,-,0.082,+,0.5021,0.506,-0.0039,50.0,0.5237,0.5229,0.0008,63.0,no,False,False,True,descartar,,descartada
+HR6,sat_indices17,sat_ndvi_cv_planet_jul_sep,-,-0.008,-,0.5021,0.5052,-0.0031,11.0,0.5237,0.5258,-0.0021,17.0,si,False,False,False,descartar,,descartada
+HR9,sat_indices17,sat_crc_s2_pre,ninguno,0.021,+,0.5021,0.5074,-0.0052,19.0,0.5237,0.5279,-0.0042,3.0,sin signo,False,False,False,descartar,,descartada
+HR9,sat_indices17,sat_mcrc_s2_pre,ninguno,0.016,+,0.5021,0.5069,-0.0048,15.0,0.5237,0.5286,-0.0049,4.0,sin signo,False,False,False,descartar,,descartada
+HR9,sat_indices17,sat_ndti_s2_pre,ninguno,0.19,+,0.5021,0.495,0.0072,72.0,0.5237,0.505,0.0187,96.0,sin signo,False,False,True,descartar,,descartada
+HR9,sat_indices17,sat_sti_s2_pre,ninguno,0.203,+,0.5021,0.4934,0.0087,73.0,0.5237,0.5026,0.0211,97.0,sin signo,False,False,True,descartar,,descartada
+HR9,sat_indices17,sat_ndsvi_s2_pre,ninguno,0.041,+,0.5021,0.5064,-0.0043,30.0,0.5237,0.5282,-0.0044,31.0,sin signo,False,False,False,descartar,,descartada
+HR13,sat_indices17,sat_msi_s2_jul_sep,-,0.152,+,0.5021,0.501,0.0012,68.0,0.5237,0.5293,-0.0055,46.0,no,False,False,False,descartar,,descartada
+HR13,sat_indices17,sat_emsi_s2_jul_sep,-,0.163,+,0.5021,0.5015,0.0006,66.0,0.5237,0.5292,-0.0055,54.0,no,False,False,False,descartar,,descartada
+HR13,sat_indices17,sat_nddi_s2_jul_sep,-,0.131,+,0.5021,0.5025,-0.0004,58.0,0.5237,0.5256,-0.0019,44.0,no,False,False,False,descartar,,descartada
+HR13,sat_indices17,sat_enddi_s2_jul_sep,-,0.083,+,0.5021,0.5038,-0.0016,59.0,0.5237,0.5273,-0.0036,46.0,no,False,False,False,descartar,,descartada
+HR14,sat_indices17,sat_ndsvi_s2_ago,-,-0.041,-,0.5021,0.5061,-0.004,32.0,0.5237,0.5248,-0.0011,52.0,si,False,False,False,descartar,,descartada
+HI1,sat_indices17,sat_fapar_s2_jul_sep,+,-0.162,-,0.5021,0.4998,0.0023,72.0,0.5237,0.5251,-0.0014,62.0,no,False,False,False,descartar,,descartada
+HI1,sat_indices17,sat_fapar_s2_ciclo,+,-0.031,-,0.5021,0.5061,-0.004,26.0,0.5237,0.5288,-0.0051,5.0,no,False,False,False,descartar,,descartada
+HI2,sat_indices17,sat_endwi_s2_jul_sep,+,-0.153,-,0.5021,0.5016,0.0005,64.0,0.5237,0.5319,-0.0081,47.0,no,False,False,False,descartar,,descartada
+HI3,sat_indices17,sat_srndi_s2_jul_sep,ninguno,0.092,+,0.5021,0.504,-0.0019,50.0,0.5237,0.5294,-0.0057,37.0,sin signo,False,False,False,descartar,,descartada
+HI3,sat_indices17,sat_mra_s2_ciclo,ninguno,-0.018,-,0.5021,0.506,-0.0039,18.0,0.5237,0.5298,-0.0061,1.0,sin signo,False,False,False,descartar,,descartada
+HI4,sat_indices17,sat_vi6t_landsat_jul_sep,ninguno,-0.039,-,0.5021,0.5069,-0.0048,27.0,0.5237,0.5315,-0.0077,13.0,sin signo,False,False,False,descartar,,descartada
+HI5,sat_indices17,sat_dswi2_s2_jul_sep,ninguno,0.132,+,0.5021,0.5009,0.0013,63.0,0.5237,0.5287,-0.005,38.0,sin signo,False,False,False,descartar,,descartada
+HI5,sat_indices17,sat_dswi3_s2_jul_sep,ninguno,-0.021,-,0.5021,0.5058,-0.0037,18.0,0.5237,0.5255,-0.0017,33.0,sin signo,False,False,False,descartar,,descartada
+HI5,sat_indices17,sat_dswi4_s2_jul_sep,ninguno,-0.115,-,0.5021,0.5028,-0.0007,60.0,0.5237,0.5334,-0.0097,45.0,sin signo,False,False,False,descartar,,descartada
+HI5,sat_indices17,sat_dswi5_s2_jul_sep,ninguno,-0.121,-,0.5021,0.5025,-0.0003,55.0,0.5237,0.5379,-0.0141,40.0,sin signo,False,False,False,descartar,,descartada
+HI6,sat_indices17,sat_ndvi_cv_s2_jul_sep,-,0.083,+,0.5021,0.5057,-0.0036,52.0,0.5237,0.5238,-0.0,55.0,no,False,False,True,descartar,,descartada
+HI6,sat_indices17,sat_evi_cv_s2_jul_sep,-,0.098,+,0.5021,0.5054,-0.0033,50.0,0.5237,0.5222,0.0016,64.0,no,False,False,True,descartar,,descartada
+HI7,sat_indices17,sat_savi_std_s2_jul_sep,ninguno,-0.033,-,0.5021,0.5063,-0.0042,32.0,0.5237,0.5261,-0.0023,38.0,sin signo,False,False,False,descartar,,descartada
+HI7,sat_indices17,sat_ndvi_std_s2_jul_sep,ninguno,-0.002,-,0.5021,0.5059,-0.0038,7.0,0.5237,0.5262,-0.0025,3.0,sin signo,False,False,False,descartar,,descartada
+HI7,sat_indices17,sat_evi_std_s2_jul_sep,ninguno,-0.038,-,0.5021,0.5064,-0.0043,32.0,0.5237,0.5263,-0.0026,38.0,sin signo,False,False,False,descartar,,descartada
+HI7,sat_indices17,sat_ndvi_std_planet_jul_sep,ninguno,-0.057,-,0.5021,0.5048,-0.0027,54.0,0.5237,0.5266,-0.0028,39.0,sin signo,False,False,False,descartar,,descartada
+HI8,sat_indices17,sat_ndti_std_s2_pre,-,0.267,+,0.5021,0.4875,0.0147,78.0,0.5237,0.5039,0.0198,81.0,no,False,True,True,descartar,,descartada
+HI8,sat_indices17,sat_msi_cv_s2_jul_sep,-,-0.032,-,0.5021,0.5065,-0.0044,25.0,0.5237,0.5277,-0.004,18.0,si,False,False,False,descartar,,descartada
+HB3,clima_ventanas,clim_precip_jun + I(clim_precip_jun^2),ninguno,,,0.5021,0.5074,-0.0053,51.0,0.5237,0.8384,-0.3147,20.0,coef. cuadratico positivo,False,False,False,descartar,,descartada
+HB4,clima_ventanas,clim_precip_ciclo + I(clim_precip_ciclo^2),ninguno,,,0.5021,0.5129,-0.0108,31.0,0.5237,0.7582,-0.2345,6.0,coef. cuadratico positivo,False,False,False,descartar,,descartada
+HC2,clima_ventanas,(no evaluable),,,,,,,,,,,,,,,,no evaluable,el indicador Tmedia jul-ago 15-20 C vale 1 en las 197 parcelas; misma variable que HC1,no evaluable

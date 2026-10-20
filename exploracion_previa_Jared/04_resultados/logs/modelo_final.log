@@ -1,0 +1,42 @@
+== modelo_final.py ==
+
+Variable elegida (top1_global): anom_precip_pct_d | hipotesis HN3 | familia clima_anomalias | correlacion dentro de grupo: 0.3872
+
+Las 5 variables con mayor |correlacion| dentro de grupo:
+ posicion               variable  correlacion_en_grupo hipotesis         familia   signo
+        1      anom_precip_pct_d                0.3872       HN3 clima_anomalias ninguno
+        2            anom_tmin_c                0.3416       HN5 clima_anomalias ninguno
+        3      anom_tmin_sep_oct                0.3397      HR11 clima_anomalias       +
+        4 clim_rango_termico_sep               -0.3378       HB8  clima_ventanas       -
+        5            anom_tmax_d                0.3356       HN7 clima_anomalias ninguno
+
+top1_global frente a B2: V1 delta +0.0287 (mejora en 86 de 100); V2 delta +0.0558 (mejora en 94 de 100); cumple E1: True
+
+Coeficientes (x = variable elegida, estandarizada con las 197 parcelas):
+           termino  Estimate  Std. Error    t value     Pr(>|t|)
+       (Intercept)  4.213254    0.078566  53.626914 1.751613e-91
+     grupoTlaxcala -0.319196    0.263962  -1.209249 2.287288e-01
+  grupoSinguilucan -2.008793    0.182764 -10.991178 2.352988e-20
+     grupoAlmoloya  0.541563    0.190751   2.839102 5.240426e-03
+grupoOtros_Hidalgo  0.063974    0.185290   0.345264 7.304455e-01
+                 x  0.596008    0.123516   4.825340 3.798674e-06
+
+Parcelas ocultas sin valor de la variable (se predicen con B2): 0
+
+Prediccion media por grupo frente a la media de entrenamiento (t/ha):
+               n_ocultas  pred_media  media_entrenamiento
+grupo                                                    
+Almoloya               4       4.650                4.521
+Chignahuapan          29       4.443                4.477
+Otros_Hidalgo          4       4.562                4.094
+Singuilucan            7       3.067                3.081
+Tlaxcala              15       2.976                2.984
+Rango de las 59 predicciones: 2.91 a 4.69
+[incierto] El formato de entrega no esta definido en las bases ni en las reglas del reto; se uso el formato del CSV base (ID_POLIGONO, AREA_HA, RENDIMIENTO_T_HA, CONJUNTO).
+
+== Comparacion contra lo que produjo R ==
+Predicciones: ids iguales True; diferencia maxima contra R = 0.0000 t/ha
+Coeficientes: diferencia maxima contra R = 2.89e-14
+Resumen: filas distintas contra R: ninguna
+
+Hecho. Sin errores.

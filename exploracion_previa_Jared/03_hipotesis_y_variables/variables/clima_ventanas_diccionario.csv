@@ -1,0 +1,28 @@
+variable,definicion,ventana,sensor,unidad,n_na_197,pct_na_197,hipotesis_id,notas
+clim_precip_a,Lluvia acumulada: suma de los promedios mensuales de abr y may 2025,A (abr-may),ninguno,mm,0,0,HW1,Celdas CHIRPS de ~5.5 km compartidas entre parcelas vecinas
+clim_precip_b,Lluvia acumulada: suma de jun y jul 2025,B (jun-jul),ninguno,mm,0,0,HW1,Celdas de ~5.5 km compartidas
+clim_precip_c,Lluvia acumulada: suma de ago y sep 2025,C (ago-sep),ninguno,mm,0,0,HW2,Celdas de ~5.5 km compartidas
+clim_precip_oct,Lluvia de octubre 2025 (ventana D es un solo mes),D (oct),ninguno,mm,0,0,HW2,Celdas de ~5.5 km compartidas
+clim_precip_ciclo,Lluvia acumulada: suma de abr a oct 2025,CICLO (abr-oct),ninguno,mm,0,0,HW3;HB4,Mezcla etapas; para HB4 se prueba tambien su cuadrado
+clim_tmax_a,Tmax media: promedio de los promedios mensuales de abr y may 2025,A (abr-may),ninguno,grados C,0,0,HW5,
+clim_tmax_b,Tmax media: promedio de jun y jul 2025,B (jun-jul),ninguno,grados C,0,0,HW4,
+clim_tmax_c,Tmax media: promedio de ago y sep 2025,C (ago-sep),ninguno,grados C,0,0,HW4,
+clim_tmax_oct,Tmax media de octubre 2025,D (oct),ninguno,grados C,0,0,HW5,
+clim_tmax_ciclo,Tmax media: promedio de abr a oct 2025,CICLO (abr-oct),ninguno,grados C,0,0,HW5,El promedio de 7 meses mezcla etapas
+clim_tmin_a,Tmin media: promedio de abr y may 2025,A (abr-may),ninguno,grados C,0,0,HW6,
+clim_tmin_b,Tmin media: promedio de jun y jul 2025,B (jun-jul),ninguno,grados C,0,0,HW6,
+clim_tmin_c,Tmin media: promedio de ago y sep 2025,C (ago-sep),ninguno,grados C,0,0,HW6,
+clim_tmin_oct,Tmin media de octubre 2025 (ventana D es un solo mes; es la Tmin de HA5),D (oct),ninguno,grados C,0,0,HA5,Mismo dato que la Tmin de la ventana D
+clim_tmin_ciclo,Tmin media: promedio de abr a oct 2025,CICLO (abr-oct),ninguno,grados C,0,0,HW6,El promedio de 7 meses mezcla etapas
+clim_tmin_jul,Tmin media de julio 2025,jul,ninguno,grados C,0,0,HA4,Promedio mensual: no cuenta noches bajo 0 C
+clim_tmin_ago,Tmin media de agosto 2025,ago,ninguno,grados C,0,0,HA4,Promedio mensual: no cuenta noches bajo 0 C
+clim_tmin_sep,Tmin media de septiembre 2025,sep,ninguno,grados C,0,0,HA5,Promedio mensual: no cuenta noches bajo 0 C
+clim_tmax_ago,Tmax media de agosto 2025,ago,ninguno,grados C,0,0,HB1,
+clim_tmax_sep,Tmax media de septiembre 2025,sep,ninguno,grados C,0,0,HB1,
+clim_precip_jun,Lluvia de junio 2025,jun,ninguno,mm,0,0,HA6;HB3,Para HB3 se prueba con su cuadrado
+clim_precip_jul,Lluvia de julio 2025,jul,ninguno,mm,0,0,HA6,
+clim_precip_ago,Lluvia de agosto 2025,ago,ninguno,mm,0,0,HW7,Exploratoria (en el texto de HA6)
+clim_precip_sep,Lluvia de septiembre 2025,sep,ninguno,mm,0,0,HW7,Exploratoria (en el texto de HA6)
+clim_precip_jul_ago,Lluvia acumulada: suma de jul y ago 2025,jul-ago,ninguno,mm,0,0,HC1;HC2,HC2 se reduce a esta variable porque su condicion de temperatura se cumple en las 197 parcelas (ver notas)
+clim_precip_min_mensual_jun_sep,Lluvia del mes mas seco entre junio y septiembre 2025 (minimo de los 4 totales mensuales),jun-sep,ninguno,mm,0,0,HB2,"Proxy de canicula; mensual, no detecta periodos secos de dias"
+clim_rango_termico_sep,Tmax media de septiembre menos Tmin media de septiembre (rango termico) [CP],sep,ninguno,grados C,0,0,HB8,Proxy pobre de helada de radiacion

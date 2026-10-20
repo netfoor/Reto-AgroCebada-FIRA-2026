@@ -1,0 +1,6 @@
+posicion,variable,correlacion_en_grupo,hipotesis,familia,signo
+1,anom_precip_pct_d,0.3872,HN3,clima_anomalias,ninguno
+2,anom_tmin_c,0.3416,HN5,clima_anomalias,ninguno
+3,anom_tmin_sep_oct,0.3397,HR11,clima_anomalias,+
+4,clim_rango_termico_sep,-0.3378,HB8,clima_ventanas,-
+5,anom_tmax_d,0.3356,HN7,clima_anomalias,ninguno
