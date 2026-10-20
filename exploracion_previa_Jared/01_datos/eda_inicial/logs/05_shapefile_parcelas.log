@@ -1,0 +1,75 @@
+Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.1; sf_use_s2() is TRUE
+Aviso:
+package 'sf' was built under R version 4.5.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+N de parcelas: 197 (esperado: 197)
+Campos: Cultivo, ID_POLIGON, área_ha, Municipio, Estado, CONJUNTO, geometry 
+CRS: WGS 84 
+Tipo de geometria: POLYGON 
+st_as_s2(): dropping Z and/or M coordinate
+st_as_s2(): dropping Z and/or M coordinate
+
+Geometrias validas: 195 de 197 
+st_as_s2(): dropping Z and/or M coordinate
+Parcelas con geometria invalida:
+  ID_POLIGONO      CONJUNTO                                            razon
+1     AGC_070 ENTRENAMIENTO  Loop 0: Edge 1 is degenerate (duplicate vertex)
+2     AGC_078 ENTRENAMIENTO Loop 0: Edge 24 is degenerate (duplicate vertex)
+Geometrias vacias: 0 
+IDs duplicados: 0 
+
+Distribucion de CONJUNTO:
+
+ENTRENAMIENTO    PREDICCION 
+          138            59 
+
+Columna de area detectada en el shapefile: área_ha 
+
+Estadisticos de AREA_HA (shapefile) por CONJUNTO:
+# A tibble: 2 × 7
+  CONJUNTO          n   min media mediana   max    sd
+  <chr>         <int> <dbl> <dbl>   <dbl> <dbl> <dbl>
+1 ENTRENAMIENTO   138  0.38  6.58    4.92  64.3  7.18
+2 PREDICCION       59  0.35  6.67    5.66  60.9  8.07
+
+Resumen de diferencia % entre area reportada (atributo) y area calculada de la geometria:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-1.9364 -0.7252 -0.6751 -0.6809 -0.6194 -0.1633 
+
+Parcelas con diferencia >5% entre area reportada y area geometrica calculada: 0 
+[1] ID_POLIGONO       AREA_HA_SHP       area_calculada_ha diferencia_pct   
+<0 rows> (o 0- extensión row.names)
+
+Cultivo(s) reportado(s):
+
+Cebada CEBADA 
+    50    147 
+
+Parcelas por Municipio:
+
+                     Almoloya                          Apan 
+                           14                             1 
+                  Calpulalpan                  Chignahuapan 
+                           44                           100 
+        Cuautepec de Hinojosa               Emiliano Zapata 
+                            9                             3 
+Nanacamilpa de Mariano Arista                   Singuilucan 
+                            2                            23 
+                   Tepeapulco 
+                            1 
+
+Parcelas por Estado:
+
+ Hidalgo   Puebla Tlaxcala 
+      51      100       46 
+
+05_shapefile_parcelas.R completado.

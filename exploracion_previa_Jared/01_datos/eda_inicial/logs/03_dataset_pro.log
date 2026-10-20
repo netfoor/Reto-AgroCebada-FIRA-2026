@@ -1,0 +1,188 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Aviso:
+package 'skimr' was built under R version 4.5.3 
+Dimensiones: 47804 x 22 
+Sensores:
+
+Planet 
+ 47804 
+Rango de fechas: 2025-01-01 a 2025-12-30 
+Parcelas distintas: 197 de 197
+── Data Summary ────────────────────────
+                           Values
+Name                       pro   
+Number of rows             47804 
+Number of columns          22    
+_______________________          
+Column type frequency:           
+  character                2     
+  Date                     1     
+  numeric                  19    
+________________________         
+Group variables            None  
+
+── Variable type: character ────────────────────────────────────────────────────
+  skim_variable n_missing complete_rate min max empty n_unique whitespace
+1 ID_POLIGONO           0             1   7   7     0      197          0
+2 sensor                0             1   6   6     0        1          0
+
+── Variable type: Date ─────────────────────────────────────────────────────────
+  skim_variable n_missing complete_rate min        max        median    
+1 fecha_captura         0             1 2025-01-01 2025-12-30 2025-06-08
+  n_unique
+1      311
+
+── Variable type: numeric ──────────────────────────────────────────────────────
+   skim_variable        n_missing complete_rate      mean      sd       p0
+ 1 ndvi_promedio            12057         0.748    0.354   0.175     0.007
+ 2 ndvi_std                 12057         0.748    0.0484  0.0283    0.008
+ 3 ndvi_max                 12057         0.748    0.543   0.186     0.032
+ 4 ndvi_min                 12057         0.748    0.222   0.127    -0.585
+ 5 evi_promedio             12057         0.748    0.215   0.123     0.028
+ 6 evi_std                  12057         0.748    0.0343  0.0262    0.006
+ 7 evi_max                  12057         0.748    0.352   0.164     0.067
+ 8 evi_min                  12057         0.748    0.130   0.0804   -0.916
+ 9 lai_promedio             12057         0.748    1.22    0.613    -0.112
+10 lai_std                  12057         0.748    0.186   0.0999    0.021
+11 lai_max                  12057         0.748    1.97    0.683    -0.04 
+12 lai_min                  12057         0.748    0.701   0.493    -0.2  
+13 msavi_promedio           12057         0.748    0.211   0.123     0.01 
+14 msavi_std                12057         0.748    0.0344  0.0270    0.005
+15 msavi_max                12057         0.748    0.347   0.164     0.042
+16 msavi_min                12057         0.748    0.127   0.0773   -0.649
+17 porcentaje_nubosidad         0         1       30.1    44.2       0    
+18 anio                         0         1     2025       0      2025    
+19 mes                          0         1        6.30    3.55      1    
+        p25      p50      p75     p100 hist 
+ 1    0.227    0.275    0.451    0.907 ▁▇▂▂▁
+ 2    0.027    0.043    0.063    0.251 ▇▃▁▁▁
+ 3    0.386    0.511    0.704    0.999 ▁▇▇▆▃
+ 4    0.142    0.186    0.27     0.746 ▁▁▇▅▁
+ 5    0.133    0.16     0.252    0.877 ▇▂▂▁▁
+ 6    0.016    0.025    0.044    0.269 ▇▁▁▁▁
+ 7    0.229    0.293    0.45     1     ▇▇▃▂▁
+ 8    0.082    0.106    0.155    0.61  ▁▁▁▇▁
+ 9    0.785    0.962    1.50     3.66  ▁▇▂▂▁
+10    0.113    0.162    0.232    0.87  ▇▅▁▁▁
+11    1.40     1.82     2.49     4.43  ▁▇▆▃▁
+12    0.366    0.565    0.92     2.83  ▅▇▂▁▁
+13    0.129    0.157    0.251    0.78  ▇▃▂▁▁
+14    0.016    0.025    0.044    0.248 ▇▂▁▁▁
+15    0.224    0.288    0.446    0.917 ▃▇▂▂▁
+16    0.08     0.104    0.154    0.574 ▁▁▃▇▁
+17    0        0      100      100     ▇▁▁▁▃
+18 2025     2025     2025     2025     ▁▁▇▁▁
+19    3        6        9       12     ▇▆▃▅▇
+
+% de NA por columna numerica:
+# A tibble: 19 × 2
+   variable             pct_na
+   <chr>                 <dbl>
+ 1 ndvi_promedio          25.2
+ 2 ndvi_std               25.2
+ 3 ndvi_max               25.2
+ 4 ndvi_min               25.2
+ 5 evi_promedio           25.2
+ 6 evi_std                25.2
+ 7 evi_max                25.2
+ 8 evi_min                25.2
+ 9 lai_promedio           25.2
+10 lai_std                25.2
+11 lai_max                25.2
+12 lai_min                25.2
+13 msavi_promedio         25.2
+14 msavi_std              25.2
+15 msavi_max              25.2
+16 msavi_min              25.2
+17 porcentaje_nubosidad    0  
+18 anio                    0  
+19 mes                     0  
+
+Observaciones por parcela (PRO) - resumen:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  233.0   240.0   243.0   242.7   246.0   251.0 
+Parcelas SIN ninguna observacion PRO: 0 
+
+Parcelas con mayor % de NA en ndvi_promedio (top 10):
+# A tibble: 10 × 3
+   ID_POLIGONO     n pct_na_ndvi
+   <chr>       <int>       <dbl>
+ 1 AGC_067       238        37.0
+ 2 AGC_089       236        36.9
+ 3 AGC_078       234        35.9
+ 4 AGC_121       234        35.9
+ 5 AGC_148       236        35.2
+ 6 AGC_007       238        34.9
+ 7 AGC_140       234        34.6
+ 8 AGC_081       237        33.8
+ 9 AGC_156       237        33.8
+10 AGC_034       243        33.7
+
+Faltante de NDVI por mes (PRO, 2025):
+# A tibble: 12 × 4
+    anio   mes     n pct_na_ndvi
+   <dbl> <dbl> <int>       <dbl>
+ 1  2025     1  4316       29.2 
+ 2  2025     2  4135       17.8 
+ 3  2025     3  5166        4.39
+ 4  2025     4  4760        5.97
+ 5  2025     5  4436       29.7 
+ 6  2025     6  2213       44.8 
+ 7  2025     7  2940       38.9 
+ 8  2025     8  4381       26.6 
+ 9  2025     9  3964       46.0 
+10  2025    10  3561       36.0 
+11  2025    11  3407       13.4 
+12  2025    12  4525       30.4 
+
+Resumen de indices clave - Dataset PRO:
+# A tibble: 4 × 7
+  variable          min media mediana   max    sd  n_na
+  <chr>           <dbl> <dbl>   <dbl> <dbl> <dbl> <dbl>
+1 ndvi_promedio   0.007 0.354   0.275 0.907 0.175 12057
+2 evi_promedio    0.028 0.215   0.16  0.877 0.123 12057
+3 lai_promedio   -0.112 1.22    0.962 3.66  0.613 12057
+4 msavi_promedio  0.01  0.211   0.157 0.78  0.123 12057
+
+Resumen de porcentaje_nubosidad (PRO):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0     0.0     0.0    30.1   100.0   100.0 
+
+Nubosidad segun si ndvi_promedio es NA (PRO):
+# A tibble: 2 × 4
+  ndvi_faltante     n media_nubosidad mediana_nubosidad
+  <lgl>         <int>           <dbl>             <dbl>
+1 FALSE         35747            6.53                 0
+2 TRUE          12057          100                  100
+
+N de outliers (regla IQR 1.5x) por indice clave (PRO):
+# A tibble: 4 × 2
+  variable       n_outliers_iqr
+  <chr>                   <int>
+1 ndvi_promedio             492
+2 evi_promedio             3345
+3 lai_promedio             1609
+4 msavi_promedio           3073
+
+Parcelas ENTRENAMIENTO con datos PRO disponibles: 138 de 138
+
+Correlacion preliminar PRO vs rendimiento:
+# A tibble: 4 × 2
+  indice         cor_pearson_con_rendimiento
+  <chr>                                <dbl>
+1 evi_promedio                         0.200
+2 msavi_promedio                       0.199
+3 ndvi_promedio                        0.161
+4 lai_promedio                         0.136
+`geom_smooth()` using formula = 'y ~ x'
+
+03_dataset_pro.R completado.

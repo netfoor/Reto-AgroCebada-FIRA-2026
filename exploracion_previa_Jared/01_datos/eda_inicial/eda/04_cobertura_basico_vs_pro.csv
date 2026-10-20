@@ -1,0 +1,3 @@
+dataset,n_filas,n_parcelas,fecha_min,fecha_max,n_fechas_distintas,sensores
+Basico,107666,197,2022-01-01,2025-12-31,608,Landsat/Sentinel-2
+PRO,47804,197,2025-01-01,2025-12-30,311,Planet
