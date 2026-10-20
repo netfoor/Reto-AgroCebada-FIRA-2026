@@ -383,6 +383,13 @@ for m in re.finditer(rf"^(\d) .+?\s{num}\s+{num}\s+{num}\s+{num}\s+{num}\s*$", t
                                rmse=dict(zip(["MUN", "MIX", "J", "K", "E_JK"], map(float, m.groups()[1:]))))
 assert sorted(evaluaciones) == [1, 2, 3, 4, 5], evaluaciones
 
+# R² de validación cruzada = 1 − MSE / Var(y), con la varianza de las 135 parcelas evaluadas (SEEN135).
+# Esa varianza sale del R² publicado de MIX en el cuaderno 03 (RMSE 0.487197, R² 0.666039) y se comprueba con MUN (0.493404, 0.657475).
+VAR_Y_SEEN135 = 0.487197 ** 2 / (1 - 0.666039)
+assert abs(0.493404 ** 2 / (1 - 0.657475) - VAR_Y_SEEN135) < 1e-5
+for i in (1, 2):
+    evaluaciones[i]["r2"] = {k: round(1 - v ** 2 / VAR_Y_SEEN135, 3) for k, v in evaluaciones[i]["rmse"].items()}
+
 # escalera de error (celda «agrega»)
 bloque = next(t for t in S04 if "media global" in t and "agrega" in t)
 escalera = {}

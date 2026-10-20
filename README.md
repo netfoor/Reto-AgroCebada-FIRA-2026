@@ -4,6 +4,8 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 
 **La lectura principal está dentro de esta carpeta.** No requiere conocer documentos previos ni los nombres usados durante la exploración. Los aportes de Andrea y Jared se reconocen en las comprobaciones correspondientes; sus documentos originales son contexto adicional, no un requisito de lectura.
 
+**Entrega FIRA del equipo UNO:** el CSV de predicciones, el enlace a la aplicación y las métricas con RMSE, MAE y R² están en [`entrega_FIRA/`](entrega_FIRA/README.md).
+
 ## Resultado final
 
 **Modelo de entrega: E_JK = ½·J + ½·K.**

@@ -337,7 +337,7 @@ function evaluaciones(g, W, H, m) {
   fila.each(function (e) {
     const s = d3.select(this);
     orden.forEach((k) => s.append("circle").attr("cx", x(e.rmse[k])).attr("r", k === "E_JK" ? 8 : 6).attr("fill", COLORES[k]).attr("stroke", "#fff").attr("stroke-width", 1.5)
-      .on("pointerenter pointermove", (ev) => { if (ev.pointerType !== "touch") mostrarTip(`<b>${NOMBRES[k]}</b><br>${e.nombre}<br>RMSE <b class="num">${f(e.rmse[k], 4)}</b>`, ev); })
+      .on("pointerenter pointermove", (ev) => { if (ev.pointerType !== "touch") mostrarTip(`<b>${NOMBRES[k]}</b><br>${e.nombre}<br>RMSE <b class="num">${f(e.rmse[k], 4)}</b>${e.r2 ? `<br>R² <b class="num">${f(e.r2[k], 3)}</b>` : ""}`, ev); })
       .on("pointerleave", ocultarTip));
   });
   const ley = g.append("g").attr("transform", `translate(${mg.l + 6},${m ? 20 : 30})`);

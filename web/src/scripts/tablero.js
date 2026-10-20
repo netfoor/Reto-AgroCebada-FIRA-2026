@@ -103,6 +103,7 @@ function cifras() {
     ["59", `estimadas por el modelo: de ${f(d3.min(pr), 1)} a ${f(d3.max(pr), 1)} t/ha`],
     [pct(D.EV.varianza_municipio), `de la variación del rendimiento se explica con solo saber el <strong>municipio</strong>`],
     [f(D.EV.escalera.E_JK), `t/ha de error típico esperado por parcela (RMSE en validación cruzada)`],
+    [f(D.EV.evaluaciones[0].r2.E_JK, 2), `R² en validación cruzada: la parte de la variación del rendimiento que el modelo reproduce`],
   ];
   d3.select("#cifras").selectAll("div").data(filas).join("div").attr("class", "cifra")
     .html((d) => `<b class="num">${d[0]}</b><span>${d[1]}</span>`);
