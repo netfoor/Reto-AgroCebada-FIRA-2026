@@ -27,7 +27,7 @@ Este proyecto reúne la explicación y la evidencia reproducible para predecir e
 
 ## Herramienta en línea
 
-**https://d6wslbico5u76.cloudfront.net**
+**https://agrocebada.foor.dev/**
 
 Consulta las 59 estimaciones con su rango, ejecuta el modelo paso a paso en el navegador o reentrénalo en AWS Lambda con las 138 parcelas conocidas, y descarga los resultados en CSV, Excel o PDF. La página lee los datos publicados en Amazon S3 y comprueba la huella SHA-256 de cada archivo antes de usarlo; el reentrenamiento en la nube produce un CSV idéntico al de la entrega.
 
