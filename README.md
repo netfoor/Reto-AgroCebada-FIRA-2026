@@ -227,3 +227,7 @@ uv run --locked --all-groups python scripts/ejecutar_notebook_04.py
 La salida se guarda en `resultados_locales/04_seleccion_modelo_final/`. Las predicciones deben coincidir byte a byte con las de `resultados/04_seleccion_modelo_final/`.
 
 La [bitácora](docs/bitacora_experimentos.md) y los registros de `docs/registros/` documentan comprobaciones, presupuestos y fechas. La evidencia de la caja cerrada está en [`validacion_independiente/`](validacion_independiente/README.md).
+
+## Licencia
+
+El código se distribuye bajo licencia MIT. Consulta el archivo `LICENSE`.
