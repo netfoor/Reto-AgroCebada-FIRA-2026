@@ -1,0 +1,10 @@
+---
+interface Props { titulo: string; base?: string }
+const { titulo, base } = Astro.props;
+---
+<header class="cab">
+  <h2>{titulo}</h2>
+  <span class="acento" aria-hidden="true"></span>
+  <div class="cab-entrada"><slot /></div>
+  {base && <p class="cab-base">{base}</p>}
+</header>

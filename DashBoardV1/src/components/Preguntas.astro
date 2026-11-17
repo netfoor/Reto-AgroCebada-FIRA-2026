@@ -1,0 +1,28 @@
+---
+import CabSeccion from "./CabSeccion.astro";
+---
+<section class="seccion" id="preguntas">
+  <div class="envoltura">
+    <CabSeccion titulo="Respuestas a las preguntas del reto">
+      <p>La convocatoria las cuenta como puntos extra. Respondemos con lo que la evidencia sostiene, después de descontar lo que explica el municipio.</p>
+    </CabSeccion>
+    <div class="preg-grid">
+      <div class="preg">
+        <h3 class="q"><span class="q-n" aria-hidden="true">1</span>¿Qué índice es más importante en la predicción?</h3>
+        <p class="resp"><span class="oculto-a11y">Respuesta: </span>El NDVI de Planet, comparado contra las parcelas cercanas</p>
+        <p>Su nivel absoluto no mejoró a la referencia (municipio + vecinas). Su diferencia con las parcelas a menos de 1 km sí, aunque poco y sin evidencia estadística suficiente. El signo es negativo: con un NDVI más alto que las cercanas, algo menos de grano.</p>
+      </div>
+      <div class="preg">
+        <h3 class="q"><span class="q-n" aria-hidden="true">2</span>¿Qué variable climática tiene mayor peso?</h3>
+        <p class="resp"><span class="oculto-a11y">Respuesta: </span>La lluvia de octubre frente a 2022–2024</p>
+        <p>El modelo J la eligió en 97 de 100 repeticiones de la validación, entre 148 variables. Pero la celda de lluvia explica el 99 % o más de su variación: funciona como una ubicación más fina y no prueba un efecto del clima.</p>
+      </div>
+      <div class="preg">
+        <h3 class="q"><span class="q-n" aria-hidden="true">3</span>¿Qué combinación de variables funciona mejor?</h3>
+        <p class="resp"><span class="oculto-a11y">Respuesta: </span>Territorio, NDVI contra las cercanas y lluvia, en dos modelos</p>
+        <p>El salto grande es pasar de la media general a la del municipio. Después, cada paso baja el error unos 0.005 t/ha y juntos casi 0.02.</p>
+      </div>
+    </div>
+    <div id="escalera"><h3>Error en validación cruzada, paso a paso</h3></div>
+  </div>
+</section>
