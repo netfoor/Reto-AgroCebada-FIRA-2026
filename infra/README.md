@@ -37,8 +37,9 @@ uv run --group geo python scripts/exportar_web.py
 
 # 4. Crear la infraestructura y publicar
 cd infra
+export AWS_PROFILE=mi-perfil       # el backend S3 lee el perfil del entorno, no de var.perfil
 terraform init
-terraform apply                    # con perfil o región propios: -var perfil=mi-perfil -var region=us-east-1
+terraform apply                    # con región propia: -var region=us-east-1
 
 # 5. Probar
 curl -s "$(terraform output -raw url_sitio)/api/salud"
@@ -101,4 +102,4 @@ El bucket se borra junto con sus archivos (`force_destroy`).
 - El bucket bloquea todo acceso público; su política solo permite `s3:GetObject` a esta distribución.
 - La URL de la función usa `AWS_IAM`. Solo esta distribución tiene permiso de invocarla.
 - La función solo acepta `GET` y `HEAD`, no guarda nada y verifica la SHA-256 de cada insumo antes de usarlo.
-- El estado de Terraform (`terraform.tfstate`) queda en tu equipo y no se versiona.
+- El estado de Terraform vive en S3 (`netfoor-tfstate-agrocebada-8cfmpm`, llave `agrocebada-uv/infra/terraform.tfstate`), con versionado y bloqueo nativo (`use_lockfile`). Para usarlo, `AWS_PROFILE` debe apuntar a un perfil de la cuenta dueña del bucket.

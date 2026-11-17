@@ -1,5 +1,15 @@
 terraform {
-  required_version = ">= 1.6"
+  required_version = ">= 1.11"
+
+  # Estado remoto en el bucket que crea ~/projects/infra-bootstrap.
+  # El perfil sale de AWS_PROFILE al correr terraform init (el backend no lee var.perfil).
+  backend "s3" {
+    bucket       = "netfoor-tfstate-agrocebada-8cfmpm"
+    key          = "agrocebada-uv/infra/terraform.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
+  }
 
   required_providers {
     aws = {
