@@ -1,0 +1,30 @@
+lineas_base.csv: 615 filas (esquema x repeticion x modelo)
+
+== Resumen por esquema y modelo (media entre repeticiones; rango = p5 a p95) ==
+esquema modelo  n_reps_calculadas  n_val_media  rmse_media  rmse_p5  rmse_p95
+     V1     B0                100        41.00       0.843    0.746     0.946
+     V1     B1                100        41.00       0.588    0.467     0.713
+     V1     B2                100        41.00       0.502    0.386     0.626
+     V2     B0                100        39.63       0.921    0.758     1.019
+     V2     B1                100        39.63       0.619    0.525     0.691
+     V2     B2                100        39.63       0.524    0.397     0.626
+     V3     B0                  5        27.60       0.974    0.631     1.289
+     V3     B1                  3        27.60       1.042    0.795     1.273
+     V3     B2                  0        27.60         NaN      NaN       NaN
+
+== Reduccion % del RMSE (positivo = mejora) ==
+esquema  comparacion  n_reps  media     p5    p95
+     V1 B1_vs_B0_pct     100  30.37  20.64  39.64
+     V1 B2_vs_B0_pct     100  40.55  29.09  51.09
+     V1 B2_vs_B1_pct     100  14.77   2.67  23.95
+     V2 B1_vs_B0_pct     100  32.24  16.85  43.16
+     V2 B2_vs_B0_pct     100  42.39  21.39  56.86
+     V2 B2_vs_B1_pct     100  15.47  -1.86  28.39
+     V3 B1_vs_B0_pct       3 -36.58 -63.02 -20.74
+
+== Comprobacion contra los CSV que produjo R ==
+lineas_base.csv: diferencia maxima contra R = 2.75e-14 (OK)
+lineas_base_resumen.csv: diferencia maxima contra R = 0.00e+00 (OK)
+RMSE de B2: V1 0.5021 | V2 0.5237
+
+Hecho.

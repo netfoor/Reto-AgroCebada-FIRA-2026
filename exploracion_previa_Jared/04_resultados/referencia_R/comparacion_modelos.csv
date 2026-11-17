@@ -1,0 +1,5 @@
+modelo,rmse_V1,delta_V1,mejora_V1,rmse_V2,delta_V2,mejora_V2,cumple_E1
+B2 (media por grupo),0.5021,0,NA,0.5237,0,NA,NA
+B3 (media por celda con encogimiento),0.4989,0.0032,56,0.5237,0,0,FALSE
+Modelo final: mejor variable (top1_global),0.4734,0.0287,86,0.4679,0.0558,94,TRUE
+Mejores 3 variables (top3_global),0.4732,0.0289,85,0.4626,0.0611,99,TRUE

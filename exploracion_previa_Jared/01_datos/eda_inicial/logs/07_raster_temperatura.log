@@ -1,0 +1,52 @@
+terra 1.9.50
+Aviso:
+package 'terra' was built under R version 4.5.3 
+Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.1; sf_use_s2() is TRUE
+Aviso:
+package 'sf' was built under R version 4.5.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+N de archivos Tmax encontrados: 48 (esperado: 48)
+  Extension: -99.95, -96.7, 17.8, 21.4 
+  Resolucion: 0.05 x 0.05 
+  Dimensiones (filas x columnas): 72 x 65 
+  N de capas: 48 | anios: 2022 - 2025 | meses unicos: 12 
+N de archivos Tmin encontrados: 48 (esperado: 48)
+  Extension: -99.95, -96.7, 17.8, 21.4 
+  Resolucion: 0.05 x 0.05 
+  Dimensiones (filas x columnas): 72 x 65 
+  N de capas: 48 | anios: 2022 - 2025 | meses unicos: 12 
+
+Filas en tabla larga parcela x mes (Tmax/Tmin combinadas): 9456 (esperado: 9456 )
+NA en tmax_c: 0 | NA en tmin_c: 0 
+
+Resumen global Tmax (C):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  18.76   21.98   23.35   23.49   25.05   30.16 
+
+Resumen global Tmin (C):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  5.416   9.089  11.551  11.231  13.344  16.260 
+
+N de filas con Tmax < Tmin (inconsistencia fisica): 0 de 9456 
+
+Resumen amplitud termica mensual (Tmax - Tmin, C):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  7.453  10.178  12.422  12.260  14.140  17.810 
+
+N outliers Tmax (IQR 1.5x): 137 | N outliers Tmin (IQR 1.5x): 0 
+
+Correlacion Tmax medio ciclo (abr-oct 2025) vs rendimiento (ENTRENAMIENTO): -0.285 
+Correlacion Tmin medio ciclo (abr-oct 2025) vs rendimiento (ENTRENAMIENTO): 0.61 
+`geom_smooth()` using formula = 'y ~ x'
+
+07_raster_temperatura.R completado.

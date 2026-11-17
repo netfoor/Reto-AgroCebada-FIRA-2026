@@ -1,0 +1,26 @@
+Celdas climaticas distintas: 23
+Comprobacion: B2 coincide con lineas_base.csv en las 200 particiones.
+
+== B3 frente a B2 (delta = RMSE B2 menos RMSE B3; positivo = mejora) ==
+esquema  n_part  rmse_B2  rmse_B3  delta_medio  delta_p5  delta_p95  n_mejora  n_igual  n_empeora  k_mediano  n_k_infinito  pct_val_sin_celda
+     V1     100   0.5021   0.4989       0.0032   -0.0295     0.0316        56        8         36        1.0             8             7.7805
+     V2     100   0.5237   0.5237       0.0000    0.0000     0.0000         0      100          0        1.0             4           100.0000
+
+k elegido en V1 (particiones por valor):
+k
+0.0      2
+0.5     32
+1.0     19
+2.0     21
+4.0      6
+8.0      5
+16.0     3
+32.0     1
+64.0     3
+inf      8
+
+== Comprobacion contra los CSV que produjo R ==
+62_b3_resumen.csv: diferencia maxima contra R = 0.00e+00 (OK)
+62_b3_por_particion.csv: diferencia maxima contra R = 0.00e+00 (OK)
+
+Hecho.

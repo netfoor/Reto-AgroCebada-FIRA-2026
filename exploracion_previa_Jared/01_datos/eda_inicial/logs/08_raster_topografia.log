@@ -1,0 +1,63 @@
+terra 1.9.50
+Aviso:
+package 'terra' was built under R version 4.5.3 
+Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.1; sf_use_s2() is TRUE
+Aviso:
+package 'sf' was built under R version 4.5.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::extract() masks terra::extract()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+-- Elevacion --
+Extension: 2715840, 3063840, 650400, 1053840 
+Resolucion: 120 x 120 
+Dimensiones (filas x columnas): 3362 x 2900 
+N de capas: 1 
+CRS: Mexico ITRF2008 / LCC 
+
+-- Pendiente --
+Extension: 2715840, 3063840, 650400, 1053840 
+Resolucion: 120 x 120 
+Dimensiones (filas x columnas): 3362 x 2900 
+N de capas: 1 
+CRS: Mexico ITRF2008 / LCC 
+
+CRS parcelas: WGS 84 | CRS elevacion: 6372 
+Aviso:
+[extract] transforming vector data to the CRS of the raster 
+Aviso:
+[extract] transforming vector data to the CRS of the raster 
+
+N de parcelas con topografia extraida: 197 | NA en elevacion: 0 | NA en pendiente: 0 
+
+Resumen elevacion por parcela (m s.n.m.):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2497    2611    2639    2667    2727    2906 
+
+Resumen pendiente por parcela (grados):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2819  1.1494  2.1264  2.7928  3.8912  9.3964 
+
+N parcelas outlier en elevacion (IQR 1.5x): 3 
+N parcelas outlier en pendiente (IQR 1.5x): 2 
+Parcelas con pendiente atipica:
+# A tibble: 2 × 3
+  ID_POLIGONO elevacion_m pendiente_grados
+  <chr>             <dbl>            <dbl>
+1 AGC_060           2720.             9.40
+2 AGC_057           2730.             8.24
+
+Correlacion elevacion vs rendimiento (ENTRENAMIENTO): 0.29 
+Correlacion pendiente vs rendimiento (ENTRENAMIENTO): 0.311 
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+
+08_raster_topografia.R completado.
