@@ -917,7 +917,7 @@ function evaluaciones(g, W, H, m) {
   fila.each(function (e) {
     const s = d3.select(this);
     orden.forEach((k) =&gt; s.append(&quot;circle&quot;).attr(&quot;cx&quot;, x(e.rmse[k])).attr(&quot;r&quot;, k === &quot;E_JK&quot; ? 8 : 6).attr(&quot;fill&quot;, COLORES[k]).attr(&quot;stroke&quot;, &quot;#fff&quot;).attr(&quot;stroke-width&quot;, 1.5)
-      .on(&quot;pointerenter pointermove&quot;, (ev) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(`&lt;b&gt;${NOMBRES[k]}&lt;/b&gt;&lt;br&gt;${e.nombre}&lt;br&gt;RMSE &lt;b class=&quot;num&quot;&gt;${f(e.rmse[k], 4)}&lt;/b&gt;`, ev); })
+      .on(&quot;pointerenter pointermove&quot;, (ev) =&gt; { if (ev.pointerType !== &quot;touch&quot;) mostrarTip(`&lt;b&gt;${NOMBRES[k]}&lt;/b&gt;&lt;br&gt;${e.nombre}&lt;br&gt;RMSE &lt;b class=&quot;num&quot;&gt;${f(e.rmse[k], 4)}&lt;/b&gt;${e.r2 ? `&lt;br&gt;R² &lt;b class=&quot;num&quot;&gt;${f(e.r2[k], 3)}&lt;/b&gt;` : &quot;&quot;}`, ev); })
       .on(&quot;pointerleave&quot;, ocultarTip));
   });
   const ley = g.append(&quot;g&quot;).attr(&quot;transform&quot;, `translate(${mg.l + 6},${m ? 20 : 30})`);
@@ -1410,7 +1410,7 @@ export async function iniciarMetodo() {
   moverEtapa();
   if (!activo) activar(pasos[0]);
 }
-</code></pre></div></details><details><summary><span class="mono">src/scripts/tablero.js</span><span class="cons-que">Arranque del mapa, las cifras y la tira de rendimiento por municipio.</span><span class="cons-lin">58 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Tablero: mapa satelital con recorrido, cifras del reto y rendimiento por municipio.
+</code></pre></div></details><details><summary><span class="mono">src/scripts/tablero.js</span><span class="cons-que">Arranque del mapa, las cifras y la tira de rendimiento por municipio.</span><span class="cons-lin">59 líneas</span></summary><div class="cons-bloque"><button class="btn sec cons-copiar" type="button">Copiar</button><pre><code>// Tablero: mapa satelital con recorrido, cifras del reto y rendimiento por municipio.
 import * as d3 from &quot;d3&quot;;
 import { D, TINTA, GRIS, LINEA, f, pct, corto, conTip, htmlParcela, seleccionar, alAncho } from &quot;./comun.js&quot;;
 import { mapaSatelite } from &quot;./mapaSatelite.js&quot;;
@@ -1424,6 +1424,7 @@ function cifras() {
     [&quot;59&quot;, `sin dato: el modelo las estima entre ${f(d3.min(pr), 1)} y ${f(d3.max(pr), 1)} t/ha`],
     [pct(D.EV.varianza_municipio), `de la variación del rendimiento se explica con solo saber el &lt;strong&gt;municipio&lt;/strong&gt;`],
     [f(D.EV.escalera.E_JK), `t/ha de error típico esperado por parcela (RMSE en validación cruzada)`],
+    [f(D.EV.evaluaciones[0].r2.E_JK, 2), `R² en validación cruzada: la parte de la variación del rendimiento que el modelo reproduce`],
   ];
   d3.select(&quot;#cifras&quot;).selectAll(&quot;div&quot;).data(filas).join(&quot;div&quot;).attr(&quot;class&quot;, &quot;cifra&quot;)
     .html((d) =&gt; `&lt;b class=&quot;num&quot;&gt;${d[0]}&lt;/b&gt;&lt;span&gt;${d[1]}&lt;/span&gt;`);
@@ -1798,4 +1799,4 @@ export function alAncho(el, dibujar) {
   ro.observe(el);
 }
 </code></pre></div></details></div></div><script type="module">document.querySelectorAll(`.cons-copiar`).forEach(e=>e.addEventListener(`click`,async()=>{let t=e.parentElement?.querySelector(`code`)?.textContent??``;try{await navigator.clipboard.writeText(t),e.textContent=`Copiado`}catch{e.textContent=`Selecciona y copia`}setTimeout(()=>e.textContent=`Copiar`,1600)}));</script></section></main><footer class="pie-datos" id="datos"><div class="envoltura"><h2>Archivos y verificación</h2><span class="acento" aria-hidden="true"></span><div class="pie-grid"><div><p>Todo lo que muestra esta página sale de los archivos de la tabla. Cada uno lleva su huella SHA-256 en el manifiesto; la última columna dice si este navegador la comprobó.</p><p id="pie-gen"></p><p>Para reproducir las estimaciones en tu equipo, desde el repositorio:</p><pre class="cmd">uv sync --locked --all-groups
-uv run --locked --all-groups python scripts/ejecutar_notebook_04.py</pre><p id="pie-nube" class="nota"></p></div><table class="manif" id="manif"><thead><tr><th>Archivo</th><th>SHA-256</th><th>Navegador</th></tr></thead><tbody></tbody></table></div><p class="creditos">Reto AgroCebada FIRA 2026. Estimaciones para la campaña de abril a octubre de 2025.</p></div></footer><div class="tip" id="tip" role="tooltip"></div><div class="aviso-datos" id="aviso-datos" role="alert" hidden></div><div id="hoja"></div><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.ClU9ko8e.js"></script></body></html>
+uv run --locked --all-groups python scripts/ejecutar_notebook_04.py</pre><p id="pie-nube" class="nota"></p></div><table class="manif" id="manif"><thead><tr><th>Archivo</th><th>SHA-256</th><th>Navegador</th></tr></thead><tbody></tbody></table></div><p class="creditos">Reto AgroCebada FIRA 2026. Estimaciones para la campaña de abril a octubre de 2025.</p></div></footer><div class="tip" id="tip" role="tooltip"></div><div class="aviso-datos" id="aviso-datos" role="alert" hidden></div><div id="hoja"></div><script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.N5uAYWlj.js"></script></body></html>
