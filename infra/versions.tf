@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 1.11"
 
-  # Estado remoto en el bucket que crea ~/projects/infra-bootstrap.
+  # Estado remoto en el bucket que crea el repo infra-bootstrap.
   # El perfil sale de AWS_PROFILE al correr terraform init (el backend no lee var.perfil).
   backend "s3" {
     bucket       = "netfoor-tfstate-agrocebada-8cfmpm"
